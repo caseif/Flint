@@ -1,0 +1,32 @@
+# Flint
+
+### What is Flint?
+
+Flint is a cross-platform framework designed to act as a universal backend for Minecraft minigame mods, handling generic
+tasks such as arena, round, and player manageemnt which would normally require a significant time investment to develop
+for each minigame.
+
+### How to use Flint
+
+Documentation is published continuously to [http://jd.caseif.net/flint](http://jd.caseif.net/flint). Additionally, a
+tutorial will be written and published upon initial release of the API.
+
+### Building
+
+Flint uses Gradle as its build system. To clone and build the plugin from scratch:
+
+- `git clone https://github.com/caseif/Flint.git`
+- `cd Flint`
+- `cp scripts/* .git/hooks`
+- `./gradlew` (`gradlew` or `sh ./gradlew` on Windows)
+
+### Contribution guidelines ###
+
+If you think you have a code contribution which would benefit Flint's API, feel free to create an issue or pull request.
+The primary guideline for whether a contribution is acceptable is whether it is utilizable by multiple classes of
+minigames. Some features (e.g. a gun API) are too high-level for the purposes of this framework and thus will not be
+added.
+
+### Who do I talk to? ###
+
+I can be contacted [via email at caseif@caseif.net](mailto:caseif@caseif.net).
