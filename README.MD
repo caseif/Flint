@@ -3,7 +3,7 @@
 ### What is Flint?
 
 Flint is a cross-platform framework designed to act as a universal backend for Minecraft minigame mods, handling generic
-tasks such as arena, round, and player manageemnt which would normally require a significant time investment to develop
+tasks such as arena, round, and player management which would normally require a significant time investment to develop
 for each minigame.
 
 ### How to use Flint
