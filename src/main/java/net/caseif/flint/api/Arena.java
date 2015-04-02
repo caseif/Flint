@@ -24,8 +24,10 @@
 package net.caseif.flint.api;
 
 import net.caseif.flint.api.physical.Boundary;
+import net.caseif.flint.api.physical.Location3D;
 
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Represents an arena in which rounds may take place.
@@ -66,6 +68,45 @@ public interface Arena {
      * @since 0.1.0
      */
     Optional<Boundary> getBoundary();
+
+    /**
+     * Returns an immutable {@link Set} of points at which players may spawn
+     * upon entering this arena.
+     * @return An immutable {@link Set} of points at which players may spawn
+     *         upon entering this arena
+     * @since 0.1.0
+     */
+    Set<Location3D> getSpawnPoints();
+
+    /**
+     * Adds the given {@link Location3D} to this {@link Arena}'s possible
+     * spawn points.
+     *
+     * @param spawn The {@link Location3D} to add as a new spawn point
+     * @return The index of the new spawn point
+     * @since 0.1.0
+     */
+    int addSpawnPoint(Location3D spawn);
+
+    /**
+     * Removes the spawn point of the given index from this {@link Arena}.
+     *
+     * @param index The index of the spawn point to remove
+     * @throws IllegalArgumentException If a spawn point at the given index does
+     *                                  not exist
+     * @since 0.1.0
+     */
+    void removeSpawnPoint(int index);
+
+    /**
+     * Removes the spawn point at the given location from this {@link Arena}.
+     *
+     * @param location The location of the spawn point to remove
+     * @throws IllegalArgumentException If a spawn point at the given location
+     *                                  does not exist
+     * @since 0.1.0
+     */
+    void removeSpawnPoint(Location3D location);
 
     /**
      * Gets whether this {@link Arena} contains an active round.

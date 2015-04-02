@@ -23,53 +23,42 @@
  */
 package net.caseif.flint.api;
 
-import com.google.common.base.Optional;
-
-import java.util.Set;
+import java.util.UUID;
 
 /**
- * Represents a minigame registered with Flint.
+ * Represents a player actively in a minigame {@link Round} backed by Flint.
  *
  * @author Max Roncacé
  * @since 0.1.0
  */
-public interface Minigame {
+public interface Player {
 
     /**
-     * Gets the name or ID of the plugin to which this {@link Minigame} belongs.
+     * Gets the username of this {@link Player}.
      *
-     * @return the name or ID of the plugin to which this {@link Minigame}
-     *         belongs.
+     * @return The username of this {@link Player}
      * @since 0.1.0
      */
-    String getPlugin();
+    String getName();
 
     /**
-     * Gets the {@link Arena} by the given name within this {@link Minigame}.
+     * Gets the unique ID of this {@link Player}.
      *
-     * @return The {@link Arena} by the given name within this {@link Minigame}
+     * @return The unique ID of this {@link Player}
      * @since 0.1.0
      */
-    Optional<Arena> getArena(String arenaName);
+    UUID getUniqueId();
 
     /**
-     * Gets an immutable {@link Set} containing all {@link Arena}s owned by this
-     * {@link Minigame}.
+     * Gets the {@link Round} which this player is currently in.
      *
-     * @return an immutable {@link Set} containing all {@link Arena}s owned by
-     * this {@link Minigame}.
+     * <p>This should never return <code>null</code> when used properly, as
+     * references to a {@link Player}s should under no circumstances be
+     * retained beyond it fully exiting a {@link Round}.</p>
+     *
+     * @return The {@link Round} which this player is currently in.
      * @since 0.1.0
      */
-    Set<Arena> getArenas();
-
-    /**
-     * Gets an immutable {@link Set} containing all active {@link Round}s owned
-     * by this {@link Minigame}.
-     *
-     * @return an immutable {@link Set} containing all active {@link Round}s
-     * owned by this {@link Minigame}.
-     * @since 0.1.0
-     */
-    Set<Round> getRounds();
+    Round getRound();
 
 }

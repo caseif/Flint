@@ -23,6 +23,14 @@
  */
 package net.caseif.flint.api;
 
+import java.util.Set;
+
+/**
+ * Represents an active minigame {@link Round} backed by Flint.
+ *
+ * @author Max Roncacé
+ * @since 0.1.0
+ */
 public interface Round {
 
     /**
@@ -32,5 +40,13 @@ public interface Round {
      * @since 0.1.0
      */
     Arena getArena();
+
+    /**
+     * Returns an immutable {@link Set} of {@link Player}s in this
+     * {@link Round}.
+     * @return An immutable {@link Set} of {@link Player}s in this
+     * {@link Round}
+     */
+    Set<Player> getPlayers();
 
 }
