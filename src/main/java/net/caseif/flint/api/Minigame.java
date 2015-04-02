@@ -47,6 +47,7 @@ public interface Minigame {
     /**
      * Gets the {@link Arena} by the given name within this {@link Minigame}.
      *
+     * @param arenaName The name of the {@link Arena} to get
      * @return The {@link Arena} by the given name within this {@link Minigame}
      * @since 0.1.0
      */
