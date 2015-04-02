@@ -26,7 +26,7 @@ package net.caseif.flint.api;
 /**
  * The core class for the Flint framework.
  *
- * @author Maxim Roncacé
+ * @author Max Roncacé
  * @version 0.1.0-SNAPSHOT
  * @since 0.1.0
  */

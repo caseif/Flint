@@ -37,6 +37,8 @@ repositories {
 
 // Project dependencies
 dependencies {
+    compile 'com.google.guava:guava:17.0'
+
     deployerJars 'org.apache.maven.wagon:wagon-ssh:2.8'
 }
 

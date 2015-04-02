@@ -23,21 +23,14 @@
  */
 package net.caseif.flint.api;
 
-/**
- * Represents a minigame registered with Flint.
- *
- * @author Max Roncacé
- * @since 0.1.0
- */
-public interface Minigame {
+public interface Round {
 
     /**
-     * Gets the name or ID of the plugin to which this {@link Minigame} belongs.
+     * Gets the {@link Arena} which contains this {@link Round}.
      *
-     * @return the name or ID of the plugin to which this {@link Minigame}
-     *         belongs.
+     * @return The {@link Arena} which contains this {@link Round}
      * @since 0.1.0
      */
-    String getPlugin();
+    Arena getArena();
 
 }
