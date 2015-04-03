@@ -23,6 +23,8 @@
  */
 package net.caseif.flint.api;
 
+import net.caseif.flint.api.feedback.JoinResult;
+
 import java.util.Set;
 
 /**
@@ -46,7 +48,25 @@ public interface Round {
      * {@link Round}.
      * @return An immutable {@link Set} of {@link Player}s in this
      * {@link Round}
+     * @since 0.1.0
      */
     Set<Player> getPlayers();
+
+    /**
+     * Adds the given {@link Player} to this {@link Round}.
+     *
+     * @param player The player to add to this {@link Round}
+     * @return The result of the player joining the round
+     * @since 0.1.0
+     */
+    JoinResult addPlayer(Player player);
+
+    /**
+     * Removes the given player from this {@link Round}.
+     *
+     * @param player The player to remove from this {@link Round}
+     * @since 0.1.0
+     */
+    void removePlayer(Player player);
 
 }

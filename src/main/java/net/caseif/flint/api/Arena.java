@@ -23,9 +23,10 @@
  */
 package net.caseif.flint.api;
 
-import com.google.common.base.Optional;
 import net.caseif.flint.api.physical.Boundary;
 import net.caseif.flint.api.physical.Location3D;
+
+import com.google.common.base.Optional;
 
 import java.util.Set;
 
