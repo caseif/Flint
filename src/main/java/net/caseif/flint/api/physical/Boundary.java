@@ -54,14 +54,15 @@ public class Boundary {
      *                                  is <code>false</code>
      * @since 0.1.0
      */
-    public Boundary(Location3D corner1, Location3D corner2, boolean ignoreDifferentWorlds) {
+    public Boundary(Location3D corner1, Location3D corner2, boolean ignoreDifferentWorlds)
+            throws IllegalArgumentException {
         checkState(corner1 != null, "Boundary corner cannot be null");
         checkState(corner2 != null, "Boundary corner cannot be null");
         //noinspection ConstantConditions
         checkState(ignoreDifferentWorlds
                         || (!corner1.getWorld().isPresent() && !corner2.getWorld().isPresent())
                         || corner1.getWorld().get().equals(corner2.getWorld().get()),
-                "Boundary corners cannot have mismatching worlds!");
+                "Boundary corners cannot have mismatching worlds");
         //noinspection ConstantConditions
         this.lowerBound = new Location3D(
                 Math.min(corner1.getX(), corner2.getX()),
@@ -87,7 +88,7 @@ public class Boundary {
      *                                  containing the locations do not match
      * @since 0.1.0
      */
-    public Boundary(Location3D corner1, Location3D corner2) {
+    public Boundary(Location3D corner1, Location3D corner2) throws IllegalArgumentException {
         this(corner1, corner2, false);
     }
 
@@ -109,6 +110,20 @@ public class Boundary {
      */
     public Location3D getUpperBound() {
         return this.upperBound;
+    }
+
+    /**
+     * Returns whether this {@link Boundary} contains the given location
+     * (inclusively).
+     *
+     * @return Whether this {@link Boundary} contains the given location
+     *         (inclusively)
+     * @since 0.1.0
+     */
+    public boolean contains(Location3D location) {
+        return     location.getX() >= getLowerBound().getX() && location.getX() <= getUpperBound().getX()
+                && location.getY() >= getLowerBound().getY() && location.getY() <= getUpperBound().getY()
+                && location.getZ() >= getLowerBound().getZ() && location.getZ() <= getUpperBound().getZ();
     }
 
 }

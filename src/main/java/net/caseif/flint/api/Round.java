@@ -69,4 +69,62 @@ public interface Round {
      */
     void removePlayer(Player player);
 
+    /**
+     * Gets the current state of this {@link Round}'s timer in seconds.
+     *
+     * <p>Typically, this represents the time since its last lifecycle stage
+     * change, although this is not absolute.</p>
+     *
+     * @return The current state of this {@link Round}'s timer in seconds
+     * @since 0.1.0
+     */
+    int getTime();
+
+    /**
+     * Sets the current state of this {@link Round}'s timer in seconds.
+     *
+     * @param time The current state of this {@link Round}'s timer in seconds
+     * @since 0.1.0
+     */
+    void setTime(int time);
+
+    /**
+     * Gets the time in seconds until this {@link Round} is due to change
+     * its lifecycle stage.
+     *
+     * @return The time in seconds until this {@link Round} is due to change
+     * its lifecycle stage, or <code>-1</code> if the current stage is untimed.
+     * @since 0.1.0
+     */
+    int getRemainingTime();
+
+    /**
+     * Starts this {@link Round}'s timer in its current state.
+     *
+     * @since 0.1.0
+     */
+    void startTimer();
+
+    /**
+     * Stops this {@link Round}'s timer. Note that this does not end the round.
+     *
+     * @since 0.1.0
+     */
+    void stopTimer();
+
+    /**
+     * Sets this {@link Round}'s lifecycle stage to its initial state and resets
+     * and stops the timer.
+     *
+     * @since 0.1.0
+     */
+    void reset();
+
+    /**
+     * Ends this round by rolling back its arena and removing all players.
+     *
+     * @since 0.1.0
+     */
+    void end();
+
 }
