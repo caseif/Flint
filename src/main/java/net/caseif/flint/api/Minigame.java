@@ -23,6 +23,8 @@
  */
 package net.caseif.flint.api;
 
+import net.caseif.flint.api.round.Round;
+
 import com.google.common.base.Optional;
 
 import java.util.Set;

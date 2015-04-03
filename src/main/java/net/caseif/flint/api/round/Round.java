@@ -21,10 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.caseif.flint.api;
+package net.caseif.flint.api.round;
 
+import net.caseif.flint.api.Arena;
 import net.caseif.flint.api.feedback.JoinResult;
 
+import com.google.common.base.Optional;
+
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -68,6 +72,40 @@ public interface Round {
      * @since 0.1.0
      */
     void removePlayer(Player player);
+
+    /**
+     * Gets this {@link Round}'s defined lifecycle stages.
+     *
+     * @return This {@link Round}'s defined lifecycle stages
+     * @since 0.1.0
+     */
+    LinkedHashSet<LifecycleStage> getLifecycleStages();
+
+    /**
+     * Defines this {@link Round}'s lifecycle stages.
+     *
+     * @param stages The new lifecycle stages to define
+     * @since 0.1.0
+     */
+    void setLifecycleStages(LinkedHashSet<LifecycleStage> stages);
+
+    /**
+     * Gets this {@link Round}'s current lifecycle stage.
+     *
+     * @return This {@link Round}'s current lifecycle stage.
+     * @since 0.1.0
+     */
+    LifecycleStage getLifecycleStage();
+
+    /**
+     * Gets this {@link Round}'s next lifecycle stage, if applicable.
+     *
+     * @return This {@link Round}'s next lifecycle stage, or
+     *         {@link Optional#absent()} if the current stage is the final
+     *         defined
+     * @since 0.1.0
+     */
+    Optional<LifecycleStage> getNextLifecycleStage();
 
     /**
      * Gets the current state of this {@link Round}'s timer in seconds.

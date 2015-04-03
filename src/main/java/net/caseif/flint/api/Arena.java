@@ -25,6 +25,7 @@ package net.caseif.flint.api;
 
 import net.caseif.flint.api.physical.Boundary;
 import net.caseif.flint.api.physical.Location3D;
+import net.caseif.flint.api.round.Round;
 
 import com.google.common.base.Optional;
 
