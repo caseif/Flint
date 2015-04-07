@@ -30,3 +30,7 @@ added.
 ### Who do I talk to? ###
 
 I can be contacted [via email at caseif@caseif.net](mailto:caseif@caseif.net).
+
+### Copyright ###
+
+Flint's source code and binary are provided under the New BSD license.
