@@ -28,8 +28,9 @@
  */
 package net.caseif.flint.api;
 
-import net.caseif.flint.api.physical.Boundary;
-import net.caseif.flint.api.physical.Location3D;
+import net.caseif.flint.api.util.Metadatable;
+import net.caseif.flint.api.util.physical.Boundary;
+import net.caseif.flint.api.util.physical.Location3D;
 import net.caseif.flint.api.round.Round;
 
 import com.google.common.base.Optional;
@@ -42,7 +43,7 @@ import java.util.Set;
  * @author Max Roncacé
  * @since 0.1.0
  */
-public interface Arena {
+public interface Arena extends Metadatable {
 
     /**
      * Gets the internal ID of this {@link Arena}.

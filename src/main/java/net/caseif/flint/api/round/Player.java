@@ -28,6 +28,8 @@
  */
 package net.caseif.flint.api.round;
 
+import net.caseif.flint.api.util.Metadatable;
+
 import java.util.UUID;
 
 /**
@@ -36,7 +38,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 0.1.0
  */
-public interface Player {
+public interface Player extends Metadatable {
 
     /**
      * Gets the username of this {@link Player}.

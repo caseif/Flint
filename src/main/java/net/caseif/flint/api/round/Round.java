@@ -30,6 +30,7 @@ package net.caseif.flint.api.round;
 
 import net.caseif.flint.api.Arena;
 import net.caseif.flint.api.feedback.JoinResult;
+import net.caseif.flint.api.util.Metadatable;
 
 import com.google.common.base.Optional;
 
@@ -42,7 +43,7 @@ import java.util.Set;
  * @author Max Roncacé
  * @since 0.1.0
  */
-public interface Round {
+public interface Round extends Metadatable {
 
     /**
      * Gets the {@link Arena} which contains this {@link Round}.
