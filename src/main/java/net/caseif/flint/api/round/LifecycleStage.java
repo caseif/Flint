@@ -65,6 +65,7 @@ public final class LifecycleStage {
      * Gets the duration of this {@link LifecycleStage}.
      *
      * @return The duration of this {@link LifecycleStage}
+     * @since 0.1.0
      */
     public final int getDuration() {
         return this.duration;

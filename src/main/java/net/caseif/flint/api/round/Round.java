@@ -56,6 +56,7 @@ public interface Round extends Metadatable {
     /**
      * Returns an immutable {@link Set} of {@link Player}s in this
      * {@link Round}.
+     *
      * @return An immutable {@link Set} of {@link Player}s in this
      * {@link Round}
      * @since 0.1.0
