@@ -58,7 +58,7 @@ public interface Team {
     /**
      * Returns an immutable {@link Set} of all players on this {@link Team}.
      *
-     * @return An immutable {@link Set} of all players on this team {@link Team}
+     * @return An immutable {@link Set} of all players on this {@link Team}
      * @since 1.0.0
      */
     Set<FlintPlayer> getPlayers();
