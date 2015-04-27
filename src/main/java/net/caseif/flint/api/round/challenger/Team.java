@@ -26,66 +26,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.round.player;
+package net.caseif.flint.api.round.challenger;
 
-import net.caseif.flint.api.round.Round;
-import net.caseif.flint.api.util.Metadatable;
-
-import com.google.common.base.Optional;
-
-import java.util.UUID;
+import java.util.Set;
 
 /**
- * Represents a player actively in a minigame {@link Round} backed by Flint.
+ * Represents a team containing {@link Challenger}s in a
+ * {@link net.caseif.flint.api.round.Round}.
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface FlintPlayer extends Metadatable {
+public interface Team {
 
     /**
-     * Gets the username of this {@link FlintPlayer}.
+     * Gets the internal identifier of this {@link Team}.
      *
-     * @return The username of this {@link FlintPlayer}
+     * @return The internal identifier of this {@link Team}
      * @since 1.0.0
      */
-    String getName();
+    String getId();
 
     /**
-     * Gets the unique ID of this {@link FlintPlayer}.
+     * Gets the display name of this {@link Team}.
      *
-     * @return The unique ID of this {@link FlintPlayer}
+     * @return The display name of this {@link Team}
      * @since 1.0.0
      */
-    UUID getUniqueId();
+    String getDisplayName();
 
     /**
-     * Gets the {@link Round} which this player is currently in.
+     * Returns an immutable {@link Set} of all {@link Challenger}s on this
+     *         {@link Team}.
      *
-     * <p>This should never return <code>null</code> when used properly, as
-     * references to a {@link FlintPlayer}s should under no circumstances be
-     * retained beyond it fully exiting a {@link Round}.</p>
-     *
-     * @return The {@link Round} which this player is currently in.
+     * @return An immutable {@link Set} of all {@link Challenger}s on this
+     *         {@link Team}
      * @since 1.0.0
      */
-    Round getRound();
-
-    /**
-     * Gets the {@link Team} this player belongs to.
-     *
-     * @return The {@link Team} this player belongs to
-     * @since 1.0.0
-     */
-    Optional<Team> getTeam();
-
-    /**
-     * Sets the {@link Team} this player belongs to. This implicitly removes
-     * it from the team it currently belongs to if applicable.
-     *
-     * @param team The new {@link Team} this player will belong to
-     * @since 1.0.0
-     */
-    void setTeam(Team team);
+    Set<Challenger> getChallengers();
 
 }

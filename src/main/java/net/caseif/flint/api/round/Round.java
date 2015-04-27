@@ -30,7 +30,7 @@ package net.caseif.flint.api.round;
 
 import net.caseif.flint.api.Arena;
 import net.caseif.flint.api.feedback.JoinResult;
-import net.caseif.flint.api.round.player.FlintPlayer;
+import net.caseif.flint.api.round.challenger.Challenger;
 import net.caseif.flint.api.util.Metadatable;
 
 import com.google.common.base.Optional;
@@ -55,31 +55,32 @@ public interface Round extends Metadatable {
     Arena getArena();
 
     /**
-     * Returns an immutable {@link Set} of {@link FlintPlayer}s in this
+     * Returns an immutable {@link Set} of {@link Challenger}s in this
      * {@link Round}.
      *
-     * @return An immutable {@link Set} of {@link FlintPlayer}s in this
+     * @return An immutable {@link Set} of {@link Challenger}s in this
      * {@link Round}
      * @since 1.0.0
      */
-    Set<FlintPlayer> getPlayers();
+    Set<Challenger> getChallengers();
 
     /**
-     * Adds the given {@link FlintPlayer} to this {@link Round}.
+     * Adds the given {@link Challenger} to this {@link Round}.
      *
-     * @param player The player to add to this {@link Round}
-     * @return The result of the player joining the round
+     * @param challenger The {@link Challenger} to add to this {@link Round}
+     * @return The {@link JoinResult result} of the {@link Challenger} joining
+     *         the round
      * @since 1.0.0
      */
-    JoinResult addPlayer(FlintPlayer player);
+    JoinResult addChallenger(Challenger challenger);
 
     /**
-     * Removes the given player from this {@link Round}.
+     * Removes the given {@link Challenger} from this {@link Round}.
      *
-     * @param player The player to remove from this {@link Round}
+     * @param challenger The {@link Challenger} to remove from this {@link Round}
      * @since 1.0.0
      */
-    void removePlayer(FlintPlayer player);
+    void removeChallenger(Challenger challenger);
 
     /**
      * Gets this {@link Round}'s defined lifecycle stages.
@@ -167,7 +168,7 @@ public interface Round extends Metadatable {
     void reset();
 
     /**
-     * Ends this round by rolling back its arena and removing all players.
+     * Ends this round by rolling back its arena and removing all challengers.
      *
      * @since 1.0.0
      */

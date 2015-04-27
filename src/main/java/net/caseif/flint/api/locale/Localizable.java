@@ -28,7 +28,7 @@
  */
 package net.caseif.flint.api.locale;
 
-import net.caseif.flint.api.round.player.FlintPlayer;
+import net.caseif.flint.api.round.challenger.Challenger;
 
 import java.util.UUID;
 
@@ -76,42 +76,44 @@ public interface Localizable {
     String localizeIn(String locale);
 
     /**
-     * Localizes this {@link Localizable} in the given player's locale.
+     * Localizes this {@link Localizable} in the given challenger's locale.
      *
-     * @param player The player to localize this {@link Localizable} for
+     * @param challenger The {@link Challenger} to localize this
+     *                   {@link Localizable} for
      * @return A string representing the localized message
      * @since 1.0.0
      */
-    String localizeFor(FlintPlayer player);
+    String localizeFor(Challenger challenger);
 
     /**
      * Localizes this {@link Localizable} in the locale of the player with the
      * given UUID.
      *
-     * @param playerUuid The UUID of the player to localize this {@link Localizable}
-     *        for
+     * @param uuid The UUID of the player to localize this {@link Localizable}
+     *             for
      * @return A string representing the localized message
      * @since 1.0.0
      */
-    String localizeFor(UUID playerUuid);
+    String localizeFor(UUID uuid);
 
     /**
-     * Sends this {@link Localizable} to the given player in their respective
-     * locale.
+     * Sends this {@link Localizable} to the given {@link Challenger} in their
+     * respective locale.
      *
-     * @param player The player to send this [@link Localizable} to
+     * @param challenger The {@link Challenger} to send this {@link Localizable}
+     *                   to
      * @since 1.0.0
      */
-    void sendTo(FlintPlayer player);
+    void sendTo(Challenger challenger);
 
     /**
      * Sends this {@link Localizable} to the player with the given UUID in their
      * respective locale.
      *
-     * @param playerUuid The UUID of the player to send this [@link Localizable} to
+     * @param uuid The UUID of the player to send this [@link Localizable} to
      * @since 1.0.0
      */
-    void sendTo(UUID playerUuid);
+    void sendTo(UUID uuid);
 
     /**
      * Appends the given {@link Object} to this {@link Localizable}.

@@ -29,7 +29,7 @@
 package net.caseif.flint.api.feedback;
 
 /**
- * Defines the end result of a player attempting to join a round.
+ * Defines the end result of a challenger attempting to join a round.
  *
  * @author Max Roncacé
  * @since 1.0.0

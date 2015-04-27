@@ -29,10 +29,12 @@
 package net.caseif.flint.api;
 
 import net.caseif.flint.api.round.Round;
+import net.caseif.flint.api.round.challenger.Challenger;
 
 import com.google.common.base.Optional;
 
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Represents a minigame registered with Flint.
@@ -79,5 +81,14 @@ public interface Minigame {
      * @since 1.0.0
      */
     Set<Round> getRounds();
+
+    /**
+     * Gets the {@link Challenger} by the given UUID.
+     *
+     * @param uuid The UUID to look up
+     * @return The {@link Challenger} by the given UUID
+     * @since 1.0.0
+     */
+    Optional<Challenger> getChallenger(UUID uuid);
 
 }
