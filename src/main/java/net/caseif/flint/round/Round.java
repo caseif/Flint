@@ -125,7 +125,7 @@ public interface Round extends Metadatable {
      * @return The current state of this {@link Round}'s timer in seconds
      * @since 1.0.0
      */
-    int getTime();
+    long getTime();
 
     /**
      * Sets the current state of this {@link Round}'s timer in seconds.
@@ -133,17 +133,18 @@ public interface Round extends Metadatable {
      * @param time The current state of this {@link Round}'s timer in seconds
      * @since 1.0.0
      */
-    void setTime(int time);
+    void setTime(long time);
 
     /**
      * Gets the time in seconds until this {@link Round} is due to change
-     * its lifecycle stage.
+     * its {@link LifecycleStage lifecycle stage}.
      *
      * @return The time in seconds until this {@link Round} is due to change
-     * its lifecycle stage, or <code>-1</code> if the current stage is untimed.
+     *         its {@link LifecycleStage lifecycle stage}, or <code>-1</code> if the
+     *         current stage is untimed.
      * @since 1.0.0
      */
-    int getRemainingTime();
+    long getRemainingTime();
 
     /**
      * Starts this {@link Round}'s timer in its current state.
@@ -165,13 +166,25 @@ public interface Round extends Metadatable {
      *
      * @since 1.0.0
      */
-    void reset();
+    void resetTimer();
 
     /**
-     * Ends this round by rolling back its arena and removing all challengers.
+     * Ends this {@link Round} by resetting its timer, removing all
+     * {@link Challenger}s, and rolling back its arena.
      *
      * @since 1.0.0
      */
     void end();
+
+    /**
+     * Ends this {@link Round} by resetting its timer, removing all
+     * {@link Challenger}s, and, if <code>rollback</code> is <code>true</code>,
+     * rolling back its arena.
+     *
+     * @param rollback Whether this {@link Round}'s arena should be rolled back
+     *
+     * @since 1.0.0
+     */
+    void end(boolean rollback);
 
 }
