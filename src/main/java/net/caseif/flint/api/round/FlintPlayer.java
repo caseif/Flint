@@ -38,20 +38,20 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 0.1.0
  */
-public interface Player extends Metadatable {
+public interface FlintPlayer extends Metadatable {
 
     /**
-     * Gets the username of this {@link Player}.
+     * Gets the username of this {@link FlintPlayer}.
      *
-     * @return The username of this {@link Player}
+     * @return The username of this {@link FlintPlayer}
      * @since 0.1.0
      */
     String getName();
 
     /**
-     * Gets the unique ID of this {@link Player}.
+     * Gets the unique ID of this {@link FlintPlayer}.
      *
-     * @return The unique ID of this {@link Player}
+     * @return The unique ID of this {@link FlintPlayer}
      * @since 0.1.0
      */
     UUID getUniqueId();
@@ -60,7 +60,7 @@ public interface Player extends Metadatable {
      * Gets the {@link Round} which this player is currently in.
      *
      * <p>This should never return <code>null</code> when used properly, as
-     * references to a {@link Player}s should under no circumstances be
+     * references to a {@link FlintPlayer}s should under no circumstances be
      * retained beyond it fully exiting a {@link Round}.</p>
      *
      * @return The {@link Round} which this player is currently in.

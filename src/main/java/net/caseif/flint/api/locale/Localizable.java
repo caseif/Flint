@@ -1,6 +1,6 @@
 package net.caseif.flint.api.locale;
 
-import net.caseif.flint.api.round.Player;
+import net.caseif.flint.api.round.FlintPlayer;
 
 import java.util.UUID;
 
@@ -54,7 +54,7 @@ public interface Localizable {
      * @return A string representing the localized message
      * @since 0.1.0
      */
-    String localizeFor(Player player);
+    String localizeFor(FlintPlayer player);
 
     /**
      * Localizes this {@link Localizable} in the locale of the player with the
@@ -74,7 +74,7 @@ public interface Localizable {
      * @param player The player to send this [@link Localizable} to
      * @since 0.1.0
      */
-    void sendTo(Player player);
+    void sendTo(FlintPlayer player);
 
     /**
      * Sends this {@link Localizable} to the player with the given UUID in their

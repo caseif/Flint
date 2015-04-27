@@ -54,23 +54,23 @@ public interface Round extends Metadatable {
     Arena getArena();
 
     /**
-     * Returns an immutable {@link Set} of {@link Player}s in this
+     * Returns an immutable {@link Set} of {@link FlintPlayer}s in this
      * {@link Round}.
      *
-     * @return An immutable {@link Set} of {@link Player}s in this
+     * @return An immutable {@link Set} of {@link FlintPlayer}s in this
      * {@link Round}
      * @since 0.1.0
      */
-    Set<Player> getPlayers();
+    Set<FlintPlayer> getPlayers();
 
     /**
-     * Adds the given {@link Player} to this {@link Round}.
+     * Adds the given {@link FlintPlayer} to this {@link Round}.
      *
      * @param player The player to add to this {@link Round}
      * @return The result of the player joining the round
      * @since 0.1.0
      */
-    JoinResult addPlayer(Player player);
+    JoinResult addPlayer(FlintPlayer player);
 
     /**
      * Removes the given player from this {@link Round}.
@@ -78,7 +78,7 @@ public interface Round extends Metadatable {
      * @param player The player to remove from this {@link Round}
      * @since 0.1.0
      */
-    void removePlayer(Player player);
+    void removePlayer(FlintPlayer player);
 
     /**
      * Gets this {@link Round}'s defined lifecycle stages.
