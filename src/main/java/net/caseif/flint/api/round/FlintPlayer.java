@@ -36,7 +36,7 @@ import java.util.UUID;
  * Represents a player actively in a minigame {@link Round} backed by Flint.
  *
  * @author Max Roncacé
- * @since 0.1.0
+ * @since 1.0.0
  */
 public interface FlintPlayer extends Metadatable {
 
@@ -44,7 +44,7 @@ public interface FlintPlayer extends Metadatable {
      * Gets the username of this {@link FlintPlayer}.
      *
      * @return The username of this {@link FlintPlayer}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     String getName();
 
@@ -52,7 +52,7 @@ public interface FlintPlayer extends Metadatable {
      * Gets the unique ID of this {@link FlintPlayer}.
      *
      * @return The unique ID of this {@link FlintPlayer}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     UUID getUniqueId();
 
@@ -64,7 +64,7 @@ public interface FlintPlayer extends Metadatable {
      * retained beyond it fully exiting a {@link Round}.</p>
      *
      * @return The {@link Round} which this player is currently in.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Round getRound();
 

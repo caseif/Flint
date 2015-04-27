@@ -41,7 +41,7 @@ import java.util.Set;
  * Represents an active minigame {@link Round} backed by Flint.
  *
  * @author Max Roncacé
- * @since 0.1.0
+ * @since 1.0.0
  */
 public interface Round extends Metadatable {
 
@@ -49,7 +49,7 @@ public interface Round extends Metadatable {
      * Gets the {@link Arena} which contains this {@link Round}.
      *
      * @return The {@link Arena} which contains this {@link Round}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Arena getArena();
 
@@ -59,7 +59,7 @@ public interface Round extends Metadatable {
      *
      * @return An immutable {@link Set} of {@link FlintPlayer}s in this
      * {@link Round}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Set<FlintPlayer> getPlayers();
 
@@ -68,7 +68,7 @@ public interface Round extends Metadatable {
      *
      * @param player The player to add to this {@link Round}
      * @return The result of the player joining the round
-     * @since 0.1.0
+     * @since 1.0.0
      */
     JoinResult addPlayer(FlintPlayer player);
 
@@ -76,7 +76,7 @@ public interface Round extends Metadatable {
      * Removes the given player from this {@link Round}.
      *
      * @param player The player to remove from this {@link Round}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void removePlayer(FlintPlayer player);
 
@@ -84,7 +84,7 @@ public interface Round extends Metadatable {
      * Gets this {@link Round}'s defined lifecycle stages.
      *
      * @return This {@link Round}'s defined lifecycle stages
-     * @since 0.1.0
+     * @since 1.0.0
      */
     LinkedHashSet<LifecycleStage> getLifecycleStages();
 
@@ -92,7 +92,7 @@ public interface Round extends Metadatable {
      * Defines this {@link Round}'s lifecycle stages.
      *
      * @param stages The new lifecycle stages to define
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void setLifecycleStages(LinkedHashSet<LifecycleStage> stages);
 
@@ -100,7 +100,7 @@ public interface Round extends Metadatable {
      * Gets this {@link Round}'s current lifecycle stage.
      *
      * @return This {@link Round}'s current lifecycle stage.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     LifecycleStage getLifecycleStage();
 
@@ -110,7 +110,7 @@ public interface Round extends Metadatable {
      * @return This {@link Round}'s next lifecycle stage, or
      *         {@link Optional#absent()} if the current stage is the final
      *         defined
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Optional<LifecycleStage> getNextLifecycleStage();
 
@@ -121,7 +121,7 @@ public interface Round extends Metadatable {
      * change, although this is not absolute.</p>
      *
      * @return The current state of this {@link Round}'s timer in seconds
-     * @since 0.1.0
+     * @since 1.0.0
      */
     int getTime();
 
@@ -129,7 +129,7 @@ public interface Round extends Metadatable {
      * Sets the current state of this {@link Round}'s timer in seconds.
      *
      * @param time The current state of this {@link Round}'s timer in seconds
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void setTime(int time);
 
@@ -139,21 +139,21 @@ public interface Round extends Metadatable {
      *
      * @return The time in seconds until this {@link Round} is due to change
      * its lifecycle stage, or <code>-1</code> if the current stage is untimed.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     int getRemainingTime();
 
     /**
      * Starts this {@link Round}'s timer in its current state.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void startTimer();
 
     /**
      * Stops this {@link Round}'s timer. Note that this does not end the round.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void stopTimer();
 
@@ -161,14 +161,14 @@ public interface Round extends Metadatable {
      * Sets this {@link Round}'s lifecycle stage to its initial state and resets
      * and stops the timer.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void reset();
 
     /**
      * Ends this round by rolling back its arena and removing all players.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     void end();
 

@@ -34,7 +34,7 @@ import com.google.common.base.Optional;
  * Represents a three-dimensional point in space, or optionally, in a world.
  *
  * @author Max Roncacé
- * @since 0.1.0
+ * @since 1.0.0
  */
 public class Location3D {
 
@@ -51,7 +51,7 @@ public class Location3D {
      * @param x The x-coordinate of the new {@link Location3D}
      * @param y The y-coordinate of the new {@link Location3D}
      * @param z The z-coordinate of the new {@link Location3D}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public Location3D(String world, double x, double y, double z) {
         this.world = world;
@@ -66,7 +66,7 @@ public class Location3D {
      * @param x The x-coordinate of the new {@link Location3D}
      * @param y The y-coordinate of the new {@link Location3D}
      * @param z The z-coordinate of the new {@link Location3D}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public Location3D(double x, double y, double z) {
         this.world = null;
@@ -80,7 +80,7 @@ public class Location3D {
      *
      * @return The world containing this {@link Location3D}, or
      *         {@link Optional#absent()} if one is not defined
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Optional<String> getWorld() {
         return Optional.fromNullable(this.world);
@@ -90,7 +90,7 @@ public class Location3D {
      * Gets the x-coordinate of this {@link Location3D}.
      *
      * @return The x-coordinate of this {@link Location3D}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public double getX() {
         return this.x;
@@ -100,7 +100,7 @@ public class Location3D {
      * Gets the y-coordinate of this {@link Location3D}.
      *
      * @return The y-coordinate of this {@link Location3D}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public double getY() {
         return this.y;
@@ -110,7 +110,7 @@ public class Location3D {
      * Gets the z-coordinate of this {@link Location3D}.
      *
      * @return The z-coordinate of this {@link Location3D}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public double getZ() {
         return this.z;

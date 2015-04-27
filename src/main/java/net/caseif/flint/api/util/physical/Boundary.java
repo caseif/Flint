@@ -36,7 +36,7 @@ import static com.google.common.base.Preconditions.checkState;
  * <p>This may be compared to vanilla Minecraft's world border.</p>
  *
  * @author Max Roncacé
- * @since 0.1.0
+ * @since 1.0.0
  */
 public class Boundary {
 
@@ -57,7 +57,7 @@ public class Boundary {
      *                                  containing the locations do not match
      *                                  and <code>ignoreDifferentWorlds</code>
      *                                  is <code>false</code>
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public Boundary(Location3D corner1, Location3D corner2, boolean ignoreDifferentWorlds)
             throws IllegalArgumentException {
@@ -91,7 +91,7 @@ public class Boundary {
      * @throws IllegalArgumentException If one or both location parameters are
      *                                  <code>null</code>, or if the worlds
      *                                  containing the locations do not match
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public Boundary(Location3D corner1, Location3D corner2) throws IllegalArgumentException {
         this(corner1, corner2, false);
@@ -101,7 +101,7 @@ public class Boundary {
      * Gets the boundary lowest on all three axes.
      *
      * @return The boundary lowest on all three axes.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public Location3D getLowerBound() {
         return this.lowerBound;
@@ -111,7 +111,7 @@ public class Boundary {
      * Gets the boundary highest on all three axes.
      *
      * @return The boundary highest on all three axes.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public Location3D getUpperBound() {
         return this.upperBound;
@@ -125,7 +125,7 @@ public class Boundary {
      *                 {@link Boundary}
      * @return Whether this {@link Boundary} contains the given location
      *         (inclusively)
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public boolean contains(Location3D location) {
         return     location.getX() >= getLowerBound().getX() && location.getX() <= getUpperBound().getX()

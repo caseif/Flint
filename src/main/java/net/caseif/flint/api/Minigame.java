@@ -38,7 +38,7 @@ import java.util.Set;
  * Represents a minigame registered with Flint.
  *
  * @author Max Roncacé
- * @since 0.1.0
+ * @since 1.0.0
  */
 public interface Minigame {
 
@@ -47,7 +47,7 @@ public interface Minigame {
      *
      * @return the name or ID of the plugin to which this {@link Minigame}
      *         belongs.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     String getPlugin();
 
@@ -56,7 +56,7 @@ public interface Minigame {
      *
      * @param arenaName The name of the {@link Arena} to get
      * @return The {@link Arena} by the given name within this {@link Minigame}
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Optional<Arena> getArena(String arenaName);
 
@@ -66,7 +66,7 @@ public interface Minigame {
      *
      * @return an immutable {@link Set} containing all {@link Arena}s owned by
      * this {@link Minigame}.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Set<Arena> getArenas();
 
@@ -76,7 +76,7 @@ public interface Minigame {
      *
      * @return an immutable {@link Set} containing all active {@link Round}s
      * owned by this {@link Minigame}.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     Set<Round> getRounds();
 
