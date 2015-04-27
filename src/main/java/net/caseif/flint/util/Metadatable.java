@@ -26,38 +26,69 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.locale;
+package net.caseif.flint.util;
 
-import net.caseif.flint.api.Minigame;
+import java.util.Set;
 
 /**
- * Provides localization support for a particular {@link Minigame}.
- *
- * <p>Locales are loaded as <code>.properties</code> files from the
- * <code>/locales</code> directory of the archive of the plugin owning this
- * {@link LocaleManager}'s {@link Minigame}.</p>
+ * Represents an object which may carry metadata.
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface LocaleManager {
+public interface Metadatable {
 
     /**
-     * Gets the {@link Minigame} owning this {@link LocaleManager}.
+     * Gets whether this {@link Metadatable} instanceof contains metadata with
+     * the given key.
      *
-     * @return The {@link Minigame} owning this {@link LocaleManager}
+     * @param key The key to search for
+     * @return Whether this {@link Metadatable} instanceof contains metadata
+     *         with the given key
      * @since 1.0.0
      */
-    Minigame getMinigame();
+    boolean hasMetadata(String key);
 
     /**
-     * Gets the server's default locale.
+     * Gets the value of the metadata with the given key.
      *
-     * @return A string representing the server's default locale. This follows
-     *         the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
-     *         or enUS).
+     * @param key The key of the metadata value to retrieve
+     * @return The value of the metadata with the given key, or
+     *         <code>null</code> if the key is not defined
      * @since 1.0.0
      */
-    String getServerLocale();
+    Object getMetadata(String key);
+
+    /**
+     * Assigns the given value to the metadata with the given key, or clears it
+     * if <code>value</code> is <code>null</code>.
+     *
+     * @param key The name of the metadata key to set
+     * @param value The value to assign to the metadata key
+     * @since 1.0.0
+     */
+    void setMetadata(String key, Object value);
+
+    /**
+     * Removes the metadata with the given key from this {@link Metadatable}
+     * instance.
+     *
+     * <p>This is a convenience method for
+     * <code>setMetadata(key, null)</code></p>
+     *
+     * @param key The key of the metadata value to remove
+     * @since 1.0.0
+     */
+    void removeMetadata(String key);
+
+    /**
+     * Returns an immutable {@link Set} of all metadata keys carried by this
+     * {@link Metadatable} instance.
+     *
+     * @return An immutable {@link Set} of all metadata keys carried by this
+     *         {@link Metadatable} instance
+     * @since 1.0.0
+     */
+    Set<String> getAllMetadata();
 
 }

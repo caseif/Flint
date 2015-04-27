@@ -26,36 +26,66 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api;
+package net.caseif.flint.round.challenger;
+
+import net.caseif.flint.round.Round;
+import net.caseif.flint.util.Metadatable;
+
+import com.google.common.base.Optional;
+
+import java.util.UUID;
 
 /**
- * The core class for the Flint framework.
+ * Represents a player actively in a minigame {@link Round} backed by Flint.
  *
  * @author Max Roncacé
- * @version 1.0.0-SNAPSHOT
  * @since 1.0.0
  */
-public abstract class FlintCore {
-
-    protected static FlintCore INSTANCE;
+public interface Challenger extends Metadatable {
 
     /**
-     * Gets the primary instance of this class.
+     * Gets the username of this {@link Challenger}.
      *
-     * @return The primary instance of this class
+     * @return The username of this {@link Challenger}
      * @since 1.0.0
      */
-    public static FlintCore getInstance() {
-        return INSTANCE;
-    }
+    String getName();
 
     /**
-     * Registers a plugin as a Flint-backed {@link Minigame}.
+     * Gets the unique ID of this {@link Challenger}.
      *
-     * @param pluginId The name or ID of the plugin to register
-     * @return The newly created {@link Minigame} associated with the plugin
+     * @return The unique ID of this {@link Challenger}
      * @since 1.0.0
      */
-    public abstract Minigame registerPlugin(String pluginId);
+    UUID getUniqueId();
+
+    /**
+     * Gets the {@link Round} which this challenger is currently in.
+     *
+     * <p>This should never return <code>null</code> when used properly, as
+     * references to a {@link Challenger}s should under no circumstances be
+     * retained beyond it fully exiting a {@link Round}.</p>
+     *
+     * @return The {@link Round} which this challenger is currently in.
+     * @since 1.0.0
+     */
+    Round getRound();
+
+    /**
+     * Gets the {@link Team} this challenger belongs to.
+     *
+     * @return The {@link Team} this challenger belongs to
+     * @since 1.0.0
+     */
+    Optional<Team> getTeam();
+
+    /**
+     * Sets the {@link Team} this challenger belongs to. This implicitly removes
+     * it from the team it currently belongs to if applicable.
+     *
+     * @param team The new {@link Team} this challenger will belong to
+     * @since 1.0.0
+     */
+    void setTeam(Team team);
 
 }

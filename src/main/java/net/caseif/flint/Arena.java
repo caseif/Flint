@@ -26,12 +26,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api;
+package net.caseif.flint;
 
-import net.caseif.flint.api.util.Metadatable;
-import net.caseif.flint.api.util.physical.Boundary;
-import net.caseif.flint.api.util.physical.Location3D;
-import net.caseif.flint.api.round.Round;
+import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.util.physical.Boundary;
+import net.caseif.flint.util.physical.Location3D;
+import net.caseif.flint.round.Round;
 
 import com.google.common.base.Optional;
 

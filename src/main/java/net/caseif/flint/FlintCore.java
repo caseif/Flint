@@ -26,39 +26,36 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.feedback;
+package net.caseif.flint;
 
 /**
- * Defines the end result of a challenger attempting to join a round.
+ * The core class for the Flint framework.
  *
  * @author Max Roncacé
+ * @version 1.0.0-SNAPSHOT
  * @since 1.0.0
  */
-public enum JoinResult {
+public abstract class FlintCore {
+
+    protected static FlintCore INSTANCE;
 
     /**
-     * A successful round join.
+     * Gets the primary instance of this class.
      *
+     * @return The primary instance of this class
      * @since 1.0.0
      */
-    SUCCESS,
+    public static FlintCore getInstance() {
+        return INSTANCE;
+    }
+
     /**
-     * A failed join due to the round being at capacity.
+     * Registers a plugin as a Flint-backed {@link Minigame}.
      *
+     * @param pluginId The name or ID of the plugin to register
+     * @return The newly created {@link Minigame} associated with the plugin
      * @since 1.0.0
      */
-    FULL,
-    /**
-     * A failed join due to the respective event being cancelled.
-     *
-     * @since 1.0.0
-     */
-    CANCELLED,
-    /**
-     * A failed join due to an internal error.
-     *
-     * @since 1.0.0
-     */
-    INTERNAL_ERROR
+    public abstract Minigame registerPlugin(String pluginId);
 
 }

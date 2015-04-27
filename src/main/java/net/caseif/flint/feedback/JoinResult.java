@@ -26,69 +26,39 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.util;
-
-import java.util.Set;
+package net.caseif.flint.feedback;
 
 /**
- * Represents an object which may carry metadata.
+ * Defines the end result of a challenger attempting to join a round.
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface Metadatable {
+public enum JoinResult {
 
     /**
-     * Gets whether this {@link Metadatable} instanceof contains metadata with
-     * the given key.
+     * A successful round join.
      *
-     * @param key The key to search for
-     * @return Whether this {@link Metadatable} instanceof contains metadata
-     *         with the given key
      * @since 1.0.0
      */
-    boolean hasMetadata(String key);
-
+    SUCCESS,
     /**
-     * Gets the value of the metadata with the given key.
+     * A failed join due to the round being at capacity.
      *
-     * @param key The key of the metadata value to retrieve
-     * @return The value of the metadata with the given key, or
-     *         <code>null</code> if the key is not defined
      * @since 1.0.0
      */
-    Object getMetadata(String key);
-
+    FULL,
     /**
-     * Assigns the given value to the metadata with the given key, or clears it
-     * if <code>value</code> is <code>null</code>.
+     * A failed join due to the respective event being cancelled.
      *
-     * @param key The name of the metadata key to set
-     * @param value The value to assign to the metadata key
      * @since 1.0.0
      */
-    void setMetadata(String key, Object value);
-
+    CANCELLED,
     /**
-     * Removes the metadata with the given key from this {@link Metadatable}
-     * instance.
+     * A failed join due to an internal error.
      *
-     * <p>This is a convenience method for
-     * <code>setMetadata(key, null)</code></p>
-     *
-     * @param key The key of the metadata value to remove
      * @since 1.0.0
      */
-    void removeMetadata(String key);
-
-    /**
-     * Returns an immutable {@link Set} of all metadata keys carried by this
-     * {@link Metadatable} instance.
-     *
-     * @return An immutable {@link Set} of all metadata keys carried by this
-     *         {@link Metadatable} instance
-     * @since 1.0.0
-     */
-    Set<String> getAllMetadata();
+    INTERNAL_ERROR
 
 }

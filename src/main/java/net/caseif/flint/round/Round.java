@@ -26,12 +26,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.round;
+package net.caseif.flint.round;
 
-import net.caseif.flint.api.Arena;
-import net.caseif.flint.api.feedback.JoinResult;
-import net.caseif.flint.api.round.challenger.Challenger;
-import net.caseif.flint.api.util.Metadatable;
+import net.caseif.flint.Arena;
+import net.caseif.flint.feedback.JoinResult;
+import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.util.Metadatable;
 
 import com.google.common.base.Optional;
 

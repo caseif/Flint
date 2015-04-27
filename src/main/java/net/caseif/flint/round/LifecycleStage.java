@@ -26,66 +26,49 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.round.challenger;
-
-import net.caseif.flint.api.round.Round;
-import net.caseif.flint.api.util.Metadatable;
-
-import com.google.common.base.Optional;
-
-import java.util.UUID;
+package net.caseif.flint.round;
 
 /**
- * Represents a player actively in a minigame {@link Round} backed by Flint.
+ * Represents an immutable lifecycle stage of a {@link Round}.
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface Challenger extends Metadatable {
+public final class LifecycleStage {
+
+    private final String id;
+    private final int duration;
 
     /**
-     * Gets the username of this {@link Challenger}.
+     * Constructs a new {@link LifecycleStage} with the given ID and duration.
      *
-     * @return The username of this {@link Challenger}
+     * @param id The stage's ID
+     * @param duration The duration of the stage
      * @since 1.0.0
      */
-    String getName();
+    public LifecycleStage(String id, int duration) {
+        this.id = id;
+        this.duration = duration;
+    }
 
     /**
-     * Gets the unique ID of this {@link Challenger}.
+     * Gets the ID of this {@link LifecycleStage}.
      *
-     * @return The unique ID of this {@link Challenger}
+     * @return The ID of this {@link LifecycleStage}
      * @since 1.0.0
      */
-    UUID getUniqueId();
+    public final String getId() {
+        return this.id;
+    }
 
     /**
-     * Gets the {@link Round} which this challenger is currently in.
+     * Gets the duration of this {@link LifecycleStage}.
      *
-     * <p>This should never return <code>null</code> when used properly, as
-     * references to a {@link Challenger}s should under no circumstances be
-     * retained beyond it fully exiting a {@link Round}.</p>
-     *
-     * @return The {@link Round} which this challenger is currently in.
+     * @return The duration of this {@link LifecycleStage}
      * @since 1.0.0
      */
-    Round getRound();
-
-    /**
-     * Gets the {@link Team} this challenger belongs to.
-     *
-     * @return The {@link Team} this challenger belongs to
-     * @since 1.0.0
-     */
-    Optional<Team> getTeam();
-
-    /**
-     * Sets the {@link Team} this challenger belongs to. This implicitly removes
-     * it from the team it currently belongs to if applicable.
-     *
-     * @param team The new {@link Team} this challenger will belong to
-     * @since 1.0.0
-     */
-    void setTeam(Team team);
+    public final int getDuration() {
+        return this.duration;
+    }
 
 }

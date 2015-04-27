@@ -26,49 +26,38 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.round;
+package net.caseif.flint.locale;
+
+import net.caseif.flint.Minigame;
 
 /**
- * Represents an immutable lifecycle stage of a {@link Round}.
+ * Provides localization support for a particular {@link Minigame}.
+ *
+ * <p>Locales are loaded as <code>.properties</code> files from the
+ * <code>/locales</code> directory of the archive of the plugin owning this
+ * {@link LocaleManager}'s {@link Minigame}.</p>
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public final class LifecycleStage {
-
-    private final String id;
-    private final int duration;
+public interface LocaleManager {
 
     /**
-     * Constructs a new {@link LifecycleStage} with the given ID and duration.
+     * Gets the {@link Minigame} owning this {@link LocaleManager}.
      *
-     * @param id The stage's ID
-     * @param duration The duration of the stage
+     * @return The {@link Minigame} owning this {@link LocaleManager}
      * @since 1.0.0
      */
-    public LifecycleStage(String id, int duration) {
-        this.id = id;
-        this.duration = duration;
-    }
+    Minigame getMinigame();
 
     /**
-     * Gets the ID of this {@link LifecycleStage}.
+     * Gets the server's default locale.
      *
-     * @return The ID of this {@link LifecycleStage}
+     * @return A string representing the server's default locale. This follows
+     *         the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
+     *         or enUS).
      * @since 1.0.0
      */
-    public final String getId() {
-        return this.id;
-    }
-
-    /**
-     * Gets the duration of this {@link LifecycleStage}.
-     *
-     * @return The duration of this {@link LifecycleStage}
-     * @since 1.0.0
-     */
-    public final int getDuration() {
-        return this.duration;
-    }
+    String getServerLocale();
 
 }

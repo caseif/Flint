@@ -26,43 +26,69 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.round.challenger;
+package net.caseif.flint;
+
+import net.caseif.flint.round.Round;
+import net.caseif.flint.round.challenger.Challenger;
+
+import com.google.common.base.Optional;
 
 import java.util.Set;
+import java.util.UUID;
 
 /**
- * Represents a team containing {@link Challenger}s in a
- * {@link net.caseif.flint.api.round.Round}.
+ * Represents a minigame registered with Flint.
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface Team {
+public interface Minigame {
 
     /**
-     * Gets the internal identifier of this {@link Team}.
+     * Gets the name or ID of the plugin to which this {@link Minigame} belongs.
      *
-     * @return The internal identifier of this {@link Team}
+     * @return the name or ID of the plugin to which this {@link Minigame}
+     *         belongs.
      * @since 1.0.0
      */
-    String getId();
+    String getPlugin();
 
     /**
-     * Gets the display name of this {@link Team}.
+     * Gets the {@link Arena} by the given name within this {@link Minigame}.
      *
-     * @return The display name of this {@link Team}
+     * @param arenaName The name of the {@link Arena} to get
+     * @return The {@link Arena} by the given name within this {@link Minigame}
      * @since 1.0.0
      */
-    String getDisplayName();
+    Optional<Arena> getArena(String arenaName);
 
     /**
-     * Returns an immutable {@link Set} of all {@link Challenger}s on this
-     *         {@link Team}.
+     * Gets an immutable {@link Set} containing all {@link Arena}s owned by this
+     * {@link Minigame}.
      *
-     * @return An immutable {@link Set} of all {@link Challenger}s on this
-     *         {@link Team}
+     * @return an immutable {@link Set} containing all {@link Arena}s owned by
+     * this {@link Minigame}.
      * @since 1.0.0
      */
-    Set<Challenger> getChallengers();
+    Set<Arena> getArenas();
+
+    /**
+     * Gets an immutable {@link Set} containing all active {@link Round}s owned
+     * by this {@link Minigame}.
+     *
+     * @return an immutable {@link Set} containing all active {@link Round}s
+     * owned by this {@link Minigame}.
+     * @since 1.0.0
+     */
+    Set<Round> getRounds();
+
+    /**
+     * Gets the {@link Challenger} by the given UUID.
+     *
+     * @param uuid The UUID to look up
+     * @return The {@link Challenger} by the given UUID
+     * @since 1.0.0
+     */
+    Optional<Challenger> getChallenger(UUID uuid);
 
 }
