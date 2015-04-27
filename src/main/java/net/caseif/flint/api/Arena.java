@@ -55,6 +55,7 @@ public interface Arena extends Metadatable {
 
     /**
      * Gets the name of this {@link Arena} as displayed to users.
+     *
      * @return The name of this {@link Arena} as displayed to users, or its ID
      *         if one is not set
      * @since 1.0.0
@@ -63,6 +64,7 @@ public interface Arena extends Metadatable {
 
     /**
      * Gets the name of the world which contains this {@link Arena}.
+     *
      * @return The name of the world which contains this {@link Arena}
      * @since 1.0.0
      */
@@ -80,6 +82,7 @@ public interface Arena extends Metadatable {
     /**
      * Returns an immutable {@link Set} of points at which players may spawn
      * upon entering this arena.
+     *
      * @return An immutable {@link Set} of points at which players may spawn
      *         upon entering this arena
      * @since 1.0.0

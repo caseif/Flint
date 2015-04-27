@@ -26,9 +26,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.round;
+package net.caseif.flint.api.round.player;
 
+import net.caseif.flint.api.round.Round;
 import net.caseif.flint.api.util.Metadatable;
+
+import com.google.common.base.Optional;
 
 import java.util.UUID;
 
@@ -67,5 +70,22 @@ public interface FlintPlayer extends Metadatable {
      * @since 1.0.0
      */
     Round getRound();
+
+    /**
+     * Gets the {@link Team} this player belongs to.
+     *
+     * @return The {@link Team} this player belongs to
+     * @since 1.0.0
+     */
+    Optional<Team> getTeam();
+
+    /**
+     * Sets the {@link Team} this player belongs to. This implicitly removes
+     * it from the team it currently belongs to if applicable.
+     *
+     * @param team The new {@link Team} this player will belong to
+     * @since 1.0.0
+     */
+    void setTeam(Team team);
 
 }

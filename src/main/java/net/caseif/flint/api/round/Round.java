@@ -30,6 +30,7 @@ package net.caseif.flint.api.round;
 
 import net.caseif.flint.api.Arena;
 import net.caseif.flint.api.feedback.JoinResult;
+import net.caseif.flint.api.round.player.FlintPlayer;
 import net.caseif.flint.api.util.Metadatable;
 
 import com.google.common.base.Optional;

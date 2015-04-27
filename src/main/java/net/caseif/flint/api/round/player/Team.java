@@ -26,38 +26,41 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.api.locale;
+package net.caseif.flint.api.round.player;
 
-import net.caseif.flint.api.Minigame;
+import java.util.Set;
+import java.util.UUID;
 
 /**
- * Provides localization support for a particular {@link Minigame}.
- *
- * <p>Locales are loaded as <code>.properties</code> files from the
- * <code>/locales</code> directory of the archive of the plugin owning this
- * {@link LocaleManager}'s {@link Minigame}.</p>
+ * Represents a team in a round.
  *
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface LocaleManager {
+public interface Team {
 
     /**
-     * Gets the {@link Minigame} owning this {@link LocaleManager}.
+     * Gets the internal identifier of this {@link Team}.
      *
-     * @return The {@link Minigame} owning this {@link LocaleManager}
+     * @return The internal identifier of this {@link Team}
      * @since 1.0.0
      */
-    Minigame getMinigame();
+    String getId();
 
     /**
-     * Gets the server's default locale.
+     * Gets the display name of this {@link Team}.
      *
-     * @return A string representing the server's default locale. This follows
-     *         the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
-     *         or enUS).
+     * @return The display name of this {@link Team}
      * @since 1.0.0
      */
-    String getServerLocale();
+    String getDisplayName();
+
+    /**
+     * Returns an immutable {@link Set} of all players on this {@link Team}.
+     *
+     * @return An immutable {@link Set} of all players on this team {@link Team}
+     * @since 1.0.0
+     */
+    Set<FlintPlayer> getPlayers();
 
 }
