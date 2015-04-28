@@ -30,6 +30,8 @@ package net.caseif.flint.util.physical;
 
 import static com.google.common.base.Preconditions.checkState;
 
+import com.flowpowered.math.vector.Vector3d;
+
 /**
  * Represents a three-dimensional, cuboid boundary in the world.
  *
@@ -40,8 +42,8 @@ import static com.google.common.base.Preconditions.checkState;
  */
 public class Boundary {
 
-    private final Location3D lowerBound;
-    private final Location3D upperBound;
+    private final Vector3d lowerBound;
+    private final Vector3d upperBound;
 
     /**
      * Constructs a new {@link Boundary} from the given locations. These
@@ -50,51 +52,24 @@ public class Boundary {
      *
      * @param corner1 The first corner of the {@link Boundary}
      * @param corner2 The second corner of the {@link Boundary}
-     * @param ignoreDifferentWorlds Whether to skip a sanity check of whether
-     *                              the two locations are within the same world
-     * @throws IllegalArgumentException If one or both location parameters are
-     *                                  <code>null</code>, or if the worlds
-     *                                  containing the locations do not match
-     *                                  and <code>ignoreDifferentWorlds</code>
-     *                                  is <code>false</code>
+     * @throws IllegalArgumentException If any of the location parameters are
+     *                                  <code>null</code>.
      * @since 1.0.0
      */
-    public Boundary(Location3D corner1, Location3D corner2, boolean ignoreDifferentWorlds)
+    public Boundary(Vector3d corner1, Vector3d corner2)
             throws IllegalArgumentException {
         checkState(corner1 != null, "Boundary corner cannot be null");
         checkState(corner2 != null, "Boundary corner cannot be null");
-        //noinspection ConstantConditions
-        checkState(ignoreDifferentWorlds
-                        || (!corner1.getWorld().isPresent() && !corner2.getWorld().isPresent())
-                        || corner1.getWorld().get().equals(corner2.getWorld().get()),
-                "Boundary corners cannot have mismatching worlds");
-        //noinspection ConstantConditions
-        this.lowerBound = new Location3D(
+        this.lowerBound = new Vector3d(
                 Math.min(corner1.getX(), corner2.getX()),
                 Math.min(corner1.getY(), corner2.getY()),
                 Math.min(corner1.getZ(), corner2.getZ())
         );
-        this.upperBound = new Location3D(
+        this.upperBound = new Vector3d(
                 Math.max(corner1.getX(), corner2.getX()),
                 Math.max(corner1.getY(), corner2.getY()),
                 Math.max(corner1.getZ(), corner2.getZ())
         );
-    }
-
-    /**
-     * Constructs a new {@link Boundary} from the given locations. These
-     * locations should represent complimentary corners of a cuboid which will
-     * be contained by the new {@link Boundary}.
-     *
-     * @param corner1 The first corner of the {@link Boundary}
-     * @param corner2 The second corner of the {@link Boundary}
-     * @throws IllegalArgumentException If one or both location parameters are
-     *                                  <code>null</code>, or if the worlds
-     *                                  containing the locations do not match
-     * @since 1.0.0
-     */
-    public Boundary(Location3D corner1, Location3D corner2) throws IllegalArgumentException {
-        this(corner1, corner2, false);
     }
 
     /**
@@ -103,7 +78,7 @@ public class Boundary {
      * @return The boundary lowest on all three axes.
      * @since 1.0.0
      */
-    public Location3D getLowerBound() {
+    public Vector3d getLowerBound() {
         return this.lowerBound;
     }
 
@@ -113,7 +88,7 @@ public class Boundary {
      * @return The boundary highest on all three axes.
      * @since 1.0.0
      */
-    public Location3D getUpperBound() {
+    public Vector3d getUpperBound() {
         return this.upperBound;
     }
 
@@ -121,13 +96,13 @@ public class Boundary {
      * Returns whether this {@link Boundary} contains the given location
      * (inclusively).
      *
-     * @param location The {@link Location3D} to check against this
+     * @param location The {@link Vector3d} to check against this
      *                 {@link Boundary}
      * @return Whether this {@link Boundary} contains the given location
      *         (inclusively)
      * @since 1.0.0
      */
-    public boolean contains(Location3D location) {
+    public boolean contains(Vector3d location) {
         return     location.getX() >= getLowerBound().getX() && location.getX() <= getUpperBound().getX()
                 && location.getY() >= getLowerBound().getY() && location.getY() <= getUpperBound().getY()
                 && location.getZ() >= getLowerBound().getZ() && location.getZ() <= getUpperBound().getZ();
