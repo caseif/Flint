@@ -110,7 +110,7 @@ public interface Localizable {
      * Sends this {@link Localizable} to the player with the given UUID in their
      * respective locale.
      *
-     * @param uuid The UUID of the player to send this [@link Localizable} to
+     * @param uuid The UUID of the player to send this {@link Localizable} to
      * @since 1.0.0
      */
     void sendTo(UUID uuid);
@@ -119,8 +119,10 @@ public interface Localizable {
      * Appends the given {@link Object} to this {@link Localizable}.
      *
      * <p>If <code>obj</code> is a {@link Localizable}, it will be handled
-     * normally when the object this method returns is localized. Otherwise,
-     * <code>toString</code> will be called upon <code>obj</code>.</p>
+     * normally when the object this method returns is localized.
+     * Platform-native text formatting objects should be handled specially as
+     * well by implementations. Otherwise, <code>toString</code> will be called
+     * upon <code>obj</code>.</p>
      *
      * @param obj The object to append to this {@link Localizable}
      * @return The newly-created {@link Localizable} with the appended object

@@ -30,6 +30,7 @@ package net.caseif.flint.round;
 
 import net.caseif.flint.Arena;
 import net.caseif.flint.feedback.JoinResult;
+import net.caseif.flint.locale.Localizable;
 import net.caseif.flint.round.challenger.Challenger;
 import net.caseif.flint.util.Metadatable;
 
@@ -81,6 +82,34 @@ public interface Round extends Metadatable {
      * @since 1.0.0
      */
     void removeChallenger(Challenger challenger);
+
+    /**
+     * Returns the number of {@link Challenger}s in this {@link Round} marked as
+     * spectating.
+     *
+     * @return The number of {@link Challenger}s in this {@link Round} marked as
+     * spectating
+     * @since 1.0.0
+     */
+    int getSpectatorCount();
+
+    /**
+     * Broadcasts the string <code>message</code> to all {@link Challenger}s in
+     * this {@link Round}.
+     *
+     * @param message The string to broadcast
+     * @since 1.0.0
+     */
+    void broadcast(String message);
+
+    /**
+     * Broadcasts the given {@link Localizable} to all {@link Challenger}s in
+     * this {@link Round}.
+     *
+     * @param message The {@link Localizable} to broadcast
+     * @since 1.0.0
+     */
+    void broadcast(Localizable message);
 
     /**
      * Gets this {@link Round}'s defined lifecycle stages.

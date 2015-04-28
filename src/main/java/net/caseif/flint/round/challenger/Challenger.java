@@ -88,4 +88,26 @@ public interface Challenger extends Metadatable {
      */
     void setTeam(Team team);
 
+    /**
+     * Returns whether this {@link Challenger} is currently spectating.
+     *
+     * <p>Spectators are not visible to others and may not interact with the
+     * {@link Round} they are contained by.</p>
+     *
+     * @return Whether this {@link Challenger} is currently spectating
+     * @since 1.0.0
+     */
+    boolean isSpectating();
+
+    /**
+     * Sets whether this {@link Challenger} is currently spectating.
+     *
+     * <p>Spectators are not visible to others and may not interact with the
+     * {@link Round} they are contained by.</p>
+     *
+     * @param spectating Whether this {@link Challenger} is currently spectating
+     * @since 1.0.0
+     */
+    void setSpectating(boolean spectating);
+
 }
