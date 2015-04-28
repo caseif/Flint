@@ -54,6 +54,28 @@ public interface Minigame {
     String getPlugin();
 
     /**
+     * Gets the current value of the given {@link ConfigOption} for this
+     * {@link Minigame}.
+     *
+     * @param option The {@link ConfigOption} to look up
+     * @param <T> The value type associated with <code>option</code>
+     * @return The value of <code>option</code> for this {@link Minigame}
+     * @since 1.0.0
+     */
+    <T> T getConfigValue(ConfigOption<T> option);
+
+    /**
+     * Gets the current value of the given {@link ConfigOption} for this
+     * {@link Minigame}.
+     *
+     * @param option The {@link ConfigOption} to look up
+     * @param value The new value of <code>option</code> for this {@link Minigame}
+     * @param <T> The value type associated with <code>option</code>
+     * @since 1.0.0
+     */
+    <T> void setConfigValue(ConfigOption<T> option, T value);
+
+    /**
      * Gets the {@link Arena} by the given name within this {@link Minigame}.
      *
      * @param arenaName The name of the {@link Arena} to get
