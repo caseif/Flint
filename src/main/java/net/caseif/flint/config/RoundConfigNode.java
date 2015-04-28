@@ -26,38 +26,19 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint;
-
-import java.util.Objects;
-import java.util.UUID;
+package net.caseif.flint.config;
 
 /**
- * Represents a configuration option for a {@link Minigame}.
+ * Represents a {@link ConfigNode} applicable to
+ * {@link net.caseif.flint.round.Round}s.
  *
- * @param <T> The value type associated with this {@link ConfigOption}
+ * @param <T> The value type associated with this {@link ConfigNode}
+ * @author Max Roncacé
+ * @since 1.0.0
  */
-@SuppressWarnings("unused")
-public class ConfigOption<T> {
+public class RoundConfigNode<T> extends ConfigNode<T> {
 
-    //TODO: this is just a demo, these fields will be replaced with actual ones later on
-    public static final ConfigOption<Integer> FOO = new ConfigOption<>();
-    public static final ConfigOption<String> BAR = new ConfigOption<>();
-    public static final ConfigOption<Boolean> QUUX = new ConfigOption<>();
-
-    private final UUID uuid;
-
-    private ConfigOption() {
-        this.uuid = UUID.randomUUID();
+    protected RoundConfigNode() {
+        super();
     }
-
-    @Override
-    public boolean equals(Object otherOption) {
-        return otherOption instanceof ConfigOption && this.uuid.equals(((ConfigOption)otherOption).uuid);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(uuid);
-    }
-
 }

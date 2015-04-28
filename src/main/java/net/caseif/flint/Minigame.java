@@ -28,6 +28,7 @@
  */
 package net.caseif.flint;
 
+import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.round.challenger.Challenger;
 
@@ -54,26 +55,26 @@ public interface Minigame {
     String getPlugin();
 
     /**
-     * Gets the current value of the given {@link ConfigOption} for this
+     * Gets the current value of the given {@link ConfigNode} for this
      * {@link Minigame}.
      *
-     * @param option The {@link ConfigOption} to look up
-     * @param <T> The value type associated with <code>option</code>
-     * @return The value of <code>option</code> for this {@link Minigame}
+     * @param node The {@link ConfigNode} to look up
+     * @param <T> The value type associated with <code>node</code>
+     * @return The value of <code>node</code> for this {@link Minigame}
      * @since 1.0.0
      */
-    <T> T getConfigValue(ConfigOption<T> option);
+    <T> T getConfigValue(ConfigNode<T> node);
 
     /**
-     * Gets the current value of the given {@link ConfigOption} for this
+     * Gets the current value of the given {@link ConfigNode} for this
      * {@link Minigame}.
      *
-     * @param option The {@link ConfigOption} to look up
-     * @param value The new value of <code>option</code> for this {@link Minigame}
-     * @param <T> The value type associated with <code>option</code>
+     * @param node The {@link ConfigNode} to look up
+     * @param value The new value of <code>node</code> for this {@link Minigame}
+     * @param <T> The value type associated with <code>node</code>
      * @since 1.0.0
      */
-    <T> void setConfigValue(ConfigOption<T> option, T value);
+    <T> void setConfigValue(ConfigNode<T> node, T value);
 
     /**
      * Gets the {@link Arena} by the given name within this {@link Minigame}.

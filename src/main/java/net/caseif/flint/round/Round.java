@@ -29,6 +29,7 @@
 package net.caseif.flint.round;
 
 import net.caseif.flint.Arena;
+import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.feedback.JoinResult;
 import net.caseif.flint.locale.Localizable;
 import net.caseif.flint.round.challenger.Challenger;
@@ -223,5 +224,25 @@ public interface Round extends Metadatable {
      * @since 1.0.0
      */
     void end(boolean rollback);
+
+    /**
+     * Gets the config value for the given {@link RoundConfigNode}.
+     *
+     * @param node The {@link RoundConfigNode} to look up
+     * @return The value associated with <code>node</code>
+     * @param <T> The value type associated with <code>node</code>
+     * @since 1.0.0
+     */
+    <T> T getConfigValue(RoundConfigNode node);
+
+    /**
+     * Gets the config value for the given {@link RoundConfigNode}.
+     *
+     * @param node The {@link RoundConfigNode} to set
+     * @param value The new value associated with <code>node</code>
+     * @param <T> The value type associated with <code>node</code>
+     * @since 1.0.0
+     */
+    <T> void setConfigValue(RoundConfigNode node, T value);
 
 }
