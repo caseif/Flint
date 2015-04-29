@@ -30,15 +30,17 @@ package net.caseif.flint.round;
 
 import net.caseif.flint.Arena;
 import net.caseif.flint.config.RoundConfigNode;
-import net.caseif.flint.feedback.JoinResult;
+import net.caseif.flint.exception.round.RoundJoinException;
 import net.caseif.flint.locale.Localizable;
 import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.round.challenger.Team;
 import net.caseif.flint.util.Metadatable;
 
 import com.google.common.base.Optional;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Represents an active minigame {@link Round} backed by Flint.
@@ -67,22 +69,66 @@ public interface Round extends Metadatable {
     Set<Challenger> getChallengers();
 
     /**
-     * Adds the given {@link Challenger} to this {@link Round}.
+     * Gets the {@link Challenger} from this {@link Round} with the given
+     * {@link UUID}.
      *
-     * @param challenger The {@link Challenger} to add to this {@link Round}
-     * @return The {@link JoinResult result} of the {@link Challenger} joining
-     *         the round
+     * @param uuid The {@link UUID} to look up
+     * @return The {@link Challenger} from this {@link Round} with the given
+     * {@link UUID}.
      * @since 1.0.0
      */
-    JoinResult addChallenger(Challenger challenger);
+    Optional<Challenger> getChallenger(UUID uuid);
 
     /**
-     * Removes the given {@link Challenger} from this {@link Round}.
+     * Adds the player by the given {@link UUID} to this {@link Round}.
      *
-     * @param challenger The {@link Challenger} to remove from this {@link Round}
+     * @param uuid The unique ID of the player to add to this {@link Round}
+     * @return The newly created {@link Challenger} object
+     * @throws RoundJoinException If the player fails to be added to the
+     * {@link Round}
      * @since 1.0.0
      */
-    void removeChallenger(Challenger challenger);
+    Challenger addPlayer(UUID uuid) throws RoundJoinException;
+
+    /**
+     * Returns an immutable {@link Set} of {@link Team}s in this
+     * {@link Round}.
+     *
+     * @return An immutable {@link Set} of {@link Team}s in this
+     * {@link Round}
+     * @since 1.0.0
+     */
+    Set<Team> getTeams();
+
+    /**
+     * Gets the {@link Team} from this {@link Round} with the given identifier.
+     *
+     * @param id The identifier to look up
+     * @return The {@link Team} with the given identifier
+     * @since 1.0.0
+     */
+    Optional<Team> getTeam(String id);
+
+    /**
+     * Creates a {@link Team} in this {@link Round} with the given identifer.
+     *
+     * @param id The identifier of the new {@link Team}
+     * @return The newly created {@link Team}.
+     * @throws IllegalArgumentException If a {@link Team} with the given
+     *                                  identifer already exists
+     * @since 1.0.0
+     */
+    Team createTeam(String id) throws IllegalArgumentException;
+
+    /**
+     * Gets the {@link Team} from this {@link Round} with the given identifer,
+     * or creates it if it does not already exist.
+     *
+     * @param id The identifier to look up
+     * @return The fetched or newly created {@link Team}.
+     * @since 1.0.0
+     */
+    Team getOrCreateTeam(String id);
 
     /**
      * Returns the number of {@link Challenger}s in this {@link Round} marked as

@@ -46,9 +46,9 @@ import java.util.Set;
 public interface Arena extends Metadatable {
 
     /**
-     * Gets the internal ID of this {@link Arena}.
+     * Gets the identifier of this {@link Arena}.
      *
-     * @return The internal ID of this {@link Arena}
+     * @return The identifier of this {@link Arena}
      * @since 1.0.0
      */
     String getId();
@@ -134,5 +134,14 @@ public interface Arena extends Metadatable {
      * @since 1.0.0
      */
     Optional<Round> getRound();
+
+    /**
+     * Creates a new {@link Round} in this {@link Arena}.
+     *
+     * @return The newly created {@link Round}.
+     * @throws UnsupportedOperationException If a {@link Round} already exists
+     *                                       in this {@link Arena}
+     * @since 1.0.0
+     */
 
 }

@@ -83,7 +83,9 @@ public interface Challenger extends Metadatable {
      * Sets the {@link Team} this challenger belongs to. This implicitly removes
      * it from the team it currently belongs to if applicable.
      *
-     * @param team The new {@link Team} this challenger will belong to
+     * @param team The new {@link Team} this challenger will belong to (pass
+     *             <code>null</code> to remove them from their current
+     *             {@link Team})
      * @since 1.0.0
      */
     void setTeam(Team team);

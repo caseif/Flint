@@ -44,32 +44,37 @@ import java.util.UUID;
 public class ConfigNode<T> {
 
     /**
-     * The minimum player count required for a
-     * {@link net.caseif.flint.round.Round} to automatically start.
-     */
-    public static final RoundConfigNode<Integer> MIN_PLAYERS_TO_START = new RoundConfigNode<>();
-    /**
      * The maximum permitted player count.
+     *
+     * @since 1.0.0
      */
     public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>();
     /**
      * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
      * permitted to teleport.
+     *
+     * @since 1.0.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>();
     /**
      * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
      * permitted to damage one another.
+     *
+     * @since 1.0.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_DAMAGE = new RoundConfigNode<>();
     /**
      * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
      * permitted to damage teammates.
+     *
+     * @since 1.0.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>();
     /**
      * Whether {@link net.caseif.flint.round.challenger.Team}s are to use
      * separate chat channels.
+     *
+     * @since 1.0.0
      */
     public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>();
 

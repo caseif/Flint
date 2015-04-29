@@ -29,8 +29,10 @@
 package net.caseif.flint;
 
 import net.caseif.flint.config.ConfigNode;
+import net.caseif.flint.locale.LocaleManager;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
 
@@ -85,6 +87,16 @@ public interface Minigame {
     <T> void setConfigValue(ConfigNode<T> node, T value);
 
     /**
+     * Gets an immutable {@link Set} containing all {@link Arena}s owned by this
+     * {@link Minigame}.
+     *
+     * @return An immutable {@link Set} containing all {@link Arena}s owned by
+     * this {@link Minigame}.
+     * @since 1.0.0
+     */
+    Set<Arena> getArenas();
+
+    /**
      * Gets the {@link Arena} by the given name within this {@link Minigame}.
      *
      * @param arenaName The name of the {@link Arena} to get
@@ -94,24 +106,36 @@ public interface Minigame {
     Optional<Arena> getArena(String arenaName);
 
     /**
-     * Gets an immutable {@link Set} containing all {@link Arena}s owned by this
-     * {@link Minigame}.
+     * Creates and stores a new {@link Arena} with the given name within this
+     * {@link Minigame} with the given identifier and initial spawn point.
      *
-     * @return an immutable {@link Set} containing all {@link Arena}s owned by
-     * this {@link Minigame}.
+     * @param id The identifier of the new {@link Arena}
+     * @return The newly created {@link Arena}
+     * @throws IllegalArgumentException If an {@link Arena} with the given
+     *                                  identifier already exists
      * @since 1.0.0
      */
-    Set<Arena> getArenas();
+    Arena createArena(String id, Location3D spawnPoint) throws IllegalArgumentException;
 
     /**
      * Gets an immutable {@link Set} containing all active {@link Round}s owned
      * by this {@link Minigame}.
      *
-     * @return an immutable {@link Set} containing all active {@link Round}s
+     * @return An immutable {@link Set} containing all active {@link Round}s
      * owned by this {@link Minigame}.
      * @since 1.0.0
      */
     Set<Round> getRounds();
+
+    /**
+     * Gets an immutable {@link Set} containing all active {@link Challenger}s
+     * owned by this {@link Minigame}.
+     *
+     * @return An immutable {@link Set} containing all active
+     * {@link Challenger}s owned by this {@link Minigame}.
+     * @since 1.0.0
+     */
+    Set<Challenger> getChallengers();
 
     /**
      * Gets the {@link Challenger} by the given UUID.
@@ -121,5 +145,13 @@ public interface Minigame {
      * @since 1.0.0
      */
     Optional<Challenger> getChallenger(UUID uuid);
+
+    /**
+     * Gets the {@link LocaleManager} for this {@link Minigame} instance
+     *
+     * @return The {@link LocaleManager} for this {@link Minigame} instance
+     * @since 1.0.0
+     */
+    LocaleManager getLocaleManager();
 
 }

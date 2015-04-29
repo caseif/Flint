@@ -29,6 +29,7 @@
 package net.caseif.flint.round.challenger;
 
 import net.caseif.flint.round.Round;
+import net.caseif.flint.util.Metadatable;
 
 import java.util.Set;
 
@@ -39,7 +40,7 @@ import java.util.Set;
  * @author Max Roncacé
  * @since 1.0.0
  */
-public interface Team {
+public interface Team extends Metadatable {
 
     /**
      * Gets the internal identifier of this {@link Team}.
@@ -58,6 +59,14 @@ public interface Team {
     String getDisplayName();
 
     /**
+     * Returns the {@link Round} containing this {@link Team}.
+     *
+     * @return The {@link Round} containing this {@link Team}
+     * @since 1.0.0
+     */
+    Round getRound();
+
+    /**
      * Returns an immutable {@link Set} of all {@link Challenger}s on this
      *         {@link Team}.
      *
@@ -66,5 +75,14 @@ public interface Team {
      * @since 1.0.0
      */
     Set<Challenger> getChallengers();
+
+    /**
+     * Adds the given {@link Challenger} to this {@link Team} and implicitly
+     * removing it from its current {@link Team} if applicable.
+     *
+     * @param challenger The {@link Challenger} to add
+     * @since 1.0.0
+     */
+    void addChallenger(Challenger challenger);
 
 }
