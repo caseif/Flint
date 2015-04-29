@@ -91,7 +91,7 @@ public interface Minigame {
      * {@link Minigame}.
      *
      * @return An immutable {@link Set} containing all {@link Arena}s owned by
-     * this {@link Minigame}.
+     *         this {@link Minigame}.
      * @since 1.0.0
      */
     Set<Arena> getArenas();
@@ -132,7 +132,7 @@ public interface Minigame {
      * owned by this {@link Minigame}.
      *
      * @return An immutable {@link Set} containing all active
-     * {@link Challenger}s owned by this {@link Minigame}.
+     *         {@link Challenger}s owned by this {@link Minigame}.
      * @since 1.0.0
      */
     Set<Challenger> getChallengers();
@@ -147,7 +147,7 @@ public interface Minigame {
     Optional<Challenger> getChallenger(UUID uuid);
 
     /**
-     * Gets the {@link LocaleManager} for this {@link Minigame} instance
+     * Gets the {@link LocaleManager} for this {@link Minigame} instance.
      *
      * @return The {@link LocaleManager} for this {@link Minigame} instance
      * @since 1.0.0

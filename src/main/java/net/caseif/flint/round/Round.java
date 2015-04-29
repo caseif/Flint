@@ -74,7 +74,7 @@ public interface Round extends Metadatable {
      *
      * @param uuid The {@link UUID} to look up
      * @return The {@link Challenger} from this {@link Round} with the given
-     * {@link UUID}.
+     *         {@link UUID}.
      * @since 1.0.0
      */
     Optional<Challenger> getChallenger(UUID uuid);
@@ -85,7 +85,7 @@ public interface Round extends Metadatable {
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The newly created {@link Challenger} object
      * @throws RoundJoinException If the player fails to be added to the
-     * {@link Round}
+     *                            {@link Round}
      * @since 1.0.0
      */
     Challenger addPlayer(UUID uuid) throws RoundJoinException;
@@ -95,7 +95,7 @@ public interface Round extends Metadatable {
      * {@link Round}.
      *
      * @return An immutable {@link Set} of {@link Team}s in this
-     * {@link Round}
+     *         {@link Round}
      * @since 1.0.0
      */
     Set<Team> getTeams();

@@ -63,7 +63,7 @@ public interface Challenger extends Metadatable {
      * Gets the {@link Round} which this challenger is currently in.
      *
      * <p>This should never return <code>null</code> when used properly, as
-     * references to a {@link Challenger}s should under no circumstances be
+     * references to a {@link Challenger} should under no circumstances be
      * retained beyond it fully exiting a {@link Round}.</p>
      *
      * @return The {@link Round} which this challenger is currently in.
