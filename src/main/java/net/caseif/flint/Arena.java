@@ -28,9 +28,9 @@
  */
 package net.caseif.flint;
 
+import com.flowpowered.math.vector.Vector3d;
 import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.physical.Boundary;
-import net.caseif.flint.util.physical.Location3D;
 import net.caseif.flint.round.Round;
 
 import com.google.common.base.Optional;
@@ -87,17 +87,17 @@ public interface Arena extends Metadatable {
      *         upon entering this arena
      * @since 1.0.0
      */
-    Set<Location3D> getSpawnPoints();
+    Set<Vector3d> getSpawnPoints();
 
     /**
-     * Adds the given {@link Location3D} to this {@link Arena}'s possible
+     * Adds the given {@link Vector3d} to this {@link Arena}'s possible
      * spawn points.
      *
-     * @param spawn The {@link Location3D} to add as a new spawn point
+     * @param spawn The {@link Vector3d} to add as a new spawn point
      * @return The index of the new spawn point
      * @since 1.0.0
      */
-    int addSpawnPoint(Location3D spawn);
+    int addSpawnPoint(Vector3d spawn);
 
     /**
      * Removes the spawn point of the given index from this {@link Arena}.
@@ -117,7 +117,7 @@ public interface Arena extends Metadatable {
      *                                  does not exist
      * @since 1.0.0
      */
-    void removeSpawnPoint(Location3D location);
+    void removeSpawnPoint(Vector3d location);
 
     /**
      * Gets whether this {@link Arena} contains an active round.

@@ -38,6 +38,7 @@ repositories {
 // Project dependencies
 dependencies {
     compile 'com.google.guava:guava:17.0'
+    compile 'com.flowpowered:flow-math:1.0.0'
 
     deployerJars 'org.apache.maven.wagon:wagon-ssh:2.8'
 }
