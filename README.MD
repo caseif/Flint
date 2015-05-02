@@ -11,6 +11,10 @@ for each minigame.
 Documentation is published continuously to [http://jd.caseif.net/flint](http://jd.caseif.net/flint). Additionally, a
 tutorial will be written and published upon initial release of the API.
 
+### Prerequisites
+
+Flint requires Java 7 for compilation and use.
+
 ### Building
 
 Flint uses Gradle as its build system. To clone and build the plugin from scratch:
@@ -33,4 +37,4 @@ I can be contacted [via email at caseif@caseif.net](mailto:caseif@caseif.net).
 
 ### Copyright ###
 
-Flint's source code and binary are provided under the New BSD license.
+Flint's source code and binary are provided under the BSD 3-Clause license.

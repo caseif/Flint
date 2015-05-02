@@ -13,11 +13,11 @@ defaultTasks 'clean', 'licenseFormat', 'build'
 
 // Project information
 group = 'net.caseif.flint'
-version = '1.0.0-SNAPSHOT'
+version = '1.0-SNAPSHOT'
 
 // Extended project information
 ext.projectName = 'flint'
-ext.description = 'A framework for Minecraft minigame mods.'
+ext.description = 'A framework for (Minecraft) minigame mods.'
 ext.inceptionYear = '2015'
 ext.packaging = 'jar'
 
@@ -124,8 +124,8 @@ uploadArchives {
 
                 licenses {
                     license {
-                        name 'MIT license'
-                        url 'http://opensource.org/licenses/MIT'
+                        name 'BSD 3-Clause'
+                        url 'http://opensource.org/licenses/BSD-3-clause'
                         distribution 'repo'
                     }
                 }
