@@ -38,7 +38,7 @@ package net.caseif.flint.config;
  */
 public class RoundConfigNode<T> extends ConfigNode<T> {
 
-    protected RoundConfigNode() {
-        super();
+    protected RoundConfigNode(T defaultValue) {
+        super(defaultValue);
     }
 }

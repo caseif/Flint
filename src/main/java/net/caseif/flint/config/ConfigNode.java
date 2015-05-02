@@ -42,46 +42,56 @@ import java.util.UUID;
  */
 @SuppressWarnings("unused")
 public class ConfigNode<T> {
-
     /**
      * The maximum permitted player count.
      *
      * @since 1.0.0
      */
-    public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>();
+    public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>(32);
     /**
      * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
      * permitted to teleport.
      *
      * @since 1.0.0
      */
-    public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>();
+    public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>(true);
     /**
      * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
      * permitted to damage one another.
      *
      * @since 1.0.0
      */
-    public static final RoundConfigNode<Boolean> ALLOW_DAMAGE = new RoundConfigNode<>();
+    public static final RoundConfigNode<Boolean> ALLOW_DAMAGE = new RoundConfigNode<>(true);
     /**
      * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
      * permitted to damage teammates.
      *
      * @since 1.0.0
      */
-    public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>();
+    public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>(false);
     /**
      * Whether {@link net.caseif.flint.round.challenger.Team}s are to use
      * separate chat channels.
      *
      * @since 1.0.0
      */
-    public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>();
+    public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>(false);
 
     private final UUID uuid;
+    private final T defaultValue;
 
-    protected ConfigNode() {
+    protected ConfigNode(T defaultValue) {
         this.uuid = UUID.randomUUID();
+        this.defaultValue = defaultValue;
+    }
+
+    /**
+     * Returns this {@link ConfigNode}'s default value.
+     *
+     * @return This {@link ConfigNode}'s default value
+     */
+    T getDefaultValue() {
+        return this.defaultValue;
     }
 
     @Override
@@ -91,7 +101,7 @@ public class ConfigNode<T> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(uuid);
+        return Objects.hash(this.getClass(), uuid);
     }
 
 }
