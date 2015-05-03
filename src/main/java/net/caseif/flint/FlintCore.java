@@ -46,7 +46,21 @@ public abstract class FlintCore {
      * @since 1.0.0
      */
     public static FlintCore getInstance() {
+        getApiRevision();
         return INSTANCE;
+    }
+
+    /**
+     * Gets the current API revision.
+     *
+     * <p>The API revision is incremented for each version (discounting snapshot
+     * builds) which modifies Flint's API.</p>
+     *
+     * @return The current API revision
+     * @since 1.0
+     */
+    public static int getApiRevision() {
+        return 1;
     }
 
     /**
