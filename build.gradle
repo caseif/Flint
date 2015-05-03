@@ -1,13 +1,23 @@
-// Apply Gradle plugins
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
+    }
+}
+
+// apply Gradle plugins
 plugins {
     id 'java'
     id 'maven'
     id 'eclipse'
     id 'idea'
     id 'checkstyle'
-
-    id 'com.github.hierynomus.license' version '0.11.0'
 }
+
+apply plugin: 'license'
 
 defaultTasks 'clean', 'licenseFormat', 'build'
 
