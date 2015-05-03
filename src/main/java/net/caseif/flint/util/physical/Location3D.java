@@ -82,7 +82,7 @@ public class Location3D {
      *         {@link Optional#absent()} if one is not defined
      * @since 1.0
      */
-    Optional<String> getWorld() {
+    public Optional<String> getWorld() {
         return Optional.fromNullable(this.world);
     }
 
