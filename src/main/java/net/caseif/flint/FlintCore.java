@@ -46,7 +46,6 @@ public abstract class FlintCore {
      * @since 1.0
      */
     public static FlintCore getInstance() {
-        getApiRevision();
         return INSTANCE;
     }
 

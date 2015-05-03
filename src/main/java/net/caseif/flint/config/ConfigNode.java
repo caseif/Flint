@@ -90,7 +90,7 @@ public class ConfigNode<T> {
      *
      * @return This {@link ConfigNode}'s default value
      */
-    T getDefaultValue() {
+    public T getDefaultValue() {
         return this.defaultValue;
     }
 
