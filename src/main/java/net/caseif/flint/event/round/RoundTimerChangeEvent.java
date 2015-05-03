@@ -35,7 +35,7 @@ package net.caseif.flint.event.round;
  * platform implementations, and therefore may be safely typecast to such.</p>
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface RoundTimerChangeEvent extends RoundEvent {
 
@@ -43,7 +43,7 @@ public interface RoundTimerChangeEvent extends RoundEvent {
      * Gets the timer's value before this event took place.
      *
      * @return The timer's value before this event took place
-     * @since 1.0.0
+     * @since 1.0
      */
     long getOldTime();
 
@@ -51,7 +51,7 @@ public interface RoundTimerChangeEvent extends RoundEvent {
      * Gets the timer's value after this event took place.
      *
      * @return The timer's value after this event took place
-     * @since 1.0.0
+     * @since 1.0
      */
     long getNewTime();
 

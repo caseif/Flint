@@ -32,8 +32,8 @@ package net.caseif.flint;
  * The core class for the Flint framework.
  *
  * @author Max Roncacé
- * @version 1.0.0-SNAPSHOT
- * @since 1.0.0
+ * @version 1.0-SNAPSHOT
+ * @since 1.0
  */
 public abstract class FlintCore {
 
@@ -43,7 +43,7 @@ public abstract class FlintCore {
      * Gets the primary instance of this class.
      *
      * @return The primary instance of this class
-     * @since 1.0.0
+     * @since 1.0
      */
     public static FlintCore getInstance() {
         getApiRevision();
@@ -68,7 +68,7 @@ public abstract class FlintCore {
      *
      * @param pluginId The name or ID of the plugin to register
      * @return The newly created {@link Minigame} associated with the plugin
-     * @since 1.0.0
+     * @since 1.0
      */
     public abstract Minigame registerPlugin(String pluginId);
 

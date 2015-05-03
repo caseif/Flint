@@ -41,7 +41,7 @@ import java.util.Set;
  * Represents an arena in which rounds may take place.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Arena extends Metadatable {
 
@@ -49,7 +49,7 @@ public interface Arena extends Metadatable {
      * Gets the identifier of this {@link Arena}.
      *
      * @return The identifier of this {@link Arena}
-     * @since 1.0.0
+     * @since 1.0
      */
     String getId();
 
@@ -58,7 +58,7 @@ public interface Arena extends Metadatable {
      *
      * @return The name of this {@link Arena} as displayed to users, or its ID
      *         if one is not set
-     * @since 1.0.0
+     * @since 1.0
      */
     String getName();
 
@@ -66,7 +66,7 @@ public interface Arena extends Metadatable {
      * Gets the name of the world which contains this {@link Arena}.
      *
      * @return The name of the world which contains this {@link Arena}
-     * @since 1.0.0
+     * @since 1.0
      */
     String getWorld();
 
@@ -75,7 +75,7 @@ public interface Arena extends Metadatable {
      *
      * @return The {@link Boundary} which this {@link Arena} is contained
      *         within
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Boundary> getBoundary();
 
@@ -85,7 +85,7 @@ public interface Arena extends Metadatable {
      *
      * @return An immutable {@link Set} of points at which players may spawn
      *         upon entering this arena
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Location3D> getSpawnPoints();
 
@@ -95,7 +95,7 @@ public interface Arena extends Metadatable {
      *
      * @param spawn The {@link Location3D} to add as a new spawn point
      * @return The index of the new spawn point
-     * @since 1.0.0
+     * @since 1.0
      */
     int addSpawnPoint(Location3D spawn);
 
@@ -105,7 +105,7 @@ public interface Arena extends Metadatable {
      * @param index The index of the spawn point to remove
      * @throws IllegalArgumentException If a spawn point at the given index does
      *                                  not exist
-     * @since 1.0.0
+     * @since 1.0
      */
     void removeSpawnPoint(int index);
 
@@ -115,7 +115,7 @@ public interface Arena extends Metadatable {
      * @param location The location of the spawn point to remove
      * @throws IllegalArgumentException If a spawn point at the given location
      *                                  does not exist
-     * @since 1.0.0
+     * @since 1.0
      */
     void removeSpawnPoint(Location3D location);
 
@@ -123,7 +123,7 @@ public interface Arena extends Metadatable {
      * Gets whether this {@link Arena} contains an active round.
      *
      * @return Whether this {@link Arena} contains an active round
-     * @since 1.0.0
+     * @since 1.0
      */
     boolean hasActiveRound();
 
@@ -131,7 +131,7 @@ public interface Arena extends Metadatable {
      * Gets the {@link Round} contained by this {@link Arena}.
      *
      * @return The {@link Round} contained by this {@link Arena}
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Round> getRound();
 
@@ -141,7 +141,7 @@ public interface Arena extends Metadatable {
      * @return The newly created {@link Round}.
      * @throws UnsupportedOperationException If a {@link Round} already exists
      *                                       in this {@link Arena}
-     * @since 1.0.0
+     * @since 1.0
      */
 
 }

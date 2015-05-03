@@ -32,7 +32,7 @@ package net.caseif.flint.round;
  * Represents an immutable lifecycle stage of a {@link Round}.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public final class LifecycleStage {
 
@@ -44,7 +44,7 @@ public final class LifecycleStage {
      *
      * @param id The stage's ID
      * @param duration The duration of the stage
-     * @since 1.0.0
+     * @since 1.0
      */
     public LifecycleStage(String id, int duration) {
         this.id = id;
@@ -55,7 +55,7 @@ public final class LifecycleStage {
      * Gets the ID of this {@link LifecycleStage}.
      *
      * @return The ID of this {@link LifecycleStage}
-     * @since 1.0.0
+     * @since 1.0
      */
     public final String getId() {
         return this.id;
@@ -65,7 +65,7 @@ public final class LifecycleStage {
      * Gets the duration of this {@link LifecycleStage}.
      *
      * @return The duration of this {@link LifecycleStage}
-     * @since 1.0.0
+     * @since 1.0
      */
     public final int getDuration() {
         return this.duration;

@@ -44,7 +44,7 @@ import java.util.UUID;
  * locale, it will output its internal key instead.</p>
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Localizable {
 
@@ -52,7 +52,7 @@ public interface Localizable {
      * Gets the parent {@link LocaleManager} for this {@link Localizable}.
      *
      * @return The parent {@link LocaleManager} for this {@link Localizable}.
-     * @since 1.0.0
+     * @since 1.0
      */
     LocaleManager getParent();
 
@@ -60,7 +60,7 @@ public interface Localizable {
      * Localizes this {@link Localizable} in the server's default locale.
      *
      * @return The appropriate localization for this {@link Localizable}.
-     * @since 1.0.0
+     * @since 1.0
      */
     String localize();
 
@@ -71,7 +71,7 @@ public interface Localizable {
      * @return A string representing the localized message. This should follow
      *         the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
      *         or enUS).
-     * @since 1.0.0
+     * @since 1.0
      */
     String localizeIn(String locale);
 
@@ -81,7 +81,7 @@ public interface Localizable {
      * @param challenger The {@link Challenger} to localize this
      *                   {@link Localizable} for
      * @return A string representing the localized message
-     * @since 1.0.0
+     * @since 1.0
      */
     String localizeFor(Challenger challenger);
 
@@ -92,7 +92,7 @@ public interface Localizable {
      * @param uuid The UUID of the player to localize this {@link Localizable}
      *             for
      * @return A string representing the localized message
-     * @since 1.0.0
+     * @since 1.0
      */
     String localizeFor(UUID uuid);
 
@@ -102,7 +102,7 @@ public interface Localizable {
      *
      * @param challenger The {@link Challenger} to send this {@link Localizable}
      *                   to
-     * @since 1.0.0
+     * @since 1.0
      */
     void sendTo(Challenger challenger);
 
@@ -111,7 +111,7 @@ public interface Localizable {
      * respective locale.
      *
      * @param uuid The UUID of the player to send this {@link Localizable} to
-     * @since 1.0.0
+     * @since 1.0
      */
     void sendTo(UUID uuid);
 
@@ -126,7 +126,7 @@ public interface Localizable {
      *
      * @param obj The object to append to this {@link Localizable}
      * @return The newly-created {@link Localizable} with the appended object
-     * @since 1.0.0
+     * @since 1.0
      */
     Localizable append(Object obj);
 

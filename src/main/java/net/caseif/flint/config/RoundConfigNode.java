@@ -34,7 +34,7 @@ package net.caseif.flint.config;
  *
  * @param <T> The value type associated with this {@link ConfigNode}
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public class RoundConfigNode<T> extends ConfigNode<T> {
 

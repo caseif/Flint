@@ -38,7 +38,7 @@ import java.util.Set;
  * {@link Round}.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Team extends Metadatable {
 
@@ -46,7 +46,7 @@ public interface Team extends Metadatable {
      * Gets the internal identifier of this {@link Team}.
      *
      * @return The internal identifier of this {@link Team}
-     * @since 1.0.0
+     * @since 1.0
      */
     String getId();
 
@@ -54,7 +54,7 @@ public interface Team extends Metadatable {
      * Gets the display name of this {@link Team}.
      *
      * @return The display name of this {@link Team}
-     * @since 1.0.0
+     * @since 1.0
      */
     String getDisplayName();
 
@@ -62,7 +62,7 @@ public interface Team extends Metadatable {
      * Returns the {@link Round} containing this {@link Team}.
      *
      * @return The {@link Round} containing this {@link Team}
-     * @since 1.0.0
+     * @since 1.0
      */
     Round getRound();
 
@@ -72,7 +72,7 @@ public interface Team extends Metadatable {
      *
      * @return An immutable {@link Set} of all {@link Challenger}s on this
      *         {@link Team}
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Challenger> getChallengers();
 
@@ -81,7 +81,7 @@ public interface Team extends Metadatable {
      * removing it from its current {@link Team} if applicable.
      *
      * @param challenger The {@link Challenger} to add
-     * @since 1.0.0
+     * @since 1.0
      */
     void addChallenger(Challenger challenger);
 

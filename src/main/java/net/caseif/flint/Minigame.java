@@ -43,7 +43,7 @@ import java.util.UUID;
  * Represents a minigame registered with Flint.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Minigame {
 
@@ -52,7 +52,7 @@ public interface Minigame {
      *
      * @return the name or ID of the plugin to which this {@link Minigame}
      *         belongs.
-     * @since 1.0.0
+     * @since 1.0
      */
     String getPlugin();
 
@@ -67,7 +67,7 @@ public interface Minigame {
      * @param node The {@link ConfigNode} to look up
      * @param <T> The value type associated with <code>node</code>
      * @return The value of <code>node</code> for this {@link Minigame}
-     * @since 1.0.0
+     * @since 1.0
      */
     <T> T getConfigValue(ConfigNode<T> node);
 
@@ -82,7 +82,7 @@ public interface Minigame {
      * @param node The {@link ConfigNode} to look up
      * @param value The new value of <code>node</code> for this {@link Minigame}
      * @param <T> The value type associated with <code>node</code>
-     * @since 1.0.0
+     * @since 1.0
      */
     <T> void setConfigValue(ConfigNode<T> node, T value);
 
@@ -92,7 +92,7 @@ public interface Minigame {
      *
      * @return An immutable {@link Set} containing all {@link Arena}s owned by
      *         this {@link Minigame}.
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Arena> getArenas();
 
@@ -101,7 +101,7 @@ public interface Minigame {
      *
      * @param arenaName The name of the {@link Arena} to get
      * @return The {@link Arena} by the given name within this {@link Minigame}
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Arena> getArena(String arenaName);
 
@@ -113,7 +113,7 @@ public interface Minigame {
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
      *                                  identifier already exists
-     * @since 1.0.0
+     * @since 1.0
      */
     Arena createArena(String id, Location3D spawnPoint) throws IllegalArgumentException;
 
@@ -123,7 +123,7 @@ public interface Minigame {
      *
      * @return An immutable {@link Set} containing all active {@link Round}s
      * owned by this {@link Minigame}.
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Round> getRounds();
 
@@ -133,7 +133,7 @@ public interface Minigame {
      *
      * @return An immutable {@link Set} containing all active
      *         {@link Challenger}s owned by this {@link Minigame}.
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Challenger> getChallengers();
 
@@ -142,7 +142,7 @@ public interface Minigame {
      *
      * @param uuid The UUID to look up
      * @return The {@link Challenger} by the given UUID
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Challenger> getChallenger(UUID uuid);
 
@@ -150,7 +150,7 @@ public interface Minigame {
      * Gets the {@link LocaleManager} for this {@link Minigame} instance.
      *
      * @return The {@link LocaleManager} for this {@link Minigame} instance
-     * @since 1.0.0
+     * @since 1.0
      */
     LocaleManager getLocaleManager();
 

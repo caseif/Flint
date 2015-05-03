@@ -32,7 +32,7 @@ package net.caseif.flint.event;
  * Represents a {@link FlintEvent} which may be cancelled.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Cancellable {
 
@@ -40,7 +40,7 @@ public interface Cancellable {
      * Gets whether this event is currently marked for cancellation.
      *
      * @return Whether this event is currently marked for cancellation
-     * @since 1.0.0
+     * @since 1.0
      */
     boolean isCancelled();
 
@@ -48,7 +48,7 @@ public interface Cancellable {
      * Sets whether this event is marked for cancellation.
      *
      * @param cancelled Whether this event will be marked for cancellation
-     * @since 1.0.0
+     * @since 1.0
      */
     void setCancelled(boolean cancelled);
 

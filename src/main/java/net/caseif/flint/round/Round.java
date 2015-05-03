@@ -46,7 +46,7 @@ import java.util.UUID;
  * Represents an active minigame {@link Round} backed by Flint.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Round extends Metadatable {
 
@@ -54,7 +54,7 @@ public interface Round extends Metadatable {
      * Gets the {@link Arena} which contains this {@link Round}.
      *
      * @return The {@link Arena} which contains this {@link Round}
-     * @since 1.0.0
+     * @since 1.0
      */
     Arena getArena();
 
@@ -64,7 +64,7 @@ public interface Round extends Metadatable {
      *
      * @return An immutable {@link Set} of {@link Challenger}s in this
      * {@link Round}
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Challenger> getChallengers();
 
@@ -75,7 +75,7 @@ public interface Round extends Metadatable {
      * @param uuid The {@link UUID} to look up
      * @return The {@link Challenger} from this {@link Round} with the given
      *         {@link UUID}.
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Challenger> getChallenger(UUID uuid);
 
@@ -86,7 +86,7 @@ public interface Round extends Metadatable {
      * @return The newly created {@link Challenger} object
      * @throws RoundJoinException If the player fails to be added to the
      *                            {@link Round}
-     * @since 1.0.0
+     * @since 1.0
      */
     Challenger addPlayer(UUID uuid) throws RoundJoinException;
 
@@ -96,7 +96,7 @@ public interface Round extends Metadatable {
      *
      * @return An immutable {@link Set} of {@link Team}s in this
      *         {@link Round}
-     * @since 1.0.0
+     * @since 1.0
      */
     Set<Team> getTeams();
 
@@ -105,7 +105,7 @@ public interface Round extends Metadatable {
      *
      * @param id The identifier to look up
      * @return The {@link Team} with the given identifier
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Team> getTeam(String id);
 
@@ -116,7 +116,7 @@ public interface Round extends Metadatable {
      * @return The newly created {@link Team}.
      * @throws IllegalArgumentException If a {@link Team} with the given
      *                                  identifer already exists
-     * @since 1.0.0
+     * @since 1.0
      */
     Team createTeam(String id) throws IllegalArgumentException;
 
@@ -126,7 +126,7 @@ public interface Round extends Metadatable {
      *
      * @param id The identifier to look up
      * @return The fetched or newly created {@link Team}.
-     * @since 1.0.0
+     * @since 1.0
      */
     Team getOrCreateTeam(String id);
 
@@ -136,7 +136,7 @@ public interface Round extends Metadatable {
      *
      * @return The number of {@link Challenger}s in this {@link Round} marked as
      * spectating
-     * @since 1.0.0
+     * @since 1.0
      */
     int getSpectatorCount();
 
@@ -145,7 +145,7 @@ public interface Round extends Metadatable {
      * this {@link Round}.
      *
      * @param message The string to broadcast
-     * @since 1.0.0
+     * @since 1.0
      */
     void broadcast(String message);
 
@@ -154,7 +154,7 @@ public interface Round extends Metadatable {
      * this {@link Round}.
      *
      * @param message The {@link Localizable} to broadcast
-     * @since 1.0.0
+     * @since 1.0
      */
     void broadcast(Localizable message);
 
@@ -162,7 +162,7 @@ public interface Round extends Metadatable {
      * Gets this {@link Round}'s defined lifecycle stages.
      *
      * @return This {@link Round}'s defined lifecycle stages
-     * @since 1.0.0
+     * @since 1.0
      */
     LinkedHashSet<LifecycleStage> getLifecycleStages();
 
@@ -170,7 +170,7 @@ public interface Round extends Metadatable {
      * Defines this {@link Round}'s lifecycle stages.
      *
      * @param stages The new lifecycle stages to define
-     * @since 1.0.0
+     * @since 1.0
      */
     void setLifecycleStages(LinkedHashSet<LifecycleStage> stages);
 
@@ -178,7 +178,7 @@ public interface Round extends Metadatable {
      * Gets this {@link Round}'s current lifecycle stage.
      *
      * @return This {@link Round}'s current lifecycle stage.
-     * @since 1.0.0
+     * @since 1.0
      */
     LifecycleStage getLifecycleStage();
 
@@ -188,7 +188,7 @@ public interface Round extends Metadatable {
      * @return This {@link Round}'s next lifecycle stage, or
      *         {@link Optional#absent()} if the current stage is the final
      *         defined
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<LifecycleStage> getNextLifecycleStage();
 
@@ -199,7 +199,7 @@ public interface Round extends Metadatable {
      * change, although this is not absolute.</p>
      *
      * @return The current state of this {@link Round}'s timer in seconds
-     * @since 1.0.0
+     * @since 1.0
      */
     long getTime();
 
@@ -207,7 +207,7 @@ public interface Round extends Metadatable {
      * Sets the current state of this {@link Round}'s timer in seconds.
      *
      * @param time The current state of this {@link Round}'s timer in seconds
-     * @since 1.0.0
+     * @since 1.0
      */
     void setTime(long time);
 
@@ -218,21 +218,21 @@ public interface Round extends Metadatable {
      * @return The time in seconds until this {@link Round} is due to change
      *         its {@link LifecycleStage lifecycle stage}, or <code>-1</code> if the
      *         current stage is untimed.
-     * @since 1.0.0
+     * @since 1.0
      */
     long getRemainingTime();
 
     /**
      * Starts this {@link Round}'s timer in its current state.
      *
-     * @since 1.0.0
+     * @since 1.0
      */
     void startTimer();
 
     /**
      * Stops this {@link Round}'s timer. Note that this does not end the round.
      *
-     * @since 1.0.0
+     * @since 1.0
      */
     void stopTimer();
 
@@ -240,7 +240,7 @@ public interface Round extends Metadatable {
      * Sets this {@link Round}'s lifecycle stage to its initial state and resets
      * and stops the timer.
      *
-     * @since 1.0.0
+     * @since 1.0
      */
     void resetTimer();
 
@@ -248,7 +248,7 @@ public interface Round extends Metadatable {
      * Rolls this {@link Round}'s physical arena back to its state immediately
      * following its last rollback.
      *
-     * @since 1.0.0
+     * @since 1.0
      */
     void rollback(); //TODO: may want to move this to Arena in the future
 
@@ -256,7 +256,7 @@ public interface Round extends Metadatable {
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s, and rolling back its arena.
      *
-     * @since 1.0.0
+     * @since 1.0
      */
     void end();
 
@@ -267,7 +267,7 @@ public interface Round extends Metadatable {
      *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
      *
-     * @since 1.0.0
+     * @since 1.0
      */
     void end(boolean rollback);
 
@@ -277,7 +277,7 @@ public interface Round extends Metadatable {
      * @param node The {@link RoundConfigNode} to look up
      * @return The value associated with <code>node</code>
      * @param <T> The value type associated with <code>node</code>
-     * @since 1.0.0
+     * @since 1.0
      */
     <T> T getConfigValue(RoundConfigNode node);
 
@@ -287,7 +287,7 @@ public interface Round extends Metadatable {
      * @param node The {@link RoundConfigNode} to set
      * @param value The new value associated with <code>node</code>
      * @param <T> The value type associated with <code>node</code>
-     * @since 1.0.0
+     * @since 1.0
      */
     <T> void setConfigValue(RoundConfigNode node, T value);
 

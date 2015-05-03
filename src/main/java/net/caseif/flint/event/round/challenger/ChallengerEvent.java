@@ -38,7 +38,7 @@ import net.caseif.flint.round.challenger.Challenger;
  * platform implementations, and therefore may be safely typecast to such.</p>
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface ChallengerEvent extends FlintEvent {
 
@@ -46,7 +46,7 @@ public interface ChallengerEvent extends FlintEvent {
      * Gets the {@link Challenger} involved in this event.
      *
      * @return The {@link Challenger} involved in this event
-     * @since 1.0.0
+     * @since 1.0
      */
     Challenger getChallenger();
 

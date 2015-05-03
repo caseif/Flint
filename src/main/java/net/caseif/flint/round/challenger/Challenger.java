@@ -39,7 +39,7 @@ import java.util.UUID;
  * Represents a player actively in a minigame {@link Round} backed by Flint.
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Challenger extends Metadatable {
 
@@ -47,7 +47,7 @@ public interface Challenger extends Metadatable {
      * Gets the username of this {@link Challenger}.
      *
      * @return The username of this {@link Challenger}
-     * @since 1.0.0
+     * @since 1.0
      */
     String getName();
 
@@ -55,7 +55,7 @@ public interface Challenger extends Metadatable {
      * Gets the unique ID of this {@link Challenger}.
      *
      * @return The unique ID of this {@link Challenger}
-     * @since 1.0.0
+     * @since 1.0
      */
     UUID getUniqueId();
 
@@ -67,7 +67,7 @@ public interface Challenger extends Metadatable {
      * retained beyond it fully exiting a {@link Round}.</p>
      *
      * @return The {@link Round} which this challenger is currently in.
-     * @since 1.0.0
+     * @since 1.0
      */
     Round getRound();
 
@@ -75,7 +75,7 @@ public interface Challenger extends Metadatable {
      * Gets the {@link Team} this challenger belongs to.
      *
      * @return The {@link Team} this challenger belongs to
-     * @since 1.0.0
+     * @since 1.0
      */
     Optional<Team> getTeam();
 
@@ -86,7 +86,7 @@ public interface Challenger extends Metadatable {
      * @param team The new {@link Team} this challenger will belong to (pass
      *             <code>null</code> to remove them from their current
      *             {@link Team})
-     * @since 1.0.0
+     * @since 1.0
      */
     void setTeam(Team team);
 
@@ -97,7 +97,7 @@ public interface Challenger extends Metadatable {
      * {@link Round} they are contained by.</p>
      *
      * @return Whether this {@link Challenger} is currently spectating
-     * @since 1.0.0
+     * @since 1.0
      */
     boolean isSpectating();
 
@@ -108,7 +108,7 @@ public interface Challenger extends Metadatable {
      * {@link Round} they are contained by.</p>
      *
      * @param spectating Whether this {@link Challenger} is currently spectating
-     * @since 1.0.0
+     * @since 1.0
      */
     void setSpectating(boolean spectating);
 

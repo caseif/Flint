@@ -38,7 +38,7 @@ import net.caseif.flint.round.Round;
  * platform implementations, and therefore may be safely typecast to such.</p>
  *
  * @author Max Roncacé
- * @since 1.0.0
+ * @since 1.0
  */
 public interface RoundEvent extends FlintEvent {
 
@@ -46,7 +46,7 @@ public interface RoundEvent extends FlintEvent {
      * Gets the {@link Round} involved in this event.
      *
      * @return The {@link Round} involved in this event
-     * @since 1.0.0
+     * @since 1.0
      */
     Round getRound();
 
