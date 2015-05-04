@@ -37,8 +37,6 @@ import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 
-import java.util.Set;
-
 /**
  * Represents an arena in which rounds may take place.
  *

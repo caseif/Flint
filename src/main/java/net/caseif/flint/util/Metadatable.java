@@ -28,6 +28,8 @@
  */
 package net.caseif.flint.util;
 
+import com.google.common.base.Optional;
+
 import java.util.Set;
 
 /**
@@ -39,25 +41,14 @@ import java.util.Set;
 public interface Metadatable {
 
     /**
-     * Gets whether this {@link Metadatable} instanceof contains metadata with
-     * the given key.
-     *
-     * @param key The key to search for
-     * @return Whether this {@link Metadatable} instanceof contains metadata
-     *         with the given key
-     * @since 1.0
-     */
-    boolean hasMetadata(String key);
-
-    /**
      * Gets the value of the metadata with the given key.
      *
      * @param key The key of the metadata value to retrieve
      * @return The value of the metadata with the given key, or
-     *         <code>null</code> if the key is not defined
+     *         {@link Optional#absent()} if the key is not defined
      * @since 1.0
      */
-    Object getMetadata(String key);
+    Optional<Object> getMetadata(String key);
 
     /**
      * Assigns the given value to the metadata with the given key, or clears it
