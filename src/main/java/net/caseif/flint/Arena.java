@@ -80,6 +80,15 @@ public interface Arena extends Metadatable {
     Optional<Boundary> getBoundary();
 
     /**
+     * Sets the {@link Boundary} which this {@link Arena} is contained within.
+     *
+     * @param bound The new {@link Boundary} which this {@link Arena} is to be
+     *              contained within
+     * @since 1.0
+     */
+    void setBoundary(Boundary bound);
+
+    /**
      * Returns an immutable {@link BiMap} of points at which players may spawn
      * upon entering this arena, mapped to their respective IDs.
      *
