@@ -34,6 +34,8 @@ import net.caseif.flint.util.physical.Location3D;
 import net.caseif.flint.round.Round;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 
 import java.util.Set;
 
@@ -80,14 +82,14 @@ public interface Arena extends Metadatable {
     Optional<Boundary> getBoundary();
 
     /**
-     * Returns an immutable {@link Set} of points at which players may spawn
-     * upon entering this arena.
+     * Returns an immutable {@link BiMap} of points at which players may spawn
+     * upon entering this arena, mapped to their respective IDs.
      *
-     * @return An immutable {@link Set} of points at which players may spawn
-     *         upon entering this arena
+     * @return An immutable {@link BiMap} of points at which players may spawn
+     *         upon entering this arena, mapped to their respective IDs
      * @since 1.0
      */
-    Set<Location3D> getSpawnPoints();
+    ImmutableBiMap<Integer, Location3D> getSpawnPoints();
 
     /**
      * Adds the given {@link Location3D} to this {@link Arena}'s possible
@@ -120,14 +122,6 @@ public interface Arena extends Metadatable {
     void removeSpawnPoint(Location3D location);
 
     /**
-     * Gets whether this {@link Arena} contains an active round.
-     *
-     * @return Whether this {@link Arena} contains an active round
-     * @since 1.0
-     */
-    boolean hasActiveRound();
-
-    /**
      * Gets the {@link Round} contained by this {@link Arena}.
      *
      * @return The {@link Round} contained by this {@link Arena}
@@ -143,5 +137,6 @@ public interface Arena extends Metadatable {
      *                                       in this {@link Arena}
      * @since 1.0
      */
+    Round createRound() throws UnsupportedOperationException;
 
 }
