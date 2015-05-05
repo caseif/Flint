@@ -110,6 +110,7 @@ public interface Minigame {
      * {@link Minigame} with the given identifier and initial spawn point.
      *
      * @param id The identifier of the new {@link Arena}
+     * @param spawnPoint The initial spawn point for the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
      *                                  identifier already exists
