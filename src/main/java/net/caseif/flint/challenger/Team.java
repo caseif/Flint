@@ -26,20 +26,64 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event.round.challenger;
+package net.caseif.flint.challenger;
 
-import net.caseif.flint.event.Cancellable;
+import net.caseif.flint.round.Round;
+import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.util.MinigameElement;
+
+import java.util.Set;
 
 /**
- * Called when a {@link net.caseif.flint.round.challenger.Challenger} joins a
- * {@link net.caseif.flint.round.Round}.
- *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
+ * Represents a team containing {@link Challenger}s in a
+ * {@link Round}.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface ChallengerJoinRoundEvent extends ChallengerEvent, Cancellable {
+public interface Team extends Metadatable, MinigameElement {
+
+    /**
+     * Gets the internal identifier of this {@link Team}.
+     *
+     * @return The internal identifier of this {@link Team}
+     * @since 1.0
+     */
+    String getId();
+
+    /**
+     * Gets the display name of this {@link Team}.
+     *
+     * @return The display name of this {@link Team}
+     * @since 1.0
+     */
+    String getDisplayName();
+
+    /**
+     * Returns the {@link Round} containing this {@link Team}.
+     *
+     * @return The {@link Round} containing this {@link Team}
+     * @since 1.0
+     */
+    Round getRound();
+
+    /**
+     * Returns an immutable {@link Set} of all {@link Challenger}s on this
+     *         {@link Team}.
+     *
+     * @return An immutable {@link Set} of all {@link Challenger}s on this
+     *         {@link Team}
+     * @since 1.0
+     */
+    Set<Challenger> getChallengers();
+
+    /**
+     * Adds the given {@link Challenger} to this {@link Team} and implicitly
+     * removing it from its current {@link Team} if applicable.
+     *
+     * @param challenger The {@link Challenger} to add
+     * @since 1.0
+     */
+    void addChallenger(Challenger challenger);
 
 }

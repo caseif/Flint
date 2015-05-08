@@ -26,10 +26,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event.round.challenger;
+package net.caseif.flint.event.challenger;
 
 import net.caseif.flint.event.FlintEvent;
-import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.challenger.Challenger;
 
 /**
  * Represents a {@link FlintEvent} involving a {@link Challenger}.

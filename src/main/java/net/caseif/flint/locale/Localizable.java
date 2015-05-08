@@ -28,7 +28,7 @@
  */
 package net.caseif.flint.locale;
 
-import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.util.MinigameElement;
 
 import java.util.UUID;

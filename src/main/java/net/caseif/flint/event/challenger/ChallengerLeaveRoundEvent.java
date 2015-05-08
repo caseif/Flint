@@ -26,12 +26,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event.round.challenger;
+package net.caseif.flint.event.challenger;
 
 import net.caseif.flint.event.Cancellable;
 
 /**
- * Called when a {@link net.caseif.flint.round.challenger.Challenger} leaves a
+ * Called when a {@link net.caseif.flint.challenger.Challenger} leaves a
  * {@link net.caseif.flint.round.Round}.
  *
  * <p>Flint's event classes will be instances of the native base event class in

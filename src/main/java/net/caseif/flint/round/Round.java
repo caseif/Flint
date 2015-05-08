@@ -32,8 +32,8 @@ import net.caseif.flint.Arena;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.exception.round.RoundJoinException;
 import net.caseif.flint.locale.Localizable;
-import net.caseif.flint.round.challenger.Challenger;
-import net.caseif.flint.round.challenger.Team;
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.challenger.Team;
 import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 

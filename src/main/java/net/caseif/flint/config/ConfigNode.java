@@ -49,28 +49,28 @@ public class ConfigNode<T> {
      */
     public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>(32);
     /**
-     * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
+     * Whether {@link net.caseif.flint.challenger.Challenger}s are
      * permitted to teleport.
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>(true);
     /**
-     * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
+     * Whether {@link net.caseif.flint.challenger.Challenger}s are
      * permitted to damage one another.
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_DAMAGE = new RoundConfigNode<>(true);
     /**
-     * Whether {@link net.caseif.flint.round.challenger.Challenger}s are
+     * Whether {@link net.caseif.flint.challenger.Challenger}s are
      * permitted to damage teammates.
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>(false);
     /**
-     * Whether {@link net.caseif.flint.round.challenger.Team}s are to use
+     * Whether {@link net.caseif.flint.challenger.Team}s are to use
      * separate chat channels.
      *
      * @since 1.0
