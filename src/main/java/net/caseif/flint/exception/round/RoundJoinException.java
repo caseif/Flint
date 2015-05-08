@@ -108,11 +108,12 @@ public class RoundJoinException extends Throwable {
      */
     enum Reason {
         /**
-         * A failed join due to the round being at capacity.
+         * A failed join due to the player already being present in the
+         * {@link Round}.
          *
          * @since 1.0
          */
-        FULL,
+        ALREADY_ENTERED,
         /**
          * A failed join due to the respective event being cancelled.
          *
@@ -120,11 +121,23 @@ public class RoundJoinException extends Throwable {
          */
         CANCELLED,
         /**
+         * A failed join due to the round being at capacity.
+         *
+         * @since 1.0
+         */
+        FULL,
+        /**
          * A failed join due to an internal error.
          *
          * @since 1.0
          */
-        INTERNAL_ERROR
+        INTERNAL_ERROR,
+        /**
+         * A failed join due to the player being offline.
+         *
+         * @since 1.0
+         */
+        OFFLINE
     }
 
 }

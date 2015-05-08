@@ -86,7 +86,9 @@ public interface Round extends Metadatable, MinigameElement {
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The newly created {@link Challenger} object
      * @throws RoundJoinException If the player fails to be added to the
-     *                            {@link Round}
+     *                            {@link Round} for any given reason
+     *                            (obtainable through
+     *                            {@link RoundJoinException#getReason()})
      * @since 1.0
      */
     Challenger addPlayer(UUID uuid) throws RoundJoinException;
