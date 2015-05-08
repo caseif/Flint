@@ -26,19 +26,35 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event;
+package net.caseif.flint.util;
 
 import net.caseif.flint.Minigame;
-import net.caseif.flint.util.MinigameElement;
 
 /**
- * Represents an event triggered by Flint.
- *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
+ * Defines methods implemented by all classes associated with a
+ * {@link Minigame}.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface FlintEvent extends MinigameElement {
+public interface MinigameElement {
+
+    /**
+     * Gets the owning {@link Minigame} for this object.
+     *
+     * @return The owning {@link Minigame} for this object
+     * @since 1.0
+     */
+    Minigame getMinigame();
+
+    /**
+     * Gets the ID of the plugin owning the {@link Minigame} this object is
+     * associated with.
+     *
+     * @return The ID of the plugin owning the {@link Minigame} this object is
+     * associated with.
+     * @since 1.0
+     */
+    String getPlugin();
+
 }

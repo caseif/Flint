@@ -29,6 +29,7 @@
 package net.caseif.flint.locale;
 
 import net.caseif.flint.Minigame;
+import net.caseif.flint.util.MinigameElement;
 
 /**
  * Provides localization support for a particular {@link Minigame}.
@@ -40,15 +41,7 @@ import net.caseif.flint.Minigame;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface LocaleManager {
-
-    /**
-     * Gets the {@link Minigame} owning this {@link LocaleManager}.
-     *
-     * @return The {@link Minigame} owning this {@link LocaleManager}
-     * @since 1.0
-     */
-    Minigame getMinigame();
+public interface LocaleManager extends MinigameElement {
 
     /**
      * Gets the server's default locale.

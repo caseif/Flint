@@ -30,6 +30,7 @@ package net.caseif.flint.round.challenger;
 
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.util.MinigameElement;
 
 import java.util.Set;
 
@@ -40,7 +41,7 @@ import java.util.Set;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Team extends Metadatable {
+public interface Team extends Metadatable, MinigameElement {
 
     /**
      * Gets the internal identifier of this {@link Team}.

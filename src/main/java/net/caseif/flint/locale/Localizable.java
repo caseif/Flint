@@ -29,6 +29,7 @@
 package net.caseif.flint.locale;
 
 import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.util.MinigameElement;
 
 import java.util.UUID;
 
@@ -46,7 +47,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Localizable {
+public interface Localizable extends MinigameElement {
 
     /**
      * Gets the parent {@link LocaleManager} for this {@link Localizable}.
@@ -118,14 +119,18 @@ public interface Localizable {
     /**
      * Appends the given {@link Object} to this {@link Localizable}.
      *
-     * <p>If <code>obj</code> is a {@link Localizable}, it will be handled
-     * normally when the object this method returns is localized.
-     * Platform-native text formatting objects should be handled specially as
-     * well by implementations. Otherwise, <code>toString</code> will be called
-     * upon <code>obj</code>.</p>
+     * <p>If <code>obj</code> is a {@link Localizable} owned by the same
+     * {@link LocaleManager}, it will be handled normally when the object this
+     * method returns is localized. Platform-native text formatting objects
+     * should be handled specially as well by implementations. Otherwise,
+     * <code>toString</code> will be called upon <code>obj</code>.</p>
      *
      * @param obj The object to append to this {@link Localizable}
      * @return The newly-created {@link Localizable} with the appended object
+     * @throws IllegalArgumentException If <code>obj</code> is a
+     *                                  {@link Localizable} owned by a different
+     *                                  {@link LocaleManager} that owning the
+     *                                  object this method is called upon
      * @since 1.0
      */
     Localizable append(Object obj);

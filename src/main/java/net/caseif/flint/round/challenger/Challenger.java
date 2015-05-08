@@ -30,6 +30,7 @@ package net.caseif.flint.round.challenger;
 
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.base.Optional;
 
@@ -41,7 +42,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Challenger extends Metadatable {
+public interface Challenger extends Metadatable, MinigameElement {
 
     /**
      * Gets the username of this {@link Challenger}.

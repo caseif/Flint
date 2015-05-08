@@ -29,6 +29,7 @@
 package net.caseif.flint;
 
 import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.util.MinigameElement;
 import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 import net.caseif.flint.round.Round;
@@ -43,7 +44,7 @@ import com.google.common.collect.ImmutableBiMap;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Arena extends Metadatable {
+public interface Arena extends Metadatable, MinigameElement {
 
     /**
      * Gets the identifier of this {@link Arena}.

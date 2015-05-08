@@ -35,6 +35,7 @@ import net.caseif.flint.locale.Localizable;
 import net.caseif.flint.round.challenger.Challenger;
 import net.caseif.flint.round.challenger.Team;
 import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.base.Optional;
 
@@ -48,7 +49,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Round extends Metadatable {
+public interface Round extends Metadatable, MinigameElement {
 
     /**
      * Gets the {@link Arena} which contains this {@link Round}.
