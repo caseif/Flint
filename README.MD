@@ -24,17 +24,21 @@ Flint uses Gradle as its build system. To clone and build the plugin from scratc
 - `cp scripts/* .git/hooks`
 - `./gradlew` (`gradlew` or `sh ./gradlew` on Windows)
 
-### Contribution guidelines ###
+### Contribution guidelines
 
 If you think you have a code contribution which would benefit Flint's API, feel free to create an issue or pull request.
 The primary guideline for whether a contribution is acceptable is whether it is utilizable by multiple classes of
 minigames. Some features (e.g. a gun API) are too high-level for the purposes of this framework and thus will not be
 added.
 
-### Who do I talk to? ###
+### Implementing
 
-I can be contacted [via email at caseif@caseif.net](mailto:caseif@caseif.net).
+Specification for those wishing to implement Flint may be found [here](IMPLEMENTING.MD).
 
-### Copyright ###
+### Contact
+
+I can be contacted [via email at me@caseif.net](mailto:me@caseif.net).
+
+### Copyright
 
 Flint's source code and binary are provided under the BSD 3-Clause license.
