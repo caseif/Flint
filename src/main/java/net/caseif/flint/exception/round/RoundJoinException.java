@@ -106,7 +106,7 @@ public class RoundJoinException extends Throwable {
      *
      * @since 1.0
      */
-    enum Reason {
+    public enum Reason {
         /**
          * A failed join due to the player already being present in the
          * {@link Round}.
