@@ -116,12 +116,13 @@ public interface Round extends Metadatable, MinigameElement {
      * Creates a {@link Team} in this {@link Round} with the given identifer.
      *
      * @param id The identifier of the new {@link Team}
+     * @param displayName The display name of the new {@link Team}
      * @return The newly created {@link Team}.
      * @throws IllegalArgumentException If a {@link Team} with the given
      *                                  identifer already exists
      * @since 1.0
      */
-    Team createTeam(String id) throws IllegalArgumentException;
+    Team createTeam(String id, String displayName) throws IllegalArgumentException;
 
     /**
      * Gets the {@link Team} from this {@link Round} with the given identifer,
