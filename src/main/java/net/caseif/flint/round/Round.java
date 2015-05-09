@@ -38,9 +38,8 @@ import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.base.Optional;
-import com.google.common.collect.ImmutableSortedSet;
 
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
@@ -163,12 +162,13 @@ public interface Round extends Metadatable, MinigameElement {
     void broadcast(Localizable message);
 
     /**
-     * Gets this {@link Round}'s defined lifecycle stages.
+     * Gets an immutable {@link ArrayList} of this {@link Round}'s defined
+     * lifecycle stages.
      *
      * @return This {@link Round}'s defined lifecycle stages
      * @since 1.0
      */
-    ImmutableSortedSet<LifecycleStage> getLifecycleStages();
+    ArrayList<LifecycleStage> getLifecycleStages();
 
     /**
      * Defines this {@link Round}'s lifecycle stages.
@@ -176,7 +176,7 @@ public interface Round extends Metadatable, MinigameElement {
      * @param stages The new lifecycle stages to define
      * @since 1.0
      */
-    void setLifecycleStages(ImmutableSortedSet<LifecycleStage> stages);
+    void setLifecycleStages(ArrayList<LifecycleStage> stages);
 
     /**
      * Gets this {@link Round}'s current lifecycle stage.
