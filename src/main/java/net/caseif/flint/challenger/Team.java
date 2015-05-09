@@ -60,6 +60,14 @@ public interface Team extends Metadatable, MinigameElement {
     String getDisplayName();
 
     /**
+     * Sets the display name of this {@link Team}.
+     *
+     * @param displayName The new display name of this {@link Team}
+     * @since 1.0
+     */
+    void setDisplayName(String displayName);
+
+    /**
      * Returns the {@link Round} containing this {@link Team}.
      *
      * @return The {@link Round} containing this {@link Team}

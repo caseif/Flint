@@ -122,7 +122,7 @@ public interface Round extends Metadatable, MinigameElement {
      *                                  identifer already exists
      * @since 1.0
      */
-    Team createTeam(String id, String displayName) throws IllegalArgumentException;
+    Team createTeam(String id) throws IllegalArgumentException;
 
     /**
      * Gets the {@link Team} from this {@link Round} with the given identifer,
