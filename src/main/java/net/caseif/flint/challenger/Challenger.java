@@ -87,9 +87,12 @@ public interface Challenger extends Metadatable, MinigameElement {
      * @param team The new {@link Team} this challenger will belong to (pass
      *             <code>null</code> to remove them from their current
      *             {@link Team})
+     * @throws IllegalArgumentException If <code>team</code> is not contained by
+     *                                  the same {@link Round} as this
+     *                                  {@link Challenger}
      * @since 1.0
      */
-    void setTeam(Team team);
+    void setTeam(Team team) throws IllegalArgumentException;
 
     /**
      * Returns whether this {@link Challenger} is currently spectating.
