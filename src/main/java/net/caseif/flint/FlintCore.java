@@ -50,7 +50,8 @@ public abstract class FlintCore {
     }
 
     /**
-     * Gets the current API revision.
+     * Gets the current API revision. Note that this is not necessarily parallel
+     * to its version string.
      *
      * <p>The API revision is incremented for each version (discounting snapshot
      * builds) which modifies Flint's API.</p>
@@ -67,8 +68,11 @@ public abstract class FlintCore {
      *
      * @param pluginId The name or ID of the plugin to register
      * @return The newly created {@link Minigame} associated with the plugin
+     * @throws IllegalArgumentException If a plugin with the given ID has
+     *                                  already been registered as a
+     *                                  {@link Minigame}
      * @since 1.0
      */
-    public abstract Minigame registerPlugin(String pluginId);
+    public abstract Minigame registerPlugin(String pluginId) throws IllegalArgumentException;
 
 }
