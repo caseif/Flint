@@ -91,7 +91,31 @@ public interface Round extends Metadatable, MinigameElement {
      *                            {@link RoundJoinException#getReason()})
      * @since 1.0
      */
-    Challenger addPlayer(UUID uuid) throws RoundJoinException;
+    Challenger addChallenger(UUID uuid) throws RoundJoinException;
+
+    /**
+     * Removes the player by the given {@link UUID} from this {@link Round}.
+     *
+     * @param uuid The {@link UUID} of the player to remove
+     * @throws IllegalArgumentException If this {@link Round} does not contain a
+     *                                  player by the given {@link UUID}
+     * @since 1.0
+     */
+    void removeChallenger(UUID uuid) throws IllegalArgumentException;
+
+    /**
+     * Removes the given {@link Challenger} from this {@link Round}.
+     *
+     * <p>Note that this will invalidate the {@link Challenger} object passed as
+     * a parameter, causing its methods to throw {@link IllegalStateException}s.
+     * </p>
+     *
+     * @param challenger The {@link Challenger} to remove
+     * @throws IllegalArgumentException If this {@link Round} is not the one
+     *                                  containing <code>challenger</code>
+     * @since 1.0
+     */
+    void removeChallenger(Challenger challenger) throws IllegalArgumentException;
 
     /**
      * Returns an immutable {@link Set} of {@link Team}s in this

@@ -48,17 +48,21 @@ public interface Challenger extends Metadatable, MinigameElement {
      * Gets the username of this {@link Challenger}.
      *
      * @return The username of this {@link Challenger}
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    String getName();
+    String getName() throws IllegalStateException;
 
     /**
      * Gets the unique ID of this {@link Challenger}.
      *
      * @return The unique ID of this {@link Challenger}
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    UUID getUniqueId();
+    UUID getUniqueId() throws IllegalStateException;
 
     /**
      * Gets the {@link Round} which this challenger is currently in.
@@ -68,17 +72,33 @@ public interface Challenger extends Metadatable, MinigameElement {
      * retained beyond it fully exiting a {@link Round}.</p>
      *
      * @return The {@link Round} which this challenger is currently in.
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    Round getRound();
+    Round getRound() throws IllegalStateException;
+
+    /**
+     * Removes this {@link Challenger} from its current {@link Round}.
+     *
+     * <p>Note that this will invalidate this object, causing its methods to
+     * throw {@link IllegalStateException}s.</p>
+     *
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
+     * @since 1.0
+     */
+    void removeFromRound() throws IllegalStateException;
 
     /**
      * Gets the {@link Team} this challenger belongs to.
      *
      * @return The {@link Team} this challenger belongs to
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    Optional<Team> getTeam();
+    Optional<Team> getTeam() throws IllegalStateException;
 
     /**
      * Sets the {@link Team} this challenger belongs to. This implicitly removes
@@ -90,9 +110,11 @@ public interface Challenger extends Metadatable, MinigameElement {
      * @throws IllegalArgumentException If <code>team</code> is not contained by
      *                                  the same {@link Round} as this
      *                                  {@link Challenger}
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    void setTeam(Team team) throws IllegalArgumentException;
+    void setTeam(Team team) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * Returns whether this {@link Challenger} is currently spectating.
@@ -101,9 +123,11 @@ public interface Challenger extends Metadatable, MinigameElement {
      * {@link Round} they are contained by.</p>
      *
      * @return Whether this {@link Challenger} is currently spectating
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    boolean isSpectating();
+    boolean isSpectating() throws IllegalStateException;
 
     /**
      * Sets whether this {@link Challenger} is currently spectating.
@@ -112,8 +136,10 @@ public interface Challenger extends Metadatable, MinigameElement {
      * {@link Round} they are contained by.</p>
      *
      * @param spectating Whether this {@link Challenger} is currently spectating
+     * @throws IllegalStateException If this {@link Challenger} is no longer
+     *                               contained by a {@link Round}
      * @since 1.0
      */
-    void setSpectating(boolean spectating);
+    void setSpectating(boolean spectating) throws IllegalStateException;
 
 }
