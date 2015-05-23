@@ -106,8 +106,23 @@ public interface Minigame {
     Optional<Arena> getArena(String arenaName);
 
     /**
-     * Creates and stores a new {@link Arena} with the given name within this
-     * {@link Minigame} with the given identifier and initial spawn point.
+     * Creates and stores a new {@link Arena} within this {@link Minigame} with
+     * the given identifier, name, and initial spawn point.
+     *
+     * @param id The identifier of the new {@link Arena}
+     * @param name The "friendly" name of this {@link Arena} (i.e. the one
+     *             displayed to users)
+     * @param spawnPoint The initial spawn point for the new {@link Arena}
+     * @return The newly created {@link Arena}
+     * @throws IllegalArgumentException If an {@link Arena} with the given
+     *                                  identifier already exists
+     * @since 1.0
+     */
+    Arena createArena(String id, String name, Location3D spawnPoint) throws IllegalArgumentException;
+
+    /**
+     * Creates and stores a new {@link Arena} within this {@link Minigame} with
+     * the given identifier and initial spawn point.
      *
      * @param id The identifier of the new {@link Arena}
      * @param spawnPoint The initial spawn point for the new {@link Arena}

@@ -55,10 +55,10 @@ public interface Arena extends Metadatable, MinigameElement {
     String getId();
 
     /**
-     * Gets the name of this {@link Arena} as displayed to users.
+     * Gets the "friendly" name of this {@link Arena}, as displayed to users.
      *
-     * @return The name of this {@link Arena} as displayed to users, or its ID
-     *         if one is not set
+     * @return The "friendly" name of this {@link Arena}, as displayed to users,
+     *         or its ID if one is not set
      * @since 1.0
      */
     String getName();
