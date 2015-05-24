@@ -38,6 +38,7 @@ import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -192,7 +193,7 @@ public interface Round extends Metadatable, MinigameElement {
      * @return This {@link Round}'s defined lifecycle stages
      * @since 1.0
      */
-    Iterator<LifecycleStage> getLifecycleStages();
+    ImmutableSet<LifecycleStage> getLifecycleStages();
 
     /**
      * Gets this {@link Round}'s current {@link LifecycleStage}.
