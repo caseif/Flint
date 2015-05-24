@@ -28,6 +28,7 @@
  */
 package net.caseif.flint;
 
+import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 import net.caseif.flint.util.physical.Boundary;
@@ -37,6 +38,8 @@ import net.caseif.flint.round.Round;
 import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
+
+import java.util.LinkedHashSet;
 
 /**
  * Represents an arena in which rounds may take place.
@@ -140,11 +143,13 @@ public interface Arena extends Metadatable, MinigameElement {
     /**
      * Creates a new {@link Round} in this {@link Arena}.
      *
+     * @param stages A {@link LinkedHashSet} containing {@link LifecycleStage}s
+     *               to define for the new {@link Round}
      * @return The newly created {@link Round}.
      * @throws UnsupportedOperationException If a {@link Round} already exists
      *                                       in this {@link Arena}
      * @since 1.0
      */
-    Round createRound() throws UnsupportedOperationException;
+    Round createRound(LinkedHashSet<LifecycleStage> stages) throws UnsupportedOperationException;
 
 }

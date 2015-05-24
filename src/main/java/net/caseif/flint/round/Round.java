@@ -34,12 +34,13 @@ import net.caseif.flint.exception.round.RoundJoinException;
 import net.caseif.flint.locale.Localizable;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
+import net.caseif.flint.util.ImmutableLinkedHashSet;
 import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.base.Optional;
 
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -186,29 +187,40 @@ public interface Round extends Metadatable, MinigameElement {
     void broadcast(Localizable message);
 
     /**
-     * Gets an immutable {@link ArrayList} of this {@link Round}'s defined
+     * Gets an immutable {@link LInkedHashSet} of this {@link Round}'s defined
      * lifecycle stages.
      *
      * @return This {@link Round}'s defined lifecycle stages
      * @since 1.0
      */
-    ArrayList<LifecycleStage> getLifecycleStages();
+    ImmutableLinkedHashSet<LifecycleStage> getLifecycleStages();
 
     /**
-     * Defines this {@link Round}'s lifecycle stages.
+     * Gets this {@link Round}'s current {@link LifecycleStage}.
      *
-     * @param stages The new lifecycle stages to define
-     * @since 1.0
-     */
-    void setLifecycleStages(ArrayList<LifecycleStage> stages);
-
-    /**
-     * Gets this {@link Round}'s current lifecycle stage.
-     *
-     * @return This {@link Round}'s current lifecycle stage.
+     * @return This {@link Round}'s current {@link LifecycleStage}
      * @since 1.0
      */
     LifecycleStage getLifecycleStage();
+
+    /**
+     * Sets this {@link Round}'s current {@link LifecycleStage}.
+     *
+     * @param stage The new {@link LifecycleStage} for the {@link Round}
+     * @throws IllegalArgumentException If <code>stage</code> is not defined for
+     *                                  this {@link Round}
+     * @since 1.0
+     */
+    void setLifecycleStage(LifecycleStage stage) throws IllegalArgumentException;
+
+    /**
+     * Gets the {@link LifecycleStage} by the given ID in this {@link Round}
+     *
+     * @return The {@link LifecycleStage} by the given ID in this {@link Round},
+     *         or {@link Optional#absent()} if one does not exist
+     * @since 1.0
+     */
+    Optional<LifecycleStage> getLifecycleStage(String id);
 
     /**
      * Gets this {@link Round}'s next lifecycle stage, if applicable.
