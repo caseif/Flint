@@ -38,6 +38,7 @@ import net.caseif.flint.round.Round;
 import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
+import com.google.common.collect.ImmutableSet;
 
 import java.util.LinkedHashSet;
 
@@ -150,6 +151,6 @@ public interface Arena extends Metadatable, MinigameElement {
      *                                       in this {@link Arena}
      * @since 1.0
      */
-    Round createRound(LinkedHashSet<LifecycleStage> stages) throws UnsupportedOperationException;
+    Round createRound(ImmutableSet<LifecycleStage> stages) throws UnsupportedOperationException;
 
 }
