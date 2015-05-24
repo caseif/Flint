@@ -29,18 +29,17 @@
 package net.caseif.flint.round;
 
 import net.caseif.flint.Arena;
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.challenger.Team;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.exception.round.RoundJoinException;
 import net.caseif.flint.locale.Localizable;
-import net.caseif.flint.challenger.Challenger;
-import net.caseif.flint.challenger.Team;
 import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
 
-import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
 
@@ -187,7 +186,7 @@ public interface Round extends Metadatable, MinigameElement {
     void broadcast(Localizable message);
 
     /**
-     * Gets an immutable {@link LinkedHashSet} of this {@link Round}'s defined
+     * Gets an immutable {@link ImmutableSet} of this {@link Round}'s defined
      * lifecycle stages.
      *
      * @return This {@link Round}'s defined lifecycle stages
@@ -216,11 +215,23 @@ public interface Round extends Metadatable, MinigameElement {
     /**
      * Gets the {@link LifecycleStage} by the given ID in this {@link Round}
      *
+     * @param id The ID of the {@link LifecycleStage} to get
      * @return The {@link LifecycleStage} by the given ID in this {@link Round},
      *         or {@link Optional#absent()} if one does not exist
      * @since 1.0
      */
     Optional<LifecycleStage> getLifecycleStage(String id);
+
+    /**
+     * Gets the {@link LifecycleStage} at the given index for this
+     * {@link Round}.
+     *
+     * @param index The index of the {@link LifecycleStage} to get
+     * @return The {@link LifecycleStage} at the given index
+     * @throws IndexOutOfBoundsException If <code>index</code> is greater than
+     *                                   the highest defined index
+     */
+    LifecycleStage getLifecycleStage(int index) throws IndexOutOfBoundsException;
 
     /**
      * Gets this {@link Round}'s next lifecycle stage, if applicable.
@@ -283,6 +294,14 @@ public interface Round extends Metadatable, MinigameElement {
      * @since 1.0
      */
     void resetTimer();
+
+    /**
+     * Returns whether this {@link Round}'s timer is currently ticking.
+     *
+     * @return Whether this {@link Round}'s timer is currently ticking
+     * @since 1.0
+     */
+    boolean isTimerTicking();
 
     /**
      * Rolls this {@link Round}'s physical arena back to its state immediately

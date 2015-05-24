@@ -28,10 +28,10 @@
  */
 package net.caseif.flint;
 
+import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.locale.LocaleManager;
 import net.caseif.flint.round.Round;
-import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;

@@ -28,7 +28,6 @@
  */
 package net.caseif.flint.event;
 
-import net.caseif.flint.Minigame;
 import net.caseif.flint.util.MinigameElement;
 
 /**

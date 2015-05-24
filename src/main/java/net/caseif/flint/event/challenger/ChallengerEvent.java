@@ -28,8 +28,8 @@
  */
 package net.caseif.flint.event.challenger;
 
-import net.caseif.flint.event.FlintEvent;
 import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.event.FlintEvent;
 
 /**
  * Represents a {@link FlintEvent} involving a {@link Challenger}.

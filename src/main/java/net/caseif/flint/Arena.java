@@ -29,11 +29,11 @@
 package net.caseif.flint;
 
 import net.caseif.flint.round.LifecycleStage;
+import net.caseif.flint.round.Round;
 import net.caseif.flint.util.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
-import net.caseif.flint.round.Round;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;
