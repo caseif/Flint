@@ -276,16 +276,18 @@ public interface Round extends Metadatable, MinigameElement {
     /**
      * Starts this {@link Round}'s timer in its current state.
      *
+     * @throws IllegalStateException If the timer is already ticking
      * @since 1.0
      */
-    void startTimer();
+    void startTimer() throws IllegalStateException;
 
     /**
      * Stops this {@link Round}'s timer. Note that this does not end the round.
      *
+     * @throws IllegalStateException If the timer is not ticking
      * @since 1.0
      */
-    void stopTimer();
+    void stopTimer() throws IllegalStateException;
 
     /**
      * Sets this {@link Round}'s lifecycle stage to its initial state and resets
