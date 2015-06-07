@@ -116,4 +116,60 @@ public class Location3D {
         return this.z;
     }
 
+    /**
+     * Serializes this {@link Location3D} to a string.
+     *
+     * @return The string representation of this {@link Location3D}
+     * @since 1.0
+     */
+    public String serialize() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        if (getWorld().isPresent()) {
+            sb.append("\"").append(getWorld().get()).append("\",");
+        }
+        sb.append(getX()).append(",").append(getY()).append(",").append(getZ()).append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Deserializes the given string into a new {@link Location3D} object.
+     *
+     * @param serial The string to deserialize
+     * @return The deserialized {@link Location3D} object
+     * @throws IllegalArgumentException If the provided string is not a valid
+     *                                  serial for this class
+     * @since 1.0
+     */
+    public static Location3D deserialize(String serial) throws IllegalArgumentException {
+        if (serial.startsWith("{") && serial.endsWith("}")) {
+            serial = serial.substring(1, serial.length() - 1);
+            String[] parts = serial.split(",");
+            try {
+                switch (parts.length) {
+                    case 3:
+                        return new Location3D(
+                                Double.parseDouble(parts[0]),
+                                Double.parseDouble(parts[1]),
+                                Double.parseDouble(parts[2])
+                        );
+                    case 4:
+                        if (parts[0].startsWith("\"") && parts[0].endsWith("\"")) {
+                            return new Location3D(
+                                    parts[0].substring(1, parts[0].length() - 1),
+                                    Double.parseDouble(parts[1]),
+                                    Double.parseDouble(parts[2]),
+                                    Double.parseDouble(parts[3])
+                            );
+                        }
+                        break;
+                    default:
+                }
+            } catch (NullPointerException | NumberFormatException ex) {
+                throw new IllegalArgumentException("Invalid serial", ex);
+            }
+        }
+        throw new IllegalArgumentException("Invalid serial");
+    }
+
 }

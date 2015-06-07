@@ -213,7 +213,7 @@ public interface Round extends Metadatable, MinigameElement {
     void setLifecycleStage(LifecycleStage stage) throws IllegalArgumentException;
 
     /**
-     * Gets the {@link LifecycleStage} by the given ID in this {@link Round}
+     * Gets the {@link LifecycleStage} by the given ID in this {@link Round}.
      *
      * @param id The ID of the {@link LifecycleStage} to get
      * @return The {@link LifecycleStage} by the given ID in this {@link Round},

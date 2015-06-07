@@ -76,6 +76,13 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>(false);
+    /**
+     * Whether {@link net.caseif.flint.round.Round}s shall be rolled back by
+     * default upon ending.
+     *
+     * @since 1.0
+     */
+    public static final RoundConfigNode<Boolean> ROLLBACK_ON_END = new RoundConfigNode<>(true);
 
     private final UUID uuid;
     private final T defaultValue;

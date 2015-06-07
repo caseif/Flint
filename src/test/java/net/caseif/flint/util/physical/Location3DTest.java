@@ -26,16 +26,40 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event.round;
+package net.caseif.flint.util.physical;
 
-/**
- * A {@link RoundTimerChangeEvent} caused by a scheduled timer tick.
- *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
- *
- * @author Max Roncacé
- * @since 1.0
- */
-public interface RoundTimerTickEvent extends RoundTimerChangeEvent {
+import org.junit.Test;
+
+public class Location3DTest {
+
+    @Test
+    public void testSerialization() {
+        String world = "caseif is awesome";
+        double x = 42.0;
+        double y = -101.0;
+        double z = 7.43;
+        Location3D loc = new Location3D(world, x, y, z);
+        String serial = loc.serialize();
+        Location3D des = Location3D.deserialize(serial);
+        assert des.getWorld().isPresent();
+        assert des.getWorld().get().equals(world);
+        assert des.getX() == x;
+        assert des.getY() == y;
+        assert des.getZ() == z;
+    }
+
+    @Test
+    public void testSerializationWithoutWorld() {
+        double x = 42.0;
+        double y = -101.0;
+        double z = 7.43;
+        Location3D loc = new Location3D(x, y, z);
+        String serial = loc.serialize();
+        Location3D des = Location3D.deserialize(serial);
+        assert !des.getWorld().isPresent();
+        assert des.getX() == x;
+        assert des.getY() == y;
+        assert des.getZ() == z;
+    }
+
 }
