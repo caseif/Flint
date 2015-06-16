@@ -48,9 +48,9 @@ public interface RoundChangeLifecycleStageEvent extends RoundEvent {
     LifecycleStage getStageBefore();
 
     /**
-     * Returns the {@link LifecycleStage} of the {@link Round} before the event.
+     * Returns the {@link LifecycleStage} of the {@link Round} after the event.
      *
-     * @return The {@link LifecycleStage} of the {@link Round} before the event
+     * @return The {@link LifecycleStage} of the {@link Round} after the event
      * @since 1.0
      */
     LifecycleStage getStageAfter();

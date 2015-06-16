@@ -135,4 +135,23 @@ public interface Localizable extends MinigameElement {
      */
     Localizable append(Object obj);
 
+    /**
+     * Prepends the given {@link Object} to this {@link Localizable}.
+     *
+     * <p>If <code>obj</code> is a {@link Localizable} owned by the same
+     * {@link LocaleManager}, it will be handled normally when the object this
+     * method returns is localized. Platform-native text formatting objects
+     * should be handled specially as well by implementations. Otherwise,
+     * <code>toString</code> will be called upon <code>obj</code>.</p>
+     *
+     * @param obj The object to prepend to this {@link Localizable}
+     * @return The newly-created {@link Localizable} with the prepended object
+     * @throws IllegalArgumentException If <code>obj</code> is a
+     *                                  {@link Localizable} owned by a different
+     *                                  {@link LocaleManager} that owning the
+     *                                  object this method is called upon
+     * @since 1.0
+     */
+    Localizable prepend(Object obj);
+
 }
