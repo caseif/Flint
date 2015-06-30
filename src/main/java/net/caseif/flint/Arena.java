@@ -147,10 +147,25 @@ public interface Arena extends Metadatable, MinigameElement {
      * @param stages A {@link LinkedHashSet} containing {@link LifecycleStage}s
      *               to define for the new {@link Round}
      * @return The newly created {@link Round}.
-     * @throws UnsupportedOperationException If a {@link Round} already exists
-     *                                       in this {@link Arena}
+     * @throws IllegalArgumentException If <code>stages</code> contains an empty
+     *                                  set
+     * @throws IllegalStateException If a {@link Round} already exists in this
+     *                               {@link Arena}
      * @since 1.0
      */
-    Round createRound(ImmutableSet<LifecycleStage> stages) throws UnsupportedOperationException;
+    Round createRound(ImmutableSet<LifecycleStage> stages) throws IllegalArgumentException, IllegalStateException;
+
+    /**
+     * Creates a new {@link Round} in this {@link Arena} with the default
+     * {@link LifecycleStage}s.
+     *
+     * @return The newly created {@link Round}.
+     * @throws IllegalArgumentException If the default {@link LifecycleStage}s
+     *                               have not been set as a config option
+     * @throws IllegalStateException If a {@link Round} already exists in this
+     *                               {@link Arena}
+     * @since 1.0
+     */
+    Round createRound() throws IllegalArgumentException, IllegalStateException;
 
 }

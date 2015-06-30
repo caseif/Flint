@@ -28,7 +28,12 @@
  */
 package net.caseif.flint.config;
 
+import com.google.common.collect.ImmutableSet;
 import net.caseif.flint.Minigame;
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.challenger.Team;
+import net.caseif.flint.round.LifecycleStage;
+import net.caseif.flint.round.Round;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -42,43 +47,62 @@ import java.util.UUID;
  */
 @SuppressWarnings("unused")
 public class ConfigNode<T> {
+
+    // GENERAL CONFIG NODES
+    /**
+     * The default {@link LifecycleStage}s to apply to new {@link Round}s.
+     *
+     * <p><em>Default: <code>null</code></em></p>
+     *
+     * @since 1.0
+     */
+    public static final ConfigNode<ImmutableSet<LifecycleStage>> DEFAULT_LIFECYCLE_STAGES = new ConfigNode<>(null);
+
+    // ROUND CONFIG NODES
     /**
      * The maximum permitted player count.
+     *
+     * <p><em>Default: <code>32</code></em></p>
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>(32);
     /**
-     * Whether {@link net.caseif.flint.challenger.Challenger}s are
-     * permitted to teleport.
+     * Whether {@link Challenger}s are permitted to teleport.
+     *
+     * <p><em>Default: <code>true</code></em></p>
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>(true);
     /**
-     * Whether {@link net.caseif.flint.challenger.Challenger}s are
-     * permitted to damage one another.
+     * Whether {@link Challenger}s are permitted to damage one another.
+     *
+     * <p><em>Default: <code>true</code></em></p>
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_DAMAGE = new RoundConfigNode<>(true);
     /**
-     * Whether {@link net.caseif.flint.challenger.Challenger}s are
-     * permitted to damage teammates.
+     * Whether {@link Challenger}s are permitted to damage teammates.
+     *
+     * <p><em>Default: <code>false</code></em></p>
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>(false);
     /**
-     * Whether {@link net.caseif.flint.challenger.Team}s are to use
-     * separate chat channels.
+     * Whether {@link Team}s are to use separate chat channels.
+     *
+     * <p><em>Default: <code>false</code></em></p>
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>(false);
     /**
-     * Whether {@link net.caseif.flint.round.Round}s shall be rolled back by
-     * default upon ending.
+     * Whether {@link Round}s shall be rolled back by default upon ending.
+     *
+     * <p><em>Default: <code>true</code></em></p>
      *
      * @since 1.0
      */
