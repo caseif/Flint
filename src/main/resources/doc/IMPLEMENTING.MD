@@ -4,6 +4,13 @@ Flint is primarily self-documenting, though its specification includes certain
 features which are not present in the API but should still be included by
 implementations. Such features are specified in this document.
 
+### Table of Contents
+
+- [Lobbies](#lobbies)
+- [Minigame Configuration](#minigame-configuration)
+- [Inventory Manipulation](#inventory-manipulation)
+- [Footnote](#footnote)
+
 ### Lobbies
 
 Lobby signs are a way for players to easily see information about an arena as
@@ -27,7 +34,7 @@ maximum number of players in the round.
 
 Player-list signs should contain only a specific subset of players in the round.
 
-### Minigame configuration
+### Minigame Configuration
 
 Implementaitons should provide functionality for each configuration node
 contained by the
