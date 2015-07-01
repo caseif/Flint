@@ -34,6 +34,16 @@ contained by the
 [`ConfigNode`](src/main/java/net/caseif/flint/config/ConfigNode.java) class. Each
 node contains its own documentation, which should be noted and followed.
 
+### Inventory Manipulation
+
+When a player joins a round, their inventory should be automatically cleared by
+the implementation and stored in a persistent format. When the player exits the
+round, their inventory should be again automatically cleared and then restored
+to its original state. In the event that it is impossible to restore the
+inventory to its previous state (e.g. when a player exits a round by
+disconnecting from the server), it should remain in persistent storage until it
+is possible to.
+
 ### Footnote
 
 This is an incomplete document, and will undergo changes as development of the

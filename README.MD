@@ -33,7 +33,7 @@ added.
 
 ### Implementing
 
-Specification for those wishing to implement Flint may be found [here](IMPLEMENTING.MD).
+Specification for those wishing to implement Flint may be found [here](resources/doc/IMPLEMENTING.MD).
 
 ### Contact
 
