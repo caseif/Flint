@@ -43,7 +43,21 @@ public class RoundJoinException extends Throwable {
     private UUID player;
     private Round round;
     private Reason reason;
-    private String message;
+
+    /**
+     * Creates a new {@link RoundJoinException} with
+     * {@link Reason#INTERNAL_ERROR} and the given parameters.
+     *
+     * @param player The {@link UUID} of the player involved in this exception
+     * @param round The {@link Round} involved in this exception
+     * @param message The exception message
+     * @param cause The {@link Throwable} which caused this exception
+     * @since 1.0
+     */
+    public RoundJoinException(UUID player, Round round, String message, Throwable cause) {
+        super(message, cause);
+        setFields(player, round, Reason.INTERNAL_ERROR);
+    }
 
     /**
      * Creates a new {@link RoundJoinException} with the given parameters.
@@ -55,10 +69,28 @@ public class RoundJoinException extends Throwable {
      * @since 1.0
      */
     public RoundJoinException(UUID player, Round round, Reason reason, String message) {
+        super(message);
+        setFields(player, round, reason);
+    }
+
+    /**
+     * Creates a new {@link RoundJoinException} with
+     * {@link Reason#INTERNAL_ERROR} and the given parameters.
+     *
+     * @param player The {@link UUID} of the player involved in this exception
+     * @param round The {@link Round} involved in this exception
+     * @param cause The {@link Throwable} which caused this exception
+     * @since 1.0
+     */
+    public RoundJoinException(UUID player, Round round, Throwable cause) {
+        super(cause);
+        setFields(player, round, Reason.INTERNAL_ERROR);
+    }
+
+    protected void setFields(UUID player, Round round, Reason reason) {
         this.player = player;
         this.round = round;
         this.reason = reason;
-        this.message = message;
     }
 
     /**
@@ -89,16 +121,6 @@ public class RoundJoinException extends Throwable {
      */
     public Reason getReason() {
         return this.reason;
-    }
-
-    /**
-     * Gets the exception message.
-     *
-     * @return The exception message.
-     * @since 1.0
-     */
-    public String getMessage() {
-        return this.message;
     }
 
     /**
