@@ -28,6 +28,8 @@
  */
 package net.caseif.flint;
 
+import org.apache.commons.lang3.NotImplementedException;
+
 /**
  * The core class for the Flint framework.
  *
@@ -38,16 +40,6 @@ package net.caseif.flint;
 public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
-
-    /**
-     * Gets the primary instance of this class.
-     *
-     * @return The primary instance of this class
-     * @since 1.0
-     */
-    public static FlintCore getInstance() {
-        return INSTANCE;
-    }
 
     /**
      * Gets the current API revision. Note that this is not necessarily parallel
@@ -73,6 +65,10 @@ public abstract class FlintCore {
      *                                  {@link Minigame}
      * @since 1.0
      */
-    public abstract Minigame registerPlugin(String pluginId) throws IllegalArgumentException;
+    public static Minigame registerPlugin(String pluginId) throws IllegalArgumentException {
+        return INSTANCE.registerPlugin0(pluginId);
+    }
+
+    protected abstract Minigame registerPlugin0(String pluginId) throws IllegalArgumentException;
 
 }
