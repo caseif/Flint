@@ -57,6 +57,14 @@ public interface Minigame {
     String getPlugin();
 
     /**
+     * Adds a class as a listener for Flint events.
+     *
+     * @param listenerClass The {@link Class} object representing the event
+     *                      listener.
+     */
+    void addEventListener(Class<?> listenerClass);
+
+    /**
      * Gets the current value of the given {@link ConfigNode} for this
      * {@link Minigame}.
      *
