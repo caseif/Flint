@@ -33,8 +33,9 @@ import net.caseif.flint.util.MinigameElement;
 /**
  * Represents an event triggered by Flint.
  *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
+ * <p>Flint's event classes are contained by a hierarchy separate from that of
+ * the native platform and handled by a different bus. These two separate
+ * systems do not and may not intermingle.</p>
  *
  * @author Max Roncacé
  * @since 1.0
