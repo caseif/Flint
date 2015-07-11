@@ -34,12 +34,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * An annotation denoting a method as a listener for Flint events.
+ * An annotation which marks a method as a subscriber for Flint events.
  *
  * @author Max Roncacé
  * @since 1.0
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface FlintListener {
+public @interface FlintSubscribe {
 }
