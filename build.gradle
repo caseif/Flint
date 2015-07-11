@@ -63,7 +63,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 
-    deployerJars 'org.apache.maven.wagon:wagon-ssh:2.8'
+    deployerJars 'org.apache.maven.wagon:wagon-ssh:2.9'
 }
 
 tasks.withType(JavaCompile) {
@@ -78,6 +78,7 @@ processResources {
 license {
     header file('LICENSE')
     excludes([
+            '**/*.MD',
             '**/*.properties',
             '**/*.yml'
     ])
@@ -125,6 +126,10 @@ artifacts {
     archives jar
     archives sourceJar
     archives javadocJar
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
 }
 
 uploadArchives {
