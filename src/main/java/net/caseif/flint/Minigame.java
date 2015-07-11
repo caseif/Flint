@@ -35,6 +35,7 @@ import net.caseif.flint.round.Round;
 import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
+import com.google.common.eventbus.EventBus;
 
 import java.util.Set;
 import java.util.UUID;
@@ -57,12 +58,12 @@ public interface Minigame {
     String getPlugin();
 
     /**
-     * Adds a class as a listener for Flint events.
+     * Gets this {@link Minigame}'s {@link EventBus}.
      *
-     * @param listenerClass The {@link Class} object representing the event
-     *                      listener.
+     * @return This {@link Minigame}'s {@link EventBus}.
+     * @since 1.0
      */
-    void addEventListener(Class<?> listenerClass);
+    EventBus getEventBus();
 
     /**
      * Gets the current value of the given {@link ConfigNode} for this
