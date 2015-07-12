@@ -104,7 +104,8 @@ public interface Round extends Metadatable, MinigameElement {
     void removeChallenger(UUID uuid) throws IllegalArgumentException;
 
     /**
-     * Removes the given {@link Challenger} from this {@link Round}.
+     * Removes the given {@link Challenger} from this {@link Round}, returning
+     * them to their original location before joining.
      *
      * <p>Note that this will invalidate the {@link Challenger} object passed as
      * a parameter, causing its methods to throw {@link IllegalStateException}s.
@@ -315,7 +316,8 @@ public interface Round extends Metadatable, MinigameElement {
 
     /**
      * Ends this {@link Round} by resetting its timer, removing all
-     * {@link Challenger}s, and rolling back its arena.
+     * {@link Challenger}s and returning them to their original locations, and
+     * rolling back its arena.
      *
      * @since 1.0
      */
@@ -323,8 +325,8 @@ public interface Round extends Metadatable, MinigameElement {
 
     /**
      * Ends this {@link Round} by resetting its timer, removing all
-     * {@link Challenger}s, and, if <code>rollback</code> is <code>true</code>,
-     * rolling back its arena.
+     * {@link Challenger}s and returning them to thieir original locations, and,
+     * if <code>rollback</code> is <code>true</code>, rolling back its arena.
      *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
      *
