@@ -34,9 +34,6 @@ import net.caseif.flint.round.Round;
 /**
  * Represents a {@link FlintEvent} involving a {@link Round}.
  *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
- *
  * @author Max Roncacé
  * @since 1.0
  */

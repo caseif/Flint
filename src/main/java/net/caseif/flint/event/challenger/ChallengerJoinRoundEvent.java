@@ -34,12 +34,8 @@ import net.caseif.flint.event.Cancellable;
  * Called when a {@link net.caseif.flint.challenger.Challenger} joins a
  * {@link net.caseif.flint.round.Round}.
  *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
- *
  * @author Max Roncacé
  * @since 1.0
  */
 public interface ChallengerJoinRoundEvent extends ChallengerEvent, Cancellable {
-
 }

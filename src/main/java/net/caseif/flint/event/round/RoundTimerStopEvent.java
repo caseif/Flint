@@ -37,12 +37,8 @@ import net.caseif.flint.event.Cancellable;
  * {@link net.caseif.flint.round.Round}. Rather, it simply announces that its
  * timer has entered a stopped state.</p>
  *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
- *
  * @author Max Roncacé
  * @since 1.0
  */
 public interface RoundTimerStopEvent extends RoundEvent, Cancellable {
-
 }

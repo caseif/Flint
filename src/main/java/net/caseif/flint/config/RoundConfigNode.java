@@ -41,4 +41,5 @@ public class RoundConfigNode<T> extends ConfigNode<T> {
     protected RoundConfigNode(T defaultValue) {
         super(defaultValue);
     }
+
 }

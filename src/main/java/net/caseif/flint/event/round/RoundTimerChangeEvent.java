@@ -31,9 +31,6 @@ package net.caseif.flint.event.round;
 /**
  * Called when a round's timer changes its numerical value.
  *
- * <p>Flint's event classes will be instances of the native base event class in
- * platform implementations, and therefore may be safely typecast to such.</p>
- *
  * @author Max Roncacé
  * @since 1.0
  */
