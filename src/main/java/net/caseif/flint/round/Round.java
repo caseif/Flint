@@ -335,23 +335,25 @@ public interface Round extends Metadatable, MinigameElement {
     void end(boolean rollback);
 
     /**
-     * Gets the config value for the given {@link RoundConfigNode}.
+     * Gets the value of the given {@link RoundConfigNode} for this
+     * {@link Round}, or the server value if it is not set.
      *
      * @param node The {@link RoundConfigNode} to look up
      * @return The value associated with <code>node</code>
      * @param <T> The value type associated with <code>node</code>
      * @since 1.0
      */
-    <T> T getConfigValue(RoundConfigNode node);
+    <T> T getConfigValue(RoundConfigNode<T> node);
 
     /**
-     * Gets the config value for the given {@link RoundConfigNode}.
+     * Sets the value of the given {@link RoundConfigNode} for this
+     * {@link Round}.
      *
      * @param node The {@link RoundConfigNode} to set
      * @param value The new value associated with <code>node</code>
      * @param <T> The value type associated with <code>node</code>
      * @since 1.0
      */
-    <T> void setConfigValue(RoundConfigNode node, T value);
+    <T> void setConfigValue(RoundConfigNode<T> node, T value);
 
 }

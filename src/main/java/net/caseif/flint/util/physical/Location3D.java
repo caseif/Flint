@@ -79,7 +79,7 @@ public class Location3D {
      * Gets the world containing this {@link Location3D}.
      *
      * @return The world containing this {@link Location3D}, or
-     *         {@link Optional#absent()} if one is not defined
+     *     {@link Optional#absent()} if one is not defined
      * @since 1.0
      */
     public Optional<String> getWorld() {
@@ -138,7 +138,7 @@ public class Location3D {
      * @param serial The string to deserialize
      * @return The deserialized {@link Location3D} object
      * @throws IllegalArgumentException If the provided string is not a valid
-     *                                  serial for this class
+     *     serial for this class
      * @since 1.0
      */
     public static Location3D deserialize(String serial) throws IllegalArgumentException {

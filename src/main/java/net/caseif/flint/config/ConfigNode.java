@@ -107,6 +107,16 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ROLLBACK_ON_END = new RoundConfigNode<>(true);
+    /**
+     * Whether spawn points should be selected for {@link Challenger}s entering
+     * rounds randomly. If <code>false</code>, spawn points will be selected
+     * sequentially.
+     *
+     * <p><em>Default: <code>false</code></em></p>
+     *
+     * @since 1.0
+     */
+    public static final RoundConfigNode<Boolean> RANDOM_SPAWNING = new RoundConfigNode<>(false);
 
     private final UUID uuid;
     private final T defaultValue;

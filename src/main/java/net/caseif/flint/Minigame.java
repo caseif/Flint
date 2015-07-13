@@ -71,7 +71,9 @@ public interface Minigame {
      *
      * <p>If <code>node</code> is an instance of a
      * {@link net.caseif.flint.config.RoundConfigNode}, <code>value</code> will
-     * be used as a default for new {@link Round}s.</p>
+     * be used as a default return value for
+     * {@link Round#getConfigValue(RoundConfigNode)} when not set for an
+     * individual {@link Round}.</p>
      *
      * @param node The {@link ConfigNode} to look up
      * @param <T> The value type associated with <code>node</code>
@@ -86,7 +88,9 @@ public interface Minigame {
      *
      * <p>If <code>node</code> is an instance of a
      * {@link net.caseif.flint.config.RoundConfigNode}, <code>value</code> will
-     * be used as a default for new {@link Round}s.</p>
+     * be used as a default return value for
+     * {@link Round#getConfigValue(RoundConfigNode)} when not set for an
+     * individual {@link Round}.</p>
      *
      * @param node The {@link ConfigNode} to look up
      * @param value The new value of <code>node</code> for this {@link Minigame}
