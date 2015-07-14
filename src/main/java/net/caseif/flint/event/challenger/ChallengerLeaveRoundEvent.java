@@ -28,8 +28,6 @@
  */
 package net.caseif.flint.event.challenger;
 
-import net.caseif.flint.event.Cancellable;
-
 /**
  * Called when a {@link net.caseif.flint.challenger.Challenger} leaves a
  * {@link net.caseif.flint.round.Round}.

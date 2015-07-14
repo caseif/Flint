@@ -28,12 +28,13 @@
  */
 package net.caseif.flint.config;
 
-import com.google.common.collect.ImmutableSet;
 import net.caseif.flint.Minigame;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
+
+import com.google.common.collect.ImmutableSet;
 
 import java.util.Objects;
 import java.util.UUID;

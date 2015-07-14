@@ -28,8 +28,6 @@
  */
 package net.caseif.flint;
 
-import org.apache.commons.lang3.NotImplementedException;
-
 /**
  * The core class for the Flint framework.
  *
