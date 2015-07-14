@@ -275,20 +275,20 @@ public interface Round extends Metadatable, MinigameElement {
     long getRemainingTime();
 
     /**
-     * Starts this {@link Round}'s timer in its current state.
+     * Returns whether this {@link Round}'s timer is currently ticking.
      *
-     * @throws IllegalStateException If the timer is already ticking
+     * @return Whether this {@link Round}'s timer is currently ticking
      * @since 1.0
      */
-    void startTimer() throws IllegalStateException;
+    boolean isTimerTicking();
 
     /**
-     * Stops this {@link Round}'s timer. Note that this does not end the round.
+     * Sets whether this {@link Round}'s timer is currently ticking.
      *
-     * @throws IllegalStateException If the timer is not ticking
+     * @param ticking Whether this {@link Round}'s timer is currently ticking
      * @since 1.0
      */
-    void stopTimer() throws IllegalStateException;
+    public void setTimerTicking(boolean ticking);
 
     /**
      * Sets this {@link Round}'s lifecycle stage to its initial state and resets
@@ -297,14 +297,6 @@ public interface Round extends Metadatable, MinigameElement {
      * @since 1.0
      */
     void resetTimer();
-
-    /**
-     * Returns whether this {@link Round}'s timer is currently ticking.
-     *
-     * @return Whether this {@link Round}'s timer is currently ticking
-     * @since 1.0
-     */
-    boolean isTimerTicking();
 
     /**
      * Rolls this {@link Round}'s physical arena back to its state immediately
