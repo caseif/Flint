@@ -45,7 +45,7 @@ public interface Metadatable {
      *
      * @param key The key of the metadata value to retrieve
      * @return The value of the metadata with the given key, or
-     *         {@link Optional#absent()} if the key is not defined
+     *     {@link Optional#absent()} if the key is not defined
      * @since 1.0
      */
     Optional<Object> getMetadata(String key);
@@ -64,9 +64,6 @@ public interface Metadatable {
      * Removes the metadata with the given key from this {@link Metadatable}
      * instance.
      *
-     * <p>This is a convenience method for
-     * <code>setMetadata(key, null)</code></p>
-     *
      * @param key The key of the metadata value to remove
      * @since 1.0
      */
@@ -77,7 +74,7 @@ public interface Metadatable {
      * {@link Metadatable} instance.
      *
      * @return An immutable {@link Set} of all metadata keys carried by this
-     *         {@link Metadatable} instance
+     *     {@link Metadatable} instance
      * @since 1.0
      */
     Set<String> getAllMetadata();

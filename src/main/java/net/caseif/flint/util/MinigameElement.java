@@ -52,7 +52,7 @@ public interface MinigameElement {
      * associated with.
      *
      * @return The ID of the plugin owning the {@link Minigame} this object is
-     * associated with.
+     *     associated with.
      * @since 1.0
      */
     String getPlugin();

@@ -47,8 +47,8 @@ public interface LocaleManager extends MinigameElement {
      * Gets the server's default locale.
      *
      * @return A string representing the server's default locale. This follows
-     *         the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
-     *         or enUS).
+     *     the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
+     *     or enUS).
      * @since 1.0
      */
     String getServerLocale();

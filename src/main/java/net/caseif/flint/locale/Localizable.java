@@ -70,8 +70,8 @@ public interface Localizable extends MinigameElement {
      *
      * @param locale The locale to localize this {@link Localizable} in
      * @return A string representing the localized message. This should follow
-     *         the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
-     *         or enUS).
+     *     the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
+     *     or enUS).
      * @since 1.0
      */
     String localizeIn(String locale);
@@ -80,7 +80,7 @@ public interface Localizable extends MinigameElement {
      * Localizes this {@link Localizable} in the given challenger's locale.
      *
      * @param challenger The {@link Challenger} to localize this
-     *                   {@link Localizable} for
+     *     {@link Localizable} for
      * @return A string representing the localized message
      * @since 1.0
      */
@@ -91,7 +91,7 @@ public interface Localizable extends MinigameElement {
      * given UUID.
      *
      * @param uuid The UUID of the player to localize this {@link Localizable}
-     *             for
+     *     for
      * @return A string representing the localized message
      * @since 1.0
      */
@@ -102,7 +102,7 @@ public interface Localizable extends MinigameElement {
      * respective locale.
      *
      * @param challenger The {@link Challenger} to send this {@link Localizable}
-     *                   to
+     *     to
      * @since 1.0
      */
     void sendTo(Challenger challenger);
@@ -128,9 +128,8 @@ public interface Localizable extends MinigameElement {
      * @param obj The object to prepend to this {@link Localizable}
      * @return The newly-created {@link Localizable} with the prepended object
      * @throws IllegalArgumentException If <code>obj</code> is a
-     *                                  {@link Localizable} owned by a different
-     *                                  {@link LocaleManager} that owning the
-     *                                  object this method is called upon
+     *     {@link Localizable} owned by a different {@link LocaleManager} than
+     *     the one which owns this {@link Localizable}
      * @since 1.0
      */
     Localizable prepend(Object obj) throws IllegalArgumentException;
@@ -147,9 +146,8 @@ public interface Localizable extends MinigameElement {
      * @param obj The object to append to this {@link Localizable}
      * @return The newly-created {@link Localizable} with the appended object
      * @throws IllegalArgumentException If <code>obj</code> is a
-     *                                  {@link Localizable} owned by a different
-     *                                  {@link LocaleManager} that owning the
-     *                                  object this method is called upon
+     *     {@link Localizable} owned by a different {@link LocaleManager} than
+     *     the one which owns this {@link Localizable}
      * @since 1.0
      */
     Localizable append(Object obj) throws IllegalArgumentException;

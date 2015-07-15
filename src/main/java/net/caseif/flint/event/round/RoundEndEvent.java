@@ -43,7 +43,7 @@ public interface RoundEndEvent extends RoundEvent {
      * timer expiring.
      *
      * @return Whether the {@link Round} was ended by the framework due to the
-     *         timer expiring
+     *     timer expiring
      * @since 1.0
      */
     boolean isNatural();

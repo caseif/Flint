@@ -51,12 +51,10 @@ public class Boundary {
      * @param corner1 The first corner of the {@link Boundary}
      * @param corner2 The second corner of the {@link Boundary}
      * @param ignoreDifferentWorlds Whether to skip a sanity check of whether
-     *                              the two locations are within the same world
+     *     the two locations are within the same world
      * @throws IllegalArgumentException If one or both location parameters are
-     *                                  <code>null</code>, or if the worlds
-     *                                  containing the locations do not match
-     *                                  and <code>ignoreDifferentWorlds</code>
-     *                                  is <code>false</code>
+     *     <code>null</code>, or if the worlds containing the locations do not
+     *     match and <code>ignoreDifferentWorlds</code> is <code>false</code>
      * @since 1.0
      */
     public Boundary(Location3D corner1, Location3D corner2, boolean ignoreDifferentWorlds)
@@ -89,8 +87,8 @@ public class Boundary {
      * @param corner1 The first corner of the {@link Boundary}
      * @param corner2 The second corner of the {@link Boundary}
      * @throws IllegalArgumentException If one or both location parameters are
-     *                                  <code>null</code>, or if the worlds
-     *                                  containing the locations do not match
+     *     <code>null</code>, or if the worlds containing the locations do not
+     *     match
      * @since 1.0
      */
     public Boundary(Location3D corner1, Location3D corner2) throws IllegalArgumentException {
@@ -122,9 +120,9 @@ public class Boundary {
      * (inclusively).
      *
      * @param location The {@link Location3D} to check against this
-     *                 {@link Boundary}
+     *     {@link Boundary}
      * @return Whether this {@link Boundary} contains the given location
-     *         (inclusively)
+     *     (inclusively)
      * @since 1.0
      */
     public boolean contains(Location3D location) {

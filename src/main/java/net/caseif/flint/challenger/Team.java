@@ -77,10 +77,10 @@ public interface Team extends Metadatable, MinigameElement {
 
     /**
      * Returns an immutable {@link Set} of all {@link Challenger}s on this
-     *         {@link Team}.
+     *     {@link Team}.
      *
      * @return An immutable {@link Set} of all {@link Challenger}s on this
-     *         {@link Team}
+     *     {@link Team}
      * @since 1.0
      */
     Set<Challenger> getChallengers();

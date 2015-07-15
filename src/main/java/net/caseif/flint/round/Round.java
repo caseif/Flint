@@ -86,9 +86,8 @@ public interface Round extends Metadatable, MinigameElement {
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The newly created {@link Challenger} object
      * @throws RoundJoinException If the player fails to be added to the
-     *                            {@link Round} for any given reason
-     *                            (obtainable through
-     *                            {@link RoundJoinException#getReason()})
+     *     {@link Round} for any given reason (obtainable through
+     *     {@link RoundJoinException#getReason()})
      * @since 1.0
      */
     Challenger addChallenger(UUID uuid) throws RoundJoinException;
@@ -98,7 +97,7 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param uuid The {@link UUID} of the player to remove
      * @throws IllegalArgumentException If this {@link Round} does not contain a
-     *                                  player by the given {@link UUID}
+     *     player by the given {@link UUID}
      * @since 1.0
      */
     void removeChallenger(UUID uuid) throws IllegalArgumentException;
@@ -113,7 +112,7 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param challenger The {@link Challenger} to remove
      * @throws IllegalArgumentException If this {@link Round} is not the one
-     *                                  containing <code>challenger</code>
+     *     containing <code>challenger</code>
      * @since 1.0
      */
     void removeChallenger(Challenger challenger) throws IllegalArgumentException;
@@ -123,7 +122,7 @@ public interface Round extends Metadatable, MinigameElement {
      * {@link Round}.
      *
      * @return An immutable {@link Set} of {@link Team}s in this
-     *         {@link Round}
+     *     {@link Round}
      * @since 1.0
      */
     Set<Team> getTeams();
@@ -143,7 +142,7 @@ public interface Round extends Metadatable, MinigameElement {
      * @param id The identifier of the new {@link Team}
      * @return The newly created {@link Team}.
      * @throws IllegalArgumentException If a {@link Team} with the given
-     *                                  identifer already exists
+     *     identifer already exists
      * @since 1.0
      */
     Team createTeam(String id) throws IllegalArgumentException;
@@ -163,7 +162,7 @@ public interface Round extends Metadatable, MinigameElement {
      * spectating.
      *
      * @return The number of {@link Challenger}s in this {@link Round} marked as
-     * spectating
+     *     spectating
      * @since 1.0
      */
     int getSpectatorCount();
@@ -208,7 +207,7 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param stage The new {@link LifecycleStage} for the {@link Round}
      * @throws IllegalArgumentException If <code>stage</code> is not defined for
-     *                                  this {@link Round}
+     *     this {@link Round}
      * @since 1.0
      */
     void setLifecycleStage(LifecycleStage stage) throws IllegalArgumentException;
@@ -218,7 +217,7 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param id The ID of the {@link LifecycleStage} to get
      * @return The {@link LifecycleStage} by the given ID in this {@link Round},
-     *         or {@link Optional#absent()} if one does not exist
+     *     or {@link Optional#absent()} if one does not exist
      * @since 1.0
      */
     Optional<LifecycleStage> getLifecycleStage(String id);
@@ -230,7 +229,7 @@ public interface Round extends Metadatable, MinigameElement {
      * @param index The index of the {@link LifecycleStage} to get
      * @return The {@link LifecycleStage} at the given index
      * @throws IndexOutOfBoundsException If <code>index</code> is greater than
-     *                                   the highest defined index
+     *     the highest defined index
      */
     LifecycleStage getLifecycleStage(int index) throws IndexOutOfBoundsException;
 
@@ -238,8 +237,7 @@ public interface Round extends Metadatable, MinigameElement {
      * Gets this {@link Round}'s next lifecycle stage, if applicable.
      *
      * @return This {@link Round}'s next lifecycle stage, or
-     *         {@link Optional#absent()} if the current stage is the final
-     *         defined
+     *     {@link Optional#absent()} if the current stage is the final defined
      * @since 1.0
      */
     Optional<LifecycleStage> getNextLifecycleStage();
@@ -268,8 +266,8 @@ public interface Round extends Metadatable, MinigameElement {
      * its {@link LifecycleStage lifecycle stage}.
      *
      * @return The time in seconds until this {@link Round} is due to change
-     *         its {@link LifecycleStage lifecycle stage}, or <code>-1</code> if the
-     *         current stage is untimed.
+     *     its {@link LifecycleStage lifecycle stage}, or <code>-1</code> if the
+     *     current stage is untimed.
      * @since 1.0
      */
     long getRemainingTime();
@@ -321,7 +319,6 @@ public interface Round extends Metadatable, MinigameElement {
      * if <code>rollback</code> is <code>true</code>, rolling back its arena.
      *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
-     *
      * @since 1.0
      */
     void end(boolean rollback);
@@ -331,8 +328,8 @@ public interface Round extends Metadatable, MinigameElement {
      * {@link Round}, or the server value if it is not set.
      *
      * @param node The {@link RoundConfigNode} to look up
-     * @return The value associated with <code>node</code>
      * @param <T> The value type associated with <code>node</code>
+     * @return The value associated with <code>node</code>
      * @since 1.0
      */
     <T> T getConfigValue(RoundConfigNode<T> node);

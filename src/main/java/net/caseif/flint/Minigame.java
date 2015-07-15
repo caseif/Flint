@@ -51,8 +51,8 @@ public interface Minigame {
     /**
      * Gets the name or ID of the plugin to which this {@link Minigame} belongs.
      *
-     * @return the name or ID of the plugin to which this {@link Minigame}
-     *         belongs.
+     * @return The name or ID of the plugin to which this {@link Minigame}
+     *     belongs.
      * @since 1.0
      */
     String getPlugin();
@@ -104,7 +104,7 @@ public interface Minigame {
      * {@link Minigame}.
      *
      * @return An immutable {@link Set} containing all {@link Arena}s owned by
-     *         this {@link Minigame}.
+     *     this {@link Minigame}.
      * @since 1.0
      */
     Set<Arena> getArenas();
@@ -124,11 +124,12 @@ public interface Minigame {
      *
      * @param id The identifier of the new {@link Arena}
      * @param name The "friendly" name of this {@link Arena} (i.e. the one
-     *             displayed to users)
+     *     displayed to users)
      * @param spawnPoint The initial spawn point for the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
-     *                                  identifier already exists
+     *     identifier already exists, or if <code>spawnPoint</code> is
+     *     <code>null</code> or does not contain a world
      * @since 1.0
      */
     Arena createArena(String id, String name, Location3D spawnPoint) throws IllegalArgumentException;
@@ -141,7 +142,7 @@ public interface Minigame {
      * @param spawnPoint The initial spawn point for the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
-     *                                  identifier already exists
+     *     identifier already exists
      * @since 1.0
      */
     Arena createArena(String id, Location3D spawnPoint) throws IllegalArgumentException;
@@ -151,7 +152,7 @@ public interface Minigame {
      * by this {@link Minigame}.
      *
      * @return An immutable {@link Set} containing all active {@link Round}s
-     * owned by this {@link Minigame}.
+     *     owned by this {@link Minigame}.
      * @since 1.0
      */
     Set<Round> getRounds();
@@ -161,7 +162,7 @@ public interface Minigame {
      * owned by this {@link Minigame}.
      *
      * @return An immutable {@link Set} containing all active
-     *         {@link Challenger}s owned by this {@link Minigame}.
+     *     {@link Challenger}s owned by this {@link Minigame}.
      * @since 1.0
      */
     Set<Challenger> getChallengers();

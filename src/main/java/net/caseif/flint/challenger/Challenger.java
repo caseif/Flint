@@ -49,7 +49,7 @@ public interface Challenger extends Metadatable, MinigameElement {
      *
      * @return The username of this {@link Challenger}
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     String getName() throws IllegalStateException;
@@ -59,7 +59,7 @@ public interface Challenger extends Metadatable, MinigameElement {
      *
      * @return The unique ID of this {@link Challenger}
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     UUID getUniqueId() throws IllegalStateException;
@@ -67,13 +67,9 @@ public interface Challenger extends Metadatable, MinigameElement {
     /**
      * Gets the {@link Round} which this challenger is currently in.
      *
-     * <p>This should never return <code>null</code> when used properly, as
-     * references to a {@link Challenger} should under no circumstances be
-     * retained beyond it fully exiting a {@link Round}.</p>
-     *
      * @return The {@link Round} which this challenger is currently in.
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     Round getRound() throws IllegalStateException;
@@ -85,7 +81,7 @@ public interface Challenger extends Metadatable, MinigameElement {
      * throw {@link IllegalStateException}s.</p>
      *
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     void removeFromRound() throws IllegalStateException;
@@ -95,7 +91,7 @@ public interface Challenger extends Metadatable, MinigameElement {
      *
      * @return The {@link Team} this challenger belongs to
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     Optional<Team> getTeam() throws IllegalStateException;
@@ -105,13 +101,13 @@ public interface Challenger extends Metadatable, MinigameElement {
      * it from the team it currently belongs to if applicable.
      *
      * @param team The new {@link Team} this challenger will belong to (pass
-     *             <code>null</code> to remove them from their current
-     *             {@link Team})
+     *     <code>null</code> to remove them from their current
+     *     {@link Team})
      * @throws IllegalArgumentException If <code>team</code> is not contained by
-     *                                  the same {@link Round} as this
+     *     the same {@link Round} as this
      *                                  {@link Challenger}
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     void setTeam(Team team) throws IllegalArgumentException, IllegalStateException;
@@ -124,7 +120,7 @@ public interface Challenger extends Metadatable, MinigameElement {
      *
      * @return Whether this {@link Challenger} is currently spectating
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     boolean isSpectating() throws IllegalStateException;
@@ -137,7 +133,7 @@ public interface Challenger extends Metadatable, MinigameElement {
      *
      * @param spectating Whether this {@link Challenger} is currently spectating
      * @throws IllegalStateException If this {@link Challenger} is no longer
-     *                               contained by a {@link Round}
+     *     contained by a {@link Round}
      * @since 1.0
      */
     void setSpectating(boolean spectating) throws IllegalStateException;

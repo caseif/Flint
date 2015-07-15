@@ -62,7 +62,7 @@ public interface Arena extends Metadatable, MinigameElement {
      * Gets the "friendly" name of this {@link Arena}, as displayed to users.
      *
      * @return The "friendly" name of this {@link Arena}, as displayed to users,
-     *         or its ID if one is not set
+     *     or its ID if one is not set
      * @since 1.0
      */
     String getName();
@@ -79,7 +79,7 @@ public interface Arena extends Metadatable, MinigameElement {
      * Gets the {@link Boundary} which this {@link Arena} is contained within.
      *
      * @return The {@link Boundary} which this {@link Arena} is contained
-     *         within
+     *     within
      * @since 1.0
      */
     Optional<Boundary> getBoundary();
@@ -88,7 +88,7 @@ public interface Arena extends Metadatable, MinigameElement {
      * Sets the {@link Boundary} which this {@link Arena} is contained within.
      *
      * @param bound The new {@link Boundary} which this {@link Arena} is to be
-     *              contained within
+     *     contained within
      * @since 1.0
      */
     void setBoundary(Boundary bound);
@@ -98,7 +98,7 @@ public interface Arena extends Metadatable, MinigameElement {
      * upon entering this arena, mapped to their respective IDs.
      *
      * @return An immutable {@link BiMap} of points at which players may spawn
-     *         upon entering this arena, mapped to their respective IDs
+     *     upon entering this arena, mapped to their respective IDs
      * @since 1.0
      */
     ImmutableBiMap<Integer, Location3D> getSpawnPoints();
@@ -118,7 +118,7 @@ public interface Arena extends Metadatable, MinigameElement {
      *
      * @param index The index of the spawn point to remove
      * @throws IllegalArgumentException If a spawn point at the given index does
-     *                                  not exist
+     *     not exist
      * @since 1.0
      */
     void removeSpawnPoint(int index);
@@ -128,7 +128,7 @@ public interface Arena extends Metadatable, MinigameElement {
      *
      * @param location The location of the spawn point to remove
      * @throws IllegalArgumentException If a spawn point at the given location
-     *                                  does not exist
+     *     does not exist
      * @since 1.0
      */
     void removeSpawnPoint(Location3D location);
@@ -148,9 +148,9 @@ public interface Arena extends Metadatable, MinigameElement {
      *               to define for the new {@link Round}
      * @return The newly created {@link Round}.
      * @throws IllegalArgumentException If <code>stages</code> contains an empty
-     *                                  set
+     *     set
      * @throws IllegalStateException If a {@link Round} already exists in this
-     *                               {@link Arena}
+     *     {@link Arena}
      * @since 1.0
      */
     Round createRound(ImmutableSet<LifecycleStage> stages) throws IllegalArgumentException, IllegalStateException;
@@ -161,9 +161,9 @@ public interface Arena extends Metadatable, MinigameElement {
      *
      * @return The newly created {@link Round}.
      * @throws IllegalArgumentException If the default {@link LifecycleStage}s
-     *                               have not been set as a config option
+     *     have not been set as a config option
      * @throws IllegalStateException If a {@link Round} already exists in this
-     *                               {@link Arena}
+     *     {@link Arena}
      * @since 1.0
      */
     Round createRound() throws IllegalArgumentException, IllegalStateException;
