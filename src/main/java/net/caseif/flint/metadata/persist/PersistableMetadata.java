@@ -26,23 +26,28 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.metadata;
+package net.caseif.flint.metadata.persist;
+
+import net.caseif.flint.metadata.Metadata;
 
 import com.google.common.base.Optional;
-import com.google.common.collect.ImmutableSet;
+
+import java.util.List;
 
 /**
- * Represents a set of data associated with a {@link Metadatable} instance.
+ * Represents a set of persistable data associated with a
+ * {@link PersistentMetadatable} instance.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Metadata {
+public interface PersistableMetadata extends Metadata {
 
     /**
      * Gets the value assigned to the given key.
      *
      * @param key The key of the value to retrieve
+     * @param serializer The {@link Serializer} to apply to the retrieved value
      * @param <T> The type of data associated with the given key
      * @return The value assigned to the given key, or {@link Optional#absent()}
      *     if the key is not defined
@@ -50,57 +55,70 @@ public interface Metadata {
      *     assignable from the generic parameter type <code>T</code> (Note that
      *     this exception is not thrown by this method directly, but rather by
      *     the JVM upon its invocation)
+     * @throws IllegalArgumentException If the value associated with
+     *     <code>key</code> is a {@link PersistableMetadata} structure, or if
+     *     the value is an invalid serial for the provided {@link Serializer}
      * @since 1.0
      */
-    <T> Optional<T> get(String key) throws ClassCastException;
+    <T> T get(String key, Serializer<T> serializer) throws ClassCastException, IllegalArgumentException;
 
     /**
-     * Assigns the given value to the given key.
+     * {@inheritDoc}
+     *
+     * <p><strong>This method is not supported for {@link PersistableMetadata}
+     * objects.</strong></p>
+     *
+     * @throws UnsupportedOperationException Always
+     */
+    @Override
+    void set(String key, Object value) throws UnsupportedOperationException;
+
+    /**
+     * Assigns the given string to the given key in a persistent manner.
      *
      * @param key The key to set
-     * @param value The value to assign to the key
-     * @param <T> The type of data to be assigned
+     * @param value The string to assign to the key
      * @since 1.0
      */
-    <T> void set(String key, T value);
+    void set(String key, String value);
 
     /**
-     * Creates a structure within this {@link Metadata} object as another
-     * {@link Metadata} instance and assigns it to the given key.
+     * Assigns the given object to the given key in a persistent manner, using
+     * the provided {@link Serializer} to serialize it to a string.
      *
-     * @param key The key to assign the new structure to
-     * @return The newly-created structure as a {@link Metadata} object
-     * @throws IllegalArgumentException If a value is already assigned to the
-     *     given key
+     * @param key The key to set
+     * @param value The object to assign to the key
+     * @param serializer The {@link Serializer} to apply to the provided value
+     * @param <T> The object type accepted by <code>serializer</code>
      * @since 1.0
      */
-    Metadata createStructure(String key) throws IllegalArgumentException;
+    <T> void set(String key, T value, Serializer<T> serializer);
 
     /**
-     * Removes the given key and its data from this {@link Metadata} object.
+     * Assigns the given string {@link List} to the given key in a persistent
+     * manner.
      *
-     * @param key The key to remove
-     * @return <code>true</code> if the key was removed; <code>false</code> if
-     *     it was not present in this {@link Metadata} object
+     * @param key The key to set
+     * @param value The string {@link List} to assign to the key
      * @since 1.0
      */
-    boolean remove(String key);
+    void set(String key, List<String> value);
 
     /**
-     * Returns an {@link ImmutableSet} of all keys contained by this
-     * {@link Metadata} objecjt.
+     * Assigns the given {@link List} to the given key in a persistent
+     * manner, using the provided {@link Serializer} to serialize its respective
+     * values to strings.
      *
-     * @return An {@link ImmutableSet} of all keys contained by this
-     *     {@link Metadata} object
+     * @param key The key to set
+     * @param value The {@link List} to assign to the key
+     * @param serializer The {@link Serializer} to apply to the provided list's
+     *     elements
+     * @param <T> The object type accepted by <code>serializer</code>
      * @since 1.0
      */
-    ImmutableSet<String> getAllKeys();
+    <T> void set(String key, List<T> value, Serializer<T> serializer);
 
-    /**
-     * Clears all key-value pairs from this {@link Metadata} object.
-     *
-     * @since 1.0
-     */
-    void clear();
+    @Override
+    PersistableMetadata createStructure(String key);
 
 }
