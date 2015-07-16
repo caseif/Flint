@@ -29,7 +29,7 @@
 package net.caseif.flint.challenger;
 
 import net.caseif.flint.round.Round;
-import net.caseif.flint.util.Metadatable;
+import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 
 import java.util.Set;

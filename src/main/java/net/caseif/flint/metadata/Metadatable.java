@@ -26,11 +26,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.util;
-
-import com.google.common.base.Optional;
-
-import java.util.Set;
+package net.caseif.flint.metadata;
 
 /**
  * Represents an object which may carry metadata.
@@ -41,42 +37,13 @@ import java.util.Set;
 public interface Metadatable {
 
     /**
-     * Gets the value of the metadata with the given key.
-     *
-     * @param key The key of the metadata value to retrieve
-     * @return The value of the metadata with the given key, or
-     *     {@link Optional#absent()} if the key is not defined
-     * @since 1.0
-     */
-    Optional<Object> getMetadata(String key);
-
-    /**
-     * Assigns the given value to the metadata with the given key, or clears it
-     * if <code>value</code> is <code>null</code>.
-     *
-     * @param key The name of the metadata key to set
-     * @param value The value to assign to the metadata key
-     * @since 1.0
-     */
-    void setMetadata(String key, Object value);
-
-    /**
-     * Removes the metadata with the given key from this {@link Metadatable}
+     * Gets the {@link Metadata} associated with this {@link Metadatable}
      * instance.
      *
-     * @param key The key of the metadata value to remove
+     * @return The {@link Metadata} associated with this {@link Metadatable}
+     *     instance
      * @since 1.0
      */
-    void removeMetadata(String key);
-
-    /**
-     * Returns an immutable {@link Set} of all metadata keys carried by this
-     * {@link Metadatable} instance.
-     *
-     * @return An immutable {@link Set} of all metadata keys carried by this
-     *     {@link Metadatable} instance
-     * @since 1.0
-     */
-    Set<String> getAllMetadata();
+    Metadata getMetadata();
 
 }
