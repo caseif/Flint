@@ -67,4 +67,12 @@ public interface Metadata {
      * @since 1.0
      */
     ImmutableSet<String> getAllKeys();
+
+    /**
+     * Clears all key-value pairs from this {@link Metadata} object.
+     *
+     * @since 1.0
+     */
+    void clear();
+
 }
