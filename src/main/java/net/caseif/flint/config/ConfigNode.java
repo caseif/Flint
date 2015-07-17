@@ -68,6 +68,7 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>(32);
+
     /**
      * Whether {@link Challenger}s are permitted to teleport.
      *
@@ -76,6 +77,7 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>(true);
+
     /**
      * Whether {@link Challenger}s are permitted to damage one another.
      *
@@ -84,6 +86,7 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_DAMAGE = new RoundConfigNode<>(true);
+
     /**
      * Whether {@link Challenger}s are permitted to damage teammates.
      *
@@ -92,6 +95,7 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>(false);
+
     /**
      * Whether {@link Team}s are to use separate chat channels.
      *
@@ -100,6 +104,7 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>(false);
+
     /**
      * Whether {@link Round}s shall be rolled back by default upon ending.
      *
@@ -108,6 +113,7 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> ROLLBACK_ON_END = new RoundConfigNode<>(true);
+
     /**
      * Whether spawn points should be selected for {@link Challenger}s entering
      * rounds randomly. If <code>false</code>, spawn points will be selected

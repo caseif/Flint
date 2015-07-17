@@ -83,6 +83,78 @@ public interface PersistableMetadata extends Metadata {
     void set(String key, String value);
 
     /**
+     * Assigns the given boolean to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The boolean to assign to the key
+     * @since 1.0
+     */
+    void set(String key, boolean value);
+
+    /**
+     * Assigns the given byte to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The byte to assign to the key
+     * @since 1.0
+     */
+    void set(String key, byte value);
+
+    /**
+     * Assigns the given short to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The short to assign to the key
+     * @since 1.0
+     */
+    void set(String key, short value);
+
+    /**
+     * Assigns the given char to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The char to assign to the key
+     * @since 1.0
+     */
+    void set(String key, char value);
+
+    /**
+     * Assigns the given int to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The int to assign to the key
+     * @since 1.0
+     */
+    void set(String key, int value);
+
+    /**
+     * Assigns the given long to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The long to assign to the key
+     * @since 1.0
+     */
+    void set(String key, long value);
+
+    /**
+     * Assigns the given float to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The float to assign to the key
+     * @since 1.0
+     */
+    void set(String key, float value);
+
+    /**
+     * Assigns the given double to the given key in a persistent manner.
+     *
+     * @param key The key to set
+     * @param value The double to assign to the key
+     * @since 1.0
+     */
+    void set(String key, double value);
+
+    /**
      * Assigns the given object to the given key in a persistent manner, using
      * the provided {@link Serializer} to serialize it to a string.
      *
