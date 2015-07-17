@@ -160,12 +160,11 @@ public interface Arena extends Metadatable, MinigameElement {
      * {@link LifecycleStage}s.
      *
      * @return The newly created {@link Round}.
-     * @throws IllegalArgumentException If the default {@link LifecycleStage}s
-     *     have not been set as a config option
      * @throws IllegalStateException If a {@link Round} already exists in this
-     *     {@link Arena}
+     *     {@link Arena}, or if the default {@link LifecycleStage}s have not
+     *     been set as a config option
      * @since 1.0
      */
-    Round createRound() throws IllegalArgumentException, IllegalStateException;
+    Round createRound() throws IllegalStateException;
 
 }
