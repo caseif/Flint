@@ -57,7 +57,7 @@ public interface LocaleManager extends MinigameElement {
      * Gets the {@link Localizable} associated with the given key
      *
      * @param key The key of the message to retrieve
-     * @return The retrieved message as a {@link BaseLocalizable}
+     * @return The retrieved message as a {@link Localizable}
      * @since 1.0
      */
     Localizable getLocalizable(String key);

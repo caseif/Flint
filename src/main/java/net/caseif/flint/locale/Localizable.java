@@ -58,9 +58,9 @@ public interface Localizable extends MinigameElement {
     LocaleManager getParent();
 
     /**
-     * Gets the key associated with this {@link BaseLocalizable}'s message.
+     * Gets the key associated with this {@link Localizable}'s message.
      *
-     * @return The key associated with this {@link BaseLocalizable}'s message
+     * @return The key associated with this {@link Localizable}'s message
      * @since 1.0
      */
     String getKey();
