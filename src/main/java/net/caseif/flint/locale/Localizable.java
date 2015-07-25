@@ -35,8 +35,8 @@ import java.util.UUID;
 
 //TODO: class documentation probably needs some work
 /**
- * Represents a message or other string which may be translated into different
- * locales.
+ * Represents an object which has the potential to be localized in one of
+ * multiple languages and returned as a string.
  *
  * <p>This may represent an ordered collection of strings and/or other
  * {@link Localizable}s.</p>
@@ -58,6 +58,14 @@ public interface Localizable extends MinigameElement {
     LocaleManager getParent();
 
     /**
+     * Gets the key associated with this {@link BaseLocalizable}'s message.
+     *
+     * @return The key associated with this {@link BaseLocalizable}'s message
+     * @since 1.0
+     */
+    String getKey();
+
+    /**
      * Localizes this {@link Localizable} in the server's default locale.
      *
      * @return The appropriate localization for this {@link Localizable}.
@@ -77,6 +85,20 @@ public interface Localizable extends MinigameElement {
     String localizeIn(String locale);
 
     /**
+     * Localizes this {@link Localizable} in the given locale.
+     *
+     * @param locale The locale to localize this {@link Localizable} in
+     * @param fallbacks A varargs parameter signifying in order locales to fall
+     *     back to if the given locale is not available for this
+     *     {@link Localizable}
+     * @return A string representing the localized message. This should follow
+     *     the ISO 639-1 and ISO 3166-1 standards, respectively (e.g. en_US
+     *     or enUS).
+     * @since 1.0
+     */
+    String localizeIn(String locale, String... fallbacks);
+
+    /**
      * Localizes this {@link Localizable} in the given challenger's locale.
      *
      * @param challenger The {@link Challenger} to localize this
@@ -85,6 +107,19 @@ public interface Localizable extends MinigameElement {
      * @since 1.0
      */
     String localizeFor(Challenger challenger);
+
+    /**
+     * Localizes this {@link Localizable} in the given challenger's locale.
+     *
+     * @param challenger The {@link Challenger} to localize this
+     *     {@link Localizable} for
+     * @param fallbacks A varargs parameter signifying in order locales to fall
+     *     back to if the {@link Challenger}'s locale is not available for this
+     *     {@link Localizable}
+     * @return A string representing the localized message
+     * @since 1.0
+     */
+    String localizeFor(Challenger challenger, String... fallbacks);
 
     /**
      * Localizes this {@link Localizable} in the locale of the player with the
@@ -98,6 +133,20 @@ public interface Localizable extends MinigameElement {
     String localizeFor(UUID uuid);
 
     /**
+     * Localizes this {@link Localizable} in the locale of the player with the
+     * given UUID.
+     *
+     * @param uuid The UUID of the player to localize this {@link Localizable}
+     *     for
+     * @param fallbacks A varargs parameter signifying in order locales to fall
+     *     back to if the player's locale is not available for this
+     *     {@link Localizable}
+     * @return A string representing the localized message
+     * @since 1.0
+     */
+    String localizeFor(UUID uuid, String... fallbacks);
+
+    /**
      * Sends this {@link Localizable} to the given {@link Challenger} in their
      * respective locale.
      *
@@ -106,6 +155,19 @@ public interface Localizable extends MinigameElement {
      * @since 1.0
      */
     void sendTo(Challenger challenger);
+
+    /**
+     * Sends this {@link Localizable} to the given {@link Challenger} in their
+     * respective locale.
+     *
+     * @param challenger The {@link Challenger} to send this {@link Localizable}
+     *     to
+     * @param fallbacks A varargs parameter signifying in order locales to fall
+     *     back to if the {@link Challenger}'s locale is not available for this
+     *     {@link Localizable}
+     * @since 1.0
+     */
+    void sendTo(Challenger challenger, String... fallbacks);
 
     /**
      * Sends this {@link Localizable} to the player with the given UUID in their
@@ -117,39 +179,15 @@ public interface Localizable extends MinigameElement {
     void sendTo(UUID uuid);
 
     /**
-     * Prepends the given {@link Object} to this {@link Localizable}.
+     * Sends this {@link Localizable} to the player with the given UUID in their
+     * respective locale.
      *
-     * <p>If <code>obj</code> is a {@link Localizable} owned by the same
-     * {@link LocaleManager}, it will be handled normally when the object this
-     * method returns is localized. Platform-native text formatting objects
-     * should be handled specially as well by implementations. Otherwise,
-     * <code>toString</code> will be called upon <code>obj</code>.</p>
-     *
-     * @param obj The object to prepend to this {@link Localizable}
-     * @return The newly-created {@link Localizable} with the prepended object
-     * @throws IllegalArgumentException If <code>obj</code> is a
-     *     {@link Localizable} owned by a different {@link LocaleManager} than
-     *     the one which owns this {@link Localizable}
+     * @param uuid The UUID of the player to send this {@link Localizable} to
+     * @param fallbacks A varargs parameter signifying in order locales to fall
+     *     back to if the player's locale is not available for this
+     *     {@link Localizable}
      * @since 1.0
      */
-    Localizable prepend(Object obj) throws IllegalArgumentException;
-
-    /**
-     * Appends the given {@link Object} to this {@link Localizable}.
-     *
-     * <p>If <code>obj</code> is a {@link Localizable} owned by the same
-     * {@link LocaleManager}, it will be handled normally when the object this
-     * method returns is localized. Platform-native text formatting objects
-     * should be handled specially as well by implementations. Otherwise,
-     * <code>toString</code> will be called upon <code>obj</code>.</p>
-     *
-     * @param obj The object to append to this {@link Localizable}
-     * @return The newly-created {@link Localizable} with the appended object
-     * @throws IllegalArgumentException If <code>obj</code> is a
-     *     {@link Localizable} owned by a different {@link LocaleManager} than
-     *     the one which owns this {@link Localizable}
-     * @since 1.0
-     */
-    Localizable append(Object obj) throws IllegalArgumentException;
+    void sendTo(UUID uuid, String... fallbacks);
 
 }
