@@ -33,7 +33,6 @@ import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.exception.round.RoundJoinException;
-import net.caseif.flint.locale.Localizable;
 import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 
@@ -175,15 +174,6 @@ public interface Round extends Metadatable, MinigameElement {
      * @since 1.0
      */
     void broadcast(String message);
-
-    /**
-     * Broadcasts the given {@link Localizable} to all {@link Challenger}s in
-     * this {@link Round}.
-     *
-     * @param message The {@link Localizable} to broadcast
-     * @since 1.0
-     */
-    void broadcast(Localizable message);
 
     /**
      * Gets an immutable {@link ImmutableSet} of this {@link Round}'s defined

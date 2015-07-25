@@ -31,7 +31,7 @@ package net.caseif.flint;
 import net.caseif.flint.arena.Arena;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.config.ConfigNode;
-import net.caseif.flint.locale.LocaleManager;
+import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.physical.Location3D;
 
@@ -71,7 +71,7 @@ public interface Minigame {
      * {@link Minigame}.
      *
      * <p>If <code>node</code> is an instance of a
-     * {@link net.caseif.flint.config.RoundConfigNode}, <code>value</code> will
+     * {@link RoundConfigNode}, <code>value</code> will
      * be used as a default return value for
      * {@link Round#getConfigValue(RoundConfigNode)} when not set for an
      * individual {@link Round}.</p>
@@ -88,7 +88,7 @@ public interface Minigame {
      * {@link Minigame}.
      *
      * <p>If <code>node</code> is an instance of a
-     * {@link net.caseif.flint.config.RoundConfigNode}, <code>value</code> will
+     * {@link RoundConfigNode}, <code>value</code> will
      * be used as a default return value for
      * {@link Round#getConfigValue(RoundConfigNode)} when not set for an
      * individual {@link Round}.</p>
@@ -176,13 +176,5 @@ public interface Minigame {
      * @since 1.0
      */
     Optional<Challenger> getChallenger(UUID uuid);
-
-    /**
-     * Gets the {@link LocaleManager} for this {@link Minigame} instance.
-     *
-     * @return The {@link LocaleManager} for this {@link Minigame} instance
-     * @since 1.0
-     */
-    LocaleManager getLocaleManager();
 
 }
