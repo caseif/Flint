@@ -82,7 +82,7 @@ public interface Arena extends Metadatable, MinigameElement {
      *     within
      * @since 1.0
      */
-    Optional<Boundary> getBoundary();
+    Boundary getBoundary();
 
     /**
      * Sets the {@link Boundary} which this {@link Arena} is contained within.

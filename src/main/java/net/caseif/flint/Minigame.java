@@ -33,6 +33,7 @@ import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.round.Round;
+import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
@@ -127,13 +128,14 @@ public interface Minigame {
      * @param name The "friendly" name of this {@link Arena} (i.e. the one
      *     displayed to users)
      * @param spawnPoint The initial spawn point for the new {@link Arena}
+     * @param boundary The {@link Boundary} of the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
-     *     identifier already exists, or if <code>spawnPoint</code> is
-     *     <code>null</code> or does not contain a world
+     *     identifier already exists, or if {@code spawnPoint} does not contain
+     *     a world
      * @since 1.0
      */
-    Arena createArena(String id, String name, Location3D spawnPoint) throws IllegalArgumentException;
+    Arena createArena(String id, String name, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;
 
     /**
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
@@ -141,12 +143,14 @@ public interface Minigame {
      *
      * @param id The identifier of the new {@link Arena}
      * @param spawnPoint The initial spawn point for the new {@link Arena}
+     * @param boundary The {@link Boundary} of the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
-     *     identifier already exists
+     *     identifier already exists, or if {@code spawnPoint} does not contain
+     *     a world
      * @since 1.0
      */
-    Arena createArena(String id, Location3D spawnPoint) throws IllegalArgumentException;
+    Arena createArena(String id, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;
 
     /**
      * Gets an immutable {@link Set} containing all active {@link Round}s owned
