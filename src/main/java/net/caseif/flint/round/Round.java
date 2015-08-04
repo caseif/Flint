@@ -287,14 +287,6 @@ public interface Round extends Metadatable, MinigameElement {
     void resetTimer();
 
     /**
-     * Rolls this {@link Round}'s physical arena back to its state immediately
-     * following its last rollback.
-     *
-     * @since 1.0
-     */
-    void rollback(); //TODO: may want to move this to Arena in the future
-
-    /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to their original locations, and
      * rolling back its arena.

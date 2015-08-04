@@ -167,4 +167,15 @@ public interface Arena extends Metadatable, MinigameElement {
      */
     Round createRound() throws IllegalStateException;
 
+    /**
+     * Rolls this {@link Arena}'s its state immediately prior to a {@link Round}
+     * having been created in it.
+     *
+     * @throws IllegalStateException If no {@link Round} has taken place in this
+     *     {@link Arena} since the last call to this method upon it
+     *
+     * @since 1.0
+     */
+    void rollback() throws IllegalStateException;
+
 }
