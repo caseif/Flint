@@ -28,7 +28,7 @@
  */
 package net.caseif.flint.util;
 
-import net.caseif.flint.Minigame;
+import net.caseif.flint.minigame.Minigame;
 
 /**
  * Defines methods implemented by all classes associated with a

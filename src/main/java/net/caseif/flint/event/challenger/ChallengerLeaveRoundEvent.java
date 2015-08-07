@@ -28,6 +28,8 @@
  */
 package net.caseif.flint.event.challenger;
 
+import net.caseif.flint.util.physical.Location3D;
+
 /**
  * Called when a {@link net.caseif.flint.challenger.Challenger} leaves a
  * {@link net.caseif.flint.round.Round}.
@@ -36,4 +38,22 @@ package net.caseif.flint.event.challenger;
  * @since 1.0
  */
 public interface ChallengerLeaveRoundEvent extends ChallengerEvent {
+
+    /**
+     * Gets the {@link Location3D} the subject of this event will be moved to.
+     *
+     * @return The {@link Location3D} the subject of this event will be moved to
+     * @since 1.0
+     */
+    Location3D getReturnLocation();
+
+    /**
+     * Sets the {@link Location3D} the subject of this event will be moved to.
+     *
+     * @param location The {@link Location3D} the subject of this event will be
+     *     moved to
+     * @since 1.0
+     */
+    void setReturnLocation(Location3D location);
+
 }

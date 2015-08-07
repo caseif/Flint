@@ -28,6 +28,8 @@
  */
 package net.caseif.flint;
 
+import net.caseif.flint.minigame.Minigame;
+
 /**
  * The core class for the Flint framework.
  *
