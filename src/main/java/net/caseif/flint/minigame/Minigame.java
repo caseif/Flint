@@ -112,13 +112,13 @@ public interface Minigame {
     Set<Arena> getArenas();
 
     /**
-     * Gets the {@link Arena} by the given name within this {@link Minigame}.
+     * Gets the {@link Arena} by the given ID within this {@link Minigame}.
      *
-     * @param arenaName The name of the {@link Arena} to get
-     * @return The {@link Arena} by the given name within this {@link Minigame}
+     * @param arenaId The ID of the {@link Arena} to get
+     * @return The {@link Arena} by the given ID within this {@link Minigame}
      * @since 1.0
      */
-    Optional<Arena> getArena(String arenaName);
+    Optional<Arena> getArena(String arenaId);
 
     /**
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
