@@ -28,9 +28,11 @@
  */
 package net.caseif.flint.event.round.challenger;
 
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.round.Round;
+
 /**
- * Called when a {@link net.caseif.flint.challenger.Challenger} joins a
- * {@link net.caseif.flint.round.Round}.
+ * Called when a {@link Challenger} joins a {@link Round}.
  *
  * @author Max Roncacé
  * @since 1.0

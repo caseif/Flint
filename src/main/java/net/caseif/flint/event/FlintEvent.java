@@ -33,6 +33,8 @@ import net.caseif.flint.util.MinigameElement;
 /**
  * Represents an event triggered by Flint.
  *
+ * <p>Flint events by are posted <em>after</em> they have occurred.</p>
+ *
  * <p>Flint's event classes are contained by a hierarchy separate from that of
  * the native platform and handled by a different bus. These two separate
  * systems do not and may not intermingle.</p>

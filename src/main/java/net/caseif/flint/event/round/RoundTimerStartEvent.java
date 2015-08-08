@@ -28,8 +28,6 @@
  */
 package net.caseif.flint.event.round;
 
-import net.caseif.flint.event.Cancellable;
-
 /**
  * Called when a {@link net.caseif.flint.round.Round}'s timer is started.
  *
@@ -40,5 +38,5 @@ import net.caseif.flint.event.Cancellable;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface RoundTimerStartEvent extends RoundEvent, Cancellable {
+public interface RoundTimerStartEvent extends RoundEvent {
 }
