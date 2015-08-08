@@ -137,12 +137,6 @@ public class RoundJoinException extends Throwable {
          */
         ALREADY_ENTERED,
         /**
-         * A failed join due to the respective event being cancelled.
-         *
-         * @since 1.0
-         */
-        CANCELLED,
-        /**
          * A failed join due to the round being at capacity.
          *
          * @since 1.0

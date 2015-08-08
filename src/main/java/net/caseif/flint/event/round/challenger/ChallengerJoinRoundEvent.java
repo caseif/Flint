@@ -28,8 +28,6 @@
  */
 package net.caseif.flint.event.round.challenger;
 
-import net.caseif.flint.event.Cancellable;
-
 /**
  * Called when a {@link net.caseif.flint.challenger.Challenger} joins a
  * {@link net.caseif.flint.round.Round}.
@@ -37,5 +35,5 @@ import net.caseif.flint.event.Cancellable;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface ChallengerJoinRoundEvent extends ChallengerEvent, Cancellable {
+public interface ChallengerJoinRoundEvent extends ChallengerEvent {
 }
