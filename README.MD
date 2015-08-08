@@ -31,7 +31,8 @@ added.
 
 ### Implementing
 
-Specification for those wishing to implement Flint may be found [here](doc/IMPLEMENTING.MD).
+Specification for those wishing to implement Flint may be found 
+[here](https://github.com/caseif/Flint/wiki/Implementation Specification).
 
 ### Contact
 
