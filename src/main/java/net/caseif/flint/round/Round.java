@@ -224,13 +224,22 @@ public interface Round extends Metadatable, MinigameElement {
     LifecycleStage getLifecycleStage(int index) throws IndexOutOfBoundsException;
 
     /**
-     * Gets this {@link Round}'s next lifecycle stage, if applicable.
+     * Gets this {@link Round}'s next {@link LifecycleStage}, if applicable.
      *
-     * @return This {@link Round}'s next lifecycle stage, or
+     * @return This {@link Round}'s next {@link LifecycleStage}, or
      *     {@link Optional#absent()} if the current stage is the final defined
      * @since 1.0
      */
     Optional<LifecycleStage> getNextLifecycleStage();
+
+    /**
+     * Progresses this {@link Round} to its next {@link LifecycleStage}.
+     *
+     * @throws IllegalStateException If the current {@link LifecycleStage} is
+     *     the last one defined
+     * @since 1.0
+     */
+    void nextLifecycleStage() throws IllegalStateException;
 
     /**
      * Gets the current state of this {@link Round}'s timer in seconds.
