@@ -114,7 +114,8 @@ public interface Minigame {
     /**
      * Gets the {@link Arena} by the given ID within this {@link Minigame}.
      *
-     * @param arenaId The ID of the {@link Arena} to get
+     * @param arenaId The ID of the {@link Arena} to get (will be converted to
+     *     lowercase
      * @return The {@link Arena} by the given ID within this {@link Minigame}
      * @since 1.0
      */
@@ -124,7 +125,8 @@ public interface Minigame {
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
      * the given identifier, name, and initial spawn point.
      *
-     * @param id The identifier of the new {@link Arena}
+     * @param id The identifier of the new {@link Arena} (will be converted to
+     *     lowercase)
      * @param name The "friendly" name of this {@link Arena} (i.e. the one
      *     displayed to users)
      * @param spawnPoint The initial spawn point for the new {@link Arena}
@@ -141,7 +143,8 @@ public interface Minigame {
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
      * the given identifier and initial spawn point.
      *
-     * @param id The identifier of the new {@link Arena}
+     * @param id The identifier of the new {@link Arena} (will be converted to
+     *     lowercase, although the display name will retain the original case)
      * @param spawnPoint The initial spawn point for the new {@link Arena}
      * @param boundary The {@link Boundary} of the new {@link Arena}
      * @return The newly created {@link Arena}
