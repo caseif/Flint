@@ -40,6 +40,18 @@ import static com.google.common.base.Preconditions.checkState;
  */
 public class Boundary {
 
+    /**
+     * Represents a {@link Boundary} which extends infinitely along all
+     * dimensions.
+     *
+     * @since 1.0
+     */
+    public static final Boundary INFINITE = new Boundary(
+            new Location3D(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY),
+            new Location3D(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY),
+            true
+    );
+
     private final Location3D lowerBound;
     private final Location3D upperBound;
 
