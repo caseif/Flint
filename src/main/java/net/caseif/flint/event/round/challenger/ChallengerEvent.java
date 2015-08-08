@@ -26,16 +26,26 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event.challenger;
+package net.caseif.flint.event.round.challenger;
 
-import net.caseif.flint.event.Cancellable;
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.event.FlintEvent;
+import net.caseif.flint.event.round.RoundEvent;
 
 /**
- * Called when a {@link net.caseif.flint.challenger.Challenger} joins a
- * {@link net.caseif.flint.round.Round}.
+ * Represents a {@link FlintEvent} involving a {@link Challenger}.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface ChallengerJoinRoundEvent extends ChallengerEvent, Cancellable {
+public interface ChallengerEvent extends RoundEvent {
+
+    /**
+     * Gets the {@link Challenger} involved in this event.
+     *
+     * @return The {@link Challenger} involved in this event
+     * @since 1.0
+     */
+    Challenger getChallenger();
+
 }

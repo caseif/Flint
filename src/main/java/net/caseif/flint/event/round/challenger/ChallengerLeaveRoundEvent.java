@@ -26,25 +26,34 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.event.challenger;
+package net.caseif.flint.event.round.challenger;
 
-import net.caseif.flint.challenger.Challenger;
-import net.caseif.flint.event.FlintEvent;
+import net.caseif.flint.util.physical.Location3D;
 
 /**
- * Represents a {@link FlintEvent} involving a {@link Challenger}.
+ * Called when a {@link net.caseif.flint.challenger.Challenger} leaves a
+ * {@link net.caseif.flint.round.Round}.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface ChallengerEvent extends FlintEvent {
+public interface ChallengerLeaveRoundEvent extends ChallengerEvent {
 
     /**
-     * Gets the {@link Challenger} involved in this event.
+     * Gets the {@link Location3D} the subject of this event will be moved to.
      *
-     * @return The {@link Challenger} involved in this event
+     * @return The {@link Location3D} the subject of this event will be moved to
      * @since 1.0
      */
-    Challenger getChallenger();
+    Location3D getReturnLocation();
+
+    /**
+     * Sets the {@link Location3D} the subject of this event will be moved to.
+     *
+     * @param location The {@link Location3D} the subject of this event will be
+     *     moved to
+     * @since 1.0
+     */
+    void setReturnLocation(Location3D location);
 
 }
