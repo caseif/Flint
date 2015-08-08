@@ -156,6 +156,28 @@ public interface Minigame {
     Arena createArena(String id, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;
 
     /**
+     * Removes the {@link Arena} with the given ID from this {@link Minigame}.
+     *
+     * @param id The identifier of the {@link Arena} to remove (will be
+     *     converted to lowercase)
+     * @throws IllegalArgumentException If an {@link Arena} with the given ID is
+     *     not associated with this {@link Minigame}
+     * @since 1.0
+     */
+    void removeArena(String id) throws IllegalArgumentException;
+
+    /**
+     * Removes the {@link Arena} with the given ID from this {@link Minigame}.
+     *
+     * @param arena The {@link Arena} to remove (will be converted to lowercase)
+     * @throws IllegalArgumentException If the given {@link Arena} has already
+     *     been removed or is otherwise not associated with this
+     *     {@link Minigame}
+     * @since 1.0
+     */
+    void removeArena(Arena arena) throws IllegalArgumentException;
+
+    /**
      * Gets an immutable {@link Set} containing all active {@link Round}s owned
      * by this {@link Minigame}.
      *
