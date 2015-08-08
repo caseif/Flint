@@ -137,6 +137,7 @@ public class ConfigNode<T> {
      * Returns this {@link ConfigNode}'s default value.
      *
      * @return This {@link ConfigNode}'s default value
+     * @since 1.0
      */
     public T getDefaultValue() {
         return this.defaultValue;

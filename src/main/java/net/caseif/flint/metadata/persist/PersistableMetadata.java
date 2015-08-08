@@ -69,6 +69,7 @@ public interface PersistableMetadata extends Metadata {
      * objects.</strong></p>
      *
      * @throws UnsupportedOperationException Always
+     * @since 1.0
      */
     @Override
     void set(String key, Object value) throws UnsupportedOperationException;

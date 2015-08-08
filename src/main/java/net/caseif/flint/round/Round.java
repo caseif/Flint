@@ -220,6 +220,7 @@ public interface Round extends Metadatable, MinigameElement {
      * @return The {@link LifecycleStage} at the given index
      * @throws IndexOutOfBoundsException If <code>index</code> is greater than
      *     the highest defined index
+     * @since 1.0
      */
     LifecycleStage getLifecycleStage(int index) throws IndexOutOfBoundsException;
 
