@@ -34,8 +34,9 @@ import net.caseif.flint.util.physical.Location3D;
  * Called when a {@link net.caseif.flint.challenger.Challenger} leaves a
  * {@link net.caseif.flint.round.Round}.
  *
- * <p><strong>Note:</strong> This event is called <em>before</em> the player is
- * teleported, so as to allow the return location to be modified.</p>
+ * <p><strong>Note:</strong> This event is called <em>before</em> the target
+ * {@link Challenger} is invalidated and before the player is teleported, so as
+ * to allow the return location to be modified.</p>
  *
  * @author Max Roncacé
  * @since 1.0
