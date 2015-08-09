@@ -124,11 +124,11 @@ public class Location3D {
      */
     public String serialize() {
         StringBuilder sb = new StringBuilder();
-        sb.append("{");
+        sb.append("(");
         if (getWorld().isPresent()) {
             sb.append("\"").append(getWorld().get()).append("\",");
         }
-        sb.append(getX()).append(",").append(getY()).append(",").append(getZ()).append("}");
+        sb.append(getX()).append(",").append(getY()).append(",").append(getZ()).append(")");
         return sb.toString();
     }
 
@@ -142,7 +142,7 @@ public class Location3D {
      * @since 1.0
      */
     public static Location3D deserialize(String serial) throws IllegalArgumentException {
-        if (serial.startsWith("{") && serial.endsWith("}")) {
+        if (serial.startsWith("(") && serial.endsWith(")")) {
             serial = serial.substring(1, serial.length() - 1);
             String[] parts = serial.split(",");
             try {
