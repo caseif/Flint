@@ -28,10 +28,11 @@
  */
 package net.caseif.flint.event.round.challenger;
 
+import net.caseif.flint.round.challenger.Challenger;
 import net.caseif.flint.util.physical.Location3D;
 
 /**
- * Called when a {@link net.caseif.flint.challenger.Challenger} leaves a
+ * Called when a {@link Challenger} leaves a
  * {@link net.caseif.flint.round.Round}.
  *
  * <p><strong>Note:</strong> This event is called <em>before</em> the target

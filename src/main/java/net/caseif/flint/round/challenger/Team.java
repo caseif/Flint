@@ -26,7 +26,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.challenger;
+package net.caseif.flint.round.challenger;
 
 import net.caseif.flint.round.Round;
 import net.caseif.flint.metadata.Metadatable;

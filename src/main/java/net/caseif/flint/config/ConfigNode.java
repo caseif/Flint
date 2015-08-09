@@ -28,8 +28,8 @@
  */
 package net.caseif.flint.config;
 
-import net.caseif.flint.challenger.Challenger;
-import net.caseif.flint.challenger.Team;
+import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.round.challenger.Team;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
