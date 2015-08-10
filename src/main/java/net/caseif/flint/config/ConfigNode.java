@@ -28,11 +28,13 @@
  */
 package net.caseif.flint.config;
 
-import net.caseif.flint.round.challenger.Challenger;
-import net.caseif.flint.round.challenger.Team;
+import net.caseif.flint.arena.Arena;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
+import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.round.challenger.Team;
+import net.caseif.flint.util.physical.Boundary;
 
 import com.google.common.collect.ImmutableSet;
 
