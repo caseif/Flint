@@ -15,7 +15,7 @@ Flint requires Java 7 for compilation and use.
 
 ### Building
 
-Flint uses Gradle as its build system. To clone and build the plugin from scratch:
+Flint uses Gradle as its build system. To clone and build the project from scratch:
 
 - `git clone https://github.com/caseif/Flint.git`
 - `cd Flint`
