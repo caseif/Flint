@@ -147,7 +147,7 @@ public interface Arena extends Metadatable, MinigameElement {
      * @param stages A {@link LinkedHashSet} containing {@link LifecycleStage}s
      *               to define for the new {@link Round}
      * @return The newly created {@link Round}.
-     * @throws IllegalArgumentException If <code>stages</code> contains an empty
+     * @throws IllegalArgumentException If {@code stages} contains an empty
      *     set
      * @throws IllegalStateException If a {@link Round} already exists in this
      *     {@link Arena}

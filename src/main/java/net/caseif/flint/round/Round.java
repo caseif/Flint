@@ -111,7 +111,7 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param challenger The {@link Challenger} to remove
      * @throws IllegalArgumentException If this {@link Round} is not the one
-     *     containing <code>challenger</code>
+     *     containing {@code challenger}
      * @since 1.0
      */
     void removeChallenger(Challenger challenger) throws IllegalArgumentException;
@@ -167,7 +167,7 @@ public interface Round extends Metadatable, MinigameElement {
     int getSpectatorCount();
 
     /**
-     * Broadcasts the string <code>message</code> to all {@link Challenger}s in
+     * Broadcasts the string {@code message} to all {@link Challenger}s in
      * this {@link Round}.
      *
      * @param message The string to broadcast
@@ -196,7 +196,7 @@ public interface Round extends Metadatable, MinigameElement {
      * Sets this {@link Round}'s current {@link LifecycleStage}.
      *
      * @param stage The new {@link LifecycleStage} for the {@link Round}
-     * @throws IllegalArgumentException If <code>stage</code> is not defined for
+     * @throws IllegalArgumentException If {@code stage} is not defined for
      *     this {@link Round}
      * @since 1.0
      */
@@ -218,7 +218,7 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param index The index of the {@link LifecycleStage} to get
      * @return The {@link LifecycleStage} at the given index
-     * @throws IndexOutOfBoundsException If <code>index</code> is greater than
+     * @throws IndexOutOfBoundsException If {@code index} is greater than
      *     the highest defined index
      * @since 1.0
      */
@@ -266,7 +266,7 @@ public interface Round extends Metadatable, MinigameElement {
      * its {@link LifecycleStage lifecycle stage}.
      *
      * @return The time in seconds until this {@link Round} is due to change
-     *     its {@link LifecycleStage lifecycle stage}, or <code>-1</code> if the
+     *     its {@link LifecycleStage lifecycle stage}, or {@code -1} if the
      *     current stage is untimed.
      * @since 1.0
      */
@@ -308,7 +308,7 @@ public interface Round extends Metadatable, MinigameElement {
     /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to thieir original locations, and,
-     * if <code>rollback</code> is <code>true</code>, rolling back its arena.
+     * if {@code rollback</code> is <code>true}, rolling back its arena.
      *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
      * @since 1.0
@@ -320,8 +320,8 @@ public interface Round extends Metadatable, MinigameElement {
      * {@link Round}, or the server value if it is not set.
      *
      * @param node The {@link RoundConfigNode} to look up
-     * @param <T> The value type associated with <code>node</code>
-     * @return The value associated with <code>node</code>
+     * @param <T> The value type associated with {@code node}
+     * @return The value associated with {@code node}
      * @since 1.0
      */
     <T> T getConfigValue(RoundConfigNode<T> node);
@@ -331,8 +331,8 @@ public interface Round extends Metadatable, MinigameElement {
      * {@link Round}.
      *
      * @param node The {@link RoundConfigNode} to set
-     * @param value The new value associated with <code>node</code>
-     * @param <T> The value type associated with <code>node</code>
+     * @param value The new value associated with {@code node}
+     * @param <T> The value type associated with {@code node}
      * @since 1.0
      */
     <T> void setConfigValue(RoundConfigNode<T> node, T value);

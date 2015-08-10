@@ -52,11 +52,11 @@ public interface PersistableMetadata extends Metadata {
      * @return The value assigned to the given key, or {@link Optional#absent()}
      *     if the key is not defined
      * @throws ClassCastException If the value associated with the given key is
-     *     assignable from the generic parameter type <code>T</code> (Note that
+     *     assignable from the generic parameter type {@code T} (Note that
      *     this exception is not thrown by this method directly, but rather by
      *     the JVM upon its invocation)
      * @throws IllegalArgumentException If the value associated with
-     *     <code>key</code> is a {@link PersistableMetadata} structure, or if
+     *     {@code key} is a {@link PersistableMetadata} structure, or if
      *     the value is an invalid serial for the provided {@link Serializer}
      * @since 1.0
      */
@@ -162,7 +162,7 @@ public interface PersistableMetadata extends Metadata {
      * @param key The key to set
      * @param value The object to assign to the key
      * @param serializer The {@link Serializer} to apply to the provided value
-     * @param <T> The object type accepted by <code>serializer</code>
+     * @param <T> The object type accepted by {@code serializer}
      * @since 1.0
      */
     <T> void set(String key, T value, Serializer<T> serializer);
@@ -186,7 +186,7 @@ public interface PersistableMetadata extends Metadata {
      * @param value The {@link List} to assign to the key
      * @param serializer The {@link Serializer} to apply to the provided list's
      *     elements
-     * @param <T> The object type accepted by <code>serializer</code>
+     * @param <T> The object type accepted by {@code serializer}
      * @since 1.0
      */
     <T> void set(String key, List<T> value, Serializer<T> serializer);

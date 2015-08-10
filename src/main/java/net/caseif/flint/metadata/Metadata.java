@@ -47,7 +47,7 @@ public interface Metadata {
      * @return The value assigned to the given key, or {@link Optional#absent()}
      *     if the key is not defined
      * @throws ClassCastException If the value associated with the given key is
-     *     assignable from the generic parameter type <code>T</code> (Note that
+     *     assignable from the generic parameter type {@code T} (Note that
      *     this exception is not thrown by this method directly, but rather by
      *     the JVM upon its invocation)
      * @since 1.0
@@ -80,7 +80,7 @@ public interface Metadata {
      * Removes the given key and its data from this {@link Metadata} object.
      *
      * @param key The key to remove
-     * @return <code>true</code> if the key was removed; <code>false</code> if
+     * @return {@code true</code> if the key was removed; <code>false} if
      *     it was not present in this {@link Metadata} object
      * @since 1.0
      */

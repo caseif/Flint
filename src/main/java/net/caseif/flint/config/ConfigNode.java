@@ -53,7 +53,7 @@ public class ConfigNode<T> {
     /**
      * The default {@link LifecycleStage}s to apply to new {@link Round}s.
      *
-     * <p><em>Default: <code>null</code></em></p>
+     * <p><strong>Default:</strong> {@code null}</p>
      *
      * @since 1.0
      */
@@ -63,25 +63,29 @@ public class ConfigNode<T> {
     /**
      * The maximum permitted player count.
      *
-     * <p><em>Default: <code>32</code></em></p>
+     * <p><strong>Default:</strong> {@code 32}</p>
      *
      * @since 1.0
      */
     public static final RoundConfigNode<Integer> MAX_PLAYERS = new RoundConfigNode<>(32);
 
     /**
-     * Whether {@link Challenger}s are permitted to teleport.
+     * Whether {@link Challenger}s are permitted to physically leave their
+     * {@link Arena}s' {@link Boundary Boundaries}. If {@code false} (default),
+     * they will be unconditionally forbidden from physically exiting the
+     * boundary region while in a {@link Round}. If {@code true}, they will be
+     * removed from the {@link Round} upon leaving.
      *
-     * <p><em>Default: <code>true</code></em></p>
+     * <p><strong>Default:</strong> {@code false}</p>
      *
      * @since 1.0
      */
-    public static final RoundConfigNode<Boolean> ALLOW_TELEPORT = new RoundConfigNode<>(true);
+    public static final RoundConfigNode<Boolean> ALLOW_EXIT_BOUNDARY = new RoundConfigNode<>(false);
 
     /**
      * Whether {@link Challenger}s are permitted to damage one another.
      *
-     * <p><em>Default: <code>true</code></em></p>
+     * <p><strong>Default:</strong> {@code true}</p>
      *
      * @since 1.0
      */
@@ -90,7 +94,7 @@ public class ConfigNode<T> {
     /**
      * Whether {@link Challenger}s are permitted to damage teammates.
      *
-     * <p><em>Default: <code>false</code></em></p>
+     * <p><strong>Default:</strong> {@code false}</p>
      *
      * @since 1.0
      */
@@ -99,7 +103,7 @@ public class ConfigNode<T> {
     /**
      * Whether {@link Team}s are to use separate chat channels.
      *
-     * <p><em>Default: <code>false</code></em></p>
+     * <p><strong>Default:</strong> {@code false}</p>
      *
      * @since 1.0
      */
@@ -108,7 +112,7 @@ public class ConfigNode<T> {
     /**
      * Whether {@link Round}s shall be rolled back by default upon ending.
      *
-     * <p><em>Default: <code>true</code></em></p>
+     * <p><strong>Default:</strong> {@code true}</p>
      *
      * @since 1.0
      */
@@ -116,10 +120,10 @@ public class ConfigNode<T> {
 
     /**
      * Whether spawn points should be selected for {@link Challenger}s entering
-     * rounds randomly. If <code>false</code>, spawn points will be selected
+     * rounds randomly. If {@code false}, spawn points will be selected
      * sequentially.
      *
-     * <p><em>Default: <code>false</code></em></p>
+     * <p><strong>Default:</strong> {@code false}</p>
      *
      * @since 1.0
      */

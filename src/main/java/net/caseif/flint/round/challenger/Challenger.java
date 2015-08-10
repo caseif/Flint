@@ -101,9 +101,9 @@ public interface Challenger extends Metadatable, MinigameElement {
      * it from the team it currently belongs to if applicable.
      *
      * @param team The new {@link Team} this challenger will belong to (pass
-     *     <code>null</code> to remove them from their current
+     *     {@code null} to remove them from their current
      *     {@link Team})
-     * @throws IllegalArgumentException If <code>team</code> is not contained by
+     * @throws IllegalArgumentException If {@code team} is not contained by
      *     the same {@link Round} as this
      *                                  {@link Challenger}
      * @throws IllegalStateException If this {@link Challenger} is no longer

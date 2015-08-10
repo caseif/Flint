@@ -71,15 +71,15 @@ public interface Minigame {
      * Gets the current value of the given {@link ConfigNode} for this
      * {@link Minigame}.
      *
-     * <p>If <code>node</code> is an instance of a
-     * {@link RoundConfigNode}, <code>value</code> will
+     * <p>If {@code node} is an instance of a
+     * {@link RoundConfigNode}, {@code value} will
      * be used as a default return value for
      * {@link Round#getConfigValue(RoundConfigNode)} when not set for an
      * individual {@link Round}.</p>
      *
      * @param node The {@link ConfigNode} to look up
-     * @param <T> The value type associated with <code>node</code>
-     * @return The value of <code>node</code> for this {@link Minigame}
+     * @param <T> The value type associated with {@code node}
+     * @return The value of {@code node} for this {@link Minigame}
      * @since 1.0
      */
     <T> T getConfigValue(ConfigNode<T> node);
@@ -88,15 +88,15 @@ public interface Minigame {
      * Gets the current value of the given {@link ConfigNode} for this
      * {@link Minigame}.
      *
-     * <p>If <code>node</code> is an instance of a
-     * {@link RoundConfigNode}, <code>value</code> will
+     * <p>If {@code node} is an instance of a
+     * {@link RoundConfigNode}, {@code value} will
      * be used as a default return value for
      * {@link Round#getConfigValue(RoundConfigNode)} when not set for an
      * individual {@link Round}.</p>
      *
      * @param node The {@link ConfigNode} to look up
-     * @param value The new value of <code>node</code> for this {@link Minigame}
-     * @param <T> The value type associated with <code>node</code>
+     * @param value The new value of {@code node} for this {@link Minigame}
+     * @param <T> The value type associated with {@code node}
      * @since 1.0
      */
     <T> void setConfigValue(ConfigNode<T> node, T value);
