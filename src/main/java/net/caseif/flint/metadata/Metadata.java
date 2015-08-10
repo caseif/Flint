@@ -80,7 +80,7 @@ public interface Metadata {
      * Removes the given key and its data from this {@link Metadata} object.
      *
      * @param key The key to remove
-     * @return {@code true</code> if the key was removed; <code>false} if
+     * @return {@code true} if the key was removed; {@code false} if
      *     it was not present in this {@link Metadata} object
      * @since 1.0
      */

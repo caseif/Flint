@@ -308,7 +308,7 @@ public interface Round extends Metadatable, MinigameElement {
     /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to thieir original locations, and,
-     * if {@code rollback</code> is <code>true}, rolling back its arena.
+     * if {@code rollback} is {@code true}, rolling back its arena.
      *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
      * @since 1.0

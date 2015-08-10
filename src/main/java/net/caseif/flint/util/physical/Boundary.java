@@ -66,7 +66,7 @@ public class Boundary {
      *     the two locations are within the same world
      * @throws IllegalArgumentException If one or both location parameters are
      *     {@code null}, or if the worlds containing the locations do not
-     *     match and {@code ignoreDifferentWorlds</code> is <code>false}
+     *     match and {@code ignoreDifferentWorlds} is {@code false}
      * @since 1.0
      */
     public Boundary(Location3D corner1, Location3D corner2, boolean ignoreDifferentWorlds)
