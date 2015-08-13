@@ -29,7 +29,7 @@
 package net.caseif.flint.minigame;
 
 import net.caseif.flint.arena.Arena;
-import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.round.Round;

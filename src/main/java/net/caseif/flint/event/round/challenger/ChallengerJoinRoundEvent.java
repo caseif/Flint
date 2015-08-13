@@ -28,7 +28,7 @@
  */
 package net.caseif.flint.event.round.challenger;
 
-import net.caseif.flint.round.challenger.Challenger;
+import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.round.Round;
 
 /**
