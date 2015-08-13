@@ -41,6 +41,8 @@ public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
 
+    private static final int API_REVISION = 1;
+
     /**
      * Gets the current API revision. Note that this is not necessarily parallel
      * to its version string.
@@ -52,8 +54,20 @@ public abstract class FlintCore {
      * @since 1.0
      */
     public static int getApiRevision() {
-        return 1;
+        return API_REVISION;
     }
+
+    /**
+     * Gets the name of the software currently implementing Flint.
+     *
+     * @return The name of the software currently implementing Flint
+     * @since 1.0
+     */
+    public static String getImplementationName() {
+        return INSTANCE.getImplementationName0();
+    }
+
+    public abstract String getImplementationName0();
 
     /**
      * Registers a plugin as a Flint-backed {@link Minigame}.
