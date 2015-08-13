@@ -34,8 +34,6 @@ import net.caseif.flint.util.MinigameElement;
 
 import com.google.common.collect.ImmutableSet;
 
-import java.util.Set;
-
 /**
  * Represents a team containing {@link Challenger}s in a
  * {@link Round}.
@@ -64,7 +62,7 @@ public interface Team extends Metadatable, MinigameElement {
     /**
      * Sets the display name of this {@link Team}.
      *
-     * @param displayName The new display name of this {@link Team}
+     * @param name The new display name of this {@link Team}
      * @since 1.0
      */
     void setName(String name);
