@@ -28,9 +28,11 @@
  */
 package net.caseif.flint.round.challenger;
 
-import net.caseif.flint.round.Round;
 import net.caseif.flint.metadata.Metadatable;
+import net.caseif.flint.round.Round;
 import net.caseif.flint.util.MinigameElement;
+
+import com.google.common.collect.ImmutableSet;
 
 import java.util.Set;
 
@@ -57,7 +59,7 @@ public interface Team extends Metadatable, MinigameElement {
      * @return The display name of this {@link Team}
      * @since 1.0
      */
-    String getDisplayName();
+    String getName();
 
     /**
      * Sets the display name of this {@link Team}.
@@ -65,7 +67,7 @@ public interface Team extends Metadatable, MinigameElement {
      * @param displayName The new display name of this {@link Team}
      * @since 1.0
      */
-    void setDisplayName(String displayName);
+    void setName(String name);
 
     /**
      * Returns the {@link Round} containing this {@link Team}.
@@ -76,22 +78,35 @@ public interface Team extends Metadatable, MinigameElement {
     Round getRound();
 
     /**
-     * Returns an immutable {@link Set} of all {@link Challenger}s on this
+     * Returns an {@link ImmutableSet} of all {@link Challenger}s on this
      *     {@link Team}.
      *
-     * @return An immutable {@link Set} of all {@link Challenger}s on this
+     * @return An {@link ImmutableSet} of all {@link Challenger}s on this
      *     {@link Team}
      * @since 1.0
      */
-    Set<Challenger> getChallengers();
+    ImmutableSet<Challenger> getChallengers();
 
     /**
      * Adds the given {@link Challenger} to this {@link Team} and implicitly
      * removing it from its current {@link Team} if applicable.
      *
      * @param challenger The {@link Challenger} to add
+     * @throws IllegalArgumentException If the givene {@link Challenger} is
+     *     owned by a different {@link Round} than the one parenting this
+     *     {@link Team}
      * @since 1.0
      */
-    void addChallenger(Challenger challenger);
+    void addChallenger(Challenger challenger) throws IllegalArgumentException;
+
+    /**
+     * Removes the given {@link Challenger} from this {@link Team}.
+     *
+     * @param challenger The {@link Challenger} to remove
+     * @throws IllegalArgumentException If the given {@link Challenger} is not
+     *     on this {@link Team}
+     * @since 1.0
+     */
+    void removeChallenger(Challenger challenger) throws IllegalArgumentException;
 
 }
