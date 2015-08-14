@@ -29,6 +29,7 @@
 package net.caseif.flint.metadata.persist;
 
 import net.caseif.flint.metadata.Metadata;
+import net.caseif.flint.serialization.Serializer;
 
 import com.google.common.base.Optional;
 
