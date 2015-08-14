@@ -32,7 +32,9 @@ import net.caseif.flint.arena.Arena;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.config.RoundConfigNode;
+import net.caseif.flint.exception.OrphanedObjectException;
 import net.caseif.flint.round.Round;
+import net.caseif.flint.util.annotation.Orphaner;
 import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
@@ -158,23 +160,33 @@ public interface Minigame {
     /**
      * Removes the {@link Arena} with the given ID from this {@link Minigame}.
      *
-     * @param id The identifier of the {@link Arena} to remove (will be
-     *     converted to lowercase)
+     * <p>Note that calling this method will orphan the {@link Arena} object
+     * associated with the passed ID, causing all of its methods to throw
+     * {@link OrphanedObjectException}s.</p>
+     *
+     * @param id The ID of the {@link Arena} to remove (will be converted to
+     *     lowercase)
      * @throws IllegalArgumentException If an {@link Arena} with the given ID is
      *     not associated with this {@link Minigame}
      * @since 1.0
      */
+    @Orphaner
     void removeArena(String id) throws IllegalArgumentException;
 
     /**
      * Removes the {@link Arena} with the given ID from this {@link Minigame}.
      *
-     * @param arena The {@link Arena} to remove (will be converted to lowercase)
+     * <p>Note that calling this method will orphan the passed {@link Arena}
+     * object, causing all of its methods to throw
+     * {@link OrphanedObjectException}s.</p>
+     *
+     * @param arena The {@link Arena} to remove
      * @throws IllegalArgumentException If the given {@link Arena} has already
      *     been removed or is otherwise not associated with this
      *     {@link Minigame}
      * @since 1.0
      */
+    @Orphaner
     void removeArena(Arena arena) throws IllegalArgumentException;
 
     /**

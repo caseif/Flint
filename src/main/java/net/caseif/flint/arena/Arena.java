@@ -28,10 +28,12 @@
  */
 package net.caseif.flint.arena;
 
+import net.caseif.flint.exception.OrphanedObjectException;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.util.MinigameElement;
+import net.caseif.flint.util.annotation.Orphanable;
 import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
@@ -48,50 +50,62 @@ import java.util.LinkedHashSet;
  * @author Max Roncacé
  * @since 1.0
  */
+@SuppressWarnings("DuplicateThrows")
+@Orphanable
 public interface Arena extends Metadatable, MinigameElement {
 
     /**
      * Gets the identifier of this {@link Arena}.
      *
      * @return The identifier of this {@link Arena}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getId();
+    String getId() throws OrphanedObjectException;
 
     /**
      * Gets the "friendly" name of this {@link Arena}, as displayed to users.
      *
      * @return The "friendly" name of this {@link Arena}, as displayed to users,
      *     or its ID if one is not set
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getName();
+    String getName() throws OrphanedObjectException;
 
     /**
      * Gets the name of the world which contains this {@link Arena}.
      *
      * @return The name of the world which contains this {@link Arena}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getWorld();
+    String getWorld() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Boundary} which this {@link Arena} is contained within.
      *
      * @return The {@link Boundary} which this {@link Arena} is contained
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      *     within
      * @since 1.0
      */
-    Boundary getBoundary();
+    Boundary getBoundary() throws OrphanedObjectException;
 
     /**
      * Sets the {@link Boundary} which this {@link Arena} is contained within.
      *
      * @param bound The new {@link Boundary} which this {@link Arena} is to be
      *     contained within
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void setBoundary(Boundary bound);
+    void setBoundary(Boundary bound) throws OrphanedObjectException;
 
     /**
      * Returns an immutable {@link BiMap} of points at which players may spawn
@@ -99,9 +113,11 @@ public interface Arena extends Metadatable, MinigameElement {
      *
      * @return An immutable {@link BiMap} of points at which players may spawn
      *     upon entering this arena, mapped to their respective IDs
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    ImmutableBiMap<Integer, Location3D> getSpawnPoints();
+    ImmutableBiMap<Integer, Location3D> getSpawnPoints() throws OrphanedObjectException;
 
     /**
      * Adds the given {@link Location3D} to this {@link Arena}'s possible
@@ -109,9 +125,11 @@ public interface Arena extends Metadatable, MinigameElement {
      *
      * @param spawn The {@link Location3D} to add as a new spawn point
      * @return The index of the new spawn point
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    int addSpawnPoint(Location3D spawn);
+    int addSpawnPoint(Location3D spawn) throws OrphanedObjectException;
 
     /**
      * Removes the spawn point of the given index from this {@link Arena}.
@@ -119,9 +137,11 @@ public interface Arena extends Metadatable, MinigameElement {
      * @param index The index of the spawn point to remove
      * @throws IllegalArgumentException If a spawn point at the given index does
      *     not exist
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void removeSpawnPoint(int index);
+    void removeSpawnPoint(int index) throws OrphanedObjectException;
 
     /**
      * Removes the spawn point at the given location from this {@link Arena}.
@@ -129,17 +149,21 @@ public interface Arena extends Metadatable, MinigameElement {
      * @param location The location of the spawn point to remove
      * @throws IllegalArgumentException If a spawn point at the given location
      *     does not exist
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void removeSpawnPoint(Location3D location);
+    void removeSpawnPoint(Location3D location) throws OrphanedObjectException;
 
     /**
      * Gets the {@link Round} contained by this {@link Arena}.
      *
      * @return The {@link Round} contained by this {@link Arena}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Optional<Round> getRound();
+    Optional<Round> getRound() throws OrphanedObjectException;
 
     /**
      * Creates a new {@link Round} in this {@link Arena}.
@@ -151,9 +175,12 @@ public interface Arena extends Metadatable, MinigameElement {
      *     set
      * @throws IllegalStateException If a {@link Round} already exists in this
      *     {@link Arena}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Round createRound(ImmutableSet<LifecycleStage> stages) throws IllegalArgumentException, IllegalStateException;
+    Round createRound(ImmutableSet<LifecycleStage> stages)
+            throws IllegalArgumentException, IllegalStateException, OrphanedObjectException;
 
     /**
      * Creates a new {@link Round} in this {@link Arena} with the default
@@ -163,9 +190,11 @@ public interface Arena extends Metadatable, MinigameElement {
      * @throws IllegalStateException If a {@link Round} already exists in this
      *     {@link Arena}, or if the default {@link LifecycleStage}s have not
      *     been set as a config option
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Round createRound() throws IllegalStateException;
+    Round createRound() throws IllegalStateException, OrphanedObjectException;
 
     /**
      * Rolls this {@link Arena}'s its state immediately prior to a {@link Round}
@@ -173,9 +202,10 @@ public interface Arena extends Metadatable, MinigameElement {
      *
      * @throws IllegalStateException If no {@link Round} has taken place in this
      *     {@link Arena} since the last call to this method upon it
-     *
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void rollback() throws IllegalStateException;
+    void rollback() throws IllegalStateException, OrphanedObjectException;
 
 }

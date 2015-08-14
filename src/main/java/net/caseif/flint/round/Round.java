@@ -32,9 +32,12 @@ import net.caseif.flint.arena.Arena;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.config.RoundConfigNode;
+import net.caseif.flint.exception.OrphanedObjectException;
 import net.caseif.flint.exception.round.RoundJoinException;
 import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.util.MinigameElement;
+import net.caseif.flint.util.annotation.Orphanable;
+import net.caseif.flint.util.annotation.Orphaner;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
@@ -48,25 +51,31 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
+@SuppressWarnings("DuplicateThrows")
+@Orphanable
 public interface Round extends Metadatable, MinigameElement {
 
     /**
      * Gets the {@link Arena} which contains this {@link Round}.
      *
      * @return The {@link Arena} which contains this {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Arena getArena();
+    Arena getArena() throws OrphanedObjectException;
 
     /**
-     * Returns an immutable {@link Set} of {@link Challenger}s in this
+     * Returns an {@link ImmutableSet} of {@link Challenger}s in this
      * {@link Round}.
      *
-     * @return An immutable {@link Set} of {@link Challenger}s in this
+     * @return An {@link ImmutableSet} of {@link Challenger}s in this
      * {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Set<Challenger> getChallengers();
+    ImmutableSet<Challenger> getChallengers() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Challenger} from this {@link Round} with the given
@@ -75,9 +84,11 @@ public interface Round extends Metadatable, MinigameElement {
      * @param uuid The {@link UUID} to look up
      * @return The {@link Challenger} from this {@link Round} with the given
      *         {@link UUID}.
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Optional<Challenger> getChallenger(UUID uuid);
+    Optional<Challenger> getChallenger(UUID uuid) throws OrphanedObjectException;
 
     /**
      * Adds the player by the given {@link UUID} to this {@link Round}.
@@ -87,34 +98,45 @@ public interface Round extends Metadatable, MinigameElement {
      * @throws RoundJoinException If the player fails to be added to the
      *     {@link Round} for any given reason (obtainable through
      *     {@link RoundJoinException#getReason()})
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Challenger addChallenger(UUID uuid) throws RoundJoinException;
+    Challenger addChallenger(UUID uuid) throws RoundJoinException, OrphanedObjectException;
 
     /**
      * Removes the player by the given {@link UUID} from this {@link Round}.
      *
+     * <p>Note that this will orphan the {@link Challenger} object associated
+     * with the given {@link UUID}, causing all of its methods to throw
+     * {@link OrphanedObjectException}s.</p>
+     *
      * @param uuid The {@link UUID} of the player to remove
      * @throws IllegalArgumentException If this {@link Round} does not contain a
      *     player by the given {@link UUID}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void removeChallenger(UUID uuid) throws IllegalArgumentException;
+    @Orphaner
+    void removeChallenger(UUID uuid) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Removes the given {@link Challenger} from this {@link Round}, returning
      * them to their original location before joining.
      *
-     * <p>Note that this will invalidate the {@link Challenger} object passed as
-     * a parameter, causing its methods to throw {@link IllegalStateException}s.
-     * </p>
+     * <p>Note that this will orphan the passed {@link Challenger} object,
+     * causing all of its methods to throw {@link OrphanedObjectException}s.</p>
      *
      * @param challenger The {@link Challenger} to remove
      * @throws IllegalArgumentException If this {@link Round} is not the one
      *     containing {@code challenger}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void removeChallenger(Challenger challenger) throws IllegalArgumentException;
+    @Orphaner
+    void removeChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Returns an immutable {@link Set} of {@link Team}s in this
@@ -122,18 +144,22 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @return An immutable {@link Set} of {@link Team}s in this
      *     {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Set<Team> getTeams();
+    Set<Team> getTeams() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Team} from this {@link Round} with the given identifier.
      *
      * @param id The identifier to look up
      * @return The {@link Team} with the given identifier
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Optional<Team> getTeam(String id);
+    Optional<Team> getTeam(String id) throws OrphanedObjectException;
 
     /**
      * Creates a {@link Team} in this {@link Round} with the given identifer.
@@ -142,9 +168,11 @@ public interface Round extends Metadatable, MinigameElement {
      * @return The newly created {@link Team}.
      * @throws IllegalArgumentException If a {@link Team} with the given
      *     identifer already exists
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Team createTeam(String id) throws IllegalArgumentException;
+    Team createTeam(String id) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Gets the {@link Team} from this {@link Round} with the given identifer,
@@ -152,9 +180,43 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param id The identifier to look up
      * @return The fetched or newly created {@link Team}.
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Team getOrCreateTeam(String id);
+    Team getOrCreateTeam(String id) throws OrphanedObjectException;
+
+    /**
+     * Removes the {@link Team} with the given identifier from this
+     * {@link Round}.
+     *
+     * <p>Note that calling this method will orphan the {@link Team} object
+     * associated with the given ID, causing all of its methods to throw
+     * {@link OrphanedObjectException}s.</p>
+     *
+     * @param id The identifier of the {@link Team} to remove
+     * @throws IllegalArgumentException If this {@link Round} does not contain
+     *     a {@link Team} by the given ID
+     */
+    @Orphaner
+    void removeTeam(String id) throws IllegalArgumentException, OrphanedObjectException;
+
+    /**
+     * Removes the given {@link Team} from this {@link Round}.
+     *
+     * <p>Note that calling this method will orphan the passed {@link Team}
+     * object, causing all of its methods to throw
+     * {@link OrphanedObjectException}s.</p>
+     *
+     * @param team The {@link Team} to remove
+     * @throws IllegalArgumentException If the given {@link Team} object is
+     *     parented by a different {@link Round} or has already been removed
+     *     from this one
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
+     */
+    @Orphaner
+    void removeTeam(Team team) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Returns the number of {@link Challenger}s in this {@link Round} marked as
@@ -162,35 +224,43 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @return The number of {@link Challenger}s in this {@link Round} marked as
      *     spectating
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    int getSpectatorCount();
+    int getSpectatorCount() throws OrphanedObjectException;
 
     /**
      * Broadcasts the string {@code message} to all {@link Challenger}s in
      * this {@link Round}.
      *
      * @param message The string to broadcast
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void broadcast(String message);
+    void broadcast(String message) throws OrphanedObjectException;
 
     /**
      * Gets an immutable {@link ImmutableSet} of this {@link Round}'s defined
      * lifecycle stages.
      *
      * @return This {@link Round}'s defined lifecycle stages
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    ImmutableSet<LifecycleStage> getLifecycleStages();
+    ImmutableSet<LifecycleStage> getLifecycleStages() throws OrphanedObjectException;
 
     /**
      * Gets this {@link Round}'s current {@link LifecycleStage}.
      *
      * @return This {@link Round}'s current {@link LifecycleStage}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    LifecycleStage getLifecycleStage();
+    LifecycleStage getLifecycleStage() throws OrphanedObjectException;
 
     /**
      * Sets this {@link Round}'s current {@link LifecycleStage}.
@@ -198,9 +268,11 @@ public interface Round extends Metadatable, MinigameElement {
      * @param stage The new {@link LifecycleStage} for the {@link Round}
      * @throws IllegalArgumentException If {@code stage} is not defined for
      *     this {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void setLifecycleStage(LifecycleStage stage) throws IllegalArgumentException;
+    void setLifecycleStage(LifecycleStage stage) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Gets the {@link LifecycleStage} by the given ID in this {@link Round}.
@@ -208,9 +280,11 @@ public interface Round extends Metadatable, MinigameElement {
      * @param id The ID of the {@link LifecycleStage} to get
      * @return The {@link LifecycleStage} by the given ID in this {@link Round},
      *     or {@link Optional#absent()} if one does not exist
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Optional<LifecycleStage> getLifecycleStage(String id);
+    Optional<LifecycleStage> getLifecycleStage(String id) throws OrphanedObjectException;
 
     /**
      * Gets the {@link LifecycleStage} at the given index for this
@@ -220,27 +294,33 @@ public interface Round extends Metadatable, MinigameElement {
      * @return The {@link LifecycleStage} at the given index
      * @throws IndexOutOfBoundsException If {@code index} is greater than
      *     the highest defined index
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    LifecycleStage getLifecycleStage(int index) throws IndexOutOfBoundsException;
+    LifecycleStage getLifecycleStage(int index) throws IndexOutOfBoundsException, OrphanedObjectException;
 
     /**
      * Gets this {@link Round}'s next {@link LifecycleStage}, if applicable.
      *
      * @return This {@link Round}'s next {@link LifecycleStage}, or
      *     {@link Optional#absent()} if the current stage is the final defined
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Optional<LifecycleStage> getNextLifecycleStage();
+    Optional<LifecycleStage> getNextLifecycleStage() throws OrphanedObjectException;
 
     /**
      * Progresses this {@link Round} to its next {@link LifecycleStage}.
      *
      * @throws IllegalStateException If the current {@link LifecycleStage} is
      *     the last one defined
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void nextLifecycleStage() throws IllegalStateException;
+    void nextLifecycleStage() throws IllegalStateException, OrphanedObjectException;
 
     /**
      * Gets the current state of this {@link Round}'s timer in seconds.
@@ -249,17 +329,21 @@ public interface Round extends Metadatable, MinigameElement {
      * change, although this is not absolute.</p>
      *
      * @return The current state of this {@link Round}'s timer in seconds
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    long getTime();
+    long getTime() throws OrphanedObjectException;
 
     /**
      * Sets the current state of this {@link Round}'s timer in seconds.
      *
      * @param time The current state of this {@link Round}'s timer in seconds
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void setTime(long time);
+    void setTime(long time) throws OrphanedObjectException;
 
     /**
      * Gets the time in seconds until this {@link Round} is due to change
@@ -267,53 +351,73 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @return The time in seconds until this {@link Round} is due to change
      *     its {@link LifecycleStage lifecycle stage}, or {@code -1} if the
-     *     current stage is untimed.
+     *     current stage is untimed
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    long getRemainingTime();
+    long getRemainingTime() throws OrphanedObjectException;
 
     /**
      * Returns whether this {@link Round}'s timer is currently ticking.
      *
      * @return Whether this {@link Round}'s timer is currently ticking
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    boolean isTimerTicking();
+    boolean isTimerTicking() throws OrphanedObjectException;
 
     /**
      * Sets whether this {@link Round}'s timer is currently ticking.
      *
      * @param ticking Whether this {@link Round}'s timer is currently ticking
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    public void setTimerTicking(boolean ticking);
+    void setTimerTicking(boolean ticking) throws OrphanedObjectException;
 
     /**
      * Sets this {@link Round}'s lifecycle stage to its initial state and resets
      * and stops the timer.
      *
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void resetTimer();
+    void resetTimer() throws OrphanedObjectException;
 
     /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to their original locations, and
      * rolling back its arena.
      *
+     * <p>Note that calling this method will orphan this {@link Round} object,
+     * causing all of its methods to throw {@link OrphanedObjectException}s.</p>
+     *
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void end();
+    @Orphaner
+    void end() throws OrphanedObjectException;
 
     /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to thieir original locations, and,
      * if {@code rollback} is {@code true}, rolling back its arena.
      *
+     * <p>Note that calling this method will orphan this {@link Round} object,
+     * causing all of its methods to throw {@link OrphanedObjectException}s.</p>
+     *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void end(boolean rollback);
+    @Orphaner
+    void end(boolean rollback) throws OrphanedObjectException;
 
     /**
      * Gets the value of the given {@link RoundConfigNode} for this
@@ -322,9 +426,11 @@ public interface Round extends Metadatable, MinigameElement {
      * @param node The {@link RoundConfigNode} to look up
      * @param <T> The value type associated with {@code node}
      * @return The value associated with {@code node}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    <T> T getConfigValue(RoundConfigNode<T> node);
+    <T> T getConfigValue(RoundConfigNode<T> node) throws OrphanedObjectException;
 
     /**
      * Sets the value of the given {@link RoundConfigNode} for this
@@ -333,8 +439,10 @@ public interface Round extends Metadatable, MinigameElement {
      * @param node The {@link RoundConfigNode} to set
      * @param value The new value associated with {@code node}
      * @param <T> The value type associated with {@code node}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    <T> void setConfigValue(RoundConfigNode<T> node, T value);
+    <T> void setConfigValue(RoundConfigNode<T> node, T value) throws OrphanedObjectException;
 
 }

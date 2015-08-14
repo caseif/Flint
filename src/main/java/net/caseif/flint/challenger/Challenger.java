@@ -28,9 +28,12 @@
  */
 package net.caseif.flint.challenger;
 
+import net.caseif.flint.exception.OrphanedObjectException;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.util.MinigameElement;
+import net.caseif.flint.util.annotation.Orphanable;
+import net.caseif.flint.util.annotation.Orphaner;
 
 import com.google.common.base.Optional;
 
@@ -42,75 +45,75 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
+@Orphanable
 public interface Challenger extends Metadatable, MinigameElement {
 
     /**
      * Gets the username of this {@link Challenger}.
      *
      * @return The username of this {@link Challenger}
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getName() throws IllegalStateException;
+    String getName() throws OrphanedObjectException;
 
     /**
      * Gets the unique ID of this {@link Challenger}.
      *
      * @return The unique ID of this {@link Challenger}
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    UUID getUniqueId() throws IllegalStateException;
+    UUID getUniqueId() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Round} which this challenger is currently in.
      *
      * @return The {@link Round} which this challenger is currently in.
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Round getRound() throws IllegalStateException;
+    Round getRound() throws OrphanedObjectException;
 
     /**
      * Removes this {@link Challenger} from its current {@link Round}.
      *
-     * <p>Note that this will invalidate this object, causing its methods to
-     * throw {@link IllegalStateException}s.</p>
+     * <p>Note that calling this method will orphan this object, causing all of
+     * its methods to throw {@link OrphanedObjectException}s.</p>
      *
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void removeFromRound() throws IllegalStateException;
+    @Orphaner
+    void removeFromRound() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Team} this challenger belongs to.
      *
      * @return The {@link Team} this challenger belongs to
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Optional<Team> getTeam() throws IllegalStateException;
+    Optional<Team> getTeam() throws OrphanedObjectException;
 
     /**
      * Sets the {@link Team} this challenger belongs to. This implicitly removes
      * it from the team it currently belongs to if applicable.
      *
      * @param team The new {@link Team} this challenger will belong to (pass
-     *     {@code null} to remove them from their current
-     *     {@link Team})
+     *     {@code null} to remove them from their current {@link Team})
      * @throws IllegalArgumentException If {@code team} is not contained by
-     *     the same {@link Round} as this
-     *                                  {@link Challenger}
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     *     the same {@link Round} as this {@link Challenger}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void setTeam(Team team) throws IllegalArgumentException, IllegalStateException;
+    void setTeam(Team team) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Returns whether this {@link Challenger} is currently spectating.
@@ -119,11 +122,11 @@ public interface Challenger extends Metadatable, MinigameElement {
      * {@link Round} they are contained by.</p>
      *
      * @return Whether this {@link Challenger} is currently spectating
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    boolean isSpectating() throws IllegalStateException;
+    boolean isSpectating() throws OrphanedObjectException;
 
     /**
      * Sets whether this {@link Challenger} is currently spectating.
@@ -132,10 +135,10 @@ public interface Challenger extends Metadatable, MinigameElement {
      * {@link Round} they are contained by.</p>
      *
      * @param spectating Whether this {@link Challenger} is currently spectating
-     * @throws IllegalStateException If this {@link Challenger} is no longer
-     *     contained by a {@link Round}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void setSpectating(boolean spectating) throws IllegalStateException;
+    void setSpectating(boolean spectating) throws OrphanedObjectException;
 
 }

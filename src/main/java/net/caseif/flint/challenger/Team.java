@@ -28,9 +28,11 @@
  */
 package net.caseif.flint.challenger;
 
+import net.caseif.flint.exception.OrphanedObjectException;
 import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.MinigameElement;
+import net.caseif.flint.util.annotation.Orphanable;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -41,39 +43,48 @@ import com.google.common.collect.ImmutableSet;
  * @author Max Roncacé
  * @since 1.0
  */
+@Orphanable
 public interface Team extends Metadatable, MinigameElement {
 
     /**
      * Gets the internal identifier of this {@link Team}.
      *
      * @return The internal identifier of this {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getId();
+    String getId() throws OrphanedObjectException;
 
     /**
      * Gets the display name of this {@link Team}.
      *
      * @return The display name of this {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getName();
+    String getName() throws OrphanedObjectException;
 
     /**
      * Sets the display name of this {@link Team}.
      *
      * @param name The new display name of this {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void setName(String name);
+    void setName(String name) throws OrphanedObjectException;
 
     /**
      * Returns the {@link Round} containing this {@link Team}.
      *
      * @return The {@link Round} containing this {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Round getRound();
+    Round getRound() throws OrphanedObjectException;
 
     /**
      * Returns an {@link ImmutableSet} of all {@link Challenger}s on this
@@ -81,9 +92,11 @@ public interface Team extends Metadatable, MinigameElement {
      *
      * @return An {@link ImmutableSet} of all {@link Challenger}s on this
      *     {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    ImmutableSet<Challenger> getChallengers();
+    ImmutableSet<Challenger> getChallengers() throws OrphanedObjectException;
 
     /**
      * Adds the given {@link Challenger} to this {@link Team} and implicitly
@@ -93,9 +106,11 @@ public interface Team extends Metadatable, MinigameElement {
      * @throws IllegalArgumentException If the givene {@link Challenger} is
      *     owned by a different {@link Round} than the one parenting this
      *     {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void addChallenger(Challenger challenger) throws IllegalArgumentException;
+    void addChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
      * Removes the given {@link Challenger} from this {@link Team}.
@@ -103,8 +118,10 @@ public interface Team extends Metadatable, MinigameElement {
      * @param challenger The {@link Challenger} to remove
      * @throws IllegalArgumentException If the given {@link Challenger} is not
      *     on this {@link Team}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    void removeChallenger(Challenger challenger) throws IllegalArgumentException;
+    void removeChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedObjectException;
 
 }
