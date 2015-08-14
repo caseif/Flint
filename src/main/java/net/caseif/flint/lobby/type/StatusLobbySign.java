@@ -26,34 +26,32 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.util;
+package net.caseif.flint.lobby.type;
 
-import net.caseif.flint.minigame.Minigame;
+import net.caseif.flint.arena.Arena;
+import net.caseif.flint.config.ConfigNode;
+import net.caseif.flint.lobby.LobbySign;
+import net.caseif.flint.round.LifecycleStage;
+import net.caseif.flint.round.Round;
+import net.caseif.flint.util.annotation.Orphanable;
 
 /**
- * Represents an object owned, directly or indirectly, by a {@link Minigame}.
+ * Represents a {@link LobbySign} which displays information regarding the
+ * status of an {@link Arena}'s {@link Round}.
+ *
+ * <p>Information displayed includes:</p>
+ * <ul>
+ *     <li>{@link Arena} {@link Arena#getName() display name}</li>
+ *     <li>{@link LifecycleStage Lifecycle stage} of {@link Round} (if
+ *     applicable)</li>
+ *     <li>Time remaining in {@link Round} (if applicable)</li>
+ *     <li>Player count and {@link ConfigNode#MAX_PLAYERS max player count} of
+ *         {@link Round} (if applicable, respectively)</li>
+ * </ul>
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface MinigameElement {
-
-    /**
-     * Gets the owning {@link Minigame} for this object.
-     *
-     * @return The owning {@link Minigame} for this object
-     * @since 1.0
-     */
-    Minigame getMinigame();
-
-    /**
-     * Gets the ID of the plugin owning the {@link Minigame} this object is
-     * associated with.
-     *
-     * @return The ID of the plugin owning the {@link Minigame} this object is
-     *     associated with.
-     * @since 1.0
-     */
-    String getPlugin();
-
+@Orphanable
+public interface StatusLobbySign extends LobbySign {
 }

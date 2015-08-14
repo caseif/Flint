@@ -26,34 +26,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.util;
+package net.caseif.flint.lobby.type;
 
-import net.caseif.flint.minigame.Minigame;
+import net.caseif.flint.arena.Arena;
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.lobby.LobbySign;
+import net.caseif.flint.round.Round;
+import net.caseif.flint.util.annotation.Orphanable;
 
 /**
- * Represents an object owned, directly or indirectly, by a {@link Minigame}.
+ * Represents a {@link LobbySign} which displays a subset of the
+ * {@link Challenger}s currently contained by a {@link Round}.
+ *
+ * <p>This sign type is meant to be used in conjunction with a
+ * {@link StatusLobbySign}, and will not contain any information about its
+ * respective {@link Round} or {@link Arena} other than player names.</p>
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface MinigameElement {
+@Orphanable
+public interface ChallengerListingLobbySign extends LobbySign {
 
     /**
-     * Gets the owning {@link Minigame} for this object.
+     * Gets the index of this {@link ChallengerListingLobbySign}.
      *
-     * @return The owning {@link Minigame} for this object
+     * <p>The subset of {@link Challenger}s displayed by a sign based on its
+     * index can be represented by the range {@code [index * 4, index * 4 + 3]},
+     * inclusive Therefore, a sign of index {@code 0} would display players with
+     * indexes within the range {@code [0, 3]}. Index {@code 1} would display
+     * the range {@code [4, 7]}, and so on.</p>
+     *
+     * @return The index of this {@link ChallengerListingLobbySign}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Minigame getMinigame();
-
-    /**
-     * Gets the ID of the plugin owning the {@link Minigame} this object is
-     * associated with.
-     *
-     * @return The ID of the plugin owning the {@link Minigame} this object is
-     *     associated with.
-     * @since 1.0
-     */
-    String getPlugin();
+    int getIndex() throws OrphanedObjectException;
 
 }

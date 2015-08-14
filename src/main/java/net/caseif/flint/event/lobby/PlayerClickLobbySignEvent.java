@@ -26,34 +26,62 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.util;
+package net.caseif.flint.event.lobby;
 
-import net.caseif.flint.minigame.Minigame;
+import net.caseif.flint.lobby.LobbySign;
+
+import java.util.UUID;
 
 /**
- * Represents an object owned, directly or indirectly, by a {@link Minigame}.
+ * Called when an in-game player clicks a {@link LobbySign}.
+ *
+ * <p>This event will not be called for clicks which break and unregister the
+ * sign, nor for middle-mouse clicks.</p>
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface MinigameElement {
+public interface PlayerClickLobbySignEvent {
 
     /**
-     * Gets the owning {@link Minigame} for this object.
+     * Returns the {@link UUID} of the player involved in this event.
      *
-     * @return The owning {@link Minigame} for this object
+     * @return The {@link UUID} of the player involved in this event
      * @since 1.0
      */
-    Minigame getMinigame();
+    UUID getPlayer();
 
     /**
-     * Gets the ID of the plugin owning the {@link Minigame} this object is
-     * associated with.
+     * Returns the {@link LobbySign} involved in this event.
      *
-     * @return The ID of the plugin owning the {@link Minigame} this object is
-     *     associated with.
+     * @return The {@link LobbySign} involved in this event
      * @since 1.0
      */
-    String getPlugin();
+    LobbySign getLobbySign();
+
+    /**
+     * Returns the {@link ClickType type} of click involved in this event.
+     *
+     * @return The {@link ClickType type} of click involved in this event
+     * @since 1.0
+     */
+    ClickType getClickType();
+
+    enum ClickType {
+
+        /**
+         * Represents a left-mouse click.
+         *
+         * @since 1.0
+         */
+        LEFT,
+        /**
+         * Represents a right-mouse click.
+         *
+         * @since 1.0
+         */
+        RIGHT,
+
+    }
 
 }

@@ -29,9 +29,12 @@
 package net.caseif.flint.arena;
 
 import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.lobby.LobbySign;
+import net.caseif.flint.lobby.type.ChallengerListingLobbySign;
+import net.caseif.flint.lobby.type.StatusLobbySign;
+import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
-import net.caseif.flint.metadata.Metadatable;
 import net.caseif.flint.util.MinigameElement;
 import net.caseif.flint.util.annotation.Orphanable;
 import net.caseif.flint.util.physical.Boundary;
@@ -195,6 +198,57 @@ public interface Arena extends Metadatable, MinigameElement {
      * @since 1.0
      */
     Round createRound() throws IllegalStateException, OrphanedObjectException;
+
+    /**
+     * Gets an {@link ImmutableSet} of {@link LobbySign}s registered for this
+     * {@link Arena}.
+     *
+     * @return An {@link ImmutableSet} of {@link LobbySign}s registered for this
+     *     {@link Arena}.
+     * @since 1.0
+     */
+    ImmutableSet<LobbySign> getLobbySigns();
+
+    /**
+     * Gets the {@link LobbySign} at the given {@link Location3D}, if present.
+     *
+     * @param location The {@link Location3D location} at which to search for a
+     *     {@link LobbySign}
+     * @return The {@link LobbySign} at the given {@link Location3D}, or
+     *     {@link Optional#absent()} if none is registered
+     * @throws IllegalArgumentException If {@code location} does not define a world
+     * @since 1.0
+     */
+    Optional<LobbySign> getLobbySignAt(Location3D location) throws IllegalArgumentException;
+
+    /**
+     * Attempts to register a {@link StatusLobbySign} at the given
+     * {@link Location3D location}.
+     *
+     * @param location The {@link Location3D location} to register the sign at
+     * @return The newly-registered {@link StatusLobbySign}, or
+     *     {@link Optional#absent()} if the passed location does not contain a
+     *     sign type or already contains a registered {@link LobbySign}
+     * @throws IllegalArgumentException If {@code location} does not define a world
+     * @since 1.0
+     */
+    Optional<StatusLobbySign> createStatusLobbySign(Location3D location) throws IllegalArgumentException;
+
+    /**
+     * Attempts to register a {@link ChallengerListingLobbySign} at the given
+     * {@link Location3D location}.
+     *
+     * @param location The {@link Location3D location} to register the sign at
+     * @param index The index of the sign (see
+     *     {@link ChallengerListingLobbySign#getIndex()} for more info
+     * @return The newly-registered {@link StatusLobbySign}, or
+     *     {@link Optional#absent()} if the passed location does not contain a
+     *     sign type or already contains a registered {@link LobbySign}
+     * @throws IllegalArgumentException If {@code location} does not define a world
+     * @since 1.0
+     */
+    Optional<ChallengerListingLobbySign> createChallengerListingLobbySign(Location3D location, int index)
+            throws IllegalArgumentException;
 
     /**
      * Rolls this {@link Arena}'s its state immediately prior to a {@link Round}

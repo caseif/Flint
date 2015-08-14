@@ -29,6 +29,8 @@
 package net.caseif.flint.config;
 
 import net.caseif.flint.arena.Arena;
+import net.caseif.flint.event.lobby.PlayerClickLobbySignEvent;
+import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
@@ -60,6 +62,40 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final ConfigNode<ImmutableSet<LifecycleStage>> DEFAULT_LIFECYCLE_STAGES = new ConfigNode<>(null);
+
+    /**
+     * Whether the integrated lobby wizard is enabled for a {@link Minigame}.
+     *
+     * <p>When enabled, the lobby wizard will be available to in-game players
+     * with the permission node {@code <minigame name>.lobby.create} or
+     * {@code <minigame name>.*}, or server operator status. It will be
+     * activated when a sign is placed in the world with the first line being
+     * the {@link Minigame}'s name within square brackets ("[" and "]") and
+     * guide the player through the process of creating the sign.</p>
+     *
+     * <p><strong>Defualt:</strong> {@code true}</p>
+     *
+     * @since 1.0
+     */
+    public static final ConfigNode<Boolean> ENABLE_LOBBY_WIZARD = new ConfigNode<>(true);
+
+    /**
+     * Whether an in-game player must be sneaking in order to destroy a physical
+     * {@link LobbySign}.
+     *
+     * <p>If {@code true}, left-clicking the lobby sign without sneaking will
+     * not break it, regardless of gamemode or permissions. Rather, a
+     * {@link PlayerClickLobbySignEvent} will be called.</p>
+     *
+     * <p>If {@code false}, the sign will not be prevented from breaking, and if
+     * broken, the sign will be unregistered and an event will not be called.
+     * </p>
+     *
+     * <p><strong>Default:</strong> true</p>
+     *
+     * @since 1.0
+     */
+    public static final ConfigNode<Boolean> REQUIRE_SNEAK_TO_DESTROY_LOBBY = new ConfigNode<>(true);
 
     // ROUND CONFIG NODES
     /**

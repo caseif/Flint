@@ -26,34 +26,58 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.util;
+package net.caseif.flint.lobby;
 
-import net.caseif.flint.minigame.Minigame;
+import net.caseif.flint.arena.Arena;
+import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.util.MinigameElement;
+import net.caseif.flint.util.annotation.Orphanable;
+import net.caseif.flint.util.annotation.Orphaner;
+import net.caseif.flint.util.physical.Location3D;
 
 /**
- * Represents an object owned, directly or indirectly, by a {@link Minigame}.
+ * Represents a physical sign in the world which provides graphical information
+ * to players regarding a particular arena.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface MinigameElement {
+@Orphanable
+public interface LobbySign extends MinigameElement {
 
     /**
-     * Gets the owning {@link Minigame} for this object.
+     * Gets the physical {@link Location3D location} of this {@link LobbySign}.
      *
-     * @return The owning {@link Minigame} for this object
+     * @return The physical {@link Location3D location} of this
+     *     {@link LobbySign}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Minigame getMinigame();
+    Location3D getLocation() throws OrphanedObjectException;
 
     /**
-     * Gets the ID of the plugin owning the {@link Minigame} this object is
-     * associated with.
+     * Gets the {@link Arena} associated with this {@link LobbySign}.
      *
-     * @return The ID of the plugin owning the {@link Minigame} this object is
-     *     associated with.
+     * @return The {@link Arena} associated with this {@link LobbySign}
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
      * @since 1.0
      */
-    String getPlugin();
+    Arena getArena() throws OrphanedObjectException;
+
+    /**
+     * Unregisters this {@link LobbySign} from the engine and blanks the
+     * physical sign.
+     *
+     * <p>Note that calling this method will orphan this object, causing all of
+     * its methods to throw {@link OrphanedObjectException}s.</p>
+     *
+     * @throws OrphanedObjectException If this object is orphaned (see
+     *     {@link Orphanable} for details)
+     * @since 1.0
+     */
+    @Orphaner
+    void unregister() throws OrphanedObjectException;
 
 }
