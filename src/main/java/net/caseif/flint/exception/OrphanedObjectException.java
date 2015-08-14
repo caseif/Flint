@@ -32,7 +32,7 @@ import net.caseif.flint.util.annotation.Orphanable;
 
 /**
  * Thrown in response to invocation of a method upon an
- * {@link Orphanable orphaned} object
+ * {@link Orphanable orphaned} object.
  *
  * @author Max Roncacé
  * @since 1.0

@@ -35,7 +35,7 @@ import java.lang.annotation.Target;
 
 /**
  * Indicates a method which, when invoked, will orphan one or more
- * {@link Orphanable} objects
+ * {@link Orphanable} objects.
  *
  * @author Max Roncacé
  * @since 1.0
