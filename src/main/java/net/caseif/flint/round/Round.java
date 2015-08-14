@@ -42,7 +42,6 @@ import net.caseif.flint.util.annotation.Orphaner;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
 
-import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -139,16 +138,14 @@ public interface Round extends Metadatable, MinigameElement {
     void removeChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
-     * Returns an immutable {@link Set} of {@link Team}s in this
-     * {@link Round}.
+     * Returns an {@link ImmutableSet} of {@link Team}s in this {@link Round}.
      *
-     * @return An immutable {@link Set} of {@link Team}s in this
-     *     {@link Round}
+     * @return An {@link ImmutableSet} of {@link Team}s in this {@link Round}
      * @throws OrphanedObjectException If this object is orphaned (see
      *     {@link Orphanable} for details)
      * @since 1.0
      */
-    Set<Team> getTeams() throws OrphanedObjectException;
+    ImmutableSet<Team> getTeams() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Team} from this {@link Round} with the given identifier.

@@ -39,9 +39,9 @@ import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.eventbus.EventBus;
 
-import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -104,14 +104,14 @@ public interface Minigame {
     <T> void setConfigValue(ConfigNode<T> node, T value);
 
     /**
-     * Gets an immutable {@link Set} containing all {@link Arena}s owned by this
+     * Gets an {@link ImmutableSet} containing all {@link Arena}s owned by this
      * {@link Minigame}.
      *
-     * @return An immutable {@link Set} containing all {@link Arena}s owned by
+     * @return An {@link ImmutableSet} containing all {@link Arena}s owned by
      *     this {@link Minigame}.
      * @since 1.0
      */
-    Set<Arena> getArenas();
+    ImmutableSet<Arena> getArenas();
 
     /**
      * Gets the {@link Arena} by the given ID within this {@link Minigame}.
@@ -190,24 +190,24 @@ public interface Minigame {
     void removeArena(Arena arena) throws IllegalArgumentException;
 
     /**
-     * Gets an immutable {@link Set} containing all active {@link Round}s owned
+     * Gets an {@link ImmutableSet} containing all active {@link Round}s owned
      * by this {@link Minigame}.
      *
-     * @return An immutable {@link Set} containing all active {@link Round}s
+     * @return An {@link ImmutableSet} containing all active {@link Round}s
      *     owned by this {@link Minigame}.
      * @since 1.0
      */
-    Set<Round> getRounds();
+    ImmutableSet<Round> getRounds();
 
     /**
-     * Gets an immutable {@link Set} containing all active {@link Challenger}s
+     * Gets an immutable {@link ImmutableSet} containing all active {@link Challenger}s
      * owned by this {@link Minigame}.
      *
-     * @return An immutable {@link Set} containing all active
+     * @return An immutable {@link ImmutableSet} containing all active
      *     {@link Challenger}s owned by this {@link Minigame}.
      * @since 1.0
      */
-    Set<Challenger> getChallengers();
+    ImmutableSet<Challenger> getChallengers();
 
     /**
      * Gets the {@link Challenger} by the given UUID.
