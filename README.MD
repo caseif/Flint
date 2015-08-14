@@ -1,6 +1,6 @@
 # Flint [![Build Status](http://ci.caseif.net/job/Flint/badge/icon)](http://ci.caseif.net/job/Flint/)
 
-Flint is a cross-platform framework designed to act as a universal backend for Minecraft minigame mods, handling generic
+Flint is a cross-platform engine designed to act as a universal backend for Minecraft minigame mods, handling generic
 tasks such as arena, round, and player management which would normally require a significant time investment to develop
 for each minigame.
 
@@ -25,14 +25,13 @@ Flint uses Gradle as its build system. To clone and build the project from scrat
 ### Contribution guidelines
 
 If you think you have a code contribution which would benefit Flint's API, feel free to create an issue or pull request.
-The primary guideline for whether a contribution is acceptable is whether it is utilizable by multiple classes of
-minigames. Some features (e.g. a gun API) are too high-level for the purposes of this framework and thus will not be
-added.
+All contributions must follow the [Flint doctrine](https://github.com/caseif/Flint/wiki/Tutorial#doctrine) where
+applicable.
 
 ### Implementing
 
 Specification for those wishing to implement Flint may be found 
-[here](https://github.com/caseif/Flint/wiki/Implementation Specification).
+[here](https://github.com/caseif/Flint/wiki/Implementation%20Specification).
 
 ### Contact
 
