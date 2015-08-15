@@ -34,7 +34,7 @@ import net.caseif.flint.round.Round;
 import net.caseif.flint.util.MinigameElement;
 import net.caseif.flint.util.annotation.Orphanable;
 
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableList;
 
 /**
  * Represents a team containing {@link Challenger}s in a
@@ -87,16 +87,16 @@ public interface Team extends Metadatable, MinigameElement {
     Round getRound() throws OrphanedObjectException;
 
     /**
-     * Returns an {@link ImmutableSet} of all {@link Challenger}s on this
+     * Returns an {@link ImmutableList} of all {@link Challenger}s on this
      *     {@link Team}.
      *
-     * @return An {@link ImmutableSet} of all {@link Challenger}s on this
+     * @return An {@link ImmutableList} of all {@link Challenger}s on this
      *     {@link Team}
      * @throws OrphanedObjectException If this object is orphaned (see
      *     {@link Orphanable} for details)
      * @since 1.0
      */
-    ImmutableSet<Challenger> getChallengers() throws OrphanedObjectException;
+    ImmutableList<Challenger> getChallengers() throws OrphanedObjectException;
 
     /**
      * Adds the given {@link Challenger} to this {@link Team} and implicitly

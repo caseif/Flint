@@ -43,6 +43,7 @@ import net.caseif.flint.util.physical.Location3D;
 import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
 import java.util.LinkedHashSet;
@@ -200,14 +201,14 @@ public interface Arena extends Metadatable, MinigameElement {
     Round createRound() throws IllegalStateException, OrphanedObjectException;
 
     /**
-     * Gets an {@link ImmutableSet} of {@link LobbySign}s registered for this
+     * Gets an {@link ImmutableList} of {@link LobbySign}s registered for this
      * {@link Arena}.
      *
-     * @return An {@link ImmutableSet} of {@link LobbySign}s registered for this
-     *     {@link Arena}.
+     * @return An {@link ImmutableList} of {@link LobbySign}s registered for
+     *     this {@link Arena}.
      * @since 1.0
      */
-    ImmutableSet<LobbySign> getLobbySigns();
+    ImmutableList<LobbySign> getLobbySigns();
 
     /**
      * Gets the {@link LobbySign} at the given {@link Location3D}, if present.

@@ -48,9 +48,9 @@ configurations {
     deployerJars
 }
 
-
 // Project repositories
 repositories {
+    mavenLocal()
     mavenCentral()
     maven { url 'http://repo.caseif.net/content/groups/public/' }
 }

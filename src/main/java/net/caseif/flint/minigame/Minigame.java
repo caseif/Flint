@@ -39,6 +39,7 @@ import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.eventbus.EventBus;
 
@@ -111,7 +112,7 @@ public interface Minigame {
      *     this {@link Minigame}.
      * @since 1.0
      */
-    ImmutableSet<Arena> getArenas();
+    ImmutableList<Arena> getArenas();
 
     /**
      * Gets the {@link Arena} by the given ID within this {@link Minigame}.
@@ -190,24 +191,24 @@ public interface Minigame {
     void removeArena(Arena arena) throws IllegalArgumentException;
 
     /**
-     * Gets an {@link ImmutableSet} containing all active {@link Round}s owned
+     * Gets an {@link ImmutableList} containing all active {@link Round}s owned
      * by this {@link Minigame}.
      *
-     * @return An {@link ImmutableSet} containing all active {@link Round}s
+     * @return An {@link ImmutableList} containing all active {@link Round}s
      *     owned by this {@link Minigame}.
      * @since 1.0
      */
-    ImmutableSet<Round> getRounds();
+    ImmutableList<Round> getRounds();
 
     /**
-     * Gets an immutable {@link ImmutableSet} containing all active {@link Challenger}s
+     * Gets an {@link ImmutableList} containing all active {@link Challenger}s
      * owned by this {@link Minigame}.
      *
-     * @return An immutable {@link ImmutableSet} containing all active
+     * @return An immutable {@link ImmutableList} containing all active
      *     {@link Challenger}s owned by this {@link Minigame}.
      * @since 1.0
      */
-    ImmutableSet<Challenger> getChallengers();
+    ImmutableList<Challenger> getChallengers();
 
     /**
      * Gets the {@link Challenger} by the given UUID.

@@ -40,6 +40,7 @@ import net.caseif.flint.util.annotation.Orphanable;
 import net.caseif.flint.util.annotation.Orphaner;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
 import java.util.UUID;
@@ -65,16 +66,16 @@ public interface Round extends Metadatable, MinigameElement {
     Arena getArena() throws OrphanedObjectException;
 
     /**
-     * Returns an {@link ImmutableSet} of {@link Challenger}s in this
+     * Returns an {@link ImmutableList} of {@link Challenger}s in this
      * {@link Round}.
      *
-     * @return An {@link ImmutableSet} of {@link Challenger}s in this
+     * @return An {@link ImmutableList} of {@link Challenger}s in this
      * {@link Round}
      * @throws OrphanedObjectException If this object is orphaned (see
      *     {@link Orphanable} for details)
      * @since 1.0
      */
-    ImmutableSet<Challenger> getChallengers() throws OrphanedObjectException;
+    ImmutableList<Challenger> getChallengers() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Challenger} from this {@link Round} with the given
@@ -138,14 +139,14 @@ public interface Round extends Metadatable, MinigameElement {
     void removeChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedObjectException;
 
     /**
-     * Returns an {@link ImmutableSet} of {@link Team}s in this {@link Round}.
+     * Returns an {@link ImmutableList} of {@link Team}s in this {@link Round}.
      *
-     * @return An {@link ImmutableSet} of {@link Team}s in this {@link Round}
+     * @return An {@link ImmutableList} of {@link Team}s in this {@link Round}
      * @throws OrphanedObjectException If this object is orphaned (see
      *     {@link Orphanable} for details)
      * @since 1.0
      */
-    ImmutableSet<Team> getTeams() throws OrphanedObjectException;
+    ImmutableList<Team> getTeams() throws OrphanedObjectException;
 
     /**
      * Gets the {@link Team} from this {@link Round} with the given identifier.
