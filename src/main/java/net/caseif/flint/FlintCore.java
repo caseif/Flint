@@ -74,15 +74,14 @@ public abstract class FlintCore {
      *
      * @param pluginId The name or ID of the plugin to register
      * @return The newly created {@link Minigame} associated with the plugin
-     * @throws IllegalArgumentException If a plugin with the given ID has
-     *                                  already been registered as a
-     *                                  {@link Minigame}
+     * @throws IllegalStateException If a plugin with the given ID has already
+     *     been registered as a {@link Minigame}
      * @since 1.0
      */
-    public static Minigame registerPlugin(String pluginId) throws IllegalArgumentException {
+    public static Minigame registerPlugin(String pluginId) throws IllegalStateException {
         return INSTANCE.registerPlugin0(pluginId);
     }
 
-    protected abstract Minigame registerPlugin0(String pluginId) throws IllegalArgumentException;
+    protected abstract Minigame registerPlugin0(String pluginId) throws IllegalStateException;
 
 }
