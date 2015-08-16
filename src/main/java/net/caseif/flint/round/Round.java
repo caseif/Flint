@@ -95,6 +95,8 @@ public interface Round extends Metadatable, MinigameElement {
      *
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The newly created {@link Challenger} object
+     * @throws IllegalStateException If no spawn points are configured for this
+     *     {@link Round}'s {@link Arena}
      * @throws RoundJoinException If the player fails to be added to the
      *     {@link Round} for any given reason (obtainable through
      *     {@link RoundJoinException#getReason()})
