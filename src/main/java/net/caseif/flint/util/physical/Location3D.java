@@ -28,6 +28,7 @@
  */
 package net.caseif.flint.util.physical;
 
+import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 
 /**
@@ -37,6 +38,8 @@ import com.google.common.base.Optional;
  * @since 1.0
  */
 public class Location3D {
+
+    private final static char SEPARATOR = ';';
 
     private final String world;
     private final double x;
@@ -124,11 +127,19 @@ public class Location3D {
      */
     public String serialize() {
         StringBuilder sb = new StringBuilder();
+
         sb.append("(");
+
         if (getWorld().isPresent()) {
-            sb.append("\"").append(getWorld().get()).append("\",");
+            sb.append("\"").append(getWorld().get()).append("\"").append(SEPARATOR);
         }
-        sb.append(getX()).append(",").append(getY()).append(",").append(getZ()).append(")");
+
+        sb.append(toCommaDecimal(getX())).append(SEPARATOR);
+        sb.append(toCommaDecimal(getY())).append(SEPARATOR);
+        sb.append(toCommaDecimal(getZ()));
+
+        sb.append(")");
+
         return sb.toString();
     }
 
@@ -144,22 +155,22 @@ public class Location3D {
     public static Location3D deserialize(String serial) throws IllegalArgumentException {
         if (serial.startsWith("(") && serial.endsWith(")")) {
             serial = serial.substring(1, serial.length() - 1);
-            String[] parts = serial.split(",");
+            String[] parts = serial.split(Character.toString(SEPARATOR));
             try {
                 switch (parts.length) {
                     case 3:
                         return new Location3D(
-                                Double.parseDouble(parts[0]),
-                                Double.parseDouble(parts[1]),
-                                Double.parseDouble(parts[2])
+                                fromCommaDecimal(parts[0]),
+                                fromCommaDecimal(parts[1]),
+                                fromCommaDecimal(parts[2])
                         );
                     case 4:
                         if (parts[0].startsWith("\"") && parts[0].endsWith("\"")) {
                             return new Location3D(
                                     parts[0].substring(1, parts[0].length() - 1),
-                                    Double.parseDouble(parts[1]),
-                                    Double.parseDouble(parts[2]),
-                                    Double.parseDouble(parts[3])
+                                    fromCommaDecimal(parts[1]),
+                                    fromCommaDecimal(parts[2]),
+                                    fromCommaDecimal(parts[3])
                             );
                         }
                         break;
@@ -170,6 +181,46 @@ public class Location3D {
             }
         }
         throw new IllegalArgumentException("Invalid serial");
+    }
+
+    /**
+     * Replaces the dot in a double with a comma to form a European-style
+     * decimal. The reasoning behind this is to ensure better compatibility with
+     * storage formats like YAML, where a dot signifies a nested key.
+     *
+     * @param d The double to convert
+     * @return The European-style decimal as a string
+     * @since 1.0
+     */
+    private static String toCommaDecimal(double d) {
+        return Double.toString(d).replace(".", ",");
+    }
+
+    /**
+     * Parses a comma-notation double from a string.
+     *
+     * <p>(See {@link Location3D#toCommaDecimal(double)})</p>
+     *
+     * @param d The comma-notation decimal as a string
+     * @return The parsed double
+     * @throws NumberFormatException If the double cannot be parsed
+     */
+    private static double fromCommaDecimal(String d) throws NumberFormatException {
+        return Double.parseDouble(d.replace(",", "."));
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Location3D) {
+            Location3D l = ((Location3D) obj);
+            return (l.getWorld().isPresent() ? l.getWorld().get().equals(world) : world == null)
+                    && l.getX() == getX() && l.getY() == getY() && l.getZ() == getZ();
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        return Objects.hashCode(world, x, y, z);
     }
 
 }

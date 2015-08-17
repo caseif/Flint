@@ -30,6 +30,8 @@ package net.caseif.flint.lobby;
 
 import net.caseif.flint.arena.Arena;
 import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.lobby.type.ChallengerListingLobbySign;
+import net.caseif.flint.lobby.type.StatusLobbySign;
 import net.caseif.flint.util.MinigameElement;
 import net.caseif.flint.util.annotation.Orphanable;
 import net.caseif.flint.util.annotation.Orphaner;
@@ -67,6 +69,21 @@ public interface LobbySign extends MinigameElement {
     Arena getArena() throws OrphanedObjectException;
 
     /**
+     * Gets the {@link LobbySign.Type} of this {@link LobbySign}.
+     *
+     * @return The {@link LobbySign.Type} of this {@link LobbySign}
+     * @since 1.0
+     */
+    Type getType();
+
+    /**
+     * Updates this {@link LobbySign}'s display in the world.
+     *
+     * @since 1.0
+     */
+    void update();
+
+    /**
      * Unregisters this {@link LobbySign} from the engine and blanks the
      * physical sign.
      *
@@ -79,5 +96,22 @@ public interface LobbySign extends MinigameElement {
      */
     @Orphaner
     void unregister() throws OrphanedObjectException;
+
+    enum Type {
+        /**
+         * A status lobby sign. See {@link StatusLobbySign} for further
+         * information.
+         *
+         * @since 1.0
+         */
+        STATUS,
+        /**
+         * A challenger listing lobby sign. See
+         * {@link ChallengerListingLobbySign} for further information.
+         *
+         * @since 1.0
+         */
+        CHALLENGER_LISTING;
+    }
 
 }

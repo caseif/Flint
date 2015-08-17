@@ -54,9 +54,10 @@ public interface ChallengerListingLobbySign extends LobbySign {
      *
      * <p>The subset of {@link Challenger}s displayed by a sign based on its
      * index can be represented by the range {@code [index * 4, index * 4 + 3]},
-     * inclusive Therefore, a sign of index {@code 0} would display players with
-     * indexes within the range {@code [0, 3]}. Index {@code 1} would display
-     * the range {@code [4, 7]}, and so on.</p>
+     * inclusive (assuming 4 lines per sign). Therefore, a sign of index
+     * {@code 0} would display players with indexes within the range
+     * {@code [0, 3]}. Index {@code 1} would display the range {@code [4, 7]},
+     * and so on.</p>
      *
      * @return The index of this {@link ChallengerListingLobbySign}
      * @throws OrphanedObjectException If this object is orphaned (see
