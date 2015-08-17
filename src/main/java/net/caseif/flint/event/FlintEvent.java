@@ -28,7 +28,8 @@
  */
 package net.caseif.flint.event;
 
-import net.caseif.flint.util.MinigameElement;
+import net.caseif.flint.component.Component;
+import net.caseif.flint.minigame.Minigame;
 
 /**
  * Represents an event triggered by Flint.
@@ -43,5 +44,17 @@ import net.caseif.flint.util.MinigameElement;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface FlintEvent extends MinigameElement {
+public interface FlintEvent extends Component<Minigame> {
+
+    /**
+     * Gets the {@link Minigame} this {@link FlintEvent} is owned by.
+     *
+     * <p><strong>Note:</strong> This a convenience method for
+     * {@link FlintEvent#getOwner()}.</p>
+     *
+     * @return The {@link Minigame} this {@link FlintEvent} is owned by
+     * @since 1.0
+     */
+    Minigame getMinigame();
+
 }

@@ -28,6 +28,8 @@
  */
 package net.caseif.flint.util.annotation;
 
+import net.caseif.flint.component.Component;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -35,7 +37,7 @@ import java.lang.annotation.Target;
 
 /**
  * Indicates a method which, when invoked, will orphan one or more
- * related {@link Orphanable} objects.
+ * related {@link Component} objects.
  *
  * @author Max Roncacé
  * @since 1.0

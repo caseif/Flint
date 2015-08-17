@@ -28,11 +28,10 @@
  */
 package net.caseif.flint.challenger;
 
-import net.caseif.flint.exception.OrphanedObjectException;
-import net.caseif.flint.round.Round;
+import net.caseif.flint.component.Component;
+import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.metadata.Metadatable;
-import net.caseif.flint.util.MinigameElement;
-import net.caseif.flint.util.annotation.Orphanable;
+import net.caseif.flint.round.Round;
 import net.caseif.flint.util.annotation.Orphaner;
 
 import com.google.common.base.Optional;
@@ -45,61 +44,63 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-@Orphanable
-public interface Challenger extends Metadatable, MinigameElement {
+public interface Challenger extends Metadatable, Component<Round> {
+
+    /**
+     * Gets the {@link Round} this {@link Challenger} is owned by.
+     *
+     * <p><strong>Note:</strong> This a convenience method for
+     * {@link Challenger#getOwner()}.</p>
+     *
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @return The {@link Round} this {@link Challenger} is owned by
+     * @since 1.0
+     */
+    Round getRound() throws OrphanedComponentException;
 
     /**
      * Gets the username of this {@link Challenger}.
      *
      * @return The username of this {@link Challenger}
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    String getName() throws OrphanedObjectException;
+    String getName() throws OrphanedComponentException;
 
     /**
      * Gets the unique ID of this {@link Challenger}.
      *
      * @return The unique ID of this {@link Challenger}
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    UUID getUniqueId() throws OrphanedObjectException;
-
-    /**
-     * Gets the {@link Round} which this challenger is currently in.
-     *
-     * @return The {@link Round} which this challenger is currently in.
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
-     * @since 1.0
-     */
-    Round getRound() throws OrphanedObjectException;
+    UUID getUniqueId() throws OrphanedComponentException;
 
     /**
      * Removes this {@link Challenger} from its current {@link Round}.
      *
      * <p>Note that calling this method will orphan this object, causing all of
-     * its methods to throw {@link OrphanedObjectException}s.</p>
+     * its methods to throw {@link OrphanedComponentException}s.</p>
      *
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
     @Orphaner
-    void removeFromRound() throws OrphanedObjectException;
+    void removeFromRound() throws OrphanedComponentException;
 
     /**
      * Gets the {@link Team} this challenger belongs to.
      *
      * @return The {@link Team} this challenger belongs to
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    Optional<Team> getTeam() throws OrphanedObjectException;
+    Optional<Team> getTeam() throws OrphanedComponentException;
 
     /**
      * Sets the {@link Team} this challenger belongs to. This implicitly removes
@@ -109,11 +110,11 @@ public interface Challenger extends Metadatable, MinigameElement {
      *     {@code null} to remove them from their current {@link Team})
      * @throws IllegalArgumentException If {@code team} is not contained by
      *     the same {@link Round} as this {@link Challenger}
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    void setTeam(Team team) throws IllegalArgumentException, OrphanedObjectException;
+    void setTeam(Team team) throws IllegalArgumentException, OrphanedComponentException;
 
     /**
      * Returns whether this {@link Challenger} is currently spectating.
@@ -122,11 +123,11 @@ public interface Challenger extends Metadatable, MinigameElement {
      * {@link Round} they are contained by.</p>
      *
      * @return Whether this {@link Challenger} is currently spectating
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    boolean isSpectating() throws OrphanedObjectException;
+    boolean isSpectating() throws OrphanedComponentException;
 
     /**
      * Sets whether this {@link Challenger} is currently spectating.
@@ -135,10 +136,10 @@ public interface Challenger extends Metadatable, MinigameElement {
      * {@link Round} they are contained by.</p>
      *
      * @param spectating Whether this {@link Challenger} is currently spectating
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    void setSpectating(boolean spectating) throws OrphanedObjectException;
+    void setSpectating(boolean spectating) throws OrphanedComponentException;
 
 }

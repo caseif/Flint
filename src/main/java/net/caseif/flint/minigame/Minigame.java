@@ -30,9 +30,10 @@ package net.caseif.flint.minigame;
 
 import net.caseif.flint.arena.Arena;
 import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.component.ComponentOwner;
 import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.config.RoundConfigNode;
-import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.annotation.Orphaner;
 import net.caseif.flint.util.physical.Boundary;
@@ -51,7 +52,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Minigame {
+public interface Minigame extends ComponentOwner {
 
     /**
      * Gets the name or ID of the plugin to which this {@link Minigame} belongs.
@@ -163,7 +164,7 @@ public interface Minigame {
      *
      * <p>Note that calling this method will orphan the {@link Arena} object
      * associated with the passed ID, causing all of its methods to throw
-     * {@link OrphanedObjectException}s.</p>
+     * {@link OrphanedComponentException}s.</p>
      *
      * @param id The ID of the {@link Arena} to remove (will be converted to
      *     lowercase)
@@ -179,7 +180,7 @@ public interface Minigame {
      *
      * <p>Note that calling this method will orphan the passed {@link Arena}
      * object, causing all of its methods to throw
-     * {@link OrphanedObjectException}s.</p>
+     * {@link OrphanedComponentException}s.</p>
      *
      * @param arena The {@link Arena} to remove
      * @throws IllegalArgumentException If the given {@link Arena} has already

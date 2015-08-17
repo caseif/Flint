@@ -29,11 +29,10 @@
 package net.caseif.flint.lobby;
 
 import net.caseif.flint.arena.Arena;
-import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.component.Component;
+import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.lobby.type.ChallengerListingLobbySign;
 import net.caseif.flint.lobby.type.StatusLobbySign;
-import net.caseif.flint.util.MinigameElement;
-import net.caseif.flint.util.annotation.Orphanable;
 import net.caseif.flint.util.annotation.Orphaner;
 import net.caseif.flint.util.physical.Location3D;
 
@@ -44,58 +43,64 @@ import net.caseif.flint.util.physical.Location3D;
  * @author Max Roncacé
  * @since 1.0
  */
-@Orphanable
-public interface LobbySign extends MinigameElement {
+public interface LobbySign extends Component<Arena> {
+
+    /**
+     * Gets the {@link Arena} this {@link LobbySign} is owned by.
+     *
+     * <p><strong>Note:</strong> This a convenience method for
+     * {@link LobbySign#getOwner()}.</p>
+     *
+     * @return The {@link Arena} this {@link LobbySign} is owned by
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.0
+     */
+    Arena getArena() throws OrphanedComponentException;
 
     /**
      * Gets the physical {@link Location3D location} of this {@link LobbySign}.
      *
      * @return The physical {@link Location3D location} of this
      *     {@link LobbySign}
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    Location3D getLocation() throws OrphanedObjectException;
-
-    /**
-     * Gets the {@link Arena} associated with this {@link LobbySign}.
-     *
-     * @return The {@link Arena} associated with this {@link LobbySign}
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
-     * @since 1.0
-     */
-    Arena getArena() throws OrphanedObjectException;
+    Location3D getLocation() throws OrphanedComponentException;
 
     /**
      * Gets the {@link LobbySign.Type} of this {@link LobbySign}.
      *
      * @return The {@link LobbySign.Type} of this {@link LobbySign}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    Type getType();
+    Type getType() throws OrphanedComponentException;
 
     /**
      * Updates this {@link LobbySign}'s display in the world.
      *
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    void update();
+    void update() throws OrphanedComponentException;
 
     /**
      * Unregisters this {@link LobbySign} from the engine and blanks the
      * physical sign.
      *
      * <p>Note that calling this method will orphan this object, causing all of
-     * its methods to throw {@link OrphanedObjectException}s.</p>
+     * its methods to throw {@link OrphanedComponentException}s.</p>
      *
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
     @Orphaner
-    void unregister() throws OrphanedObjectException;
+    void unregister() throws OrphanedComponentException;
 
     enum Type {
         /**

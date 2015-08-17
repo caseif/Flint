@@ -28,6 +28,8 @@
  */
 package net.caseif.flint.exception.round;
 
+import net.caseif.flint.component.Component;
+import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.round.Round;
 
 import java.util.UUID;
@@ -38,11 +40,26 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public class RoundJoinException extends Throwable {
+public class RoundJoinException extends Throwable implements Component<Round> {
 
     private UUID player;
     private Round round;
     private Reason reason;
+
+    /**
+     * Gets the {@link Round} this {@link RoundJoinException} is owned by.
+     *
+     * <p><strong>Note:</strong> This a convenience method for
+     * {@link RoundJoinException#getOwner()}.</p>
+     *
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @return The {@link Round} this {@link RoundJoinException} is owned by
+     * @since 1.0
+     */
+    Round getRound() throws OrphanedComponentException {
+        return getOwner();
+    }
 
     /**
      * Creates a new {@link RoundJoinException} with
@@ -104,16 +121,6 @@ public class RoundJoinException extends Throwable {
     }
 
     /**
-     * Gets the {@link Round} the player failed to join.
-     *
-     * @return The {@link Round} the player failed to join.
-     * @since 1.0
-     */
-    public Round getRound() {
-        return this.round;
-    }
-
-    /**
      * Gets the {@link Reason} of the failure to join.
      *
      * @return The {@link Reason} of the failure to join
@@ -121,6 +128,16 @@ public class RoundJoinException extends Throwable {
      */
     public Reason getReason() {
         return this.reason;
+    }
+
+    /**
+     * Gets the {@link Round} owning this object.
+     *
+     * @return The {@link Round} owning this object
+     */
+    @Override
+    public Round getOwner() {
+        return this.round;
     }
 
     /**

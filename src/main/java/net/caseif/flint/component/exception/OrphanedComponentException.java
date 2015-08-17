@@ -26,34 +26,41 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.util;
+package net.caseif.flint.component.exception;
 
-import net.caseif.flint.minigame.Minigame;
+import net.caseif.flint.component.Component;
 
 /**
- * Represents an object owned, directly or indirectly, by a {@link Minigame}.
+ * Thrown in response to invocation of a method upon an
+ * orphaned {@link Component}.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface MinigameElement {
+public class OrphanedComponentException extends IllegalStateException {
 
     /**
-     * Gets the owning {@link Minigame} for this object.
+     * Constructs a new {@link OrphanedComponentException}.
      *
-     * @return The owning {@link Minigame} for this object
      * @since 1.0
      */
-    Minigame getMinigame();
+    public OrphanedComponentException() {
+        this((Component) null);
+    }
 
     /**
-     * Gets the ID of the plugin owning the {@link Minigame} this object is
-     * associated with.
+     * Constructs a new {@link OrphanedComponentException} with the given
+     * {@link Component} as the subject.
      *
-     * @return The ID of the plugin owning the {@link Minigame} this object is
-     *     associated with.
+     * @param orphan The subject of the exception
      * @since 1.0
      */
-    String getPlugin();
+    public OrphanedComponentException(Component orphan) {
+        super("Cannot invoke method upon orphaned object"
+                + (orphan != null ? " of type " + orphan.getClass().getCanonicalName() : ""));
+    }
+
+    private OrphanedComponentException(String message) {
+    }
 
 }

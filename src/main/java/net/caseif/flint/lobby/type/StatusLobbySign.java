@@ -33,7 +33,6 @@ import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
-import net.caseif.flint.util.annotation.Orphanable;
 
 /**
  * Represents a {@link LobbySign} which displays information regarding the
@@ -52,6 +51,5 @@ import net.caseif.flint.util.annotation.Orphanable;
  * @author Max Roncacé
  * @since 1.0
  */
-@Orphanable
 public interface StatusLobbySign extends LobbySign {
 }

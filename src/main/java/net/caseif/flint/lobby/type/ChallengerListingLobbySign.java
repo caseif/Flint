@@ -30,10 +30,10 @@ package net.caseif.flint.lobby.type;
 
 import net.caseif.flint.arena.Arena;
 import net.caseif.flint.challenger.Challenger;
-import net.caseif.flint.exception.OrphanedObjectException;
+import net.caseif.flint.component.Component;
+import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.round.Round;
-import net.caseif.flint.util.annotation.Orphanable;
 
 /**
  * Represents a {@link LobbySign} which displays a subset of the
@@ -46,7 +46,6 @@ import net.caseif.flint.util.annotation.Orphanable;
  * @author Max Roncacé
  * @since 1.0
  */
-@Orphanable
 public interface ChallengerListingLobbySign extends LobbySign {
 
     /**
@@ -60,10 +59,10 @@ public interface ChallengerListingLobbySign extends LobbySign {
      * and so on.</p>
      *
      * @return The index of this {@link ChallengerListingLobbySign}
-     * @throws OrphanedObjectException If this object is orphaned (see
-     *     {@link Orphanable} for details)
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    int getIndex() throws OrphanedObjectException;
+    int getIndex() throws OrphanedComponentException;
 
 }
