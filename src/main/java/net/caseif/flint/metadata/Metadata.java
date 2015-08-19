@@ -40,6 +40,16 @@ import com.google.common.collect.ImmutableSet;
 public interface Metadata {
 
     /**
+     * Returns whether the given key is defined for this {@link Metadata}
+     * object.
+     *
+     * @param key The key to check
+     * @return Whether the given key is defined for this {@link Metadata} object
+     * @since 1.0
+     */
+    boolean has(String key);
+
+    /**
      * Gets the value assigned to the given key.
      *
      * @param key The key of the value to retrieve
