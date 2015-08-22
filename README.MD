@@ -4,14 +4,14 @@ Flint is a cross-platform engine designed to act as a universal backend for Mine
 tasks such as arena, round, and player management which would normally require a significant time investment to develop
 for each minigame.
 
-### How to use Flint
+### Usage
 
-Documentation is published continuously to [http://jd.caseif.net/flint](http://jd.caseif.net/flint). Additionally, a
-tutorial will be written and published upon initial release of the API.
+A tutorial is available in the [Github wiki](https://github.com/caseif/Flint/wiki/Tutorial). Additionally, documentation
+is published continuously to [http://jd.caseif.net/flint](http://jd.caseif.net/flint).
 
 ### Prerequisites
 
-Flint requires Java 7 for compilation and use.
+Flint requires Java 7 for both compilation and use.
 
 ### Building
 
