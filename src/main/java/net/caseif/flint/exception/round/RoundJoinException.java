@@ -40,7 +40,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public class RoundJoinException extends Throwable implements Component<Round> {
+public abstract class RoundJoinException extends Throwable implements Component<Round> {
 
     private UUID player;
     private Round round;
@@ -57,7 +57,7 @@ public class RoundJoinException extends Throwable implements Component<Round> {
      * @return The {@link Round} this {@link RoundJoinException} is owned by
      * @since 1.0
      */
-    Round getRound() throws OrphanedComponentException {
+    public Round getRound() throws OrphanedComponentException {
         return getOwner();
     }
 
@@ -71,8 +71,22 @@ public class RoundJoinException extends Throwable implements Component<Round> {
      * @param cause The {@link Throwable} which caused this exception
      * @since 1.0
      */
-    public RoundJoinException(UUID player, Round round, String message, Throwable cause) {
+    protected RoundJoinException(UUID player, Round round, Throwable cause, String message) {
         super(message, cause);
+        setFields(player, round, Reason.INTERNAL_ERROR);
+    }
+
+    /**
+     * Creates a new {@link RoundJoinException} with
+     * {@link Reason#INTERNAL_ERROR} and the given parameters.
+     *
+     * @param player The {@link UUID} of the player involved in this exception
+     * @param round The {@link Round} involved in this exception
+     * @param cause The {@link Throwable} which caused this exception
+     * @since 1.0
+     */
+    protected RoundJoinException(UUID player, Round round, Throwable cause) {
+        super(cause);
         setFields(player, round, Reason.INTERNAL_ERROR);
     }
 
@@ -85,23 +99,9 @@ public class RoundJoinException extends Throwable implements Component<Round> {
      * @param message The exception message
      * @since 1.0
      */
-    public RoundJoinException(UUID player, Round round, Reason reason, String message) {
+    protected RoundJoinException(UUID player, Round round, Reason reason, String message) {
         super(message);
         setFields(player, round, reason);
-    }
-
-    /**
-     * Creates a new {@link RoundJoinException} with
-     * {@link Reason#INTERNAL_ERROR} and the given parameters.
-     *
-     * @param player The {@link UUID} of the player involved in this exception
-     * @param round The {@link Round} involved in this exception
-     * @param cause The {@link Throwable} which caused this exception
-     * @since 1.0
-     */
-    public RoundJoinException(UUID player, Round round, Throwable cause) {
-        super(cause);
-        setFields(player, round, Reason.INTERNAL_ERROR);
     }
 
     protected void setFields(UUID player, Round round, Reason reason) {

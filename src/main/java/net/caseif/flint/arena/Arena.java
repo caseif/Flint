@@ -34,7 +34,7 @@ import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.lobby.type.ChallengerListingLobbySign;
 import net.caseif.flint.lobby.type.StatusLobbySign;
-import net.caseif.flint.metadata.Metadatable;
+import net.caseif.flint.metadata.MetadataHolder;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
@@ -43,8 +43,8 @@ import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 
 import java.util.LinkedHashSet;
@@ -56,7 +56,7 @@ import java.util.LinkedHashSet;
  * @since 1.0
  */
 @SuppressWarnings("DuplicateThrows")
-public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> {
+public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigame> {
 
     /**
      * Gets the {@link Minigame} this {@link Arena} is owned by.
@@ -125,7 +125,7 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
     void setBoundary(Boundary bound) throws OrphanedComponentException;
 
     /**
-     * Returns an immutable {@link BiMap} of points at which players may spawn
+     * Returns an {@link ImmutableMap} of points at which players may spawn
      * upon entering this arena, mapped to their respective IDs.
      *
      * @return An immutable {@link BiMap} of points at which players may spawn
@@ -134,7 +134,7 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
      *     {@link Component} for details)
      * @since 1.0
      */
-    ImmutableBiMap<Integer, Location3D> getSpawnPoints() throws OrphanedComponentException;
+    ImmutableMap<Integer, Location3D> getSpawnPoints() throws OrphanedComponentException;
 
     /**
      * Adds the given {@link Location3D} to this {@link Arena}'s possible
@@ -161,11 +161,11 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
     void removeSpawnPoint(int index) throws OrphanedComponentException;
 
     /**
-     * Removes the spawn point at the given location from this {@link Arena}.
+     * Removes the spawn point(s) at the given location from this {@link Arena}.
      *
-     * @param location The location of the spawn point to remove
-     * @throws IllegalArgumentException If a spawn point at the given location
-     *     does not exist
+     * @param location The location of the spawn point(s) to remove
+     * @throws IllegalArgumentException If no spawn points are defined at the
+     *     given location
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0

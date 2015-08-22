@@ -57,21 +57,23 @@ public class ConfigNode<T> {
     /**
      * The default {@link LifecycleStage}s to apply to new {@link Round}s.
      *
-     * <p><strong>Default:</strong> {@code null}</p>
+     * <p><strong>Default:</strong> An empty {@link ImmutableSet}</p>
      *
      * @since 1.0
      */
-    public static final ConfigNode<ImmutableSet<LifecycleStage>> DEFAULT_LIFECYCLE_STAGES = new ConfigNode<>(null);
+    public static final ConfigNode<ImmutableSet<LifecycleStage>> DEFAULT_LIFECYCLE_STAGES
+            = new ConfigNode<>(ImmutableSet.<LifecycleStage>of());
 
     /**
      * Whether the integrated lobby wizard is enabled for a {@link Minigame}.
      *
      * <p>When enabled, the lobby wizard will be available to in-game players
-     * with the permission node {@code <minigame name>.lobby.create} or
-     * {@code <minigame name>.*}, or server operator status. It will be
-     * activated when a sign is placed in the world with the first line being
-     * the {@link Minigame}'s name within square brackets ("[" and "]") and
-     * guide the player through the process of creating the sign.</p>
+     * with the permission nodes {@code <minigame name>.lobby.create},
+     * {@code <minigame name>.lobby.*}, or {@code <minigame name>.*}, or with
+     * server operator status. It will be activated when a sign is placed in the
+     * world with the first line being the {@link Minigame}'s name within square
+     * brackets ("[" and "]") and guide the player through the process of
+     * creating the sign.</p>
      *
      * <p><strong>Defualt:</strong> {@code true}</p>
      *
@@ -132,11 +134,11 @@ public class ConfigNode<T> {
     /**
      * Whether {@link Challenger}s are permitted to damage teammates.
      *
-     * <p><strong>Default:</strong> {@code false}</p>
+     * <p><strong>Default:</strong> {@code true}</p>
      *
      * @since 1.0
      */
-    public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>(false);
+    public static final RoundConfigNode<Boolean> ALLOW_FRIENDLY_FIRE = new RoundConfigNode<>(true);
 
     /**
      * Whether {@link Team}s are to use separate chat channels.
@@ -186,8 +188,8 @@ public class ConfigNode<T> {
     }
 
     @Override
-    public boolean equals(Object otherOption) {
-        return otherOption instanceof ConfigNode && this.uuid.equals(((ConfigNode)otherOption).uuid);
+    public boolean equals(Object other) {
+        return other instanceof ConfigNode && this.uuid.equals(((ConfigNode) other).uuid);
     }
 
     @Override

@@ -32,7 +32,7 @@ import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
 
 /**
- * Represents a set of data associated with a {@link Metadatable} instance.
+ * Represents a set of data associated with a {@link MetadataHolder} instance.
  *
  * @author Max Roncacé
  * @since 1.0

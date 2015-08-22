@@ -60,9 +60,9 @@ public interface PlayerClickLobbySignEvent {
     LobbySign getLobbySign();
 
     /**
-     * Returns the {@link ClickType type} of click involved in this event.
+     * Returns the {@link ClickType type of click} involved in this event.
      *
-     * @return The {@link ClickType type} of click involved in this event
+     * @return The {@link ClickType type of click} involved in this event
      * @since 1.0
      */
     ClickType getClickType();

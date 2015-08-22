@@ -67,7 +67,7 @@ public abstract class FlintCore {
         return INSTANCE.getImplementationName0();
     }
 
-    public abstract String getImplementationName0();
+    protected abstract String getImplementationName0();
 
     /**
      * Registers a plugin as a Flint-backed {@link Minigame}.

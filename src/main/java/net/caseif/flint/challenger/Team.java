@@ -30,7 +30,7 @@ package net.caseif.flint.challenger;
 
 import net.caseif.flint.component.Component;
 import net.caseif.flint.component.exception.OrphanedComponentException;
-import net.caseif.flint.metadata.Metadatable;
+import net.caseif.flint.metadata.MetadataHolder;
 import net.caseif.flint.round.Round;
 
 import com.google.common.collect.ImmutableList;
@@ -42,7 +42,7 @@ import com.google.common.collect.ImmutableList;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Team extends Metadatable, Component<Round> {
+public interface Team extends MetadataHolder, Component<Round> {
 
     /**
      * Gets the {@link Round} this {@link Team} is owned by.
@@ -114,7 +114,8 @@ public interface Team extends Metadatable, Component<Round> {
     void addChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedComponentException;
 
     /**
-     * Removes the given {@link Challenger} from this {@link Team}.
+     * Removes the given {@link Challenger} from this {@link Team}. This
+     * implicitly removes it from its current {@link Team} if applicable.
      *
      * @param challenger The {@link Challenger} to remove
      * @throws IllegalArgumentException If the given {@link Challenger} is not

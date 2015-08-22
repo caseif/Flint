@@ -37,12 +37,12 @@ import java.util.List;
 
 /**
  * Represents a set of persistable data associated with a
- * {@link PersistentMetadatable} instance.
+ * {@link PersistentMetadataHolder} instance.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface PersistableMetadata extends Metadata {
+public interface PersistentMetadata extends Metadata {
 
     /**
      * Gets the value assigned to the given key.
@@ -57,7 +57,7 @@ public interface PersistableMetadata extends Metadata {
      *     this exception is not thrown by this method directly, but rather by
      *     the JVM upon its invocation)
      * @throws IllegalArgumentException If the value associated with
-     *     {@code key} is a {@link PersistableMetadata} structure, or if
+     *     {@code key} is a {@link PersistentMetadata} structure, or if
      *     the value is an invalid serial for the provided {@link Serializer}
      * @since 1.0
      */
@@ -66,7 +66,7 @@ public interface PersistableMetadata extends Metadata {
     /**
      * {@inheritDoc}
      *
-     * <p><strong>This method is not supported for {@link PersistableMetadata}
+     * <p><strong>This method is not supported for {@link PersistentMetadata}
      * objects.</strong></p>
      *
      * @throws UnsupportedOperationException Always
@@ -193,6 +193,6 @@ public interface PersistableMetadata extends Metadata {
     <T> void set(String key, List<T> value, Serializer<T> serializer);
 
     @Override
-    PersistableMetadata createStructure(String key);
+    PersistentMetadata createStructure(String key);
 
 }

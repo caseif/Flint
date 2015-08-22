@@ -36,7 +36,7 @@ import net.caseif.flint.component.ComponentOwner;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.exception.round.RoundJoinException;
-import net.caseif.flint.metadata.Metadatable;
+import net.caseif.flint.metadata.MetadataHolder;
 import net.caseif.flint.util.annotation.Orphaner;
 
 import com.google.common.base.Optional;
@@ -52,7 +52,7 @@ import java.util.UUID;
  * @since 1.0
  */
 @SuppressWarnings("DuplicateThrows")
-public interface Round extends Metadatable, ComponentOwner, Component<Arena> {
+public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> {
 
     /**
      * Gets the {@link Arena} this {@link Round} is owned by.
@@ -221,16 +221,16 @@ public interface Round extends Metadatable, ComponentOwner, Component<Arena> {
     void removeTeam(Team team) throws IllegalArgumentException, OrphanedComponentException;
 
     /**
-     * Returns the number of {@link Challenger}s in this {@link Round} marked as
-     * spectating.
+     * Returns the subset of {@link Challenger}s in this {@link Round} who are
+     * marked as spectating.
      *
-     * @return The number of {@link Challenger}s in this {@link Round} marked as
-     *     spectating
+     * @return The subset of {@link Challenger}s in this {@link Round} who are
+     * marked as spectating
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0
      */
-    int getSpectatorCount() throws OrphanedComponentException;
+    ImmutableList<Challenger> getSpectators() throws OrphanedComponentException;
 
     /**
      * Broadcasts the string {@code message} to all {@link Challenger}s in

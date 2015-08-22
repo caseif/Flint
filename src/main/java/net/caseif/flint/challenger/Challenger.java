@@ -30,7 +30,7 @@ package net.caseif.flint.challenger;
 
 import net.caseif.flint.component.Component;
 import net.caseif.flint.component.exception.OrphanedComponentException;
-import net.caseif.flint.metadata.Metadatable;
+import net.caseif.flint.metadata.MetadataHolder;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.annotation.Orphaner;
 
@@ -44,7 +44,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-public interface Challenger extends Metadatable, Component<Round> {
+public interface Challenger extends MetadataHolder, Component<Round> {
 
     /**
      * Gets the {@link Round} this {@link Challenger} is owned by.
@@ -101,20 +101,6 @@ public interface Challenger extends Metadatable, Component<Round> {
      * @since 1.0
      */
     Optional<Team> getTeam() throws OrphanedComponentException;
-
-    /**
-     * Sets the {@link Team} this challenger belongs to. This implicitly removes
-     * it from the team it currently belongs to if applicable.
-     *
-     * @param team The new {@link Team} this challenger will belong to (pass
-     *     {@code null} to remove them from their current {@link Team})
-     * @throws IllegalArgumentException If {@code team} is not contained by
-     *     the same {@link Round} as this {@link Challenger}
-     * @throws OrphanedComponentException If this object is orphaned (see
-     *     {@link Component} for details)
-     * @since 1.0
-     */
-    void setTeam(Team team) throws IllegalArgumentException, OrphanedComponentException;
 
     /**
      * Returns whether this {@link Challenger} is currently spectating.

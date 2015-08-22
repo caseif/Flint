@@ -11,11 +11,11 @@ import net.caseif.flint.component.exception.OrphanedComponentException;
  * {@link OrphanedComponentException} in response to any defined method being
  * invoked upon them.</p>
  *
- * @param <H> The {@link ComponentOwner} type this {@link Component} is owned
+ * @param <T> The {@link ComponentOwner} type this {@link Component} is owned
  *     by
  * @since 1.0
  */
-public interface Component<H extends ComponentOwner> {
+public interface Component<T extends ComponentOwner> {
 
     /**
      * Gets the {@link ComponentOwner owner} of this object.
@@ -25,6 +25,6 @@ public interface Component<H extends ComponentOwner> {
      * @return The {@link ComponentOwner owner} of this object
      * @since 1.0
      */
-    H getOwner() throws OrphanedComponentException;
+    T getOwner() throws OrphanedComponentException;
 
 }

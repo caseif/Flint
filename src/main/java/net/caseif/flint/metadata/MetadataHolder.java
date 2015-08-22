@@ -26,31 +26,24 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.caseif.flint.metadata.persist;
-
-import net.caseif.flint.metadata.Metadatable;
+package net.caseif.flint.metadata;
 
 /**
- * Represents an object which may carry {@link PersistableMetadata}.
+ * Represents an object which may carry metadata.
  *
  * @author Max Roncacé
  * @since 1.0
  */
-public interface PersistentMetadatable extends Metadatable {
-
+public interface MetadataHolder {
 
     /**
-     * Gets the {@link PersistableMetadata} associated with this
-     * {@link PersistentMetadatable} instance.
+     * Gets the {@link Metadata} associated with this {@link MetadataHolder}
+     * instance.
      *
-     * <p>This differs from {@link Metadatable#getMetadata()} in that data
-     * stored to this method's return value will be persisted across server
-     * restarts.</p>
-     *
-     * @return The {@link PersistableMetadata} associated with this
-     *     {@link PersistentMetadatable} instance
+     * @return The {@link Metadata} associated with this {@link MetadataHolder}
+     *     instance
      * @since 1.0
      */
-    PersistableMetadata getPersistableMetadata();
+    Metadata getMetadata();
 
 }
