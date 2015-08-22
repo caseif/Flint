@@ -34,7 +34,7 @@ import net.caseif.flint.minigame.Minigame;
  * The core class for the Flint framework.
  *
  * @author Max Roncacé
- * @version 1.0-SNAPSHOT
+ * @version 1.0
  * @since 1.0
  */
 public abstract class FlintCore {
