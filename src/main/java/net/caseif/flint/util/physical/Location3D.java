@@ -39,7 +39,7 @@ import com.google.common.base.Optional;
  */
 public class Location3D {
 
-    private final static char SEPARATOR = ';';
+    private static final char SEPARATOR = ';';
 
     private final String world;
     private final double x;

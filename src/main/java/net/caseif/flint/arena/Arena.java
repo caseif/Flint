@@ -65,9 +65,11 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
      * {@link Arena#getOwner()}.</p>
      *
      * @return The {@link Minigame} this {@link Arena} is owned by
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    Minigame getMinigame();
+    Minigame getMinigame() throws OrphanedComponentException;
 
     /**
      * Gets the identifier of this {@link Arena}.
@@ -216,10 +218,12 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
      * {@link Arena}.
      *
      * @return An {@link ImmutableList} of {@link LobbySign}s registered for
-     *     this {@link Arena}.
+     *     this {@link Arena}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    ImmutableList<LobbySign> getLobbySigns();
+    ImmutableList<LobbySign> getLobbySigns() throws OrphanedComponentException;
 
     /**
      * Gets the {@link LobbySign} at the given {@link Location3D}, if present.
@@ -229,9 +233,11 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
      * @return The {@link LobbySign} at the given {@link Location3D}, or
      *     {@link Optional#absent()} if none is registered
      * @throws IllegalArgumentException If {@code location} does not define a world
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    Optional<LobbySign> getLobbySignAt(Location3D location) throws IllegalArgumentException;
+    Optional<LobbySign> getLobbySignAt(Location3D location) throws IllegalArgumentException, OrphanedComponentException;
 
     /**
      * Attempts to register a {@link StatusLobbySign} at the given
@@ -242,9 +248,12 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
      *     {@link Optional#absent()} if the passed location does not contain a
      *     sign type or already contains a registered {@link LobbySign}
      * @throws IllegalArgumentException If {@code location} does not define a world
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
-    Optional<StatusLobbySign> createStatusLobbySign(Location3D location) throws IllegalArgumentException;
+    Optional<StatusLobbySign> createStatusLobbySign(Location3D location)
+            throws IllegalArgumentException, OrphanedComponentException;
 
     /**
      * Attempts to register a {@link ChallengerListingLobbySign} at the given
@@ -257,10 +266,12 @@ public interface Arena extends Metadatable, ComponentOwner, Component<Minigame> 
      *     {@link Optional#absent()} if the passed location does not contain a
      *     sign type or already contains a registered {@link LobbySign}
      * @throws IllegalArgumentException If {@code location} does not define a world
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
      * @since 1.0
      */
     Optional<ChallengerListingLobbySign> createChallengerListingLobbySign(Location3D location, int index)
-            throws IllegalArgumentException;
+            throws IllegalArgumentException, OrphanedComponentException;
 
     /**
      * Rolls this {@link Arena}'s its state immediately prior to a {@link Round}
