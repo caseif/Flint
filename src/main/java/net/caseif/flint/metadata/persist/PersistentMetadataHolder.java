@@ -38,7 +38,6 @@ import net.caseif.flint.metadata.MetadataHolder;
  */
 public interface PersistentMetadataHolder extends MetadataHolder {
 
-
     /**
      * Gets the {@link PersistentMetadata} associated with this
      * {@link PersistentMetadataHolder} instance.
@@ -51,6 +50,22 @@ public interface PersistentMetadataHolder extends MetadataHolder {
      *     {@link PersistentMetadataHolder} instance
      * @since 1.0
      */
+    PersistentMetadata getPersistentMetadata();
+
+    /**
+     * Gets the {@link PersistentMetadata} associated with this
+     * {@link PersistentMetadataHolder} instance.
+     *
+     * <p>This differs from {@link MetadataHolder#getMetadata()} in that data
+     * stored to this method's return value will be persisted across server
+     * restarts.</p>
+     *
+     * @return The {@link PersistentMetadata} associated with this
+     *     {@link PersistentMetadataHolder} instance
+     * @deprecated Use {@link PersistentMetadataHolder#getPersistentMetadata()}
+     * @since 1.0
+     */
+    @Deprecated
     PersistentMetadata getPersistableMetadata();
 
 }
