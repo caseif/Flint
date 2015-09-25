@@ -137,8 +137,9 @@ public interface Minigame extends ComponentOwner {
      * @param boundary The {@link Boundary} of the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
-     *     identifier already exists, or if {@code spawnPoint} does not contain
-     *     a world
+     *     identifier already exists, if {@code spawnPoint} does not contain a
+     *     world, or if the ID or name contain characters not permitted by the
+     *     implementation
      * @since 1.0
      */
     Arena createArena(String id, String name, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;
@@ -153,8 +154,9 @@ public interface Minigame extends ComponentOwner {
      * @param boundary The {@link Boundary} of the new {@link Arena}
      * @return The newly created {@link Arena}
      * @throws IllegalArgumentException If an {@link Arena} with the given
-     *     identifier already exists, or if {@code spawnPoint} does not contain
-     *     a world
+     *     identifier already exists, if {@code spawnPoint} does not contain a
+     *     world, or if the id or name contain characters not permitted by the
+     *     implementation
      * @since 1.0
      */
     Arena createArena(String id, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;

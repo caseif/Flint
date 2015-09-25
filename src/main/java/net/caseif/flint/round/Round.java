@@ -267,6 +267,10 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     /**
      * Sets this {@link Round}'s current {@link LifecycleStage}.
      *
+     * <p><strong>Note:</strong> Invocation of this method <em>will not</em>
+     * reset a round's numerical timer. This must be done manually if desired.
+     * </p>
+     *
      * @param stage The new {@link LifecycleStage} for the {@link Round}
      * @throws IllegalArgumentException If {@code stage} is not defined for
      *     this {@link Round}
@@ -315,6 +319,10 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
 
     /**
      * Progresses this {@link Round} to its next {@link LifecycleStage}.
+     *
+     * <p><strong>Note:</strong> Unlike
+     * {@link Round#setLifecycleStage(LifecycleStage)}, invocation of this
+     * method <em>will</em> implicitly reset a round's numerical timer.</p>
      *
      * @throws IllegalStateException If the current {@link LifecycleStage} is
      *     the last one defined
@@ -398,12 +406,14 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * <p>Note that calling this method will orphan this {@link Round} object,
      * causing all of its methods to throw {@link OrphanedComponentException}s.</p>
      *
+     * @throws IllegalStateException If an {@code end} method has already been
+     *     called upon this {@link Round}
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0
      */
     @Orphaner
-    void end() throws OrphanedComponentException;
+    void end() throws IllegalStateException, OrphanedComponentException;
 
     /**
      * Ends this {@link Round} by resetting its timer, removing all
@@ -414,12 +424,14 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * causing all of its methods to throw {@link OrphanedComponentException}s.</p>
      *
      * @param rollback Whether this {@link Round}'s arena should be rolled back
+     * @throws IllegalStateException If an {@code end} method has already been
+     *     called upon this {@link Round}
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0
      */
     @Orphaner
-    void end(boolean rollback) throws OrphanedComponentException;
+    void end(boolean rollback) throws IllegalStateException, OrphanedComponentException;
 
     /**
      * Gets the value of the given {@link RoundConfigNode} for this
