@@ -48,7 +48,7 @@ public interface PersistentMetadataHolder extends MetadataHolder {
      *
      * @return The {@link PersistentMetadata} associated with this
      *     {@link PersistentMetadataHolder} instance
-     * @since 1.0
+     * @since 1.1
      */
     PersistentMetadata getPersistentMetadata();
 

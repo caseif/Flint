@@ -34,14 +34,14 @@ import net.caseif.flint.minigame.Minigame;
  * The core class for the Flint framework.
  *
  * @author Max Roncacé
- * @version 1.0
+ * @version 1.1-SNAPSHOT
  * @since 1.0
  */
 public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
 
-    private static final int API_REVISION = 1;
+    private static final int API_REVISION = 2;
 
     /**
      * Gets the current API revision. Note that this is not necessarily parallel
