@@ -434,6 +434,19 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     void end(boolean rollback) throws IllegalStateException, OrphanedComponentException;
 
     /**
+     * Returns whether this {@link Round} is currently ending. This method
+     * returns true during and only during the period between the {@link Round}
+     * being requested to end, and the {@link Round} being fully ended and
+     * orphaned.
+     *
+     * @return Whether this {@link Round} is currently in the process of ending.
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.1
+     */
+    boolean isEnding() throws OrphanedComponentException;
+
+    /**
      * Gets the value of the given {@link RoundConfigNode} for this
      * {@link Round}, or the server value if it is not set.
      *
