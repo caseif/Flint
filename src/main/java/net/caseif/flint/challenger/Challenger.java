@@ -103,6 +103,18 @@ public interface Challenger extends MetadataHolder, Component<Round> {
     Optional<Team> getTeam() throws OrphanedComponentException;
 
     /**
+     * Sets the {@link Team} this challenger belongs to.
+     *
+     * @param team The {@link Team} the challenger will be moved to
+     * @throws IllegalArgumentException If the provided {@link Team} does not
+     *     belong to this challenger's {@link Round}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.1
+     */
+    void setTeam(Team team) throws IllegalArgumentException, OrphanedComponentException;
+
+    /**
      * Returns whether this {@link Challenger} is currently spectating.
      *
      * <p>Spectators are not visible to others and may not interact with the
