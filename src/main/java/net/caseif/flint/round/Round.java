@@ -111,7 +111,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      *     {@link Component} for details)
      * @since 1.0
      * @deprecated Violates basic principle of exceptions - use
-     *     {@link Challenger#addChallenger}
+     *     {@link Round#addChallenger(UUID)}
      */
     @Deprecated
     Challenger _INVALID_addChallenger(UUID uuid) throws RoundJoinException, OrphanedComponentException;
@@ -128,9 +128,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      *     {@link Round}'s {@link Arena}
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
-     * @since 1.0
-     * @deprecated Violates basic principle of exceptions - use
-     *     {@link Challenger#addChallenger}
+     * @since 1.1
      */
     JoinResult addChallenger(UUID uuid) throws OrphanedComponentException;
 
