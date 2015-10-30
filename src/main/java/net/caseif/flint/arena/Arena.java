@@ -299,6 +299,22 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
             throws IllegalArgumentException, OrphanedComponentException;
 
     /**
+     * Explicitly marks a location for rollback. When the arena is rolled back,
+     * the location will be reset to its state upon this method being invoked.
+     *
+     * <p>Note: This will have no effect if a rollback record already exists at
+     * the location.</p>
+     *
+     * @param location The {@link Location3D} to mark for rollback
+     * @throws IllegalArgumentException If the provided location is not
+     *     contained by this {@link Arena}'s {@link Boundary}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.1
+     */
+    void markForRollback(Location3D location) throws IllegalArgumentException, OrphanedComponentException;
+
+    /**
      * Rolls this {@link Arena}'s its state immediately prior to a {@link Round}
      * having been created in it.
      *
