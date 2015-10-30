@@ -97,6 +97,9 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     /**
      * Adds the player by the given {@link UUID} to this {@link Round}.
      *
+     * <strong><em>This method will not exist at runtime - do not use it!
+     * </em></strong>
+     *
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The newly created {@link Challenger} object
      * @throws IllegalStateException If no spawn points are configured for this
@@ -107,8 +110,29 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0
+     * @deprecated Violates basic principle of exceptions - use
+     *     {@link Challenger#addChallenger}
      */
-    Challenger addChallenger(UUID uuid) throws RoundJoinException, OrphanedComponentException;
+    @Deprecated
+    Challenger _INVALID_addChallenger(UUID uuid) throws RoundJoinException, OrphanedComponentException;
+
+    /**
+     * Adds the player by the given {@link UUID} to this {@link Round}.
+     *
+     * <strong><em>This method will not exist at runtime - do not use it!
+     * </em></strong>
+     *
+     * @param uuid The unique ID of the player to add to this {@link Round}
+     * @return The {@link JoinResult result} of the join
+     * @throws IllegalStateException If no spawn points are configured for this
+     *     {@link Round}'s {@link Arena}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.0
+     * @deprecated Violates basic principle of exceptions - use
+     *     {@link Challenger#addChallenger}
+     */
+    JoinResult addChallenger(UUID uuid) throws OrphanedComponentException;
 
     /**
      * Removes the player by the given {@link UUID} from this {@link Round}.

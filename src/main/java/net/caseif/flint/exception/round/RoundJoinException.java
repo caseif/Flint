@@ -39,7 +39,9 @@ import java.util.UUID;
  *
  * @author Max Roncacé
  * @since 1.0
+ * @deprecated Violates basic principle of exceptions
  */
+@Deprecated
 public abstract class RoundJoinException extends Throwable implements Component<Round> {
 
     private UUID player;
