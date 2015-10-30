@@ -29,6 +29,7 @@
 package net.caseif.flint.round;
 
 import net.caseif.flint.arena.Arena;
+import net.caseif.flint.arena.SpawningMode;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.component.Component;
@@ -38,6 +39,7 @@ import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.exception.round.RoundJoinException;
 import net.caseif.flint.metadata.MetadataHolder;
 import net.caseif.flint.util.annotation.Orphaner;
+import net.caseif.flint.util.physical.Location3D;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableList;
@@ -141,6 +143,19 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      */
     @Orphaner
     void removeChallenger(Challenger challenger) throws IllegalArgumentException, OrphanedComponentException;
+
+    /**
+     * Retrieves the next available spawn point.
+     *
+     * <p>If the round's spawning mode is set to {@link SpawningMode#RANDOM}, a
+     * random point will be selected. Otherwise, if it is set to
+     * {@link SpawningMode#SEQUENTIAL}, the next point in sequence will be
+     * selected and the selection counter will be incremented.</p>
+     *
+     * @return The next available spawn point.
+     * @since 1.1
+     */
+    Location3D nextSpawnPoint();
 
     /**
      * Returns an {@link ImmutableList} of {@link Team}s in this {@link Round}.

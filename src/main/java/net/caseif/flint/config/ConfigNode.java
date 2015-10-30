@@ -29,6 +29,7 @@
 package net.caseif.flint.config;
 
 import net.caseif.flint.arena.Arena;
+import net.caseif.flint.arena.SpawningMode;
 import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.event.lobby.PlayerClickLobbySignEvent;
@@ -186,7 +187,7 @@ public class ConfigNode<T> {
      *
      * <p><strong>Default:</strong> {@link SpawningMode#SEQUENTIAL}</p>
      */
-    public static final RoundConfigNode<Boolean> SPAWNING_MODE = new RoundConfigNode<>(false);
+    public static final RoundConfigNode<SpawningMode> SPAWNING_MODE = new RoundConfigNode<>(SpawningMode.SEQUENTIAL);
 
     /**
      * Whether spawn points should be selected for {@link Challenger}s entering
