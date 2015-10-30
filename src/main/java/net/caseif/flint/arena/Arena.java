@@ -187,9 +187,9 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      *
      * @param stages A {@link LinkedHashSet} containing {@link LifecycleStage}s
      *               to define for the new {@link Round}
-     * @return The newly created {@link Round}.
-     * @throws IllegalArgumentException If {@code stages} contains an empty
-     *     set
+     * @return The newly created {@link Round}
+     * @throws IllegalArgumentException If {@code stages} is {@code null} or
+     *     contains an empty set
      * @throws IllegalStateException If a {@link Round} already exists in this
      *     {@link Arena}
      * @throws OrphanedComponentException If this object is orphaned (see
@@ -203,7 +203,7 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      * Creates a new {@link Round} in this {@link Arena} with the default
      * {@link LifecycleStage}s.
      *
-     * @return The newly created {@link Round}.
+     * @return The newly created {@link Round}
      * @throws IllegalStateException If a {@link Round} already exists in this
      *     {@link Arena}, or if the default {@link LifecycleStage}s have not
      *     been set as a config option
@@ -212,6 +212,31 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      * @since 1.0
      */
     Round createRound() throws IllegalStateException, OrphanedComponentException;
+
+    /**
+     * Attempts to get the {@link Round} contained by this arena, or if not
+     * present, creates and returns a new one with the given lifecycle stages.
+     *
+     * @param stages A {@link LinkedHashSet} containing {@link LifecycleStage}s
+     *               to define for the new {@link Round}
+     * @return The retrieved or newly-created {@link Round}
+     * @throws IllegalArgumentException If {@code stages} is {@code null} or
+     *     contains an empty set
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     */
+    Round getOrCreateRound(ImmutableSet<LifecycleStage> stages) throws IllegalArgumentException,
+            OrphanedComponentException;
+
+    /**
+     * Attempts to get the {@link Round} contained by this arena, or if not
+     * present, creates and returns a new one with the default lifecycle stages.
+     *
+     * @return The retrieved or newly-created {@link Round}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     */
+    Round getOrCreateRound() throws OrphanedComponentException;
 
     /**
      * Gets an {@link ImmutableList} of {@link LobbySign}s registered for this
