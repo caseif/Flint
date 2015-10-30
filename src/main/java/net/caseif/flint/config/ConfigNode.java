@@ -150,6 +150,26 @@ public class ConfigNode<T> {
     public static final RoundConfigNode<Boolean> SEPARATE_TEAM_CHATS = new RoundConfigNode<>(false);
 
     /**
+     * Whether {@link Round}s are to use separate chat channels.
+     *
+     * <p><strong>Default:</strong> {@code true}</p>
+     *
+     * @since 1.0
+     */
+    public static final RoundConfigNode<Boolean> SEPARATE_ROUND_CHATS = new RoundConfigNode<>(true);
+
+    /**
+     * Whether messages sent by spectators are to be withheld from
+     * non-spectators. If true, spectators will be able to see messages sent by
+     * non-spectators, but not vice-versa.
+     *
+     * <p><strong>Default:</strong> {@code false}</p>
+     *
+     * @since 1.0
+     */
+    public static final RoundConfigNode<Boolean> ISOLATE_SPECTATOR_MESSAGES = new RoundConfigNode<>(true);
+
+    /**
      * Whether {@link Round}s shall be rolled back by default upon ending.
      *
      * <p><strong>Default:</strong> {@code true}</p>
