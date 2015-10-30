@@ -29,18 +29,20 @@
 package net.caseif.flint.config;
 
 import net.caseif.flint.arena.Arena;
+import net.caseif.flint.challenger.Challenger;
+import net.caseif.flint.challenger.Team;
 import net.caseif.flint.event.lobby.PlayerClickLobbySignEvent;
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
-import net.caseif.flint.challenger.Challenger;
-import net.caseif.flint.challenger.Team;
 import net.caseif.flint.util.physical.Boundary;
 
 import com.google.common.collect.ImmutableSet;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -188,6 +190,18 @@ public class ConfigNode<T> {
      * @since 1.0
      */
     public static final RoundConfigNode<Boolean> RANDOM_SPAWNING = new RoundConfigNode<>(false);
+
+    /**
+     * A {@link Set} of commands forbidden from use by player entered into
+     * minigame {@link Round}s.
+     *
+     * <p><strong>Default:</strong> empty set</p>
+     *
+     * @since 1.1
+     */
+    // I truly have no idea why I need to cast HashSet to Set for this declaration to work. Fucking generics.
+    public static final RoundConfigNode<Set<String>> FORBIDDEN_COMMANDS
+            = new RoundConfigNode<>((Set<String>) new HashSet<String>());
 
     private final UUID uuid;
     private final T defaultValue;
