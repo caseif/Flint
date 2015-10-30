@@ -160,14 +160,14 @@ public class ConfigNode<T> {
 
     /**
      * Whether messages sent by spectators are to be withheld from
-     * non-spectators. If true, spectators will be able to see messages sent by
-     * non-spectators, but not vice-versa.
+     * non-spectators. If true, spectators will see all messages, but
+     * non-spectators will not see messages sent by spectators.
      *
-     * <p><strong>Default:</strong> {@code false}</p>
+     * <p><strong>Default:</strong> {@code true}</p>
      *
      * @since 1.0
      */
-    public static final RoundConfigNode<Boolean> ISOLATE_SPECTATOR_MESSAGES = new RoundConfigNode<>(true);
+    public static final RoundConfigNode<Boolean> WITHHOLD_SPECTATOR_CHAT = new RoundConfigNode<>(true);
 
     /**
      * Whether {@link Round}s shall be rolled back by default upon ending.
