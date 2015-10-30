@@ -1,6 +1,4 @@
-# Flint
-
-[Continuous Integration](http://ci.caseif.net/job/Flint/)
+# Flint [![](http://ci.caseif.net/job/Flint/branch/develop/badge/icon)](http://ci.caseif.net/job/Flint/)
 
 Flint is a cross-platform engine designed to act as a universal backend for Minecraft minigame mods, handling generic
 tasks such as arena, round, and player management which would normally require a significant time investment to develop
