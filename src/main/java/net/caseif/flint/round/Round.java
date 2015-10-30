@@ -282,9 +282,24 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     /**
      * Sets this {@link Round}'s current {@link LifecycleStage}.
      *
+     * @param stage The new {@link LifecycleStage} for the {@link Round}
+     * @param resetTimer Whether to reset the timer to {@code 0} (defaults to
+     *     {@code false} if omitted)
+     * @throws IllegalArgumentException If {@code stage} is not defined for
+     *     this {@link Round}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.0
+     */
+    void setLifecycleStage(LifecycleStage stage, boolean resetTimer) throws IllegalArgumentException,
+            OrphanedComponentException;
+
+    /**
+     * Sets this {@link Round}'s current {@link LifecycleStage}.
+     *
      * <p><strong>Note:</strong> Invocation of this method <em>will not</em>
-     * reset a round's numerical timer. This must be done manually if desired.
-     * </p>
+     * reset a round's numerical timer unless the boolean {@code resetTimer}
+     * parameter is provided.</p>
      *
      * @param stage The new {@link LifecycleStage} for the {@link Round}
      * @throws IllegalArgumentException If {@code stage} is not defined for
