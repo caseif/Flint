@@ -142,11 +142,14 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      *
      * @param spawn The {@link Location3D} to add as a new spawn point
      * @return The index of the new spawn point
+     * @throws IllegalArgumentException If the spawn point is not contained by
+     *     the {@link Arena}'s {@link Boundary}, or if its world differs from
+     *     the {@link Arena}'s
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0
      */
-    int addSpawnPoint(Location3D spawn) throws OrphanedComponentException;
+    int addSpawnPoint(Location3D spawn) throws IllegalArgumentException, OrphanedComponentException;
 
     /**
      * Removes the spawn point of the given index from this {@link Arena}.
