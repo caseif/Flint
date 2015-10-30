@@ -181,6 +181,14 @@ public class ConfigNode<T> {
     public static final RoundConfigNode<Boolean> ROLLBACK_ON_END = new RoundConfigNode<>(true);
 
     /**
+     * The mode which should be used when selecting spawn points. (See
+     * {@link SpawningMode} for more information.)
+     *
+     * <p><strong>Default:</strong> {@link SpawningMode#SEQUENTIAL}</p>
+     */
+    public static final RoundConfigNode<Boolean> SPAWNING_MODE = new RoundConfigNode<>(false);
+
+    /**
      * Whether spawn points should be selected for {@link Challenger}s entering
      * rounds randomly. If {@code false}, spawn points will be selected
      * sequentially.
@@ -188,7 +196,9 @@ public class ConfigNode<T> {
      * <p><strong>Default:</strong> {@code false}</p>
      *
      * @since 1.0
+     * @deprecated Use {@link ConfigNode#SPAWNING_MODE}
      */
+    @Deprecated
     public static final RoundConfigNode<Boolean> RANDOM_SPAWNING = new RoundConfigNode<>(false);
 
     /**

@@ -173,6 +173,19 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
     void removeSpawnPoint(Location3D location) throws OrphanedComponentException;
 
     /**
+     * Retrieves the next available spawn point.
+     *
+     * <p>If the round's spawning mode is set to {@link SpawningMode#RANDOM}, a
+     * random point will be selected. Otherwise, if it is set to
+     * {@link SpawningMode#SEQUENTIAL}, the next point in sequence will be
+     * selected and the selection counter will be incremented.</p>
+     *
+     * @return The next available spawn point.
+     * @since 1.1
+     */
+    Location3D nextSpawnPoint();
+
+    /**
      * Gets the {@link Round} contained by this {@link Arena}.
      *
      * @return The {@link Round} contained by this {@link Arena}
