@@ -31,6 +31,7 @@ package net.caseif.flint.arena;
 import net.caseif.flint.component.Component;
 import net.caseif.flint.component.ComponentOwner;
 import net.caseif.flint.component.exception.OrphanedComponentException;
+import net.caseif.flint.exception.rollback.RollbackException;
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.lobby.type.ChallengerListingLobbySign;
 import net.caseif.flint.lobby.type.StatusLobbySign;
@@ -311,11 +312,14 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      * @param location The {@link Location3D} to mark for rollback
      * @throws IllegalArgumentException If the provided location is not
      *     contained by this {@link Arena}'s {@link Boundary}
+     * @throws RollbackException If an exception occurs while marking the
+     *     location for rollback
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.1
      */
-    void markForRollback(Location3D location) throws IllegalArgumentException, OrphanedComponentException;
+    void markForRollback(Location3D location) throws IllegalArgumentException, RollbackException,
+            OrphanedComponentException;
 
     /**
      * Rolls this {@link Arena}'s its state immediately prior to a {@link Round}
