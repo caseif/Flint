@@ -180,6 +180,14 @@ public abstract class RoundJoinException extends Throwable implements Component<
             this.message = message;
         }
 
+        /**
+         * Returns the default message associated with this failure
+         * {@link Reason}.
+         *
+         * @return The default message associated with this failure
+         *     {@link Reason}.
+         * @since 1.1
+         */
         public String getMessage() {
             return message;
         }

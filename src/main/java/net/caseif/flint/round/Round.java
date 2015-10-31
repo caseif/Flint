@@ -113,6 +113,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * @deprecated Violates basic principle of exceptions - use
      *     {@link Round#addChallenger(UUID)}
      */
+    @SuppressWarnings("deprecation")
     @Deprecated
     Challenger _INVALID_addChallenger(UUID uuid) throws RoundJoinException, OrphanedComponentException;
 
