@@ -154,25 +154,35 @@ public abstract class RoundJoinException extends Throwable implements Component<
          *
          * @since 1.0
          */
-        ALREADY_ENTERED,
+        ALREADY_ENTERED("Cannot enter challenger %s (already in a round)"),
         /**
          * A failed join due to the round being at capacity.
          *
          * @since 1.0
          */
-        FULL,
+        FULL("Cannot enter challenger %s (round is full)"),
         /**
          * A failed join due to an internal error.
          *
          * @since 1.0
          */
-        INTERNAL_ERROR,
+        INTERNAL_ERROR(""),
         /**
          * A failed join due to the player being offline.
          *
          * @since 1.0
          */
-        OFFLINE
+        OFFLINE("Cannot enter challenger with UUID %s (player is offline)");
+
+        private String message;
+
+        Reason(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
     }
 
 }
