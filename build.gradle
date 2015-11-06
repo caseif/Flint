@@ -23,7 +23,7 @@ defaultTasks 'clean', 'licenseFormat', 'build'
 
 // Project information
 group = 'net.caseif.flint'
-version = '1.1-SNAPSHOT'
+version = '1.1'
 
 // Extended project information
 ext.projectName = 'flint'
