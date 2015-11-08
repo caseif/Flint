@@ -44,6 +44,21 @@ public enum SpawningMode {
      *
      * @since 1.1
      */
-    RANDOM
+    RANDOM,
+    /**
+     * Available spawn points will be shuffled and then selected sequentially
+     * from the new, shuffled list.
+     *
+     * @since 1.2
+     */
+    SHUFFLE,
+    /**
+     * Spawn points will be selected based on proximity to other players. The
+     * spawn point with the greatest average distance to all other players in
+     * the arena will be used.
+     *
+     * @since 1.2
+     */
+    PROXIMITY_HIGH
 
 }
