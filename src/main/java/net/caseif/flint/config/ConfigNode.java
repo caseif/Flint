@@ -186,6 +186,8 @@ public class ConfigNode<T> {
      * {@link SpawningMode} for more information.)
      *
      * <p><strong>Default:</strong> {@link SpawningMode#SEQUENTIAL}</p>
+     *
+     * @since 1.1
      */
     public static final RoundConfigNode<SpawningMode> SPAWNING_MODE = new RoundConfigNode<>(SpawningMode.SEQUENTIAL);
 

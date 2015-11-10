@@ -102,6 +102,11 @@ public interface LobbySign extends Component<Arena> {
     @Orphaner
     void unregister() throws OrphanedComponentException;
 
+    /**
+     * An {@code enum} representing a specific type of lobby sign.
+     *
+     * @since 1.0
+     */
     enum Type {
         /**
          * A status lobby sign. See {@link StatusLobbySign} for further

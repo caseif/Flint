@@ -37,7 +37,8 @@ import java.util.List;
 
 /**
  * Represents a set of persistable data associated with a
- * {@link PersistentMetadataHolder} instance.
+ * {@link PersistentMetadataHolder} instance or a parent
+ * {@link PersistentMetadata} object.
  *
  * @author Max Roncacé
  * @since 1.0
@@ -192,6 +193,15 @@ public interface PersistentMetadata extends Metadata {
      */
     <T> void set(String key, List<T> value, Serializer<T> serializer);
 
+    /**
+     * Creates a structure within this {@link PersistentMetadata} object as
+     * another {@link PersistentMetadata} instance and assigns it to the given
+     * key.
+     *
+     * @return The newly-created structure as a {@link PersistentMetadata}
+     *     object
+     * @since 1.0
+     */
     @Override
     PersistentMetadata createStructure(String key);
 
