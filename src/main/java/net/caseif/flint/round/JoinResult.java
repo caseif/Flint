@@ -44,6 +44,7 @@ public interface JoinResult {
      * @return The new {@link Challenger} object created by the join event
      * @throws IllegalStateException If {@link JoinResult#getStatus} returns
      *     anything other than {@link Status#SUCCESS}
+     * @since 1.1
      */
     Challenger getChallenger() throws IllegalStateException;
 

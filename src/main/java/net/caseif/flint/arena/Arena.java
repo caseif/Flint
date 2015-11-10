@@ -228,6 +228,7 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      *     contains an empty set
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
+     * @since 1.1
      */
     Round getOrCreateRound(ImmutableSet<LifecycleStage> stages) throws IllegalArgumentException,
             OrphanedComponentException;
@@ -239,6 +240,7 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      * @return The retrieved or newly-created {@link Round}
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
+     * @since 1.1
      */
     Round getOrCreateRound() throws OrphanedComponentException;
 

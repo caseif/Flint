@@ -237,6 +237,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * @param id The identifier of the {@link Team} to remove
      * @throws IllegalArgumentException If this {@link Round} does not contain
      *     a {@link Team} by the given ID
+     * @since 1.0
      */
     @Orphaner
     void removeTeam(String id) throws IllegalArgumentException, OrphanedComponentException;
@@ -254,6 +255,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      *     from this one
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
+     * @since 1.0
      */
     @Orphaner
     void removeTeam(Team team) throws IllegalArgumentException, OrphanedComponentException;
