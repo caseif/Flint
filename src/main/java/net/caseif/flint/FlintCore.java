@@ -41,7 +41,7 @@ public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
 
-    private static final int API_REVISION = 2;
+    private static final int API_REVISION = 3;
 
     /**
      * Gets the current API revision. Note that this is not necessarily parallel
