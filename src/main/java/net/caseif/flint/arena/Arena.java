@@ -83,15 +83,39 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
     String getId() throws OrphanedComponentException;
 
     /**
-     * Gets the "friendly" name of this {@link Arena}, as displayed to users.
+     * Gets the display name of this {@link Arena} as seen by users.
      *
-     * @return The "friendly" name of this {@link Arena}, as displayed to users,
+     * @return The display name of this {@link Arena} as seen by users,
      *     or its ID if one is not set
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
      * @since 1.0
+     * @deprecated Ambiguous naming - use {@link Arena#getDisplayName}
      */
+    @Deprecated
     String getName() throws OrphanedComponentException;
+
+    /**
+     * Gets the display name of this {@link Arena} as seen by users.
+     *
+     * @return The display name of this {@link Arena} as seen by users,
+     *     or its ID if one is not set
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.2
+     */
+    String getDisplayName() throws OrphanedComponentException;
+
+    /**
+     * Sets the display name of this {@link Arena} as seen by users.
+     *
+     * @param displayName The new display name of this {@link Arena} as seen by
+     *     users
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.2
+     */
+    void setDisplayName(String displayName);
 
     /**
      * Gets the name of the world which contains this {@link Arena}.
