@@ -52,6 +52,9 @@ public enum SpawningMode {
      * Available spawn points will be shuffled and then selected sequentially
      * from the new, shuffled list.
      *
+     * <p>Note: modifying an arena's spawn list will reset its shuffle order, as
+     * will restarting/reloading the plugin.</p>
+     *
      * @since 1.2
      */
     SHUFFLE,
