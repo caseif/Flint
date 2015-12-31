@@ -95,10 +95,9 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     Optional<Challenger> getChallenger(UUID uuid) throws OrphanedComponentException;
 
     /**
-     * Adds the player by the given {@link UUID} to this {@link Round}.
+     * <strong>This method will not exist at runtime - do not use it!</strong>
      *
-     * <strong><em>This method will not exist at runtime - do not use it!
-     * </em></strong>
+     * <p>Adds the player by the given {@link UUID} to this {@link Round}.</p>
      *
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The newly created {@link Challenger} object
@@ -113,7 +112,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * @deprecated Violates basic principle of exceptions - use
      *     {@link Round#addChallenger(UUID)}
      */
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "unused"})
     @Deprecated
     Challenger _INVALID_addChallenger(UUID uuid) throws RoundJoinException, OrphanedComponentException;
 
