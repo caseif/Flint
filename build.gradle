@@ -30,7 +30,7 @@ ext.projectName = 'flint'
 ext.description = 'A framework for (Minecraft) minigame mods.'
 ext.inceptionYear = '2015'
 ext.packaging = 'jar'
-ext.author = 'Max Roncacé'
+ext.author = 'Max Roncace'
 ext.versionSuffix = version.contains('SNAPSHOT') ? (
         (
         System.getenv('GIT_COMMIT') ? ('-git('
@@ -113,6 +113,15 @@ task sourceJar(type: Jar) {
     from sourceSets.main.java
     from sourceSets.main.resources
     classifier = 'sources'
+}
+
+javadoc {
+    options.encoding = 'UTF-8'
+    options.charSet = 'UTF-8'
+    options.links(
+            'http://docs.guava-libraries.googlecode.com/git-history/v17.0/javadoc/',
+            'https://docs.oracle.com/javase/8/docs/api/'
+    )
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
