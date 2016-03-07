@@ -119,9 +119,6 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     /**
      * Adds the player by the given {@link UUID} to this {@link Round}.
      *
-     * <strong><em>This method will not exist at runtime - do not use it!
-     * </em></strong>
-     *
      * @param uuid The unique ID of the player to add to this {@link Round}
      * @return The {@link JoinResult result} of the join
      * @throws IllegalStateException If no spawn points are configured for this
