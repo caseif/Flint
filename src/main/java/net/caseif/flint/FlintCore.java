@@ -37,6 +37,7 @@ public abstract class FlintCore {
     protected static FlintCore INSTANCE;
 
     private static final int API_REVISION = 4;
+    private static final String CODENAME = "Dagur";
 
     /**
      * Gets the current API revision. Note that this is not necessarily parallel
@@ -50,6 +51,10 @@ public abstract class FlintCore {
      */
     public static int getApiRevision() {
         return API_REVISION;
+    }
+
+    protected static String getCodename() {
+        return CODENAME;
     }
 
     /**
