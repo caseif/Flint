@@ -24,7 +24,10 @@
 package net.caseif.flint.metadata;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableSet;
+
+import java.util.Map;
 
 /**
  * Represents a set of data associated with a {@link MetadataHolder} instance or
@@ -41,8 +44,31 @@ public interface Metadata {
      *
      * @param key The key to check
      * @return Whether the given key is defined for this {@link Metadata} object
+     * @since 1.3
+     */
+    boolean containsKey(String key);
+
+    /**
+     * Returns whether the given value is contained by this {@link Metadata}
+     * object.
+     *
+     * @param value The value to check
+     * @return Whether the given value is contained by this {@link Metadata}
+     *     object
+     * @since 1.3
+     */
+    boolean containsValue(Object value);
+
+    /**
+     * Returns whether the given key is defined for this {@link Metadata}
+     * object.
+     *
+     * @param key The key to check
+     * @return Whether the given key is defined for this {@link Metadata} object
+     * @deprecated Ambiguous name - use {@link #containsKey}
      * @since 1.0
      */
+    @Deprecated
     boolean has(String key);
 
     /**
@@ -94,13 +120,45 @@ public interface Metadata {
 
     /**
      * Returns an {@link ImmutableSet} of all keys contained by this
-     * {@link Metadata} objecjt.
+     * {@link Metadata} object.
      *
      * @return An {@link ImmutableSet} of all keys contained by this
      *     {@link Metadata} object
+     * @deprecated Poorly named - use {@link #keySet}
      * @since 1.0
      */
+    @Deprecated
     ImmutableSet<String> getAllKeys();
+
+    /**
+     * Returns an {@link ImmutableSet} of all keys contained by this
+     * {@link Metadata} object.
+     *
+     * @return An {@link ImmutableSet} of all keys contained by this
+     *     {@link Metadata} object
+     * @since 1.3
+     */
+    ImmutableSet<String> keySet();
+
+    /**
+     * Returns an {@link ImmutableCollection} of all values contained by this
+     * {@link Metadata} object.
+     *
+     * @return An {@link ImmutableCollection} of all values contained by this
+     *     {@link Metadata} object
+     * @since 1.3
+     */
+    ImmutableCollection<Object> values();
+
+    /**
+     * Returns an {@link ImmutableSet} of all {@link Map.Entry entries}
+     * contained by this {@link Metadata} object.
+     *
+     * @return An {@link ImmutableSet} of all {@link Map.Entry entries}
+     *     contained by this {@link Metadata} object
+     * @since 1.3
+     */
+    ImmutableSet<Map.Entry<String, Object>> entrySet();
 
     /**
      * Clears all key-value pairs from this {@link Metadata} object.

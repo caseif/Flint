@@ -26,9 +26,13 @@ package net.caseif.flint.metadata.persist;
 import net.caseif.flint.metadata.Metadata;
 import net.caseif.flint.serialization.Serializer;
 
+import com.google.common.base.Function;
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableSet;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a set of persistable data associated with a
@@ -199,5 +203,49 @@ public interface PersistentMetadata extends Metadata {
      */
     @Override
     PersistentMetadata createStructure(String key);
+
+    /**
+     * <strong>Note:</strong> This method will return the serialized string
+     * values of {@link PersistentMetadata} objects. To obtain the original
+     * values, see {@link #values(Function)}.
+     *
+     * Returns an {@link ImmutableCollection} of all values contained by this
+     * {@link Metadata} object.
+     *
+     * @since 1.3
+     */
+    ImmutableCollection<Object> values();
+
+    /**
+     * Returns an {@link ImmutableCollection} of all deserialized values
+     * contained by this {@link Metadata} object per the given {@link Function}.
+     *
+     * @param transformer The {@link Function} used to transform serialized
+     *     values to their original {@link Object}s
+     * @return An {@link ImmutableCollection} of all values contained by this
+     *     {@link Metadata} object
+     * @since 1.3
+     */
+    ImmutableCollection<Object> values(Function<String, Object> transformer);
+
+    /**
+     * <strong>Note:</strong> This method will return the serialized string
+     * values of {@link PersistentMetadata} objects. To obtain the original
+     * values, see {@link #values(Function)}.
+     *
+     * @since 1.3
+     */
+    ImmutableSet<Map.Entry<String, Object>> entrySet();
+
+    /**
+     * Returns an {@link ImmutableSet} of all {@link Map.Entry entries}
+     * contained by this {@link Metadata} object with values deserialized per
+     * the given {@link Function}.
+     *
+     * @return An {@link ImmutableSet} of all {@link Map.Entry entries}
+     *     contained by this {@link Metadata} object
+     * @since 1.3
+     */
+    ImmutableSet<Map.Entry<String, Object>> entrySet(Function<String, Object> transformer);
 
 }
