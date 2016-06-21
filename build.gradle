@@ -119,8 +119,8 @@ javadoc {
     options.encoding = 'UTF-8'
     options.charSet = 'UTF-8'
     options.links(
-            'http://docs.guava-libraries.googlecode.com/git-history/v17.0/javadoc/',
-            'https://docs.oracle.com/javase/8/docs/api/'
+            'https://google.github.io/guava/releases/17.0/api/docs/',
+            'https://docs.oracle.com/javase/7/docs/api/'
     )
 }
 

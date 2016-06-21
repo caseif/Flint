@@ -53,6 +53,13 @@ public abstract class FlintCore {
         return API_REVISION;
     }
 
+    /**
+     * Gets the codename of the current API revision. This method is intended
+     * for internal use by implementations of the engine.
+     *
+     * @return The codename of the current API revision
+     * @since 1.3
+     */
     protected static String getCodename() {
         return CODENAME;
     }

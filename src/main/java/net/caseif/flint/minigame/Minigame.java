@@ -121,6 +121,16 @@ public interface Minigame extends ComponentOwner {
     Optional<Arena> getArena(String arenaId);
 
     /**
+     * Creates a new {@link Arena.Builder arena builder} associated with this
+     * {@link Minigame}.
+     *
+     * @return A new {@link Arena.Builder arena builder} associated with this
+     *     {@link Minigame}
+     * @since 1.3
+     */
+    Arena.Builder createArenaBuilder();
+
+    /**
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
      * the given identifier, name, and initial spawn point.
      *
@@ -135,8 +145,11 @@ public interface Minigame extends ComponentOwner {
      *     identifier already exists, if {@code spawnPoint} does not contain a
      *     world, or if the ID or name contain characters not permitted by the
      *     implementation
+     * @deprecated Use an {@link Arena.Builder arena builder} instead (see
+     *     {@link #createArenaBuilder})
      * @since 1.0
      */
+    @Deprecated
     Arena createArena(String id, String name, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;
 
     /**
@@ -152,8 +165,11 @@ public interface Minigame extends ComponentOwner {
      *     identifier already exists, if {@code spawnPoint} does not contain a
      *     world, or if the id or name contain characters not permitted by the
      *     implementation
+     * @deprecated Use an {@link Arena.Builder arena builder} instead (see
+     *     {@link #createArenaBuilder})
      * @since 1.0
      */
+    @Deprecated
     Arena createArena(String id, Location3D spawnPoint, Boundary boundary) throws IllegalArgumentException;
 
     /**

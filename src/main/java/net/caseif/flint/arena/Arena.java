@@ -354,4 +354,74 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      */
     void rollback() throws IllegalStateException, OrphanedComponentException;
 
+    /**
+     * A builder for {@link Arena} objects.
+     *
+     * @author Max Roncace
+     * @since 1.3
+     */
+    interface Builder {
+
+        /**
+         * Sets the identifier associated with this {@link Builder}. The string
+         * will be converted to lowercase before being applied.
+         *
+         * <p>This field is required.</p>
+         *
+         * @param id The identifier of the {@link Arena} to be constructed
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder id(String id);
+
+        /**
+         * Sets the display name associated with this {@link Builder}.
+         *
+         * <p>This field is not required. If omitted, the unmodified string
+         * passed to {@link #id} will be used instead.</p>
+         *
+         * @param displayName The display name of the {@link Arena} to be
+         *     constructed
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder displayName(String displayName);
+
+        /**
+         * Sets the spawn points associated with this {@link Builder}.
+         *
+         * <p>This field is required.</p>
+         *
+         * @param spawnPoints An array of spawn points of the {@link Arena} to
+         *     be constructed
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder spawnPoints(Location3D... spawnPoints);
+
+        /**
+         * Sets the {@link Boundary} associated with this {@link Builder}.
+         *
+         * <p>This field is required.</p>
+         *
+         * @param boundary The {@link Boundary} of the {@link Arena} to be
+         *     constructed
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder boundary(Boundary boundary);
+
+        /**
+         * Constructs a new {@link Arena} from this {@link Builder} and stores
+         * it to disk.
+         *
+         * @return The newly-constructed {@link Arena} object
+         * @throws IllegalStateException If any of the required fields have not
+         *     been set
+         * @since 1.3
+         */
+        Arena build() throws IllegalStateException;
+
+    }
+
 }
