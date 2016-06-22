@@ -214,7 +214,7 @@ public interface PersistentMetadata extends Metadata {
      *
      * @since 1.3
      */
-    ImmutableCollection<Object> values();
+    ImmutableCollection<String> values();
 
     /**
      * Returns an {@link ImmutableCollection} of all deserialized values
@@ -235,7 +235,7 @@ public interface PersistentMetadata extends Metadata {
      *
      * @since 1.3
      */
-    ImmutableSet<Map.Entry<String, Object>> entrySet();
+    ImmutableSet<? extends Map.Entry<String, String>> entrySet();
 
     /**
      * Returns an {@link ImmutableSet} of all {@link Map.Entry entries}

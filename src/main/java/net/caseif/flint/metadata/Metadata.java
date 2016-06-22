@@ -148,7 +148,7 @@ public interface Metadata {
      *     {@link Metadata} object
      * @since 1.3
      */
-    ImmutableCollection<Object> values();
+    ImmutableCollection<?> values();
 
     /**
      * Returns an {@link ImmutableSet} of all {@link Map.Entry entries}
@@ -158,7 +158,7 @@ public interface Metadata {
      *     contained by this {@link Metadata} object
      * @since 1.3
      */
-    ImmutableSet<Map.Entry<String, Object>> entrySet();
+    ImmutableSet<? extends Map.Entry<String, ?>> entrySet();
 
     /**
      * Clears all key-value pairs from this {@link Metadata} object.
