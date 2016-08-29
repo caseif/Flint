@@ -248,6 +248,6 @@ public interface PersistentMetadata extends Metadata {
      *     contained by this {@link Metadata} object
      * @since 1.3
      */
-    ImmutableSet<Map.Entry<String, Object>> entrySet(Function<String, Object> transformer);
+    ImmutableSet<? extends Map.Entry<String, Object>> entrySet(Function<String, Object> transformer);
 
 }
