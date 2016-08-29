@@ -33,33 +33,7 @@ import com.google.common.base.Function;
  *
  * @since 1.3
  */
-public final class LobbySignPopulator {
-
-    private Function<LobbySign, String> first;
-    private Function<LobbySign, String> second;
-    private Function<LobbySign, String> third;
-    private Function<LobbySign, String> fourth;
-
-    /**
-     * Constructs a new {@link LobbySignPopulator} using the given
-     * {@link Function}s as line populators.
-     *
-     * @param first The {@link Function} used to populate the first line of
-     *     signs
-     * @param second The {@link Function} used to populate the second line of
-     *     signs
-     * @param third The {@link Function} used to populate the third line of
-     *     signs
-     * @param fourth The {@link Function} used to populate the fourth line of
-     *     signs
-     */
-    public LobbySignPopulator(Function<LobbySign, String> first, Function<LobbySign, String> second,
-                              Function<LobbySign, String> third, Function<LobbySign, String> fourth) {
-        this.first = first;
-        this.second = second;
-        this.third = third;
-        this.fourth = fourth;
-    }
+public interface LobbySignPopulator {
 
     /**
      * Computes the first line of the given {@link LobbySign}.
@@ -68,9 +42,7 @@ public final class LobbySignPopulator {
      * @return The first line of the given sign
      * @since 1.3
      */
-    public String first(LobbySign sign) {
-        return first.apply(sign);
-    }
+    String first(LobbySign sign);
 
     /**
      * Computes the second line of the given {@link LobbySign}.
@@ -79,9 +51,7 @@ public final class LobbySignPopulator {
      * @return The second line of the given sign
      * @since 1.3
      */
-    public String second(LobbySign sign) {
-        return second.apply(sign);
-    }
+    String second(LobbySign sign);
 
     /**
      * Computes the third line of the given {@link LobbySign}.
@@ -90,9 +60,7 @@ public final class LobbySignPopulator {
      * @return The third line of the given sign
      * @since 1.3
      */
-    public String third(LobbySign sign) {
-        return third.apply(sign);
-    }
+    String third(LobbySign sign);
 
     /**
      * Computes the fourth line of the given {@link LobbySign}.
@@ -101,56 +69,109 @@ public final class LobbySignPopulator {
      * @return The fourth line of the given sign
      * @since 1.3
      */
-    public String fourth(LobbySign sign) {
-        return fourth.apply(sign);
-    }
+    String fourth(LobbySign sign);
 
     /**
-     * Sets the {@link Function} used to calculate the first line of given
-     * {@link LobbySign}s.
+     * Returns the {@link Function} used to populate the first line of a
+     * {@link LobbySign}.
      *
-     * @param function The {@link Function} to use to calculate the first line
-     *     of given signs
+     * @return The {@link Function} used
      * @since 1.3
      */
-    public void setFirstLineFunc(Function<LobbySign, String> function) {
-        this.first = function;
-    }
+    String getFirstFunc();
 
     /**
-     * Sets the {@link Function} used to calculate the second line of given
-     * {@link LobbySign}s.
+     * Returns the {@link Function} used to populate the second line of a
+     * {@link LobbySign}.
      *
-     * @param function The {@link Function} to use to calculate the second line
-     *     of given signs
+     * @return The {@link Function} used
      * @since 1.3
      */
-    public void setSecondLineFunc(Function<LobbySign, String> function) {
-        this.second = function;
-    }
+    String getSecondFunc();
 
     /**
-     * Sets the {@link Function} used to calculate the third line of given
-     * {@link LobbySign}s.
+     * Returns the {@link Function} used to populate the third line of a
+     * {@link LobbySign}.
      *
-     * @param function The {@link Function} to use to calculate the third line
-     *     of given signs
+     * @return The {@link Function} used
      * @since 1.3
      */
-    public void setThirdLineFunc(Function<LobbySign, String> function) {
-        this.third = function;
-    }
+    String getThirdFunc();
 
     /**
-     * Sets the {@link Function} used to calculate the fourth line of given
-     * {@link LobbySign}s.
+     * Returns the {@link Function} used to populate the fourth line of a
+     * {@link LobbySign}.
      *
-     * @param function The {@link Function} to use to calculate the fourth line
-     *     of given signs
+     * @return The {@link Function} used
      * @since 1.3
      */
-    public void setFourthLineFunc(Function<LobbySign, String> function) {
-        this.fourth = function;
+    String getFourthFunc();
+
+    /**
+     * Builder for {@link LobbySignPopulator} objects.
+     *
+     * @since 1.3
+     */
+    interface Builder {
+
+        /**
+         * Sets the {@link Function} to be used to populate the first line of
+         * a {@link LobbySign}.
+         *
+         * @param function The {@link Function} to be used to populate the first
+         *     line of a {@link LobbySign}
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder first(Function<LobbySign, String> function);
+
+        /**
+         * Sets the {@link Function} to be used to populate the second line of
+         * a {@link LobbySign}.
+         *
+         * @param function The {@link Function} to be used to populate the
+         *     second line of a {@link LobbySign}
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder second(Function<LobbySign, String> function);
+
+        /**
+         * Sets the {@link Function} to be used to populate the third line of
+         * a {@link LobbySign}.
+         *
+         * @param function The {@link Function} to be used to populate the third
+         *     line of a {@link LobbySign}
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder third(Function<LobbySign, String> function);
+
+        /**
+         * Sets the {@link Function} to be used to populate the fourth line of
+         * a {@link LobbySign}.
+         *
+         * @param function The {@link Function} to be used to populate the
+         *     fourth line of a {@link LobbySign}
+         * @return This {@link Builder}, for chaining
+         * @since 1.3
+         */
+        Builder fourth(Function<LobbySign, String> function);
+
+        /**
+         * Constructs a new {@link LobbySignPopulator} based on this
+         * {@link Builder}.
+         *
+         * <p>Note that if any {@link Function}s are {@code null}, a
+         * {@link Function} returning an empty string will be used in their
+         * respective places.</p>
+         *
+         * @return A new {@link LobbySignPopulator} based on this
+         *     {@link Builder}
+         * @since 1.3
+         */
+        LobbySignPopulator build();
+
     }
 
 }
