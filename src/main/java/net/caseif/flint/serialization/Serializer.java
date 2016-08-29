@@ -27,7 +27,7 @@ package net.caseif.flint.serialization;
  * Represents an object which may serialize and deserialize objects to strings.
  *
  * @param <T> The type of object which may be serialized by this
- *   {@link Serializer}
+ *     {@link Serializer}
  * @since 1.0
  * @author Max Roncacé
  */

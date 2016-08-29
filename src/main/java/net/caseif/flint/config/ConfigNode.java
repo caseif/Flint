@@ -29,6 +29,7 @@ import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.event.lobby.PlayerClickLobbySignEvent;
 import net.caseif.flint.lobby.LobbySign;
+import net.caseif.flint.lobby.template.LobbySignPopulator;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
@@ -208,6 +209,7 @@ public class ConfigNode<T> {
      * @since 1.1
      */
     // I truly have no idea why I need to cast HashSet to Set for this declaration to work. Fucking generics.
+    // Okay, I now realize my mistake, but now I'm not sure if fixing it constitutes a breaking binary change.
     public static final RoundConfigNode<Set<String>> FORBIDDEN_COMMANDS
             = new RoundConfigNode<>((Set<String>) new HashSet<String>());
 
