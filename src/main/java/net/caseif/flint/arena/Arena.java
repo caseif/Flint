@@ -34,6 +34,8 @@ import net.caseif.flint.metadata.MetadataHolder;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
+import net.caseif.flint.util.builder.Buildable;
+import net.caseif.flint.util.builder.Builder;
 import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
@@ -52,7 +54,7 @@ import java.util.LinkedHashSet;
  * @since 1.0
  */
 @SuppressWarnings("DuplicateThrows")
-public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigame> {
+public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigame>, Buildable<Arena.Builder> {
 
     /**
      * Gets the {@link Minigame} this {@link Arena} is owned by.
@@ -360,7 +362,7 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
      * @author Max Roncace
      * @since 1.3
      */
-    interface Builder {
+    interface Builder extends net.caseif.flint.util.builder.Builder<Arena> {
 
         /**
          * Sets the identifier associated with this {@link Builder}. The string
@@ -411,15 +413,7 @@ public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigam
          */
         Builder boundary(Boundary boundary);
 
-        /**
-         * Constructs a new {@link Arena} from this {@link Builder} and stores
-         * it to disk.
-         *
-         * @return The newly-constructed {@link Arena} object
-         * @throws IllegalStateException If any of the required fields have not
-         *     been set
-         * @since 1.3
-         */
+        @Override
         Arena build() throws IllegalStateException;
 
     }

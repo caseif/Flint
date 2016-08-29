@@ -31,6 +31,8 @@ import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.annotation.Orphaner;
+import net.caseif.flint.util.builder.Buildable;
+import net.caseif.flint.util.builder.Builder;
 import net.caseif.flint.util.physical.Boundary;
 import net.caseif.flint.util.physical.Location3D;
 
@@ -121,14 +123,15 @@ public interface Minigame extends ComponentOwner {
     Optional<Arena> getArena(String arenaId);
 
     /**
-     * Creates a new {@link Arena.Builder arena builder} associated with this
-     * {@link Minigame}.
+     * Creates a new builder for the given class type.
      *
-     * @return A new {@link Arena.Builder arena builder} associated with this
-     *     {@link Minigame}
+     * @param The type to create a {@link Builder} for
+     * @return A new builder for the given class type
+     * @throws UnsupportedOperationException If the provided class does not have
+     *     a builder registration
      * @since 1.3
      */
-    Arena.Builder createArenaBuilder();
+    Builder createBuilder(Class<? extends Buildable> type);
 
     /**
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
@@ -146,7 +149,7 @@ public interface Minigame extends ComponentOwner {
      *     world, or if the ID or name contain characters not permitted by the
      *     implementation
      * @deprecated Use an {@link Arena.Builder arena builder} instead (see
-     *     {@link #createArenaBuilder})
+     *     {@link #createBuilder(Class)})
      * @since 1.0
      */
     @Deprecated
@@ -166,7 +169,7 @@ public interface Minigame extends ComponentOwner {
      *     world, or if the id or name contain characters not permitted by the
      *     implementation
      * @deprecated Use an {@link Arena.Builder arena builder} instead (see
-     *     {@link #createArenaBuilder})
+     *     {@link #createBuilder(Class)})
      * @since 1.0
      */
     @Deprecated

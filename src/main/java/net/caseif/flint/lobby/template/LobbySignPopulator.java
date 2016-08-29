@@ -24,6 +24,8 @@
 package net.caseif.flint.lobby.template;
 
 import net.caseif.flint.lobby.LobbySign;
+import net.caseif.flint.util.builder.Buildable;
+import net.caseif.flint.util.builder.Builder;
 
 import com.google.common.base.Function;
 
@@ -33,7 +35,7 @@ import com.google.common.base.Function;
  *
  * @since 1.3
  */
-public interface LobbySignPopulator {
+public interface LobbySignPopulator extends Buildable<LobbySignPopulator.Builder> {
 
     /**
      * Computes the first line of the given {@link LobbySign}.
@@ -112,7 +114,7 @@ public interface LobbySignPopulator {
      *
      * @since 1.3
      */
-    interface Builder {
+    interface Builder extends net.caseif.flint.util.builder.Builder<LobbySignPopulator> {
 
         /**
          * Sets the {@link Function} to be used to populate the first line of
@@ -170,6 +172,7 @@ public interface LobbySignPopulator {
          *     {@link Builder}
          * @since 1.3
          */
+        @Override
         LobbySignPopulator build();
 
     }
