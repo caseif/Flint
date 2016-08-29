@@ -242,6 +242,8 @@ public interface PersistentMetadata extends Metadata {
      * contained by this {@link Metadata} object with values deserialized per
      * the given {@link Function}.
      *
+     * @param transformer The {@link Function} used to transform serialized
+     *     values to their original {@link Object}s
      * @return An {@link ImmutableSet} of all {@link Map.Entry entries}
      *     contained by this {@link Metadata} object
      * @since 1.3

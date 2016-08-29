@@ -29,6 +29,7 @@ import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.component.Component;
 import net.caseif.flint.component.ComponentOwner;
+import net.caseif.flint.config.ConfigNode;
 import net.caseif.flint.config.RoundConfigNode;
 import net.caseif.flint.component.exception.OrphanedComponentException;
 import net.caseif.flint.exception.round.RoundJoinException;
@@ -40,6 +41,7 @@ import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -447,7 +449,8 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to their original locations, and
-     * rolling back its arena.
+     * rolling back its arena if {@link ConfigNode#ROLLBACK_ON_END} is
+     * {@code true}.
      *
      * <p>Note that calling this method will orphan this {@link Round} object,
      * causing all of its methods to throw {@link OrphanedComponentException}s.</p>
@@ -462,6 +465,25 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
     void end() throws IllegalStateException, OrphanedComponentException;
 
     /**
+     * Ends this {@link Round} with the given {@link EndParameter}s by resetting
+     * its timer, removing all {@link Challenger}s and returning them to their
+     * original locations.
+     *
+     * <p>Note that calling this method will orphan this {@link Round} object,
+     * causing all of its methods to throw {@link OrphanedComponentException}s.</p>
+     *
+     * @param endParameters An array of parameters to consider while ending the
+     *     round (see {@link EndParameter} for more info)
+     * @throws IllegalStateException If an {@code end} method has already been
+     *     called upon this {@link Round}
+     * @throws OrphanedComponentException If this object is orphaned (see
+     *     {@link Component} for details)
+     * @since 1.3
+     */
+    @Orphaner
+    void end(EndParameter... endParameters) throws IllegalStateException, OrphanedComponentException;
+
+    /**
      * Ends this {@link Round} by resetting its timer, removing all
      * {@link Challenger}s and returning them to thieir original locations, and,
      * if {@code rollback} is {@code true}, rolling back its arena.
@@ -474,8 +496,11 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      *     called upon this {@link Round}
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
+     * @deprecated Use {@link #end(EndParameter...)} in correspondence with
+     *     {@link EndParameter.RollbackBehavior}
      * @since 1.0
      */
+    @Deprecated
     @Orphaner
     void end(boolean rollback) throws IllegalStateException, OrphanedComponentException;
 
@@ -517,5 +542,43 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      * @since 1.0
      */
     <T> void setConfigValue(RoundConfigNode<T> node, T value) throws OrphanedComponentException;
+
+    /**
+     * Specifies parameters which may be passed to
+     * {@link Round#end(EndParameter...)} in order to specify the precise
+     * behavior of the engine while ending the {@link Round}.
+     *
+     * @since 1.3
+     */
+    interface EndParameter {
+        /**
+         * Specifies behavior of the engine in regard to arena rollback.
+         *
+         * @since 1.3
+         */
+        enum RollbackBehavior implements EndParameter {
+            /**
+             * Indicates that the {@link Arena} should be rolled back upon the
+             * {@link Round} ending.
+             *
+             * <p>This is the default behavior is {@link ConfigNode#ROLLBACK_ON_END}
+             * is {@code true}.</p>
+             *
+             * @since 1.3
+             */
+            DO_ROLLBACK,
+
+            /**
+             * Indicates that the {@link Arena} should <strong>not</strong> be
+             * rolled back upon the {@link Round} ending.
+             *
+             * <p>This is the default behavior is {@link ConfigNode#ROLLBACK_ON_END}
+             * is {@code false}.</p>
+             *
+             * @since 1.3
+             */
+            SKIP_ROLLBACK,
+        }
+    }
 
 }
