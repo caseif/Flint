@@ -29,10 +29,12 @@ import net.caseif.flint.challenger.Challenger;
 import net.caseif.flint.challenger.Team;
 import net.caseif.flint.event.lobby.PlayerClickLobbySignEvent;
 import net.caseif.flint.lobby.LobbySign;
+import net.caseif.flint.lobby.populator.LobbySignPopulator;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
 import net.caseif.flint.util.physical.Boundary;
+import net.caseif.flint.util.unsafe.UnsafeUtil;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -48,7 +50,7 @@ import java.util.UUID;
  * @author Max Roncacé
  * @since 1.0
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "StaticInitializerReferencesSubClass"})
 public class ConfigNode<T> {
 
     // GENERAL CONFIG NODES
@@ -211,6 +213,9 @@ public class ConfigNode<T> {
     // Okay, I now realize my mistake, but now I'm not sure if fixing it constitutes a breaking binary change.
     public static final RoundConfigNode<Set<String>> FORBIDDEN_COMMANDS
             = new RoundConfigNode<>((Set<String>) new HashSet<String>());
+
+    public static final RoundConfigNode<LobbySignPopulator> LOBBY_SIGN_POPULATOR
+            = new RoundConfigNode<>(UnsafeUtil.instance().getDefaultLobbySignPopulator());
 
     private final UUID uuid;
     private final T defaultValue;

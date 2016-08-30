@@ -24,6 +24,7 @@
 package net.caseif.flint;
 
 import net.caseif.flint.minigame.Minigame;
+import net.caseif.flint.util.unsafe.UnsafeUtil;
 
 /**
  * The core class for the Flint framework.
@@ -35,9 +36,11 @@ import net.caseif.flint.minigame.Minigame;
 public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
+    protected static UnsafeUtil UNSAFE;
 
     private static final int API_REVISION = 4;
     private static final String CODENAME = "Dagur";
+
 
     /**
      * Gets the current API revision. Note that this is not necessarily parallel

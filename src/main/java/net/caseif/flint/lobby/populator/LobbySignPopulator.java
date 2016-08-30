@@ -73,42 +73,6 @@ public interface LobbySignPopulator extends Buildable<LobbySignPopulator.Builder
     String fourth(LobbySign sign);
 
     /**
-     * Returns the {@link Function} used to populate the first line of a
-     * {@link LobbySign}.
-     *
-     * @return The {@link Function} used
-     * @since 1.3
-     */
-    String getFirstFunc();
-
-    /**
-     * Returns the {@link Function} used to populate the second line of a
-     * {@link LobbySign}.
-     *
-     * @return The {@link Function} used
-     * @since 1.3
-     */
-    String getSecondFunc();
-
-    /**
-     * Returns the {@link Function} used to populate the third line of a
-     * {@link LobbySign}.
-     *
-     * @return The {@link Function} used
-     * @since 1.3
-     */
-    String getThirdFunc();
-
-    /**
-     * Returns the {@link Function} used to populate the fourth line of a
-     * {@link LobbySign}.
-     *
-     * @return The {@link Function} used
-     * @since 1.3
-     */
-    String getFourthFunc();
-
-    /**
      * Builder for {@link LobbySignPopulator} objects.
      *
      * @since 1.3
