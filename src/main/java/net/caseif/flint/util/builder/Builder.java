@@ -29,7 +29,7 @@ package net.caseif.flint.util.builder;
  * @param T The class type associated with this {@link Builder}
  * @since 1.3
  */
-public interface Builder<T extends Buildable<? extends Builder<T>>> {
+public interface Builder<T extends Buildable<? extends Builder<? extends T>>> {
 
     /**
      * Constructs a new object from this {@link Builder}.

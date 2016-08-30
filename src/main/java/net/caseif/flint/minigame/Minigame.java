@@ -123,17 +123,6 @@ public interface Minigame extends ComponentOwner {
     Optional<Arena> getArena(String arenaId);
 
     /**
-     * Creates a new builder for the given class type.
-     *
-     * @param type The type to create a {@link Builder} for
-     * @return A new builder for the given class type
-     * @throws UnsupportedOperationException If the provided class does not have
-     *     a builder registration
-     * @since 1.3
-     */
-    Builder createBuilder(Class<? extends Buildable> type);
-
-    /**
      * Creates and stores a new {@link Arena} within this {@link Minigame} with
      * the given identifier, name, and initial spawn point.
      *
@@ -235,5 +224,18 @@ public interface Minigame extends ComponentOwner {
      * @since 1.0
      */
     Optional<Challenger> getChallenger(UUID uuid);
+
+    /**
+     * Creates a new builder for the given class type.
+     *
+     * @param type The type to create a {@link Builder} for
+     * @param <T> The type associated with the requested {@link Builder}
+     * @param <U> The {@link Builder}'s type
+     * @return A new builder for the given class type
+     * @throws UnsupportedOperationException If the provided class does not have
+     *     a builder registration
+     * @since 1.3
+     */
+    <T extends Buildable<U>, U extends Builder<T>> U createBuilder(Class<T> type);
 
 }

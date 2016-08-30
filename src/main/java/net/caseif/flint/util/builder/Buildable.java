@@ -28,5 +28,5 @@ package net.caseif.flint.util.builder;
  *
  * @since 1.3
  */
-public interface Buildable<T extends Builder> {
+public interface Buildable<T extends Builder<?>> {
 }
