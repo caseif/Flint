@@ -459,6 +459,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      *     called upon this {@link Round}
      * @throws OrphanedComponentException If this object is orphaned (see
      *     {@link Component} for details)
+     * @deprecated Made redundant by introduction of an equivalent var-args method
      * @since 1.0
      */
     @Orphaner
@@ -480,6 +481,7 @@ public interface Round extends MetadataHolder, ComponentOwner, Component<Arena> 
      *     {@link Component} for details)
      * @since 1.3
      */
+    @Deprecated
     @Orphaner
     void end(EndParameter... endParameters) throws IllegalStateException, OrphanedComponentException;
 
