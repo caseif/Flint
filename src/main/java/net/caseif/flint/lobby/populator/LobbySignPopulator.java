@@ -21,11 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.caseif.flint.lobby.template;
+package net.caseif.flint.lobby.populator;
 
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.util.builder.Buildable;
-import net.caseif.flint.util.builder.Builder;
 
 import com.google.common.base.Function;
 
