@@ -125,7 +125,7 @@ public interface Minigame extends ComponentOwner {
     /**
      * Creates a new builder for the given class type.
      *
-     * @param The type to create a {@link Builder} for
+     * @param type The type to create a {@link Builder} for
      * @return A new builder for the given class type
      * @throws UnsupportedOperationException If the provided class does not have
      *     a builder registration
