@@ -214,8 +214,11 @@ public class ConfigNode<T> {
     public static final RoundConfigNode<Set<String>> FORBIDDEN_COMMANDS
             = new RoundConfigNode<>((Set<String>) new HashSet<String>());
 
-    public static final RoundConfigNode<LobbySignPopulator> LOBBY_SIGN_POPULATOR
-            = new RoundConfigNode<>(UnsafeUtil.instance().getDefaultLobbySignPopulator());
+    public static final RoundConfigNode<LobbySignPopulator> STATUS_LOBBY_SIGN_POPULATOR
+            = new RoundConfigNode<>(UnsafeUtil.instance().getDefaultStatusLobbySignPopulator());
+
+    public static final RoundConfigNode<LobbySignPopulator> CHALLENGER_LISTING_LOBBY_SIGN_POPULATOR
+            = new RoundConfigNode<>(UnsafeUtil.instance().getDefaultChallengerListingLobbySignPopulator());
 
     private final UUID uuid;
     private final T defaultValue;

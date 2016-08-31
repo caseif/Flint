@@ -16,6 +16,8 @@ public abstract class UnsafeUtil {
         return INSTANCE;
     }
 
-    public abstract LobbySignPopulator getDefaultLobbySignPopulator();
+    public abstract LobbySignPopulator getDefaultStatusLobbySignPopulator();
+
+    public abstract LobbySignPopulator getDefaultChallengerListingLobbySignPopulator();
 
 }
