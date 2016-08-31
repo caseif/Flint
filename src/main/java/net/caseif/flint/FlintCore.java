@@ -37,9 +37,9 @@ import net.caseif.flint.util.unsafe.UnsafeUtil;
 public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
-    protected static UnsafeUtil UNSAFE;
 
     private static final int API_REVISION = 4;
+    private static final int MAJOR_VERSION = 1;
     private static final String CODENAME = "Dagur";
 
 
@@ -55,6 +55,18 @@ public abstract class FlintCore {
      */
     public static int getApiRevision() {
         return API_REVISION;
+    }
+
+    /**
+     * Gets the current API major version. Note that breaking changes may occur
+     * across major versions, so plugins should be careful to check for a
+     * specific value from this method (i.e. not a range).
+     *
+     * @return The current API major version
+     * @since 1.3
+     */
+    public static int getMajorVersion() {
+        return MAJOR_VERSION;
     }
 
     /**
