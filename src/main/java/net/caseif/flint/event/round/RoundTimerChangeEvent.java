@@ -27,7 +27,7 @@ package net.caseif.flint.event.round;
 /**
  * Called when a round's timer changes its numerical value.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface RoundTimerChangeEvent extends RoundEvent {

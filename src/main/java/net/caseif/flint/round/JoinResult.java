@@ -29,7 +29,7 @@ import net.caseif.flint.challenger.Challenger;
 /**
  * Represents the result of a {@link Challenger} attempting to join a round.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.1
  */
 public interface JoinResult {
@@ -67,7 +67,7 @@ public interface JoinResult {
     /**
      * Represents a specific reason for a player failing to join a {@link Round}.
      *
-     * @author Max Roncacé
+     * @author Max Roncace
      * @since 1.1
      */
     enum Status {

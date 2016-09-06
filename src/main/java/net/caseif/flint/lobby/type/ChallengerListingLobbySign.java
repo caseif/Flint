@@ -39,7 +39,7 @@ import net.caseif.flint.round.Round;
  * {@link StatusLobbySign}, and will not contain any information about its
  * respective {@link Round} or {@link Arena} other than player names.</p>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface ChallengerListingLobbySign extends LobbySign {

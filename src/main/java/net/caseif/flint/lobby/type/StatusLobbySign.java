@@ -44,7 +44,7 @@ import net.caseif.flint.round.Round;
  *         {@link Round} (if applicable, respectively)</li>
  * </ul>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface StatusLobbySign extends LobbySign {

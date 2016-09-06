@@ -27,7 +27,7 @@ package net.caseif.flint.exception.rollback;
 /**
  * An exception pertaining to a rollback-related action.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.1
  */
 public class RollbackException extends RuntimeException {

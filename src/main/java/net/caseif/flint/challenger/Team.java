@@ -35,7 +35,7 @@ import com.google.common.collect.ImmutableList;
  * Represents a team containing {@link Challenger}s in a
  * {@link Round}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface Team extends MetadataHolder, Component<Round> {

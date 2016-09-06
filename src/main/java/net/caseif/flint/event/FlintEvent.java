@@ -37,7 +37,7 @@ import net.caseif.flint.minigame.Minigame;
  * the native platform and handled by a different bus. These two separate
  * systems do not and may not intermingle.</p>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface FlintEvent extends Component<Minigame> {

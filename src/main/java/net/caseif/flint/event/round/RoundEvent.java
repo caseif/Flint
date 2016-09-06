@@ -30,7 +30,7 @@ import net.caseif.flint.round.Round;
 /**
  * Represents a {@link FlintEvent} involving a {@link Round}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface RoundEvent extends FlintEvent {

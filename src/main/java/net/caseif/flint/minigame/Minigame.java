@@ -47,7 +47,7 @@ import java.util.UUID;
 /**
  * Represents a minigame registered with Flint.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface Minigame extends ComponentOwner {

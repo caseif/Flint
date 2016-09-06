@@ -36,7 +36,7 @@ import net.caseif.flint.util.physical.Location3D;
  * Represents a physical sign in the world which provides graphical information
  * to players regarding a particular arena.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface LobbySign extends Component<Arena> {

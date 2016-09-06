@@ -34,7 +34,7 @@ import java.util.UUID;
  * <p>This event will not be called for clicks which break and unregister the
  * sign, nor for middle-mouse clicks.</p>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface PlayerClickLobbySignEvent {

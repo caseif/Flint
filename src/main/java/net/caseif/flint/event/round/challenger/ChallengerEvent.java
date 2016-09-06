@@ -31,7 +31,7 @@ import net.caseif.flint.event.round.RoundEvent;
 /**
  * Represents a {@link FlintEvent} involving a {@link Challenger}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface ChallengerEvent extends RoundEvent {

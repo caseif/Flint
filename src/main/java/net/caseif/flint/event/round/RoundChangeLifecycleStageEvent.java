@@ -30,7 +30,7 @@ import net.caseif.flint.round.Round;
 /**
  * Called when a {@link Round} changes its {@link LifecycleStage}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface RoundChangeLifecycleStageEvent extends RoundEvent {

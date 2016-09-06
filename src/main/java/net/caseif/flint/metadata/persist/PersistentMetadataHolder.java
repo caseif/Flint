@@ -29,7 +29,7 @@ import net.caseif.flint.metadata.MetadataHolder;
 /**
  * Represents an object which may carry {@link PersistentMetadata}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface PersistentMetadataHolder extends MetadataHolder {

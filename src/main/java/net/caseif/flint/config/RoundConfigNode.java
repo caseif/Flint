@@ -29,7 +29,7 @@ package net.caseif.flint.config;
  * {@link net.caseif.flint.round.Round}s.
  *
  * @param <T> The value type associated with this {@link ConfigNode}
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public class RoundConfigNode<T> extends ConfigNode<T> {

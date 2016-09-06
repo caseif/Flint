@@ -30,7 +30,7 @@ import net.caseif.flint.round.Round;
 /**
  * Called when a {@link Challenger} joins a {@link Round}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface ChallengerJoinRoundEvent extends ChallengerEvent {

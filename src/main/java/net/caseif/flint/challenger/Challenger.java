@@ -37,7 +37,7 @@ import java.util.UUID;
 /**
  * Represents a player actively in a minigame {@link Round} backed by Flint.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface Challenger extends MetadataHolder, Component<Round> {

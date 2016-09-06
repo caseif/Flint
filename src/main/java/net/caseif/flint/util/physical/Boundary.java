@@ -31,7 +31,7 @@ import static com.google.common.base.Preconditions.checkState;
  *
  * <p>This may be compared to vanilla Minecraft's world border.</p>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public class Boundary {

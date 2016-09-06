@@ -40,7 +40,7 @@ import java.util.Map;
  * {@link PersistentMetadataHolder} instance or a parent
  * {@link PersistentMetadata} object.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface PersistentMetadata extends Metadata {

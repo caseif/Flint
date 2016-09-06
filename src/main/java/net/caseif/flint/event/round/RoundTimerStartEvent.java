@@ -31,7 +31,7 @@ package net.caseif.flint.event.round;
  * {@link net.caseif.flint.round.Round}. Rather, it simply announces that its
  * timer has left a stopped state.</p>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface RoundTimerStartEvent extends RoundEvent {

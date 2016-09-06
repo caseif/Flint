@@ -27,7 +27,7 @@ package net.caseif.flint.round;
 /**
  * Represents an immutable lifecycle stage of a {@link Round}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public final class LifecycleStage {

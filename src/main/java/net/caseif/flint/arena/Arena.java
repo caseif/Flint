@@ -51,7 +51,7 @@ import java.util.LinkedHashSet;
 /**
  * Represents an arena in which rounds may take place.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 @SuppressWarnings("DuplicateThrows")

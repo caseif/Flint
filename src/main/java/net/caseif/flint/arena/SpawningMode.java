@@ -27,7 +27,7 @@ package net.caseif.flint.arena;
 /**
  * The mode by which spawn points in an arena are selected.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.1
  */
 public enum SpawningMode {

@@ -30,7 +30,7 @@ package net.caseif.flint.serialization;
  * @param <T> The type of object which may be serialized by this
  *     {@link Serializer}
  * @since 1.0
- * @author Max Roncacé
+ * @author Max Roncace
  */
 public interface Serializer<T> {
 

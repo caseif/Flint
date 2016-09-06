@@ -30,7 +30,7 @@ import com.google.common.base.Optional;
 /**
  * Represents a three-dimensional point in space, or optionally, in a world.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public class Location3D {

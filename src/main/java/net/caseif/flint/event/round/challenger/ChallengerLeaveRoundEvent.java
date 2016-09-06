@@ -35,7 +35,7 @@ import net.caseif.flint.util.physical.Location3D;
  * {@link Challenger} is invalidated and before the player is teleported, so as
  * to allow the return location to be modified.</p>
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface ChallengerLeaveRoundEvent extends ChallengerEvent {

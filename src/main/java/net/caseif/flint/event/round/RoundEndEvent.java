@@ -29,7 +29,7 @@ import net.caseif.flint.round.Round;
 /**
  * Called when a {@link Round} ends.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface RoundEndEvent extends RoundEvent {

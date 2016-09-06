@@ -34,7 +34,7 @@ import java.util.Map;
  * Represents a set of data associated with a {@link MetadataHolder} instance or
  * a parent {@link Metadata} object.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface Metadata {

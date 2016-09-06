@@ -30,7 +30,7 @@ import net.caseif.flint.component.Component;
  * Thrown in response to invocation of a method upon an
  * orphaned {@link Component}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public class OrphanedComponentException extends IllegalStateException {

@@ -35,7 +35,7 @@ import java.lang.annotation.Target;
  * Indicates a method which, when invoked, will orphan one or more
  * related {@link Component} objects.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 @Retention(RetentionPolicy.SOURCE)

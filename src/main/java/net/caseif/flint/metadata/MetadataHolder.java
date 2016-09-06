@@ -27,7 +27,7 @@ package net.caseif.flint.metadata;
 /**
  * Represents an object which may carry metadata.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 public interface MetadataHolder {

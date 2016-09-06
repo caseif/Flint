@@ -33,7 +33,7 @@ import java.util.UUID;
 /**
  * Thrown when a player fails to join a {@link Round}.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  * @deprecated Violates basic principle of exceptions
  */

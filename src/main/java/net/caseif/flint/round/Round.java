@@ -48,7 +48,7 @@ import java.util.UUID;
 /**
  * Represents an active minigame {@link Round} backed by Flint.
  *
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 @SuppressWarnings("DuplicateThrows")

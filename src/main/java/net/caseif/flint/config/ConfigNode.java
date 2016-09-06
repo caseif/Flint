@@ -48,7 +48,7 @@ import java.util.UUID;
  * Pseudo-enum representing a configuration node for a {@link Minigame}.
  *
  * @param <T> The value type associated with this {@link ConfigNode}
- * @author Max Roncacé
+ * @author Max Roncace
  * @since 1.0
  */
 @SuppressWarnings({"unused", "StaticInitializerReferencesSubClass"})
