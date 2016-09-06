@@ -31,7 +31,7 @@ import net.caseif.flint.util.unsafe.UnsafeUtil;
  * The core class for the Flint framework.
  *
  * @author Max Roncace
- * @version 1.3-SNAPSHOT
+ * @version 1.3
  * @since 1.0
  */
 public abstract class FlintCore {
