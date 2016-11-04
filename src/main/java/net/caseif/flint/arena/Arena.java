@@ -31,7 +31,7 @@ import net.caseif.flint.exception.rollback.RollbackException;
 import net.caseif.flint.lobby.LobbySign;
 import net.caseif.flint.lobby.type.ChallengerListingLobbySign;
 import net.caseif.flint.lobby.type.StatusLobbySign;
-import net.caseif.flint.metadata.MetadataHolder;
+import net.caseif.flint.metadata.persist.PersistentMetadataHolder;
 import net.caseif.flint.minigame.Minigame;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
@@ -55,7 +55,7 @@ import java.util.LinkedHashSet;
  * @since 1.0
  */
 @SuppressWarnings("DuplicateThrows")
-public interface Arena extends MetadataHolder, ComponentOwner, Component<Minigame>, Buildable<Arena.Builder> {
+public interface Arena extends PersistentMetadataHolder, ComponentOwner, Component<Minigame>, Buildable<Arena.Builder> {
 
     /**
      * Gets the {@link Minigame} this {@link Arena} is owned by.

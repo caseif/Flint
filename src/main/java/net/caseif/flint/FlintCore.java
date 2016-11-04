@@ -31,14 +31,14 @@ import net.caseif.flint.util.unsafe.UnsafeUtil;
  * The core class for the Flint framework.
  *
  * @author Max Roncace
- * @version 1.3
+ * @version 1.3.1
  * @since 1.0
  */
 public abstract class FlintCore {
 
     protected static FlintCore INSTANCE;
 
-    private static final int API_REVISION = 4;
+    private static final int API_REVISION = 5;
     private static final int MAJOR_VERSION = 1;
     private static final String CODENAME = "Dagur";
 
