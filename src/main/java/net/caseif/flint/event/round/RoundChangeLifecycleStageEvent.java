@@ -58,6 +58,7 @@ public interface RoundChangeLifecycleStageEvent extends RoundEvent, Cancellable 
      *
      * @return Whether the {@link LifeCycleStage} that came before the event completed
      *     due to the timer expiring.
+     * @since 1.3.2
      */
     boolean isDone();
 
