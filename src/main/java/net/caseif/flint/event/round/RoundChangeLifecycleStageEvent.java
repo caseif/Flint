@@ -24,9 +24,10 @@
 
 package net.caseif.flint.event.round;
 
-import java.util.concurrent.Cancellable;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
+
+import java.util.concurrent.Cancellable;
 
 /**
  * Called when a {@link Round} changes its {@link LifecycleStage}.
