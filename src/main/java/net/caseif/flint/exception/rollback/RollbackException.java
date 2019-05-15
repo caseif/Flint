@@ -32,6 +32,8 @@ package net.caseif.flint.exception.rollback;
  */
 public class RollbackException extends RuntimeException {
 
+    private static final long serialVersionUID = 53965268272687450L;
+
     /**
      * Creates a new {@link RollbackException} with the given cause.
      *

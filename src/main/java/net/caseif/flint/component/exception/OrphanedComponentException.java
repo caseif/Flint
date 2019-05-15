@@ -35,6 +35,8 @@ import net.caseif.flint.component.Component;
  */
 public class OrphanedComponentException extends IllegalStateException {
 
+    private static final long serialVersionUID = -1477182517196088111L;
+
     /**
      * Constructs a new {@link OrphanedComponentException}.
      *
@@ -51,7 +53,7 @@ public class OrphanedComponentException extends IllegalStateException {
      * @param orphan The subject of the exception
      * @since 1.0
      */
-    public OrphanedComponentException(Component orphan) {
+    public OrphanedComponentException(Component<?> orphan) {
         super("Cannot invoke method upon orphaned object"
                 + (orphan != null ? " of type " + orphan.getClass().getCanonicalName() : ""));
     }

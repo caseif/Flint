@@ -24,7 +24,7 @@
 
 package net.caseif.flint.util.physical;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Location3DTest {
 

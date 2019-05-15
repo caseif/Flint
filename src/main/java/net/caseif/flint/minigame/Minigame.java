@@ -138,7 +138,7 @@ public interface Minigame extends ComponentOwner {
      *     identifier already exists, if {@code spawnPoint} does not contain a
      *     world, or if the ID or name contain characters not permitted by the
      *     implementation
-     * @deprecated Use an {@link Arena.Builder arena builder} instead (see
+     * @deprecated Use an {@link Builder arena builder} instead (see
      *     {@link #createBuilder(Class)})
      * @since 1.0
      */
@@ -158,7 +158,7 @@ public interface Minigame extends ComponentOwner {
      *     identifier already exists, if {@code spawnPoint} does not contain a
      *     world, or if the id or name contain characters not permitted by the
      *     implementation
-     * @deprecated Use an {@link Arena.Builder arena builder} instead (see
+     * @deprecated Use an {@link Builder arena builder} instead (see
      *     {@link #createBuilder(Class)})
      * @since 1.0
      */

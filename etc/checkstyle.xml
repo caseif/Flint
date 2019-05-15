@@ -30,7 +30,6 @@
 		</module>
         <module name="NeedBraces"/>
 		<module name="LeftCurly">
-			<property name="maxLineLength" value="120"/>
 		</module>
 		<module name="RightCurly"/>
 		<module name="RightCurly">
@@ -102,6 +101,9 @@
 
 		<module name="JavadocStyle">
 			<property name="checkEmptyJavadoc" value="true"/>
+		</module>
+		<module name="LineLength">
+			<property name="max" value="120"/>
 		</module>
 	</module>
 </module>

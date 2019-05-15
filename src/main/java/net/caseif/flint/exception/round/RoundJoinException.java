@@ -40,6 +40,8 @@ import java.util.UUID;
 @Deprecated
 public abstract class RoundJoinException extends Throwable implements Component<Round> {
 
+    private static final long serialVersionUID = -1777226787249717878L;
+
     private UUID player;
     private Round round;
     private Reason reason;
