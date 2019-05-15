@@ -27,13 +27,15 @@ package net.caseif.flint.event.round;
 import net.caseif.flint.round.LifecycleStage;
 import net.caseif.flint.round.Round;
 
+import java.util.concurrent.Cancellable;
+
 /**
  * Called when a {@link Round} changes its {@link LifecycleStage}.
  *
  * @author Max Roncace
  * @since 1.0
  */
-public interface RoundChangeLifecycleStageEvent extends RoundEvent {
+public interface RoundChangeLifecycleStageEvent extends RoundEvent, Cancellable {
 
     /**
      * Returns the {@link LifecycleStage} of the {@link Round} before the event.
@@ -50,5 +52,15 @@ public interface RoundChangeLifecycleStageEvent extends RoundEvent {
      * @since 1.0
      */
     LifecycleStage getStageAfter();
+    
+    /**
+     * Returns whether the {@link LifecycleStage} that came before the event completed
+     * due to the timer expiring.
+     *
+     * @return Whether the {@link LifeCycleStage} that came before the event completed
+     *     due to the timer expiring.
+     * @since 1.3.2
+     */
+    boolean isDone();
 
 }
