@@ -126,7 +126,11 @@ uploadArchives {
         configuration = configurations.deployerJars
         if (project.hasProperty('mavenRepo')) {
             repository(url: project.property('mavenRepo')) {
-                authentication(userName: project.property('mavenUser'), password: project.property('mavenPass'))
+                if (project.hasProperty('mavenPrivKey')) {
+                    authentication(userName: project.property('mavenUser'), privateKey: project.property('mavenPrivKey'))
+                } else {
+                    authentication(userName: project.property('mavenUser'), password: project.property('mavenPass'))
+                }
             }
         }
 
