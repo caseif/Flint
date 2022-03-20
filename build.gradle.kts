@@ -1,5 +1,5 @@
 plugins {
-    java
+    `java-library`
     `maven-publish`
     eclipse
     idea
@@ -34,7 +34,7 @@ repositories {
 
 // Project dependencies
 dependencies {
-    implementation("com.google.guava:guava:17.0")
+    api("com.google.guava:guava:17.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.1")
