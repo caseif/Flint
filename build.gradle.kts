@@ -114,7 +114,6 @@ publishing {
                 description.set(project.description)
                 url.set(scmUrl)
                 packaging = packaging
-                inceptionYear.set(inceptionYear)
 
                 scm {
                     url.set(scmUrl)
