@@ -76,13 +76,13 @@ tasks.withType<Jar> {
 tasks.create<Jar>("sourceJar") {
     from(sourceSets["main"].java)
     from(sourceSets["main"].resources)
-    classifier = "sources"
+    archiveClassifier.set("sources")
 }
 
 tasks.create<Jar>("javadocJar") {
     dependsOn(":javadoc")
     from(tasks["javadoc"])
-    classifier = "javadoc"
+    archiveClassifier.set("javadoc")
 }
 
 tasks.withType<Javadoc> {
