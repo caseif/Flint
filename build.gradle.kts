@@ -5,7 +5,6 @@ plugins {
     idea
     checkstyle
     id("org.cadixdev.licenser") version "0.6.1"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 defaultTasks("clean", "updateLicenses", "build")
