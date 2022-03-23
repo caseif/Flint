@@ -67,8 +67,8 @@ tasks.withType<Checkstyle> {
 tasks.withType<Jar> {
     manifest {
         attributes["Specification-Title"] = name
-        attributes["Specification-Version"] = version
-        attributes["Specitication-Vendor"] = author
+        attributes["Specification-Version"] = project.version
+        attributes["Specification-Vendor"] = author
     }
 }
 
@@ -134,5 +134,5 @@ publishing {
 }
 
 tasks.withType<Wrapper> {
-    gradleVersion = "7.4"
+    gradleVersion = "7.4.1"
 }
